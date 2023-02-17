@@ -3,12 +3,12 @@ import Navbar from '../Components/navbar/navbar'
 import Link from 'next/link'
 import { useState,useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-// import login from '../redux/actions/page'
-import login from '@/redux/actions/page'
 import { useRouter } from 'next/navigation';
+import login from '@/redux/actions/page'
 
 const page = () => {
-   const { isAuthenticated, user } = useSelector((state) => state.user);
+
+  const { isAuthenticated, user } = useSelector((state) => state.user);
 
   const router = useRouter();
  
@@ -17,7 +17,6 @@ const page = () => {
   let userData = JSON.stringify(user);
   localStorage.setItem("user", userData);
   if(isAuthenticated){
-    
      router.push('/')
     }
   },[isAuthenticated])
@@ -45,6 +44,7 @@ const [loginPassword,setLoginPassword]=useState('')
       }
 
       const dispatch= useDispatch()
+
       const loginSubmit = (e) => {
         e.preventDefault();
         setLoginEmail('')
@@ -66,19 +66,9 @@ if(passwordToggle.type==='password'){
 }
 }
 
-// useEffect(()=>{
-//   localStorage.clear()
-//   },[])
-  
+
   return (
     <>
-    {/* <nav className='flex justify-end h-6 box-border bg-black'>
-    <section className='flex items-center mx-4 sm:mx-14 font-medium text-white tracking-widest text-xs  lg:text-sm py-2'>
-    <span className='px-2.5	mt-0.5 cursor-pointer'>FAQs</span>
-    <span className='px-2.5 mt-0.5	cursor-pointer'>About us</span>
-    <span className='px-2.5	mt-0.5 cursor-pointer '>Contact</span>
-    </section>
-    </nav> */}
 
     <Navbar color={'bg-blue'} {...navDetails}/>
 
@@ -110,7 +100,6 @@ if(passwordToggle.type==='password'){
 <form className='z-10 w-[90%] sm:w-[82%] xlsm:w-[67%] smd:w-[60%] md:w-[50%] lg:w-[70%] xlg:w-[64%] xxlg:w-[57%] sxl:w-[50%]' onSubmit={loginSubmit}>
 <div className='mb-7'>
 <h1 className='text-[40px] font-bold mb-1'>Login</h1>
-{/* <h5 className=' tracking-[0.01em] text-[16px] xlsm:text-[18px] text-logingrey'>Access your dashboard to book nanny, edit & <br></br> view all services</h5> */}
 </div>
 
 <div className='mb-4'>
