@@ -2,24 +2,25 @@
 import Navbar from '../Components/navbar/navbar'
 import Link from 'next/link'
 import { useState,useEffect } from 'react'
-// import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 // import login from '../redux/actions/page'
+import login from '@/redux/actions/page'
 import { useRouter } from 'next/navigation';
 
 const page = () => {
-  // const { isAuthenticated, user } = useSelector((state) => state.user);
+   const { isAuthenticated, user } = useSelector((state) => state.user);
 
   const router = useRouter();
  
-  // useEffect(()=>{
+  useEffect(()=>{
    
-  // let userData = JSON.stringify(user);
-  // localStorage.setItem("user", userData);
-  // if(isAuthenticated){
+  let userData = JSON.stringify(user);
+  localStorage.setItem("user", userData);
+  if(isAuthenticated){
     
-  //    router.push('/')
-  //   }
-  // },[isAuthenticated])
+     router.push('/')
+    }
+  },[isAuthenticated])
 
 const [loginEmail,setLoginEmail]=useState('')
 const [loginPassword,setLoginPassword]=useState('')
@@ -43,12 +44,12 @@ const [loginPassword,setLoginPassword]=useState('')
         },
       }
 
-      // const dispatch= useDispatch()
+      const dispatch= useDispatch()
       const loginSubmit = (e) => {
         e.preventDefault();
         setLoginEmail('')
         setLoginPassword('')
-        // dispatch(login(loginEmail, loginPassword));
+        dispatch(login(loginEmail, loginPassword));
         
       };
 
@@ -65,9 +66,9 @@ if(passwordToggle.type==='password'){
 }
 }
 
-useEffect(()=>{
-  localStorage.clear()
-  },[])
+// useEffect(()=>{
+//   localStorage.clear()
+//   },[])
   
   return (
     <>
