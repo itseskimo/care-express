@@ -1,0 +1,263 @@
+"use client"
+import Navbar from '../../Components/navbar/navbar'
+import Footer from '../../Components/footer/footer'
+import BookingHeader from '../../Components/bookingHeader/page'
+import Link from 'next/link'
+import { useState } from 'react'
+
+const page = () => {
+const [accountToggle, setAccountToggle]=useState(true)
+  const [user, setUser] = useState({
+    createPhoneNumber: "",
+    createEmail: "",
+    createPassword: "",
+    confirmPassword:'',
+  });
+
+  const { createEmail, createPhoneNumber, createPassword, confirmPassword } = user;
+
+  const registerSubmit = (e) => {
+    e.preventDefault();
+    setAccountToggle(false)
+    const myForm = new FormData();
+    myForm.append("email", createEmail);
+    myForm.append("phonenumber", createPhoneNumber);  
+    myForm.append("password", createPassword);
+    myForm.append("confirmpassword", confirmPassword);
+    //dispatch(register(myForm));
+  };
+
+
+  const navDetails={
+    clicked:'Booking',
+    subcolour:'text-blue',
+    border:'rgba(65, 110, 234, 1)',
+    background:'bg-black',
+    first:{
+      id:'#home',
+      name:'Home',
+    },
+    second:{
+      id:'#services',
+      name:'Our services',
+    },
+    third:{
+      id:'#about',
+      name:'About us',
+    },
+  }
+
+
+  const footerDetails={
+    background:'bg-specialbg',
+    border:'1px solid #416EEA',
+    buttonColour:'bg-blue',
+    subTitle:'text-white',
+    underline:'1px solid white',
+    InstaIcon:'../images/business/Icons/instagram.svg',
+    FbIcon:'../images/business/Icons/facebook.svg',
+  }
+
+  const registerDataChange = (e) => {
+      setUser({ ...user, [e.target.name]: e.target.value });
+  };
+
+  function passwordToggle(id){
+    const passwordToggle= document.getElementById(`password${id}`)
+    const passwordVisibilityToggle= document.getElementById(`passwordVisibilityToggle${id}`)
+  
+  if(passwordToggle.type==='password'){
+    passwordToggle.type='text'
+    passwordVisibilityToggle.src='../images/Icons/HideShow.png'
+  }else{
+    passwordToggle.type='password'
+    passwordVisibilityToggle.src='../images/Icons/Show.svg'
+  }
+  }
+
+
+  return (
+    <>
+      
+    {/* <nav  className='flex justify-end h-6 box-border bg-black'>
+    <section className='flex items-center mx-4 sm:mx-14 font-medium text-white tracking-widest text-xs  lg:text-sm py-2'>
+    <span className='px-2.5	mt-0.5 cursor-pointer'>FAQs</span>
+    <span className='px-2.5 mt-0.5	cursor-pointer'>About us</span>
+    <span className='px-2.5	mt-0.5 cursor-pointer '>Contact</span>
+    </section>
+    </nav> */}
+
+    <Navbar color={'bg-blue'} {...navDetails}/>
+
+   
+{/* ----------------------------------------------------------------------------------------------------------------- */}
+<main className='bg-specialbg overflow-hidden'>
+<main className='mx-4 sm:mx-14 '>
+  {/* ------------RESPONSIBLE FOR MARGIN---------------- */}
+
+  <BookingHeader active={4}/>
+
+{accountToggle ?<section className='bg-white h-max rounded-[16px] mt-10'>
+
+<section className='flex items-center justify-center  py-7 mx-28'>
+<h6 className='text-[24px] font-bold flex '><img className='mx-4' src='../images/business/Icons/business-express-separator-star.svg'/>Create Account<img className='mx-4' src='../images/business/Icons/business-express-separator-star.svg'/></h6>
+</section>
+
+
+{/* ------------------------------------------------------------------------------------ */}
+<form className='mx-28  ' encType="multipart/form-data" onSubmit={registerSubmit}>
+
+<section className='flex mb-4 '>
+
+<div className='mr-6 w-[50%]'>
+  <h1 className='font-semibold mb-1 tracking-[0.02em] text-[16px]'>Email address</h1>
+  <div className='relative flex '>
+  <img src='../images/Icons/Message.svg' className='absolute top-3 left-3'/>
+  <input style={{border:'1px solid #ABABAB'}}
+   className='outline-none bg-inputbg w-full py-[10px] rounded-[8px] pl-14' 
+   name='createEmail'
+   type='email'
+   required
+   value={createEmail}
+   onChange={registerDataChange}
+   placeholder='Email address'/>
+  </div>
+</div>
+
+<div className=' w-[50%]'>
+  <h1 className='font-semibold mb-1 tracking-[0.02em] text-[16px]'>Phone Number</h1>
+  <div className='relative flex '>
+  <img src='../images/booking/calling.svg' className='absolute top-3 left-3'/>
+  <input style={{border:'1px solid #ABABAB'}}
+   name='createPhoneNumber'
+   onChange={registerDataChange}
+   value={createPhoneNumber}
+   type='number'
+   required
+   className='outline-none bg-inputbg w-full py-[10px] rounded-[8px] pl-14' 
+   placeholder='Phone Number'/>
+  </div>
+</div>
+
+</section>
+
+{/* ------------------------------------------------------------------------------------ */}
+
+<section className='flex mb-4'>
+
+<div className='w-[50%] mr-6'>
+  <h1 className='font-semibold mb-1 tracking-[0.02em] text-[16px]'>Password</h1>
+  <div className='relative flex'>
+  <img src='../images/Login/Unlock.svg' className='absolute top-3 left-3 '/>
+  <input 
+  style={{border:'1px solid #ABABAB'}} 
+  type='password' 
+  name='createPassword'
+  id='password1'
+  required
+  value={createPassword}
+  onChange={registerDataChange}
+  className='outline-none bg-inputbg  w-full py-[10px] mb-2 rounded-[8px] pl-14' 
+  placeholder='Password' />
+  <img src='../images/Icons/Show.svg' id='passwordVisibilityToggle1' onClick={()=>passwordToggle(1)} className='absolute top-3 w-10 right-[0.6px]  bg-inputbg px-2 cursor-pointer' />
+  </div>
+</div>
+
+<div className='w-[50%]'>
+  <h1 className='font-semibold mb-1 tracking-[0.02em] text-[16px]'>Confirm Password</h1>
+  <div className='relative flex'>
+  <img src='../images/Login/Unlock.svg' className='absolute top-3 left-3 '/>
+  <input 
+  style={{border:'1px solid #ABABAB'}} 
+  type='password' 
+  required
+  id='password2'
+  value={confirmPassword}
+  name='confirmPassword'
+  onChange={registerDataChange}
+  className='outline-none bg-inputbg  w-full py-[10px] mb-2 rounded-[8px] pl-14' 
+  placeholder='Confirm Password' />
+  <img src='../images/Icons/Show.svg' id='passwordVisibilityToggle2' onClick={()=>passwordToggle(2)} className='absolute top-3 w-10 right-[1px]  bg-inputbg px-2 cursor-pointer' />
+  </div>
+</div>
+
+</section>
+{/* ------------------------------------------------------------------------------------ */}
+
+
+<main className='w-[30%] ml-auto mr-auto mt-8 '>
+  <input type='submit' className='bg-blue w-full  text-white rounded-[24px] text-[18px] font-semibold cursor-pointer py-3' value='Create Account'/>
+</main>
+
+<div className=' flex items-center justify-center mt-5'>
+  <div className='border-gray-400 border-[1px] border-solid w-[6%] '></div>
+  <h6 className='font-semibold text-sm mx-3 whitespace-nowrap'>Or Create With</h6>
+  <div className='border-gray-400 border-[1px] border-solid w-[6%]'></div>
+</div>
+
+
+
+</form>
+
+<section className='flex w-[25%] ml-auto mr-auto justify-between mt-5 pb-10 mx-28'>
+<button className='bg-ligrey rounded-[24px] px-4  lg:px-3 xlg:px-4 py-[6px] font-semibold flex items-center text-[14px]'>  <img src='../images/booking/google.svg' className='pr-[10px]'/>Google</button>
+<button className='bg-ligrey rounded-[24px] px-4  lg:px-3 xlg:px-4 py-[6px] font-semibold flex items-center text-[14px]'>  <img src='../images/booking/Meta.svg' className='pr-[10px]'/>Meta</button>
+<button className='bg-ligrey rounded-[24px] px-4  lg:px-3 xlg:px-4 py-[6px] font-semibold flex items-center text-[14px]'>  <img src='../images/booking/apple.svg' className='pr-[10px]'/>Apple</button>
+</section>
+
+</section> 
+
+:
+
+<section className='bg-white h-max rounded-[16px] mt-10 '>
+<div className='flex items-center justify-center flex-col py-10 ]'>
+    <img src='../images/booking/accountsuccess.svg' className='mb-10'/>
+    <h6 className='text-[24px] font-bold mb-10'>Account created for <span className='underline decoration-1 underline-offset-4'> nat_ko@gmail.com</span></h6>
+    <Link href={{pathname:'/booking/payment'}}>    <button className='bg-blue px-[120px]  text-white rounded-[50px] text-[18px] font-semibold py-3'>Proceed to Payment</button></Link>
+</div>
+</section>
+}
+
+{/* ----------------------------------AFTER AUTHENTIFICATION-------------------------------------------------- */}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</main>
+</main>
+{/* ----------------------------------------------------------------------------------------------------------------- */}
+
+
+
+    
+{/* ----------------------------------------------------------------------------------------------------------------- */}
+
+
+ <Footer {...footerDetails}/>
+
+    </>
+  )
+}
+
+export default page

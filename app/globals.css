@@ -1,107 +1,278 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
-  --max-width: 1100px;
-  --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+  /* Breakpoints */
+  --screen-sm: "480px";
+  --screen-md: "768px";
+  --screen-lg: "976px";
+  --screen-xl: "1440px";
 
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  /* Colours */
 
-  --primary-glow: conic-gradient(
-    from 180deg at 50% 50%,
-    #16abff33 0deg,
-    #0885ff33 55deg,
-    #54d6ff33 120deg,
-    #0071ff33 160deg,
-    transparent 360deg
-  );
-  --secondary-glow: radial-gradient(
-    rgba(255, 255, 255, 1),
-    rgba(255, 255, 255, 0)
-  );
+  --clr-transparent: transparent;
+  /* Primary Colours */
+  /* --clr-primary-400: hsl(144, 56%, 41%); */
+  --clr-primary-100: hsla(129, 53%, 90%, 1);
+  --clr-primary-200: hsla(141, 45%, 81%, 1);
+  --clr-primary-300: hsla(147, 43%, 71%, 1);
+  --clr-primary-400: hsla(150, 42%, 62%, 1);
+  --clr-primary-500: hsla(152, 41%, 52%, 1);
+  --clr-primary-600: hsla(153, 39%, 41%, 1);
+  --clr-primary-700: hsla(153, 40%, 30%, 1);
+  --clr-primary-800: hsla(155, 43%, 18%, 1);
+  --clr-primary-900: hsla(159, 56%, 7%, 1);
 
-  --tile-start-rgb: 239, 245, 249;
-  --tile-end-rgb: 228, 232, 233;
-  --tile-border: conic-gradient(
-    #00000080,
-    #00000040,
-    #00000030,
-    #00000020,
-    #00000010,
-    #00000010,
-    #00000080
-  );
+  /* Secondary Colours */
+  --clr-secondary-300: hsl(43, 100%, 52%);
+  --clr-secondary-400: hsl(39, 96%, 50%);
+  --clr-secondary-500: hsl(34, 95%, 49%);
+  --clr-secondary-600: hsl(23, 97%, 46%);
 
-  --callout-rgb: 238, 240, 241;
-  --callout-border-rgb: 172, 175, 176;
-  --card-rgb: 180, 185, 188;
-  --card-border-rgb: 131, 134, 135;
+  /* Accent Colours */
+  --clr-accent-400: #273444;
+
+  /* Neutral Colours */
+  --clr-neutral-0: hsl(0, 0%, 100%);
+  --clr-neutral-100: hsl(210, 17%, 98%);
+  --clr-neutral-200: hsl(210, 16%, 93%);
+  --clr-neutral-300: hsl(210, 14%, 89%);
+  --clr-neutral-400: hsl(210, 14%, 83%);
+  --clr-neutral-500: hsl(210, 11%, 71%);
+  --clr-neutral-600: hsl(208, 7%, 46%);
+  --clr-neutral-700: hsl(197, 20%, 18%);
+  --clr-neutral-800: hsl(206, 14%, 10%);
+  --clr-neutral-900: hsl(330, 10%, 4%);
+  /* --clr-neutral-800: hsl(210, 10%, 23%);
+  --clr-neutral-900: hsl(210, 11%, 15%); */
+
+  /* Font Size */
+  --fs-100: 11px;
+  --fs-200: 12px;
+  --fs-300: 13px;
+  --fs-400: 14px;
+  --fs-500: 15px;
+  --fs-600: 16px;
+  --fs-700: 18px;
+  --fs-800: 20px;
+  --fs-900: 24px;
+
+  /* Font Weight */
+  --fw-regular: 400;
+  --fw-semi: 500;
+  --fw-medium: 600;
+  --fw-bold: 700;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+/* Simple Reset */
+/* makes sizing simpler */
 
-    --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
-    --secondary-glow: linear-gradient(
-      to bottom right,
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0.3)
-    );
-
-    --tile-start-rgb: 2, 13, 46;
-    --tile-end-rgb: 2, 5, 19;
-    --tile-border: conic-gradient(
-      #ffffff80,
-      #ffffff40,
-      #ffffff30,
-      #ffffff20,
-      #ffffff10,
-      #ffffff10,
-      #ffffff80
-    );
-
-    --callout-rgb: 20, 20, 20;
-    --callout-border-rgb: 108, 108, 108;
-    --card-rgb: 100, 100, 100;
-    --card-border-rgb: 200, 200, 200;
-  }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
+
+/* remove default spacing */
+/* force styling of type through styling, rather than elements */
 
 * {
-  box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  font: inherit;
 }
 
-html,
+/* dark mode user-agent-styles */
+/* html {
+  color-scheme: dark light;
+} */
+
+/* min body height */
+
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
+  min-height: 100vh;
+  color: var(--clr-neutral-900);
+  font-weight: var(--fw-regular);
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+/* responsive images/videos */
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+/* Common Styles */
+.pt-container {
+  @apply container;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
+
+  body {
+    color: var(--clr-neutral-100);
+    background-color: var(--clr-neutral-800);
+  }
+} */
+
+html{
+  scroll-behavior: smooth;
 }
+
+
+* { box-sizing: border-box; }
+
+
+
+.carousel {
+  background: transparent;
+}
+
+.carousel-cell {
+  width: 636px;
+  height: 400px;
+  margin-right: 20px;
+  background: #FFFFFF;
+border-radius: 12px;
+box-shadow: 0px 20px 20px 4px rgba(78, 50, 39, 0.06);
+}
+
+.carousel-cell:before {
+  display: block;
+  text-align: center;
+  line-height: 200px;
+  font-size: 80px;
+  color: white;
+}
+
+.flickity-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 5px #19F;
+}
+
+
+.flickity-button {
+  background: #0C68FF !important;
+  z-index: 100;
+}
+
+.flickity-button:hover {
+  background: #0C68FF !important;
+}
+
+.flickity-button-icon {
+  fill: white !important;
+}
+
+
+
+.flickity-page-dots {
+  bottom: 14px !important;
+  background-color: white;
+  padding: 6px 0px  !important;
+  width: 72px !important;
+  position: absolute !important; 
+  left: 0 !important; 
+  right: 0 !important; 
+  margin-left: auto !important; 
+  margin-right: auto !important;
+  border-radius: 15px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);
+}
+/* white circles */
+.flickity-page-dots .dot {
+  width: 12px !important;
+  height: 12px !important;
+  opacity: 1;
+  background: transparent;
+  border: 2px solid black;
+  margin: 0px 4px !important;
+}
+
+/* fill-in selected dot */
+.flickity-page-dots .dot.is-selected {
+  background: black !important ;
+  
+}
+
+
+
+input::placeholder{
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  }
+
+  @keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to { 
+        transform: rotate(360deg);
+    }
+}
+ 
+
+ @-webkit-keyframes rotate {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to { 
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+.load {
+	width: 70px;
+	height: 70px;
+	border:solid 8px #416EEA;
+  margin-bottom: 24px;
+	border-radius: 50%;
+	border-right-color: transparent;
+	border-bottom-color: transparent;
+	 -webkit-transition: all 0.5s ease-in;
+    -webkit-animation-name:             rotate; 
+    -webkit-animation-duration:         1.0s; 
+    -webkit-animation-iteration-count:  infinite;
+    -webkit-animation-timing-function: linear;
+    	
+    	 transition: all 0.5s ease-in;
+    animation-name:             rotate; 
+    animation-duration:         1.0s; 
+    animation-iteration-count:  infinite;
+    animation-timing-function: linear; 
+}
+
+
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
