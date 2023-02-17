@@ -42,7 +42,6 @@ const page = () => {
     border:'0.4px solid #1C1B1B',
     innerText:'text-blue',
     subText:'text-grey',
-
     overlay:'linear-gradient(90deg, rgba(240, 246, 255, 1) 0%, rgba(0, 0, 0, 0) 24%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0) 76%, rgba(240, 246, 255, 1) 100%)'
   }
   
