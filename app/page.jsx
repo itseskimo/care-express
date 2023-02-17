@@ -2,8 +2,7 @@
 import Navbar from './Components/navbar/navbar'
 import Footer from './Components/footer/footer'
 import Services from './Components/services/services'
-import Link from 'next/link'
-import Testimonial from './Components/testimonial/page'
+import Testimonials from './Components/testimonial/page'
 
 const page = () => {
 
@@ -26,8 +25,7 @@ const page = () => {
       name:'About us',
     },
   }
-
-
+  
   const footerDetails={
     background:'bg-specialbg',
     clicked:'For Business',
@@ -37,6 +35,15 @@ const page = () => {
     underline:'1px solid white',
     InstaIcon:'../images/business/Icons/instagram.svg',
     FbIcon:'../images/business/Icons/facebook.svg',
+  }
+  
+  const Testimonial={
+    textColor:'text-liblack',
+    border:'0.4px solid #1C1B1B',
+    innerText:'text-blue',
+    subText:'text-grey',
+
+    overlay:'linear-gradient(90deg, rgba(240, 246, 255, 1) 0%, rgba(0, 0, 0, 0) 24%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0) 76%, rgba(240, 246, 255, 1) 100%)'
   }
   
   return (
@@ -221,7 +228,7 @@ const page = () => {
 <main className='bg-specialbg'>
   <main className='mx-4 sm:mx-14'>
 
-<Testimonial/>  
+<Testimonials {...Testimonial}/>
 
 
 {/* ----------------------------------------------------------------------------------------------------------------- */}

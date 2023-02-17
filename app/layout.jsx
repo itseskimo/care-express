@@ -15,11 +15,11 @@ export default function RootLayout({ children }) {
     <Provider store={store}>
     <html lang="en" className={`${plusJakartaSans.variable} font-sans`}>
       <head>
-      <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css"/>
+      {/* <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css"/> */}
       </head>
 
       <body> {children}
-      <Script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></Script>
+      {/* <Script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></Script> */}
       </body>
       
     </html>
