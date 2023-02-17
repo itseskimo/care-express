@@ -12,18 +12,19 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 
 export default function RootLayout({ children }) {
   return (
-      <Provider store={store}>
 
     <html lang="en" className={`${plusJakartaSans.variable} font-sans`}>
       <head>
       <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css"/>
       </head>
+       <Provider store={store}>
+
       <body> {children}
       <Script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></Script>
       </body>
-      
-    </html>
       </Provider>
+    </html>
+      
 
   );
 }
