@@ -9,7 +9,7 @@ const page = () => {
 
 const [expressSelected,setExpressSelected]=useState('')
 const [selectTime,setSelectTime]=useState('')
-
+console.log(expressSelected)
 const [hours,setHours]=useState('')
 const [cost,setCost]=useState('')
 
@@ -99,8 +99,10 @@ function extractText(e){
       <h6 className='text-left font-semibold text-[16px] pl-3 py-3' id='Nanny Express'>Nanny Express</h6>
     </div>
 
+  
 
-    <div className='border-[1px] border-solid border-gray-300	w-max rounded-[12px] relative cursor-pointer' id='Senior Express' >
+
+    <div className='border-[1px] border-solid border-gray-300	w-max rounded-[12px] relative cursor-pointer' id='Senior Express' onClick={(e)=>setExpressSelected(e.target.id)}>
     <nav className={`bg-grey absolute w-full h-full rounded-[12px] ${expressSelected === 'Senior Express' ? 'block' : 'hidden'}`} id='Senior Express'>
       <img src='../images/booking/check.png' className=' absolute top-[50%] left-[50%] -translate-y-[50%] -translate-x-[50%]' id='Senior Express'/>
     </nav>
