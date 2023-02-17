@@ -3,7 +3,7 @@ import Navbar from '../Components/navbar/navbar'
 import Link from 'next/link'
 import { useState,useEffect } from 'react'
 // import { useDispatch, useSelector } from 'react-redux'
-import login from '../redux/actions/page'
+// import login from '../redux/actions/page'
 import { useRouter } from 'next/navigation';
 
 const page = () => {
@@ -48,7 +48,7 @@ const [loginPassword,setLoginPassword]=useState('')
         e.preventDefault();
         setLoginEmail('')
         setLoginPassword('')
-        dispatch(login(loginEmail, loginPassword));
+        // dispatch(login(loginEmail, loginPassword));
         
       };
 
