@@ -14,9 +14,9 @@ const[userlogin,setUserLogin]=useState('')
 console.log(userlogin)
 // --------------------------------------------------------------
 useEffect(()=>{
-
+ 
   // const text = localStorage.getItem("user");
-  // if (text !== null && text !== undefined){
+  // if (text !== {} && text !== undefined){
 
   //   let loginData = JSON.parse(text);
   //   setUserLogin(loginData.first_name)

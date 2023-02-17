@@ -9,17 +9,19 @@ import login from '@/redux/actions/page'
 const page = () => {
 
   const { isAuthenticated, user } = useSelector((state) => state.user);
-
+  
   const router = useRouter();
  
   useEffect(()=>{
-   
+
   let userData = JSON.stringify(user);
   localStorage.setItem("user", userData);
+  
+  
   if(isAuthenticated){
      router.push('/')
     }
-  },[isAuthenticated])
+  },[isAuthenticated, user])
 
 const [loginEmail,setLoginEmail]=useState('')
 const [loginPassword,setLoginPassword]=useState('')
