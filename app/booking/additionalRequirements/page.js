@@ -95,18 +95,18 @@ const [cost,setCost]=useState('')
 
 <h6 className='tracking-[0.02em] text-[16px] font-semibold mb-2'>Additional Services</h6>
 
-<section className='flex gap-48'>
+<section className='flex flex-col md:flex-row gap-4 md:gap-20 lg:gap-32 xlg:gap-48'>
 <div className='flex items-center '>
     <input type='checkbox' className='w-4 h-4 mr-2'></input>
-    <h6 className='tracking-[0.02em] text-[16px] font-semibold'>Language Tutoring</h6>
+    <h6 className='tracking-[0.02em] text-[16px] font-semibold whitespace-nowrap'>Language Tutoring</h6>
 </div>
 <div className='flex items-center'>
     <input type='checkbox' className='w-4 h-4 mr-2'></input>
-    <h6 className='tracking-[0.02em] text-[16px] font-semibold'>VAS #2</h6>
+    <h6 className='tracking-[0.02em] text-[16px] font-semibold whitespace-nowrap'>VAS #2</h6>
 </div>
 <div className='flex items-center'>
     <input type='checkbox' className='w-4 h-4 mr-2'></input>
-    <h6 className='tracking-[0.02em] text-[16px] font-semibold'>VAS #3</h6>
+    <h6 className='tracking-[0.02em] text-[16px] font-semibold whitespace-nowrap'>VAS #3</h6>
 </div>
 
 </section>
