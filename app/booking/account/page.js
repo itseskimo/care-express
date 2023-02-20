@@ -107,9 +107,9 @@ const [accountToggle, setAccountToggle]=useState(true)
 {/* ------------------------------------------------------------------------------------ */}
 <form className='mx-28  ' encType="multipart/form-data" onSubmit={registerSubmit}>
 
-<section className='flex mb-4 '>
+<section className='flex mb-4 flex-col  lg:flex-row items-center justify-center gap-6'>
 
-<div className='mr-6 w-[50%]'>
+<div className=' w-[50%]'>
   <h1 className='font-semibold mb-1 tracking-[0.02em] text-[16px]'>Email address</h1>
   <div className='relative flex '>
   <img src='../images/Icons/Message.svg' className='absolute top-3 left-3'/>
@@ -143,9 +143,9 @@ const [accountToggle, setAccountToggle]=useState(true)
 
 {/* ------------------------------------------------------------------------------------ */}
 
-<section className='flex mb-4'>
+<section className='flex mb-4 flex-col  lg:flex-row items-center justify-center gap-6'>
 
-<div className='w-[50%] mr-6'>
+<div className='w-[50%] lg:mb-2'>
   <h1 className='font-semibold mb-1 tracking-[0.02em] text-[16px]'>Password</h1>
   <div className='relative flex'>
   <img src='../images/Login/Unlock.svg' className='absolute top-3 left-3 '/>
@@ -157,7 +157,7 @@ const [accountToggle, setAccountToggle]=useState(true)
   required
   value={createPassword}
   onChange={registerDataChange}
-  className='outline-none bg-inputbg  w-full py-[10px] mb-2 rounded-[8px] pl-14' 
+  className='outline-none bg-inputbg  w-full py-[10px]  rounded-[8px] pl-14' 
   placeholder='Password' />
   <img src='../images/Icons/Show.svg' id='passwordVisibilityToggle1' onClick={()=>passwordToggle(1)} className='absolute top-3 w-10 right-[0.6px]  bg-inputbg px-2 cursor-pointer' />
   </div>
