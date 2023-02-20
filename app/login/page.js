@@ -112,7 +112,10 @@ if(passwordToggle.type==='password'){
    value={loginEmail} 
    onChange={(e)=>setLoginEmail(e.target.value)}
    className='outline-none bg-inputbg w-full py-[10px] rounded-[8px] pl-14' 
-   placeholder='Email address'/>
+   placeholder='Email address'
+   required
+   />
+   
   </div>
 </div>
 
@@ -124,6 +127,7 @@ if(passwordToggle.type==='password'){
   style={{border:'1px solid #ABABAB'}} 
   value={loginPassword} 
   onChange={(e)=>setLoginPassword(e.target.value)}
+  required
   type='password' 
   className='outline-none bg-inputbg  w-full py-[10px] mb-2 rounded-[8px] pl-14' 
   placeholder='Password' 
