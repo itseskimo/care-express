@@ -92,40 +92,40 @@ function extractText(e){
   <section className='mt-2 flex flex-wrap gap-8'  >
 
     <div className='border-[1px] border-solid border-gray-300	w-max rounded-[12px] relative cursor-pointer' id='Nanny Express' onClick={(e)=>setExpressSelected(e.target.id)}>
-      <nav className={`bg-grey absolute w-full h-full rounded-[12px] ${expressSelected === 'Nanny Express' ? 'block' : 'hidden'}`} id='Nanny Express'>
-      <img src='../images/booking/check.png' className=' absolute top-[50%] left-[50%] -translate-y-[50%] -translate-x-[50%]' id='Nanny Express'/>
+      <nav className={`bg-grey absolute w-full h-full select-none pointer-events-none rounded-[12px] ${expressSelected === 'Nanny Express' ? 'block' : 'hidden'}`} >
+      <img src='../images/booking/check.png' className=' absolute top-[50%] select-none pointer-events-none left-[50%] -translate-y-[50%] -translate-x-[50%] select-none pointer-events-none'/>
       </nav>
-      <img src='../images/booking/mom-son-cycle.png' id='Nanny Express'/>
-      <h6 className='text-left font-semibold text-[16px] pl-3 py-3' id='Nanny Express'>Nanny Express</h6>
+      <img src='../images/booking/mom-son-cycle.png' />
+      <h6 className='text-left font-semibold text-[16px] pl-3 py-3 select-none pointer-events-none' >Nanny Express</h6>
     </div>
 
   
 
 
     <div className='border-[1px] border-solid border-gray-300	w-max rounded-[12px] relative cursor-pointer' id='Senior Express' onClick={(e)=>setExpressSelected(e.target.id)}>
-    <nav className={`bg-grey absolute w-full h-full rounded-[12px] ${expressSelected === 'Senior Express' ? 'block' : 'hidden'}`} id='Senior Express'>
-      <img src='../images/booking/check.png' className=' absolute top-[50%] left-[50%] -translate-y-[50%] -translate-x-[50%]' id='Senior Express'/>
+    <nav className={`bg-grey absolute w-full h-full select-none pointer-events-none rounded-[12px] ${expressSelected === 'Senior Express' ? 'block' : 'hidden'}`}>
+      <img src='../images/booking/check.png' className=' absolute top-[50%] left-[50%] -translate-y-[50%] -translate-x-[50%] select-none pointer-events-none'/>
     </nav>
-      <img src='../images/booking/nanny.png' className='pt-[10px]' id='Senior Express'/>
-      <h6 className='text-left font-semibold text-[16px] pl-3 py-3 ' id='Senior Express'>Senior Express</h6>
+      <img src='../images/booking/nanny.png' className='pt-[10px] select-none pointer-events-none'/>
+      <h6 className='text-left font-semibold text-[16px] pl-3 py-3 select-none pointer-events-none'>Senior Express</h6>
     </div>
 
 
     <div className='border-[1px] border-solid border-gray-300	w-max rounded-[12px] relative cursor-pointer' id='Pet Express' onClick={(e)=>setExpressSelected(e.target.id)}>
-    <nav className={`bg-grey absolute w-full h-full rounded-[12px] ${expressSelected === 'Pet Express' ? 'block' : 'hidden'}`} id='Pet Express'>
-      <img src='../images/booking/check.png' className=' absolute top-[50%] left-[50%] -translate-y-[50%] -translate-x-[50%]' id='Pet Express'/>
+    <nav className={`bg-grey absolute w-full h-full select-none pointer-events-none rounded-[12px] ${expressSelected === 'Pet Express' ? 'block' : 'hidden'}`}>
+      <img src='../images/booking/check.png' className=' absolute top-[50%] left-[50%] -translate-y-[50%] -translate-x-[50%] select-none pointer-events-none' />
     </nav>
-      <img src='../images/booking/pet.png' className='pt-[4px]' id='Pet Express'/>
-      <h6 className='text-left font-semibold text-[16px] pl-3 py-3' id='Pet Express'>Pet Express</h6>
+      <img src='../images/booking/pet.png' className='pt-[4px] select-none pointer-events-none'/>
+      <h6 className='text-left font-semibold text-[16px] pl-3 py-3 select-none pointer-events-none' >Pet Express</h6>
     </div>
 
 
     <div className='border-[1px] border-solid border-gray-300	w-max rounded-[12px] relative cursor-pointer' id='Special Express' onClick={(e)=>setExpressSelected(e.target.id)}>
-    <nav className={`bg-grey absolute w-full h-full rounded-[12px] ${expressSelected === 'Special Express' ? 'block' : 'hidden'}`} id='Special Express'>
-      <img src='../images/booking/check.png' className=' absolute top-[50%] left-[50%] -translate-y-[50%] -translate-x-[50%]' id='Special Express'/>
+    <nav className={`bg-grey absolute w-full h-full select-none pointer-events-none rounded-[12px] ${expressSelected === 'Special Express' ? 'block' : 'hidden'}`} >
+      <img src='../images/booking/check.png' className=' absolute top-[50%] left-[50%] -translate-y-[50%] -translate-x-[50%] select-none pointer-events-none' />
     </nav>
-      <img src='../images/booking/special.png' className='pt-[4px]' id='Special Express'/>
-      <h6 className='text-left font-semibold text-[16px] pl-3 py-3' id='Special Express'>Special Express</h6>
+      <img src='../images/booking/special.png' className='pt-[4px] select-none pointer-events-none' />
+      <h6 className='text-left font-semibold text-[16px] pl-3 py-3 select-none pointer-events-none'>Special Express</h6>
     </div>
   </section>
 </div>
