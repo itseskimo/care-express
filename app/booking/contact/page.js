@@ -112,7 +112,7 @@ const [cost,setCost]=useState('')
 <section className='border-[1px]  border-solid  border-gray-300' ></section>
 
 {/* ------------------------------------------------------------------------------------ */}
-<form className='mx-14 xlg:mx-28 py-10 bg-slate-500'  onSubmit={formsubmit}>
+<form className='mx-5 xlsm:mx-14 xlg:mx-28 py-10 '  onSubmit={formsubmit}>
 
 
 <section className='flex flex-col lg:flex-row items-center justify-center lg:mb-4 '>
