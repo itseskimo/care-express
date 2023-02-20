@@ -185,7 +185,7 @@ const [accountToggle, setAccountToggle]=useState(true)
 {/* ------------------------------------------------------------------------------------ */}
 
 
-<main className='min-w-[200px] w-[30%] ml-auto mr-auto mt-8 '>
+<main className='min-w-[200px] w-[35%] ml-auto mr-auto mt-8 '>
   <input type='submit' className='bg-blue  w-full  text-white rounded-[24px] text-[18px] font-semibold cursor-pointer py-3' value='Create Account'/>
 </main>
 
@@ -199,10 +199,10 @@ const [accountToggle, setAccountToggle]=useState(true)
 
 </form>
 
-<section className='flex min-w-[350px] w-[25%] ml-auto mr-auto justify-between mt-5 pb-10 mx-28 bg-slate-600 '>
-<button className='bg-ligrey rounded-[24px] px-4  lg:px-3 xlg:px-4 py-[6px] font-semibold flex items-center shrink-0 text-[14px]'>  <img src='../images/booking/google.svg' className='pr-[10px]'/>Google</button>
-<button className='bg-ligrey rounded-[24px] px-4  lg:px-3 xlg:px-4 py-[6px] font-semibold flex items-center shrink-0 text-[14px]'>  <img src='../images/booking/Meta.svg' className='pr-[10px]'/>Meta</button>
-<button className='bg-ligrey rounded-[24px] px-4  lg:px-3 xlg:px-4 py-[6px] font-semibold flex items-center shrink-0 text-[14px]'>  <img src='../images/booking/apple.svg' className='pr-[10px]'/>Apple</button>
+<section className='flex min-w-[400px] w-[28%] ml-auto mr-auto justify-between mt-5 pb-10 mx-28 bg-slate-600 '>
+<button className='bg-ligrey rounded-[24px] px-4 py-[6px] font-semibold flex items-center shrink-0 text-[14px]'>  <img src='../images/booking/google.svg' className='pr-[10px]'/>Google</button>
+<button className='bg-ligrey rounded-[24px] px-6 py-[6px] font-semibold flex items-center shrink-0 text-[14px]'>  <img src='../images/booking/Meta.svg' className='pr-[14px]'/>Meta</button>
+<button className='bg-ligrey rounded-[24px] px-6  py-[6px] font-semibold flex items-center shrink-0 text-[14px]'>  <img src='../images/booking/apple.svg' className='pr-[16px]'/>Apple</button>
 </section>
 
 </section> 
