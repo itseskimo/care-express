@@ -136,7 +136,7 @@ function extractText(e){
   <h6 className='font-semibold tracking-[0.02em] text-[16px] my-5'>Choose Plan</h6>
   <section className='mt-2 flex flex-wrap gap-8' >
     
-    <div className={`border-[1px] border-solid ${selectTime === 'hours10'? 'border-blue' : 'border-gray-300' } 	w-[206px] h-[180px] rounded-[12px] relative cursor-pointer`} id='hours10' onClick={extractText}>
+    <div className={`border-[1px] border-solid ${selectTime === 'hours10'? 'border-blue' : 'border-gray-300' } 	w-[196px] h-[180px] rounded-[12px] relative cursor-pointer`} id='hours10' onClick={extractText}>
       <section className='font-semibold flex flex-col pl-2 pt-9  rounded-[12px] select-none pointer-events-none' >
       <h6 className='text-2xl font-medium mb-3 select-none pointer-events-none' >10 hours</h6>
       <h6 className=' font-bold text-2xl select-none pointer-events-none' >55 zł / h</h6>
