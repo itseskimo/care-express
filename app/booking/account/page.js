@@ -199,7 +199,7 @@ const [accountToggle, setAccountToggle]=useState(true)
 
 </form>
 
-<section className='flex w-[25%] ml-auto mr-auto justify-between mt-5 pb-10 mx-28'>
+<section className='flex w-[25%] ml-auto mr-auto justify-between mt-5 pb-10 mx-28 bg-slate-600 '>
 <button className='bg-ligrey rounded-[24px] px-4  lg:px-3 xlg:px-4 py-[6px] font-semibold flex items-center text-[14px]'>  <img src='../images/booking/google.svg' className='pr-[10px]'/>Google</button>
 <button className='bg-ligrey rounded-[24px] px-4  lg:px-3 xlg:px-4 py-[6px] font-semibold flex items-center text-[14px]'>  <img src='../images/booking/Meta.svg' className='pr-[10px]'/>Meta</button>
 <button className='bg-ligrey rounded-[24px] px-4  lg:px-3 xlg:px-4 py-[6px] font-semibold flex items-center text-[14px]'>  <img src='../images/booking/apple.svg' className='pr-[10px]'/>Apple</button>
