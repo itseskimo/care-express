@@ -50,13 +50,7 @@ const [cost,setCost]=useState('')
   return (
     <>
       
-    {/* <nav  className='flex justify-end h-6 box-border bg-black'>
-    <section className='flex items-center mx-4 sm:mx-14 font-medium text-white tracking-widest text-xs  lg:text-sm py-2'>
-    <span className='px-2.5	mt-0.5 cursor-pointer'>FAQs</span>
-    <span className='px-2.5 mt-0.5	cursor-pointer'>About us</span>
-    <span className='px-2.5	mt-0.5 cursor-pointer '>Contact</span>
-    </section>
-    </nav> */}
+
 
     <Navbar color={'bg-blue'} {...navDetails}/>
  
@@ -74,22 +68,22 @@ const [cost,setCost]=useState('')
 
 <section className='bg-white h-max rounded-[16px] mt-10'>
 
-<main className=' pt-6 '>
+<main className=' pt-6'>
 
-<section className=' flex items-center relative pb-5 mx-28'>
-<div className='mr-36'>
+<section className=' flex items-center justify-between  pb-5 mx-2 sm:mx-3 smd:mx-14 xlg:mx-28 '>
+<div className=''>
   <h6 className='tracking-[0.12em] text-xs font-semibold'>SELECT PLAN</h6>
-  <h6 className='text-[24px] font-bold'>{hours}</h6>
+  <h6 className='text-[19px]  xlsm:text-[24px] font-bold'>{hours}</h6>
 </div>
 
 <div>
   <h6 className='tracking-[0.12em] text-xs font-semibold'>TOTAL PRICE</h6>
-  <h6 className='text-[24px] font-bold'>{cost}</h6>
+  <h6 className='text-[19px]  xlsm:text-[24px] font-bold'>{cost}</h6>
 </div>
 
-<section className='absolute right-0'>
-<button className='border-[1px] border-solid  border-gray-300 flex px-5 py-[10px] text-sm font-semibold rounded-[50px]'><img src='../images/booking/Edit.svg' className='pr-2'/>Edit Plan</button>
-</section>
+
+<button className='border-[1px] border-solid  border-gray-300 flex px-3 xlsm:px-5 py-[10px] text-sm font-semibold rounded-[50px]'><img src='../images/booking/Edit.svg' className='pr-2'/>Edit Plan</button>
+
 </section>
 
 </main>
@@ -97,7 +91,7 @@ const [cost,setCost]=useState('')
 <section className='border-[1px]  border-solid  border-gray-300' ></section>
 
 {/* ------------------------------------------------------------------------------------ */}
-<main className='mx-28 py-10'>
+<main className='mx-2 sm:mx-3 smd:mx-14 xlg:mx-28 py-10'>
 
 <h6 className='tracking-[0.02em] text-[16px] font-semibold mb-2'>Additional Services</h6>
 
