@@ -105,7 +105,7 @@ const [accountToggle, setAccountToggle]=useState(true)
 
 
 {/* ------------------------------------------------------------------------------------ */}
-<form className='mx-28  ' encType="multipart/form-data" onSubmit={registerSubmit}>
+<form className='mx-14 xlsm:mx-28 ' encType="multipart/form-data" onSubmit={registerSubmit}>
 
 <section className='flex mb-4 flex-col  lg:flex-row items-center justify-center gap-6'>
 
@@ -185,14 +185,14 @@ const [accountToggle, setAccountToggle]=useState(true)
 {/* ------------------------------------------------------------------------------------ */}
 
 
-<main className='w-[30%] ml-auto mr-auto mt-8 '>
-  <input type='submit' className='bg-blue min-w-[200px] w-full  text-white rounded-[24px] text-[18px] font-semibold cursor-pointer py-3' value='Create Account'/>
+<main className='min-w-[200px] w-[30%] ml-auto mr-auto mt-8 '>
+  <input type='submit' className='bg-blue  w-full  text-white rounded-[24px] text-[18px] font-semibold cursor-pointer py-3' value='Create Account'/>
 </main>
 
 <div className=' flex items-center justify-center mt-5'>
-  <div className='border-gray-400 border-[1px] border-solid w-[6%] '></div>
+  <div className='border-gray-400 border-[1px] border-solid min-w-[30px] w-[6%] '></div>
   <h6 className='font-semibold text-sm mx-3 whitespace-nowrap'>Or Create With</h6>
-  <div className='border-gray-400 border-[1px] border-solid w-[6%]'></div>
+  <div className='border-gray-400 border-[1px] border-solid min-w-[30px] w-[6%]'></div>
 </div>
 
 
