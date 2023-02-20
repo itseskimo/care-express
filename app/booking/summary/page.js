@@ -55,7 +55,7 @@ const page = () => {
    
 {/* ----------------------------------------------------------------------------------------------------------------- */}
 <main className='bg-specialbg overflow-hidden'>
-<main className='mx-4 sm:mx-14 '>
+<main className='mx-4 smd:mx-14 '>
   {/* ------------RESPONSIBLE FOR MARGIN---------------- */}
 
 
@@ -164,22 +164,23 @@ const page = () => {
 
 </main>
 
+
  
 <section className='border-[1px]  border-solid  border-gray-300' ></section>
 
 {/* ------------------------------------------------------------------------------------ */}
 
-<main className='mx-28 py-10'>
+<main className=' mx-2 sm:mx-3 smd:mx-14 xlg:mx-28 py-10'>
 
 <section className='flex  items-center relative'>
 
-<div className='w-[20%]'>
+<div className=''>
     <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>ADDITIONAL SERVICES</h6>
     <h6 className='text-[16px] font-semibold'>Language Tutoring</h6>
 </div>
 
 <div className=' absolute right-0'>
-     <button className='border-[1px] border-solid  border-gray-300 flex px-5 py-[10px] text-sm font-semibold rounded-[50px]'><img src='../images/booking/Edit.svg' className='pr-3'/>Edit Requirements</button>
+     <button className='border-[1px] border-solid  border-gray-300 flex px-3 xlsm:px-5 py-[10px] text-sm font-semibold rounded-[50px]'><img src='../images/booking/Edit.svg' className='pr-3'/>Edit Requirements</button>
 </div>
 
 </section>
@@ -187,7 +188,7 @@ const page = () => {
 
 <section className='flex  items-center  mt-8'>
 
-<div className='w-[70%]'>
+<div className='w-full lg:w-[70%]'>
     <h6 className='tracking-[0.12em] text-xs font-semibold mb-3'>ANY SPECIAL NEEDS OR REQUIREMENTS</h6>
     <h6 className='text-[16px] tracking-[0.02em] font-semibold'>Help with homework and school projects, including reading and writing support. Plan and participate in age-appropriate educational and recreational activities. Provide a safe and comfortable environment, both indoors and outdoors. Communicate effectively and professionally with the parents, other care providers, and healthcare providers. Maintain a clean and organized play and living area. Perform light housekeeping tasks related to the child's care, such as laundry and meal preparation</h6>
 </div>
@@ -202,7 +203,7 @@ const page = () => {
 {/* ------------------------------------------------------------------------------------ */}
 
 
-<main className='mx-28 py-10'>
+<main className='mx-2 sm:mx-3 smd:mx-14 xlg:mx-28 py-10'>
 
 <section className='flex  items-center relative'>
 
@@ -237,8 +238,8 @@ const page = () => {
 <h6 className='mt-6 tracking-[0.02em] text-[16px]'>You can unsubscribe from these communications at any time. For more information on how to unsubscribe, our privacy policies and how we are committed to protecting and respecting your privacy, please see our <span className='text-blue underline decoration-[1px] underline-offset-2'>Privacy Policy</span> .</h6>
 
 <div className='flex justify-between'>
-<Link href={{pathname:'/booking/additionalRequirements'}}><button className='bg-ligrey rounded-[50px] px-9 py-[8px] text-black text-[18px] font-semibold mt-10' >Back</button></Link>
-<Link href={{pathname:'./booking/account'}}><button className='bg-blue rounded-[50px] px-9 py-[8px] text-white text-[18px] font-semibold mt-10' >Confirm & Proceed to Sign up</button></Link>
+<Link href={{pathname:'/booking/additionalRequirements'}}><button className='bg-ligrey rounded-[50px] px-6 smd:px-9 py-[8px] text-black text-[15px] sm:text-[18px] font-semibold mt-10' >Back</button></Link>
+<Link href={{pathname:'./booking/account'}}><button className='bg-blue rounded-[50px] px-4 smd:px-9 py-[8px] text-white text-[15px] sm:text-[18px] font-semibold mt-10 ' >Confirm & Proceed to Sign up</button></Link>
 </div>
 
 </main>
