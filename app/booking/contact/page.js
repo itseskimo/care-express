@@ -91,8 +91,8 @@ const [cost,setCost]=useState('')
 
 <main className=' pt-6 bg-slate-600'>
 
-<section className=' flex items-center relative pb-5 mx-5 xlsm:mx-14 xlg:mx-28 '>
-<div className='mr-20 md:mr-36'>
+<section className=' flex items-center justify-between  pb-5 mx-4 sm:mx-5 xlsm:mx-14 xlg:mx-28 '>
+<div className=''>
   <h6 className='tracking-[0.12em] text-xs font-semibold'>SELECT PLAN</h6>
   <h6 className='text-[24px] font-bold'>{hours}</h6>
 </div>
@@ -102,9 +102,9 @@ const [cost,setCost]=useState('')
   <h6 className='text-[24px] font-bold'>{cost}</h6>
 </div>
 
-<section className='absolute right-0'>
+
 <button className='border-[1px] border-solid  border-gray-300 flex px-5 py-[10px] text-sm font-semibold rounded-[50px]'><img src='../images/booking/Edit.svg' className='pr-2'/>Edit Plan</button>
-</section>
+
 </section>
 
 </main>
