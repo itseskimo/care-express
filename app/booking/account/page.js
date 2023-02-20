@@ -199,10 +199,10 @@ const [accountToggle, setAccountToggle]=useState(true)
 
 </form>
 
-<section className='flex min-w-[400px] w-[28%] ml-auto mr-auto justify-between mt-5 pb-10 mx-28 bg-slate-600 '>
-<button className='bg-ligrey rounded-[24px] px-4 py-[6px] font-semibold flex items-center shrink-0 text-[14px]'>  <img src='../images/booking/google.svg' className='pr-[10px]'/>Google</button>
-<button className='bg-ligrey rounded-[24px] px-6 py-[6px] font-semibold flex items-center shrink-0 text-[14px]'>  <img src='../images/booking/Meta.svg' className='pr-[14px]'/>Meta</button>
-<button className='bg-ligrey rounded-[24px] px-6  py-[6px] font-semibold flex items-center shrink-0 text-[14px]'>  <img src='../images/booking/apple.svg' className='pr-[16px]'/>Apple</button>
+<section className='flex min-w-[355px]  lg:min-w-[390px] w-[28%] ml-auto mr-auto justify-between mt-5 pb-10 mx-28 '>
+<button className='bg-ligrey rounded-[24px] px-3 lg:px-4 py-[6px] font-semibold flex items-center shrink-0 text-[14px]'>  <img src='../images/booking/google.svg' className='pr-[7px] lg:pr-[10px]'/>Google</button>
+<button className='bg-ligrey rounded-[24px] px-5 lg:px-6 py-[6px] font-semibold flex items-center shrink-0 text-[14px]'>  <img src='../images/booking/Meta.svg' className='pr-[11px] lg:pr-[14px]'/>Meta</button>
+<button className='bg-ligrey rounded-[24px] px-5 lg:px-6  py-[6px] font-semibold flex items-center shrink-0 text-[14px]'>  <img src='../images/booking/apple.svg' className='pr-[11px] lg:pr-[16px]'/>Apple</button>
 </section>
 
 </section> 
