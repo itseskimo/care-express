@@ -113,7 +113,7 @@ const [cost,setCost]=useState('')
 
 <h6 className='tracking-[0.02em] text-[16px] font-semibold mt-6 mb-3'>Any special needs or requirements</h6>
 
-<input style={{border:'1px solid #ABABAB'}} placeholder='Tell us anything else we need to know, like allergies etc.' className='  outline-none bg-inputbg w-full px-4 pt-4 break-words pb-[200px]  rounded-[12px]'/>
+<textarea style={{border:'1px solid #ABABAB'}} placeholder='Tell us anything else we need to know, like allergies etc.' className='  outline-none bg-inputbg w-full px-4 pt-4  pb-[200px] overflow-hidden rounded-[12px]'></textarea>
 
 <div className='flex justify-between'>
 <Link href={{pathname:'/booking/contact'}}><button className='bg-ligrey rounded-[50px] px-9 py-[8px] text-black text-[18px] font-semibold mt-10' >Back</button></Link>
