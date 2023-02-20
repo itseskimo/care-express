@@ -112,16 +112,16 @@ const [cost,setCost]=useState('')
 <section className='border-[1px]  border-solid  border-gray-300' ></section>
 
 {/* ------------------------------------------------------------------------------------ */}
-<form className='mx-28 py-10 '  onSubmit={formsubmit}>
+<form className='mx-14 xlg:mx-28 py-10 bg-slate-500'  onSubmit={formsubmit}>
 
 
 <section className='flex flex-col lg:flex-row items-center justify-center lg:mb-4 '>
-<div className=' min-w-[300px] sm:min-w-[330px] lg:max-w-none w-[80%] lg:w-[50%] lg:mr-6 mb-1 lg:mb-0'>
+<div className=' min-w-[300px] sm:min-w-[330px] lg:max-w-none w-[70%] lg:w-[50%] lg:mr-6 mb-1 lg:mb-0'>
   <h6 className='text-[16px] tracking-[0.02em] font-semibold mb-[6px]'>First Name</h6>
   <input style={{border:'1px solid #ABABAB'}} placeholder='First Name' required type='text' name='firstName' onChange={contactDetails} value={firstName}  className='pl-3 outline-none bg-inputbg w-full   py-[10px] mb-2 rounded-[12px]' />
 </div>
 
-<div className='min-w-[300px] sm:min-w-[330px] lg:max-w-none w-[80%] lg:w-[50%]  mb-1 lg:mb-0'>
+<div className='min-w-[300px] sm:min-w-[330px] lg:max-w-none w-[70%] lg:w-[50%]  mb-1 lg:mb-0'>
   <h6 className='text-[16px] tracking-[0.02em] font-semibold mb-[6px]'>Last Name</h6>
   <input style={{border:'1px solid #ABABAB'}} placeholder='Last Name' required type='text' name='lastName' onChange={contactDetails} value={lastName} className='pl-3 outline-none bg-inputbg w-full  py-[10px] mb-2 rounded-[12px]' />
 </div>
@@ -130,12 +130,12 @@ const [cost,setCost]=useState('')
 {/* ------------------------------------------------------------------------------------ */}
 
 <section className='flex flex-col lg:flex-row items-center justify-center lg:mb-4'>
-<div className='min-w-[300px] sm:min-w-[330px] lg:max-w-none w-[80%] lg:w-[50%] lg:mr-6  mb-1 lg:mb-0'>
+<div className='min-w-[300px] sm:min-w-[330px] lg:max-w-none w-[70%] lg:w-[50%] lg:mr-6  mb-1 lg:mb-0'>
   <h6 className='text-[16px] tracking-[0.02em] font-semibold mb-[6px]'>Email Address</h6>
   <input style={{border:'1px solid #ABABAB'}} placeholder='Email Address' required type='email' name='emailAdress' onChange={contactDetails} value={emailAdress} className='pl-3 outline-none bg-inputbg w-full   py-[10px] mb-2 rounded-[12px]' />
 </div>
 
-<div className=' min-w-[300px] sm:min-w-[330px] lg:max-w-none w-[80%] lg:w-[50%]  mb-1 lg:mb-0'>
+<div className=' min-w-[300px] sm:min-w-[330px] lg:max-w-none w-[70%] lg:w-[50%]  mb-1 lg:mb-0'>
   <h6 className='text-[16px] tracking-[0.02em] font-semibold mb-[6px]'>Phone Number</h6>
   <input style={{border:'1px solid #ABABAB'}} placeholder='Phone Number' required type='number' name='phoneNumber' onChange={contactDetails} value={phoneNumber} className='pl-3 outline-none bg-inputbg w-full  py-[10px] mb-2 rounded-[12px]' />
 </div>
@@ -143,12 +143,12 @@ const [cost,setCost]=useState('')
 {/* ------------------------------------------------------------------------------------ */}
 
 <section className='flex flex-col lg:flex-row items-center justify-center lg:mb-4'>
-<div className=' min-w-[300px] sm:min-w-[330px] lg:max-w-none w-[80%] lg:w-[50%] lg:mr-6  mb-1 lg:mb-0'>
+<div className=' min-w-[300px] sm:min-w-[330px] lg:max-w-none w-[70%] lg:w-[50%] lg:mr-6  mb-1 lg:mb-0'>
   <h6 className='text-[16px] tracking-[0.02em] font-semibold mb-[6px]'>Street Name</h6>
   <input style={{border:'1px solid #ABABAB'}} placeholder='Street Name' required type='text' name='streetName' onChange={contactDetails} value={streetName} className='pl-3 outline-none bg-inputbg w-full   py-[10px] mb-2 rounded-[12px]' />
 </div>
 
-<div className=' min-w-[300px] sm:min-w-[330px] lg:max-w-none w-[80%] lg:w-[50%]  mb-1 lg:mb-0'>
+<div className=' min-w-[300px] sm:min-w-[330px] lg:max-w-none w-[70%] lg:w-[50%]  mb-1 lg:mb-0'>
   <h6 className='text-[16px] tracking-[0.02em] font-semibold mb-[6px]'>Street Number</h6>
   <input style={{border:'1px solid #ABABAB'}} placeholder='Street Number' required type='number' name='streetNumber' onChange={contactDetails} value={streetNumber} className='pl-3 outline-none bg-inputbg w-full  py-[10px] mb-2 rounded-[12px]' />
 </div>
@@ -156,12 +156,12 @@ const [cost,setCost]=useState('')
 {/* ------------------------------------------------------------------------------------ */}
 
 <section className='flex flex-col lg:flex-row items-center justify-center lg:mb-4'>
-<div className=' min-w-[300px] sm:min-w-[330px] lg:max-w-none w-[80%] lg:w-[50%] lg:mr-6  mb-1 lg:mb-0'>
+<div className=' min-w-[300px] sm:min-w-[330px] lg:max-w-none w-[70%] lg:w-[50%] lg:mr-6  mb-1 lg:mb-0'>
   <h6 className='text-[16px] tracking-[0.02em] font-semibold mb-[6px]'>Apartment Number (Optional)</h6>
   <input style={{border:'1px solid #ABABAB'}} placeholder='Apartment Number' type='number' value={apartmentNumber} onChange={contactDetails} name='apartmentNumber' className='pl-3 outline-none bg-inputbg w-full   py-[10px] mb-2 rounded-[12px]' />
 </div>
 
-<div className=' min-w-[300px] sm:min-w-[330px] lg:max-w-none w-[80%] lg:w-[50%]  mb-1 lg:mb-0'>
+<div className=' min-w-[300px] sm:min-w-[330px] lg:max-w-none w-[70%] lg:w-[50%]  mb-1 lg:mb-0'>
   <h6 className='text-[16px] tracking-[0.02em] font-semibold mb-[6px]'>Postal Code</h6>
   <input style={{border:'1px solid #ABABAB'}} placeholder='Postal Code' required type='number' value={postalCode} onChange={contactDetails} name='postalCode' className='pl-3 outline-none bg-inputbg w-full  py-[10px] mb-2 rounded-[12px]' />
 </div>
@@ -169,7 +169,7 @@ const [cost,setCost]=useState('')
 {/* ------------------------------------------------------------------------------------ */}
 
 <section className='flex flex-col lg:flex-row items-center justify-center lg:block lg:mb-4'>
-<div className='min-w-[300px] sm:min-w-[330px] lg:max-w-none w-[80%] lg:w-[49%]'>
+<div className='min-w-[300px] sm:min-w-[330px] lg:max-w-none w-[70%] lg:w-[49%]'>
   <h6 className='text-[16px] tracking-[0.02em] font-semibold mb-[6px]'>City / Town</h6>
   <input style={{border:'1px solid #ABABAB'}} placeholder='City / Town' required type='text' value={city} onChange={contactDetails} name='city'  className='pl-3 outline-none bg-inputbg w-full   py-[10px] mb-2 rounded-[12px]' />
 </div>
