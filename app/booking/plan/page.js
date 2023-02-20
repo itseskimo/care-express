@@ -95,7 +95,7 @@ function extractText(e){
       <nav className={`bg-grey absolute w-full h-full select-none pointer-events-none rounded-[12px] ${expressSelected === 'Nanny Express' ? 'block' : 'hidden'}`} >
       <img src='../images/booking/check.png' className=' absolute top-[50%] select-none pointer-events-none left-[50%] -translate-y-[50%] -translate-x-[50%] select-none pointer-events-none'/>
       </nav>
-      <img src='../images/booking/mom-son-cycle.png' />
+      <img src='../images/booking/mom-son-cycle.png' className='select-none pointer-events-none'/>
       <h6 className='text-left font-semibold text-[16px] pl-3 py-3 select-none pointer-events-none' >Nanny Express</h6>
     </div>
 
@@ -137,7 +137,7 @@ function extractText(e){
   <section className='mt-2 flex flex-wrap gap-8' >
     
     <div className={`border-[1px] border-solid ${selectTime === 'hours10'? 'border-blue' : 'border-gray-300' } 	w-[206px] h-[180px] rounded-[12px] relative cursor-pointer`} id='hours10' onClick={extractText}>
-      <section className='font-semibold flex flex-col pl-3 pt-10  rounded-[12px] select-none pointer-events-none' >
+      <section className='font-semibold flex flex-col pl-2 pt-9  rounded-[12px] select-none pointer-events-none' >
       <h6 className='text-2xl font-medium mb-3 select-none pointer-events-none' >10 hours</h6>
       <h6 className=' font-bold text-2xl select-none pointer-events-none' >55 zł / h</h6>
       </section>
@@ -145,7 +145,7 @@ function extractText(e){
     </div>
     
     <div className={`border-[1px] border-solid 	w-[196px] h-[180px] ${selectTime === 'hours20'? 'border-blue' : 'border-gray-300' } rounded-[12px] relative cursor-pointer`} id='hours20' onClick={extractText}>
-      <section className='font-semibold flex flex-col pl-3 pt-10 select-none pointer-events-none rounded-[12px]' >
+      <section className='font-semibold flex flex-col pl-2 pt-9 select-none pointer-events-none rounded-[12px]' >
       <h6 className='text-2xl font-medium mb-3 select-none pointer-events-none' >20 hours</h6>
       <h6 className=' font-bold text-2xl select-none pointer-events-none' >45 zł / h</h6>
       </section>
@@ -157,7 +157,7 @@ function extractText(e){
       <img src='../images/booking/Star.svg' className='pr-2 select-none pointer-events-none' />
       <h6 className='text-xs font-bold text-white select-none pointer-events-none' >MOST POPULAR</h6>
       </nav>
-      <section className='font-semibold flex flex-col pl-3 pt-[10px] select-none pointer-events-none rounded-[12px]' >
+      <section className='font-semibold flex flex-col pl-2 pt-[6px] select-none pointer-events-none rounded-[12px]' >
       <h6 className='text-2xl font-medium mb-3 select-none pointer-events-none' >40 hours</h6>
       <h6 className=' font-bold text-2xl select-none pointer-events-none' >39,90 zł / h</h6>
       </section>
@@ -165,7 +165,7 @@ function extractText(e){
     </div>
     
     <div className={`border-[1px] border-solid 	w-[196px] h-[180px] ${selectTime === 'hours80'? 'border-blue' : 'border-gray-300' } rounded-[12px] relative cursor-pointer`} id='hours80' onClick={extractText}>
-      <section className='font-semibold flex flex-col pl-3 pt-10 select-none pointer-events-none rounded-[12px]' >
+      <section className='font-semibold flex flex-col pl-2 pt-9 select-none pointer-events-none rounded-[12px]' >
       <h6 className='text-2xl font-medium mb-3 select-none pointer-events-none' >80 hours</h6>
       <h6 className=' font-bold text-2xl select-none pointer-events-none' >37,90 zł / h</h6>
       </section>
@@ -173,7 +173,7 @@ function extractText(e){
     </div>
     
     <div className={`border-[1px] border-solid 	w-[196px] h-[180px] ${selectTime === 'hours160'? 'border-blue' : 'border-gray-300' } rounded-[12px] relative cursor-pointer`} id='hours160' onClick={extractText}>
-      <section className='font-semibold flex flex-col pl-3 pt-10 rounded-[12px] select-none pointer-events-none' >
+      <section className='font-semibold flex flex-col pl-2 pt-9 rounded-[12px] select-none pointer-events-none' >
       <h6 className='text-2xl font-medium mb-3 select-none pointer-events-none'>160 hours</h6>
       <h6 className=' font-bold text-2xl select-none pointer-events-none' >35,90 zł / h</h6>
       </section>
