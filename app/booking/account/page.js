@@ -190,9 +190,9 @@ const [accountToggle, setAccountToggle]=useState(true)
 </main>
 
 <div className=' flex items-center justify-center mt-5'>
-  <div className='border-gray-400 border-[1px] border-solid min-w-[30px] w-[6%] '></div>
+  <div style={{border:'1px solid rgba(0, 0, 0, 0.2)'}} className=' min-w-[30px] w-[6%] '></div>
   <h6 className='font-semibold text-sm mx-3 whitespace-nowrap'>Or Create With</h6>
-  <div className='border-gray-400 border-[1px] border-solid min-w-[30px] w-[6%]'></div>
+  <div style={{border:'1px solid rgba(0, 0, 0, 0.2)'}} className=' min-w-[30px] w-[6%]'></div>
 </div>
 
 

@@ -40,14 +40,6 @@ const page = () => {
 
   return (
     <>
-      
-    {/* <nav  className='flex justify-end h-6 box-border bg-black'>
-    <section className='flex items-center mx-4 sm:mx-14 font-medium text-white tracking-widest text-xs  lg:text-sm py-2'>
-    <span className='px-2.5	mt-0.5 cursor-pointer'>FAQs</span>
-    <span className='px-2.5 mt-0.5	cursor-pointer'>About us</span>
-    <span className='px-2.5	mt-0.5 cursor-pointer '>Contact</span>
-    </section>
-    </nav> */}
 
     <Navbar color={'bg-blue'} {...navDetails}/>
 
@@ -62,7 +54,7 @@ const page = () => {
 <section className='bg-white h-max rounded-[16px] mt-10'>
 <div className='flex items-center flex-col justify-center py-36'>
 <div className='load'></div>
-<h6 className='font-bold text-[24px] mb-4'>Please wait while we redirect to the payment provider</h6>
+<h6 className='font-bold text-[19px] md:text-[22px] lg:text-[24px] mb-4'>Please wait while we redirect to the payment provider</h6>
 <h6 className='font-semibold text-[14px] tracking-[0.12em] text-fadegrey'>DO NOT CLOSE THIS WINDOW OR GO BACK</h6>
 </div>
 </section>
