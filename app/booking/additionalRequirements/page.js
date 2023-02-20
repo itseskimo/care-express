@@ -70,7 +70,7 @@ const [cost,setCost]=useState('')
 
 <main className=' pt-6'>
 
-<section className=' flex items-center justify-between  pb-5 mx-2 sm:mx-3 smd:mx-14 xlg:mx-28 '>
+<section className=' flex items-center justify-between md:justify-start md:gap-28  pb-5 mx-2 sm:mx-3 smd:mx-14 xlg:mx-28 relative'>
 <div className=''>
   <h6 className='tracking-[0.12em] text-xs font-semibold'>SELECT PLAN</h6>
   <h6 className='text-[19px]  xlsm:text-[24px] font-bold'>{hours}</h6>
@@ -82,8 +82,7 @@ const [cost,setCost]=useState('')
 </div>
 
 
-<button className='border-[1px] border-solid  border-gray-300 flex px-3 xlsm:px-5 py-[10px] text-sm font-semibold rounded-[50px]'><img src='../images/booking/Edit.svg' className='pr-2'/>Edit Plan</button>
-
+<button className='md:absolute right-0 shrink-0 border-[1px] border-solid  border-gray-300 flex px-3 xlsm:px-5 py-[10px] text-sm font-semibold rounded-[50px]'><img src='../images/booking/Edit.svg' className='pr-2'/>Edit Plan</button>
 </section>
 
 </main>
