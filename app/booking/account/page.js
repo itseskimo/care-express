@@ -109,7 +109,7 @@ const [accountToggle, setAccountToggle]=useState(true)
 
 <section className='flex mb-4 flex-col  lg:flex-row items-center justify-center gap-6'>
 
-<div className='min-w-[330px] lg:max-w-none w-[80%] lg:w-[50%]'>
+<div className='min-w-[300px] sm:min-w-[330px] lg:max-w-none w-[80%] lg:w-[50%]'>
   <h1 className='font-semibold mb-1 tracking-[0.02em] text-[16px]'>Email address</h1>
   <div className='relative flex '>
   <img src='../images/Icons/Message.svg' className='absolute top-3 left-3'/>
@@ -124,7 +124,7 @@ const [accountToggle, setAccountToggle]=useState(true)
   </div>
 </div>
 
-<div className='min-w-[330px] lg:max-w-none w-[80%] lg:w-[50%]'>
+<div className='min-w-[300px] sm:min-w-[330px] lg:max-w-none w-[80%] lg:w-[50%]'>
   <h1 className='font-semibold mb-1 tracking-[0.02em] text-[16px]'>Phone Number</h1>
   <div className='relative flex '>
   <img src='../images/booking/calling.svg' className='absolute top-3 left-3'/>
@@ -145,7 +145,7 @@ const [accountToggle, setAccountToggle]=useState(true)
 
 <section className='flex mb-4 flex-col  lg:flex-row items-center justify-center gap-6 mt-[23px] lg:mt-0'>
 
-<div className='min-w-[330px] lg:max-w-none w-[80%] lg:w-[50%] lg:mb-2'>
+<div className='min-w-[300px] sm:min-w-[330px] lg:max-w-none w-[80%] lg:w-[50%] lg:mb-2'>
   <h1 className='font-semibold mb-1 tracking-[0.02em] text-[16px]'>Password</h1>
   <div className='relative flex'>
   <img src='../images/Login/Unlock.svg' className='absolute top-3 left-3 '/>
@@ -163,7 +163,7 @@ const [accountToggle, setAccountToggle]=useState(true)
   </div>
 </div>
 
-<div className='min-w-[330px] lg:max-w-none w-[80%] lg:w-[50%]'>
+<div className='min-w-[300px] sm:min-w-[330px] lg:max-w-none w-[80%] lg:w-[50%]'>
   <h1 className='font-semibold mb-1 tracking-[0.02em] text-[16px]'>Confirm Password</h1>
   <div className='relative flex'>
   <img src='../images/Login/Unlock.svg' className='absolute top-3 left-3 '/>
