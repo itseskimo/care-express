@@ -89,10 +89,10 @@ const [cost,setCost]=useState('')
 
 <section className='bg-white h-max rounded-[16px] mt-10'>
 
-<main className=' pt-6 '>
+<main className=' pt-6 bg-slate-600'>
 
-<section className=' flex items-center relative pb-5 mx-28'>
-<div className='mr-36'>
+<section className=' flex items-center relative pb-5 mx-5 xlsm:mx-14 xlg:mx-28 '>
+<div className='mr-20 md:mr-36'>
   <h6 className='tracking-[0.12em] text-xs font-semibold'>SELECT PLAN</h6>
   <h6 className='text-[24px] font-bold'>{hours}</h6>
 </div>
