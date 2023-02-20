@@ -135,51 +135,6 @@ function extractText(e){
 <div>
   <h6 className='font-semibold tracking-[0.02em] text-[16px] my-5'>Choose Plan</h6>
   <section className='mt-2 flex flex-wrap gap-8' >
-
-    {/* <div className={`border-[1px] border-solid ${selectTime === 'hours10'? 'border-blue' : 'border-gray-300' } 	w-[206px] h-[180px] rounded-[12px] relative cursor-pointer`} id='hours10' onClick={extractText}>
-      <section className='font-semibold flex flex-col pl-3 pt-10 ' id='hours10'>
-      <h6 className='text-2xl font-medium mb-3' id='hours10'>10 hours</h6>
-      <h6 className=' font-bold text-2xl' id='hours10'>55 zł / h</h6>
-      </section>
-        <img src='../images/booking/check.png' className={`absolute bottom-3 left-3 ${selectTime === 'hours10'? 'block' : 'hidden'}`} id='hours10'/>
-    </div>
-    
-    <div className={`border-[1px] border-solid 	w-[196px] h-[180px] ${selectTime === 'hours20'? 'border-blue' : 'border-gray-300' } rounded-[12px] relative cursor-pointer`} id='hours20' onClick={extractText}>
-      <section className='font-semibold flex flex-col pl-3 pt-10' id='hours20'>
-      <h6 className='text-2xl font-medium mb-3' id='hours20'>20 hours</h6>
-      <h6 className=' font-bold text-2xl' id='hours20'>45 zł / h</h6>
-      </section>
-      <img src='../images/booking/check.png' className={`absolute bottom-3 left-3 ${selectTime === 'hours20'? 'block' : 'hidden'}`} id='hours20'/>
-    </div>
-    
-    <div className={`border-[1px] border-solid 	w-[196px] h-[180px] ${selectTime === 'hours40'? 'border-blue' : 'border-gray-300' } rounded-[12px] relative cursor-pointer`} id='hours40' onClick={extractText}>
-      <nav className='flex bg-green w-max rounded-lg py-1 px-2 mt-2 ml-2' id='hours40'>
-      <img src='../images/booking/Star.svg' className='pr-2' id='hours40'/>
-      <h6 className='text-xs font-bold text-white' id='hours40'>MOST POPULAR</h6>
-      </nav>
-      <section className='font-semibold flex flex-col pl-3 pt-[10px]' id='hours40'>
-      <h6 className='text-2xl font-medium mb-3' id='hours40'>40 hours</h6>
-      <h6 className=' font-bold text-2xl' id='hours40'>39,90 zł / h</h6>
-      </section>
-      <img src='../images/booking/check.png' className={`absolute bottom-3 left-3 ${selectTime === 'hours40'? 'block' : 'hidden'}`} id='hours40'/>
-    </div>
-    
-    <div className={`border-[1px] border-solid 	w-[196px] h-[180px] ${selectTime === 'hours80'? 'border-blue' : 'border-gray-300' } rounded-[12px] relative cursor-pointer`} id='hours80' onClick={extractText}>
-      <section className='font-semibold flex flex-col pl-3 pt-10' id='hours80'>
-      <h6 className='text-2xl font-medium mb-3' id='hours80'>80 hours</h6>
-      <h6 className=' font-bold text-2xl' id='hours80'>37,90 zł / h</h6>
-      </section>
-      <img src='../images/booking/check.png' className={`absolute bottom-3 left-3 ${selectTime === 'hours80'? 'block' : 'hidden'}`} id='hours80'/>
-    </div>
-    
-    <div className={`border-[1px] border-solid 	w-[196px] h-[180px] ${selectTime === 'hours160'? 'border-blue' : 'border-gray-300' } rounded-[12px] relative cursor-pointer`} id='hours160' onClick={extractText}>
-      <section className='font-semibold flex flex-col pl-3 pt-10 ' id='hours160'>
-      <h6 className='text-2xl font-medium mb-3' id='hours160'>160 hours</h6>
-      <h6 className=' font-bold text-2xl' id='hours160'>35,90 zł / h</h6>
-      </section>
-      <img src='../images/booking/check.png' className={`absolute bottom-3 left-3 ${selectTime === 'hours160'? 'block' : 'hidden'}`} id='hours160'/>
-    </div>
-     */}
     
     <div className={`border-[1px] border-solid ${selectTime === 'hours10'? 'border-blue' : 'border-gray-300' } 	w-[206px] h-[180px] rounded-[12px] relative cursor-pointer`} id='hours10' onClick={extractText}>
       <section className='font-semibold flex flex-col pl-3 pt-10  rounded-[12px] select-none pointer-events-none' >
