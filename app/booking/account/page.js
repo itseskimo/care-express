@@ -99,8 +99,8 @@ const [accountToggle, setAccountToggle]=useState(true)
 
 {accountToggle ?<section className='bg-white h-max rounded-[16px] mt-10'>
 
-<section className='flex items-center justify-center  py-7 mx-28'>
-<h6 className='text-[24px] font-bold flex '><img className='mx-4' src='../images/business/Icons/business-express-separator-star.svg'/>Create Account<img className='mx-4' src='../images/business/Icons/business-express-separator-star.svg'/></h6>
+<section className='flex items-center justify-center  py-7 mx-28 '>
+<h6 className='text-[24px] font-bold flex shrink-0 '><img className='mx-4' src='../images/business/Icons/business-express-separator-star.svg'/>Create Account<img className='mx-4' src='../images/business/Icons/business-express-separator-star.svg'/></h6>
 </section>
 
 
@@ -109,7 +109,7 @@ const [accountToggle, setAccountToggle]=useState(true)
 
 <section className='flex mb-4 flex-col  lg:flex-row items-center justify-center gap-6'>
 
-<div className=' w-[50%]'>
+<div className='min-w-[330px] lg:max-w-none w-[80%] lg:w-[50%]'>
   <h1 className='font-semibold mb-1 tracking-[0.02em] text-[16px]'>Email address</h1>
   <div className='relative flex '>
   <img src='../images/Icons/Message.svg' className='absolute top-3 left-3'/>
@@ -124,7 +124,7 @@ const [accountToggle, setAccountToggle]=useState(true)
   </div>
 </div>
 
-<div className=' w-[50%]'>
+<div className='min-w-[330px] lg:max-w-none w-[80%] lg:w-[50%]'>
   <h1 className='font-semibold mb-1 tracking-[0.02em] text-[16px]'>Phone Number</h1>
   <div className='relative flex '>
   <img src='../images/booking/calling.svg' className='absolute top-3 left-3'/>
@@ -143,9 +143,9 @@ const [accountToggle, setAccountToggle]=useState(true)
 
 {/* ------------------------------------------------------------------------------------ */}
 
-<section className='flex mb-4 flex-col  lg:flex-row items-center justify-center gap-6'>
+<section className='flex mb-4 flex-col  lg:flex-row items-center justify-center gap-6 mt-[23px] lg:mt-0'>
 
-<div className='w-[50%] lg:mb-2'>
+<div className='min-w-[330px] lg:max-w-none w-[80%] lg:w-[50%] lg:mb-2'>
   <h1 className='font-semibold mb-1 tracking-[0.02em] text-[16px]'>Password</h1>
   <div className='relative flex'>
   <img src='../images/Login/Unlock.svg' className='absolute top-3 left-3 '/>
@@ -159,11 +159,11 @@ const [accountToggle, setAccountToggle]=useState(true)
   onChange={registerDataChange}
   className='outline-none bg-inputbg  w-full py-[10px]  rounded-[8px] pl-14' 
   placeholder='Password' />
-  <img src='../images/Icons/Show.svg' id='passwordVisibilityToggle1' onClick={()=>passwordToggle(1)} className='absolute top-3 w-10 right-[0.6px]  bg-inputbg px-2 cursor-pointer' />
+  <img src='../images/Icons/Show.svg' id='passwordVisibilityToggle1' onClick={()=>passwordToggle(1)} className='absolute top-3 w-10 right-[0.9px]  bg-inputbg px-2 cursor-pointer' />
   </div>
 </div>
 
-<div className='w-[50%]'>
+<div className='min-w-[330px] lg:max-w-none w-[80%] lg:w-[50%]'>
   <h1 className='font-semibold mb-1 tracking-[0.02em] text-[16px]'>Confirm Password</h1>
   <div className='relative flex'>
   <img src='../images/Login/Unlock.svg' className='absolute top-3 left-3 '/>
@@ -186,7 +186,7 @@ const [accountToggle, setAccountToggle]=useState(true)
 
 
 <main className='w-[30%] ml-auto mr-auto mt-8 '>
-  <input type='submit' className='bg-blue w-full  text-white rounded-[24px] text-[18px] font-semibold cursor-pointer py-3' value='Create Account'/>
+  <input type='submit' className='bg-blue min-w-[200px] w-full  text-white rounded-[24px] text-[18px] font-semibold cursor-pointer py-3' value='Create Account'/>
 </main>
 
 <div className=' flex items-center justify-center mt-5'>
