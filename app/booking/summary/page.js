@@ -66,25 +66,25 @@ const page = () => {
 <section className='bg-white h-max rounded-[16px] mt-10'>
 
 
-<section className=' flex  items-center relative  mx-28 py-8'>
+<section className=' flex  items-center relative mx-2 sm:mx-3 lg:mx-14 xlg:mx-28 py-8'>
 <div className='w-[20%]'>
   <h6 className='tracking-[0.12em] text-xs font-semibold'>SELECT PLAN</h6>
-  <h6 className='text-[24px] font-bold'>80 hours</h6>
+  <h6 className='text-[20px] lg:text-[24px] font-bold'>80 hours</h6>
 </div>
 
 <div className='w-[20%]'>
   <h6 className='tracking-[0.12em] text-xs font-semibold'>PRICE/HOUR</h6>
-  <h6 className='text-[24px] font-bold'>37,90 zł</h6>
+  <h6 className='text-[20px] lg:text-[24px] font-bold'>37,90 zł</h6>
 </div>
 
 <div className='w-[20%]'>
   <h6 className='tracking-[0.12em] text-xs font-semibold'>TOTAL PRICE</h6>
-  <h6 className='text-[24px] font-bold'>3032 zł</h6>
+  <h6 className='text-[20px] lg:text-[24px] font-bold'>3032 zł</h6>
 </div>
 
-<div className='w-[20%]'>
+<div className='w-[20%] bg-slate-500 min-w-[140px] lg:min-w-[168px]'>
   <h6 className='tracking-[0.12em] text-xs font-semibold'>CARE START DATE</h6>
-  <h6 className='text-[24px] font-bold'>15 March 2023</h6>
+  <h6 className='text-[20px] lg:text-[24px] font-bold'>15 March 2023</h6>
 </div>
 
 <div className='absolute right-0'>
@@ -98,7 +98,7 @@ const page = () => {
 <section className='border-[1px]  border-solid  border-gray-300' ></section>
 
 {/* ------------------------------------------------------------------------------------ */}
-<main className='mx-28 py-10'>
+<main className='mx-2 sm:mx-3 lg:mx-14 xlg:mx-28 py-10'>
 
 <section className='flex  items-center relative'>
 
