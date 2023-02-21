@@ -40,28 +40,15 @@ const page = () => {
   
   return (
     <>
-      
-    {/* <nav  className='flex justify-end h-6 box-border bg-black'>
-    <section className='flex items-center mx-4 sm:mx-14 font-medium text-white tracking-widest text-xs  lg:text-sm py-2'>
-    <span className='px-2.5	mt-0.5 cursor-pointer'>FAQs</span>
-    <span className='px-2.5 mt-0.5	cursor-pointer'>About us</span>
-    <span className='px-2.5	mt-0.5 cursor-pointer '>Contact</span>
-    </section>
-    </nav> */}
 
     <Navbar color={'bg-blue'} {...navDetails}/>
- 
 
-   
 {/* ----------------------------------------------------------------------------------------------------------------- */}
 <main className='bg-specialbg overflow-hidden'>
 <main className='mx-4 smd:mx-14 '>
   {/* ------------RESPONSIBLE FOR MARGIN---------------- */}
 
-
-
-
-  <BookingHeader active={3}/>
+    <BookingHeader active={3}/>
 
 <section className='bg-white h-max rounded-[16px] mt-10'>
 
@@ -98,69 +85,101 @@ const page = () => {
 <section className='border-[1px]  border-solid  border-gray-300' ></section>
 
 {/* ------------------------------------------------------------------------------------ */}
-<main className='mx-2 sm:mx-3 lg:mx-14 xlg:mx-28 py-10'>
+<main className='flex items-start justify-between  mx-4 sm:mx-6 lg:mx-14 xlg:mx-28 py-10 '>
 
-<section className='flex  items-center relative'>
+<section className=''>
 
-<div className='w-[20%]'>
+<div className=''>
     <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>FIRST NAME</h6>
     <h6 className='text-[16px] font-semibold'>Natalia</h6>
 </div>
 
-<div className='w-[20%]'>
-    <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>LAST NAME</h6>
-    <h6 className='text-[16px] font-semibold'>Kowalska</h6>
-</div>
-
-<div className='w-[20%]'>
+<div className='mt-6 block md:hidden'>
     <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>EMAIL ADDRESS</h6>
     <h6 className='text-[16px] font-semibold'>nat_ko@gmail.com</h6>
 </div>
 
-<div className='w-[20%]'>
-    <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>PHONE NUMBER</h6>
-    <h6 className='text-[16px] font-semibold'>505 602 304</h6>
-</div>
-
-<div className=' absolute right-0'>
-     <button className='border-[1px] border-solid  border-gray-300 flex px-5 py-[10px] text-sm font-semibold rounded-[50px]'><img src='../images/booking/Edit.svg' className='pr-2'/>Edit Contact</button>
-</div>
-
-</section>
-{/* ------------------------------------------------------------------------------------ */}
-
-<section className='flex  items-center  mt-8'>
-
-<div className='w-[20%]'>
+<div className='mt-6'>
     <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>STREET NAME</h6>
     <h6 className='text-[16px] font-semibold'>Grójecka</h6>
 </div>
 
-<div className='w-[20%]'>
+<div className='mt-6'>
+    <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>CITY / TOWN</h6>
+    <h6 className='text-[16px] font-semibold'>Warszawa</h6>
+</div>
+
+<div className='mt-6 md:hidden'>
+    <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>POSTAL CODE</h6>
+    <h6 className='text-[16px] font-semibold'>02-031</h6>
+</div>
+</section>
+{/* ------------------------------------------------------------------------------------ */}
+
+<section className=''>
+
+<button className='  border-[1px] border-solid  border-gray-300 xlsm:hidden flex  shrink-0 px-5 py-[10px] text-sm font-semibold rounded-[50px]'><img src='../images/booking/Edit.svg' className='pr-2'/>Edit Contact</button>
+
+
+<div className='mt-6 xlsm:mt-0'>
+    <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>LAST NAME</h6>
+    <h6 className='text-[16px] font-semibold'>Kowalska</h6>
+</div>
+
+<div className='mt-6 block lg:hidden '>
+    <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>PHONE NUMBER</h6>
+    <h6 className='text-[16px] font-semibold'>505 602 304</h6>
+</div>
+
+<div className='mt-6'>
     <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>STREET NUMBER</h6>
     <h6 className='text-[16px] font-semibold'>45</h6>
 </div>
 
-<div className='w-[20%]'>
+<div className='mt-6 block md:hidden'>
     <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>APARTMENT NUMBER</h6>
     <h6 className='text-[16px] font-semibold'>17</h6>
 </div>
 
-<div className='w-[20%]'>
+</section>
+{/* ------------------------------------------------------------------------------------ */}
+<section className='hidden md:block '>
+
+<div className=''>
+    <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>EMAIL ADDRESS</h6>
+    <h6 className='text-[16px] font-semibold'>nat_ko@gmail.com</h6>
+</div>
+
+<div className='mt-6'>
+    <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>APARTMENT NUMBER</h6>
+    <h6 className='text-[16px] font-semibold'>17</h6>
+</div>
+
+<div className='mt-6 block lg:hidden'>
+    <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>POSTAL CODE</h6>
+    <h6 className='text-[16px] font-semibold'>02-031</h6>
+</div>
+</section>
+
+{/* ------------------------------------------------------------------------------------ */}
+
+<section className='hidden lg:block '>
+
+<div className=''>
+    <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>PHONE NUMBER</h6>
+    <h6 className='text-[16px] font-semibold'>505 602 304</h6>
+</div>
+
+<div className='mt-6'>
     <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>POSTAL CODE</h6>
     <h6 className='text-[16px] font-semibold'>02-031</h6>
 </div>
 
 </section>
+
 {/* ------------------------------------------------------------------------------------ */}
-<section className='flex  items-center  mt-8'>
 
-<div className='w-[20%]'>
-    <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>CITY / TOWN</h6>
-    <h6 className='text-[16px] font-semibold'>Warszawa</h6>
-</div>
-
-</section>
+<button className=' border-[1px] border-solid  border-gray-300 hidden xlsm:flex  shrink-0 px-5 py-[10px] text-sm font-semibold rounded-[50px]'><img src='../images/booking/Edit.svg' className='pr-2'/>Edit Contact</button>
 
 </main>
 
@@ -170,7 +189,7 @@ const page = () => {
 
 {/* ------------------------------------------------------------------------------------ */}
 
-<main className=' mx-2 sm:mx-3 smd:mx-14 xlg:mx-28 py-10'>
+<main className=' mx-4 sm:mx-6 lg:mx-14 xlg:mx-28 py-10'>
 
 <section className='flex  items-center relative'>
 
@@ -180,7 +199,7 @@ const page = () => {
 </div>
 
 <div className=' absolute right-0'>
-     <button className='border-[1px] border-solid  border-gray-300 flex px-3 xlsm:px-5 py-[10px] text-sm font-semibold rounded-[50px]'><img src='../images/booking/Edit.svg' className='pr-3'/>Edit Requirements</button>
+     <button className='border-[1px] border-solid  border-gray-300 flex px-2 xlsm:px-5 py-[10px] text-[13px] sm:text-sm font-semibold rounded-[50px]'><img src='../images/booking/Edit.svg' className='pr-2 sm:pr-3'/>Edit Requirements</button>
 </div>
 
 </section>
@@ -203,7 +222,7 @@ const page = () => {
 {/* ------------------------------------------------------------------------------------ */}
 
 
-<main className='mx-2 sm:mx-3 smd:mx-14 xlg:mx-28 py-10'>
+<main className='mx-4 sm:mx-6 lg:mx-14 xlg:mx-28 py-10'>
 
 <section className='flex  items-center relative'>
 
@@ -238,8 +257,8 @@ const page = () => {
 <h6 className='mt-6 tracking-[0.02em] text-[16px]'>You can unsubscribe from these communications at any time. For more information on how to unsubscribe, our privacy policies and how we are committed to protecting and respecting your privacy, please see our <span className='text-blue underline decoration-[1px] underline-offset-2'>Privacy Policy</span> .</h6>
 
 <div className='flex justify-between'>
-<Link href={{pathname:'/booking/additionalRequirements'}}><button className='bg-ligrey rounded-[50px] px-6 smd:px-9 py-[8px] text-black text-[15px] sm:text-[18px] font-semibold mt-10' >Back</button></Link>
-<Link href={{pathname:'./booking/account'}}><button className='bg-blue rounded-[50px] px-4 smd:px-9 py-[8px] text-white text-[15px] sm:text-[18px] font-semibold mt-10 ' >Confirm & Proceed to Sign up</button></Link>
+<Link href={{pathname:'/booking/additionalRequirements'}}><button className='bg-ligrey rounded-[50px] px-6 smd:px-9 py-[8px] text-black text-[14px] sm:text-[18px] font-semibold mt-10' >Back</button></Link>
+<Link href={{pathname:'./booking/account'}}><button className='bg-blue rounded-[50px] px-4 smd:px-9 py-[8px] text-white text-[14px] sm:text-[18px] font-semibold mt-10 ' >Confirm & Proceed to Sign up</button></Link>
 </div>
 
 </main>
