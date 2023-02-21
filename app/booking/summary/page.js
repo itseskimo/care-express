@@ -54,22 +54,22 @@ const page = () => {
 
 
 <section className=' flex  items-center relative mx-2 sm:mx-3 lg:mx-14 xlg:mx-28 py-8'>
-<div className='w-[20%]'>
-  <h6 className='tracking-[0.12em] text-xs font-semibold'>SELECT PLAN</h6>
+<div className=' md:w-[16.5%] lg:w-[20%]'>
+  <h6 className='tracking-[0.12em] text-xs font-semibold bg-yellow-500'>SELECT PLAN</h6>
   <h6 className='text-[20px] lg:text-[24px] font-bold'>80 hours</h6>
 </div>
 
-<div className='w-[20%]'>
-  <h6 className='tracking-[0.12em] text-xs font-semibold'>PRICE/HOUR</h6>
+<div className=' md:w-[16.5%] lg:w-[20%]'>
+  <h6 className='tracking-[0.12em] text-xs font-semibold bg-rose-400'>PRICE/HOUR</h6>
   <h6 className='text-[20px] lg:text-[24px] font-bold'>37,90 zł</h6>
 </div>
 
-<div className='w-[20%]'>
-  <h6 className='tracking-[0.12em] text-xs font-semibold'>TOTAL PRICE</h6>
+<div className=' md:w-[16.5%] lg:w-[20%]'>
+  <h6 className='tracking-[0.12em] text-xs font-semibold bg-green'>TOTAL PRICE</h6>
   <h6 className='text-[20px] lg:text-[24px] font-bold'>3032 zł</h6>
 </div>
 
-<div className='w-[20%] bg-slate-500 min-w-[140px] lg:min-w-[168px]'>
+<div className=' md:w-[16.5%] lg:w-[20%] bg-slate-500 min-w-[140px] lg:min-w-[168px]'>
   <h6 className='tracking-[0.12em] text-xs font-semibold'>CARE START DATE</h6>
   <h6 className='text-[20px] lg:text-[24px] font-bold'>15 March 2023</h6>
 </div>
@@ -85,9 +85,9 @@ const page = () => {
 <section className='border-[1px]  border-solid  border-gray-300' ></section>
 
 {/* ------------------------------------------------------------------------------------ */}
-<main className='flex items-start justify-between  mx-4 sm:mx-6 lg:mx-14 xlg:mx-28 py-10 '>
+<main className='flex items-start relative  mx-4 sm:mx-6 lg:mx-14 xlg:mx-28 py-10 '>
 
-<section className=''>
+<section className='w-[50%] xlsm:w-[40%] md:w-[25%] lg:w-[20%]'>
 
 <div className=''>
     <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>FIRST NAME</h6>
@@ -116,7 +116,7 @@ const page = () => {
 </section>
 {/* ------------------------------------------------------------------------------------ */}
 
-<section className=''>
+<section className='absolute right-0 xlsm:static xlsm:w-[40%] md:w-[25%] lg:w-[20%]'>
 
 <button className='  border-[1px] border-solid  border-gray-300 xlsm:hidden flex  shrink-0 px-5 py-[10px] text-sm font-semibold rounded-[50px]'><img src='../images/booking/Edit.svg' className='pr-2'/>Edit Contact</button>
 
@@ -143,7 +143,7 @@ const page = () => {
 
 </section>
 {/* ------------------------------------------------------------------------------------ */}
-<section className='hidden md:block '>
+<section className='hidden md:block w-[25%] lg:w-[20%] '>
 
 <div className=''>
     <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>EMAIL ADDRESS</h6>
@@ -163,7 +163,7 @@ const page = () => {
 
 {/* ------------------------------------------------------------------------------------ */}
 
-<section className='hidden lg:block '>
+<section className='hidden lg:block w-[20%] bg-green'>
 
 <div className=''>
     <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>PHONE NUMBER</h6>
@@ -179,7 +179,7 @@ const page = () => {
 
 {/* ------------------------------------------------------------------------------------ */}
 
-<button className=' border-[1px] border-solid  border-gray-300 hidden xlsm:flex  shrink-0 px-5 py-[10px] text-sm font-semibold rounded-[50px]'><img src='../images/booking/Edit.svg' className='pr-2'/>Edit Contact</button>
+<button className='absolute right-0 border-[1px] border-solid  border-gray-300 hidden xlsm:flex  shrink-0 px-5 py-[10px] text-sm font-semibold rounded-[50px]'><img src='../images/booking/Edit.svg' className='pr-2'/>Edit Contact</button>
 
 </main>
 
