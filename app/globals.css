@@ -124,14 +124,13 @@ video {
   }
 } */
 
-html{
+html {
   scroll-behavior: smooth;
 }
 
-
-* { box-sizing: border-box; }
-
-
+* {
+  box-sizing: border-box;
+}
 
 .carousel {
   background: transparent;
@@ -141,9 +140,9 @@ html{
   width: 636px;
   height: 400px;
   margin-right: 20px;
-  background: #FFFFFF;
-border-radius: 12px;
-box-shadow: 0px 20px 20px 4px rgba(78, 50, 39, 0.06);
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0px 20px 20px 4px rgba(78, 50, 39, 0.06);
 }
 
 .carousel-cell:before {
@@ -156,34 +155,31 @@ box-shadow: 0px 20px 20px 4px rgba(78, 50, 39, 0.06);
 
 .flickity-button:focus {
   outline: none;
-  box-shadow: 0 0 0 5px #19F;
+  box-shadow: 0 0 0 5px #19f;
 }
 
-
 .flickity-button {
-  background: #0C68FF !important;
+  background: #0c68ff !important;
   z-index: 100;
 }
 
 .flickity-button:hover {
-  background: #0C68FF !important;
+  background: #0c68ff !important;
 }
 
 .flickity-button-icon {
   fill: white !important;
 }
 
-
-
 .flickity-page-dots {
   bottom: 14px !important;
   background-color: white;
-  padding: 6px 0px  !important;
+  padding: 6px 0px !important;
   width: 72px !important;
-  position: absolute !important; 
-  left: 0 !important; 
-  right: 0 !important; 
-  margin-left: auto !important; 
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  margin-left: auto !important;
   margin-right: auto !important;
   border-radius: 15px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);
@@ -201,78 +197,79 @@ box-shadow: 0px 20px 20px 4px rgba(78, 50, 39, 0.06);
 /* fill-in selected dot */
 .flickity-page-dots .dot.is-selected {
   background: black !important ;
-  
 }
 
-
-
-input::placeholder{
+input::placeholder {
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
   letter-spacing: 0.02em;
-  }
-
-  @keyframes rotate {
-    from {
-        transform: rotate(0deg);
-    }
-    to { 
-        transform: rotate(360deg);
-    }
 }
- 
 
- @-webkit-keyframes rotate {
-    from {
-        -webkit-transform: rotate(0deg);
-    }
-    to { 
-        -webkit-transform: rotate(360deg);
-    }
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
 }
 
 .load {
-	width: 70px;
-	height: 70px;
-	border:solid 8px #416EEA;
+  width: 70px;
+  height: 70px;
+  border: solid 8px #416eea;
   margin-bottom: 24px;
-	border-radius: 50%;
-	border-right-color: transparent;
-	border-bottom-color: transparent;
-	 -webkit-transition: all 0.5s ease-in;
-    -webkit-animation-name:             rotate; 
-    -webkit-animation-duration:         1.0s; 
-    -webkit-animation-iteration-count:  infinite;
-    -webkit-animation-timing-function: linear;
-    	
-    	 transition: all 0.5s ease-in;
-    animation-name:             rotate; 
-    animation-duration:         1.0s; 
-    animation-iteration-count:  infinite;
-    animation-timing-function: linear; 
+  border-radius: 50%;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  -webkit-transition: all 0.5s ease-in;
+  -webkit-animation-name: rotate;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+
+  transition: all 0.5s ease-in;
+  animation-name: rotate;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 
-
-
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    margin: 0; 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
 }
 
+/* Services Border Design */
+.service-border {
+  position: relative;
+  display: block;
+  background: #000;
+  border: 1px solid transparent;
+  border-radius: 1rem;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
+.service-border::after {
+  content: "";
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  bottom: -4px;
+  left: -4px;
+  background: #fff;
+  width: 100%;
+  height: 100%;
+}
