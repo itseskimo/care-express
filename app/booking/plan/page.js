@@ -19,12 +19,20 @@ const [calendarDate,setCalendarDate]=useState('')
 const [date, setDate] = useState(null);
 
 
-
 function saveData(){
   localStorage.setItem('hours', hours)
   localStorage.setItem('cost', cost)
   localStorage.setItem('careType', careType)
 }
+
+function calendar(){
+ const calendar= document.getElementById('extractCalendarTime')
+ setCalendarDate(calendar.value)
+}
+
+useEffect(()=>{
+calendar()
+},[date])
 
 
 function extractText(e){
@@ -203,9 +211,11 @@ function extractText(e){
    name='createEmail'
    type='email'
    readOnly
-   value={date === null ? 'Care Start Date' : `${format(date, "MM/dd/yyyy")}`}
-   onChange={(e)=>setCalendarDate(e.target.value)}
+   value={date === null ? 'Care Start Date' : `${format(date, "MM/dd/yyyy")}` }
    required
+   onClick={calendar}
+
+   id='extractCalendarTime'
    />
   </div>
 </div>
