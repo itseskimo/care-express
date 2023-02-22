@@ -24,8 +24,9 @@ import { LOGIN_FAIL, LOGIN_REQUEST,LOGIN_SUCCESS,REGISTER_USER_REQUEST,
 
     try {
       dispatch({ type: REGISTER_USER_REQUEST });
-  
-      const config = { headers: { "Content-Type": "multipart/form-data" } };
+      const config = { headers: { "Content-Type": "application/json" } };
+
+      // const config = { headers: { "Content-Type": "multipart/form-data" } };
   
       const { data } = await axios.post('https://care-express-api.dthree.in/api/auth/register', userData, config);
 
