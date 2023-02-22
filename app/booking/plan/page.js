@@ -15,6 +15,7 @@ const [careType,setCareTye]=useState('')
 const [selectTime,setSelectTime]=useState('')
 const [hours,setHours]=useState('')
 const [cost,setCost]=useState('')
+const [calendarDate,setCalendarDate]=useState('')
 const [date, setDate] = useState(null);
 
 
@@ -193,11 +194,22 @@ function extractText(e){
 <div>
   <h6 className='font-bold mt-5'>When would you like for the care to begin ?</h6>
   <section className='mt-2 '>
+    
+  <div className='min-w-[300px] sm:min-w-[330px] lg:max-w-none w-[80%] lg:w-[50%]'>
+  <div className='relative flex '>
+  <img src='../images/booking/calendar.svg' className='absolute  top-3 right-3'/>
+  <input style={{border:'1px solid #ABABAB'}}
+   className='outline-none bg-inputbg w-full py-[10px] rounded-[8px] pl-3' 
+   name='createEmail'
+   type='email'
+   readOnly
+   value={date === null ? 'Care Start Date' : `${format(date, "MM/dd/yyyy")}`}
+   onChange={(e)=>setCalendarDate(e.target.value)}
+   required
+   />
+  </div>
+</div>
 
-    <div className='border-[1px] border-solid flex items-center justify-between border-gray-300 text-xs py-[10px] rounded-[12px] w-[46%] bg-inputbg'>
-    <h6 className='pl-3 font-semibold tracking-[0.02em] text-[16px] text-gray-300' >{date === null ? 'Care Start Date' : `${format(date, "MM/dd/yyyy")}`}</h6>
-    <img src='../images/booking/calendar.svg' className='pr-3'/>
-    </div>
 
 <Calendar 
 showMonthAndYearPickers={false} 
@@ -205,7 +217,6 @@ onChange={item => setDate(item)}
 date={date}  
 className='shadow-xl'
 />
-
 
   </section>
 </div>
