@@ -4,22 +4,14 @@ import Footer from '../../Components/footer/footer'
 import BookingHeader from '../../Components/bookingHeader/page'
 import Link from 'next/link'
 import { useState , useEffect} from 'react'
+import { register } from '@/redux/actions/page'
+import { useDispatch } from 'react-redux'
+
 
 const page = () => {
-const [contact, setContact] = useState({})
-const {firstName,lastName,emailAdress,phoneNumber,streetName,streetNumber,apartmentNumber,postalCode,city}=contact
 
+  const [accountToggle, setAccountToggle]=useState(true)
 
-
-useEffect(()=>{
-const contactData =localStorage.getItem('contact')
-let data = JSON.parse(contactData);
-setContact(data)
-},[])
-
-
-
-const [accountToggle, setAccountToggle]=useState(true)
   const [user, setUser] = useState({
     createPhoneNumber: "",
     createEmail: "",
@@ -29,10 +21,33 @@ const [accountToggle, setAccountToggle]=useState(true)
 
   const { createEmail, createPhoneNumber, createPassword, confirmPassword } = user;
 
+
+  const [contact, setContact] = useState({})
+  const {firstName,lastName,emailAdress,phoneNumber,streetName,streetNumber,apartmentNumber,postalCode,city,careType,calendarDate}=contact
+
+  useEffect(()=>{
+     let calendarDate= localStorage.getItem('calendarDate')
+     let careType= localStorage.getItem('careType')
+
+     const contactData =localStorage.getItem('contact')
+     let data = JSON.parse(contactData);
+     data.careType=careType
+     data.calendarDate=calendarDate
+     setContact(data)
+  },[])
+
+
+  const dispatch = useDispatch();
+  const [message,setMessage]=useState('')
+
   const registerSubmit = (e) => {
     e.preventDefault();
-    setAccountToggle(false)
-     const myForm = new FormData();
+
+    if(createPassword === confirmPassword){
+
+    const myForm = new FormData();
+    myForm.set("care_type", careType);
+    myForm.set("care_start_date", calendarDate);
     myForm.set("email", emailAdress);
     myForm.set("password", createPassword);
     myForm.set("first_name", firstName);
@@ -42,8 +57,14 @@ const [accountToggle, setAccountToggle]=useState(true)
     myForm.set("street_name", streetName);
     myForm.set("postal_code", postalCode);
     myForm.set("city", city);
+    // dispatch(register(myForm));
+    setAccountToggle(false)
+    }else{
+      
+    }
+   
 
-    console.log(Object.fromEntries(myForm))
+    // console.log(Object.fromEntries(myForm))
   };
 
 
