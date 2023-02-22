@@ -290,3 +290,39 @@ input[type="number"]::-webkit-outer-spin-button {
   background-origin: border-box;
   background-clip: content-box, border-box;
 }
+/* ----------------------------------------------------------- */
+.blueNanny-service{
+  border: 1px solid transparent;
+  border-radius: 16px;
+  background-image: linear-gradient(#F0F6FF, #F0F6FF), 
+                    linear-gradient(to top, #FF5E00, transparent 75%);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+.blueSenior-service{
+  border: 1px solid transparent;
+  border-radius: 16px;
+  background-image: linear-gradient(#F0F6FF, #F0F6FF), 
+                    linear-gradient(to top, rgba(255, 163, 161, 1), transparent 75%);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+.bluePet-service{
+  border: 1px solid transparent;
+  border-radius: 16px;
+  background-image: linear-gradient(#F0F6FF, #F0F6FF), 
+                    linear-gradient(to top, rgba(170, 99, 77, 1), transparent 75%);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+.blueSpecial-service{
+  border: 1px solid transparent;
+  border-radius: 16px;
+  background-image: linear-gradient(#F0F6FF, #F0F6FF), 
+                    linear-gradient(to top, rgba(12, 104, 255, 1), transparent 75%);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}

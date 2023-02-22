@@ -40,6 +40,13 @@ const personal = () => {
     overlay:'linear-gradient(90deg, #FFFDF4 0%, rgba(0, 0, 0, 0) 24%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0) 76%, #FFFDF4 100%)'
   }
 
+
+  const services ={
+    nanny:'nanny-service',
+    senior:'senior-service',
+    pet:'pet-service',
+    special:'special-service',
+  }
   return (
     <>
     <main className=' '  >
@@ -144,7 +151,7 @@ your beloved pet has no one to take care of him? </h6>
 <header  className='pt-20  bg-liyellow' id='services'>
 <main  className='mx-4 sm:mx-14'>
   
-<Services/>
+<Services {...services}/>
 
 
       

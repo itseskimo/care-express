@@ -47,9 +47,13 @@ const page = () => {
     subText:'text-grey',
     overlay:'linear-gradient(90deg, rgba(240, 246, 255, 1) 0%, rgba(0, 0, 0, 0) 24%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0) 76%, rgba(240, 246, 255, 1) 100%)'
   }
-// useEffect(()=>{
-// localStorage.clear()
-// },[])
+
+  const services ={
+    nanny:'blueNanny-service',
+    senior:'blueSenior-service',
+    pet:'bluePet-service',
+    special:'blueSpecial-service',
+  }
 
   return (
     <>
@@ -118,7 +122,7 @@ const page = () => {
 
 <header  className='pt-20  bg-specialbg' id='services'>
 <main className='mx-4 sm:mx-14'>
-<Services/>
+<Services {...services}/>
 
     
 {/* ----------------------------------------------------------------------------------------------------------------- */}

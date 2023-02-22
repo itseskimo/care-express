@@ -1,6 +1,8 @@
 import React from 'react'
 
-const services = () => {
+const services = (props) => {
+  const{nanny,senior,pet,special}=props
+  console.log(nanny,senior,pet,special)
   return (
     <>
     
@@ -8,7 +10,7 @@ const services = () => {
   
   <section className='w-[306px] h-[325px] flex items-center  justify-center mt-5 mx-3 cursor-pointer' onClick={()=>{window.location.href=`/nannyExpress`}}>
     <div className=' rounded-2xl flex items-center justify-center flex-col'>
-    <div className='nanny-service'>
+    <div className={`${nanny}`}>
           <img src='../images/business/nanny.png' className='rounded-[16px]'/>
     </div>      
       <h6 className='mt-6 text-base md:text-2xl font-semibold flex items-center justify-center whitespace-nowrap'>Nanny Express</h6>
@@ -18,7 +20,7 @@ const services = () => {
   
   <section className='w-[306px] h-[325px] flex items-center justify-center mt-5 mx-3 cursor-pointer' onClick={()=>{window.location.href='/seniorExpress'}}>
     <div className='rounded-2xl flex items-center justify-center flex-col'>
-      <div  className='senior-service'>
+      <div  className={`${senior}`}>
           <img src='../images/business/senior.png' className='rounded-[16px]'/>
       </div>
       <h6 className='mt-6 text-base md:text-2xl font-semibold flex items-center justify-center whitespace-nowrap'>Senior Express</h6>
@@ -28,7 +30,7 @@ const services = () => {
   
   <section className='w-[306px] h-[325px] flex items-center justify-center mt-5 mx-3 cursor-pointer' onClick={()=>{window.location.href='/petExpress'}}>
     <div className='  rounded-2xl flex items-center justify-center flex-col'>
-    <div className='pet-service'>
+    <div className={`${pet}`}>
           <img src='../images/business/pet.png' className='rounded-[16px]'/>
     </div>         
       <h6 className='mt-6 text-base md:text-2xl font-semibold flex items-center justify-center whitespace-nowrap'>Pet Express</h6>
@@ -38,7 +40,7 @@ const services = () => {
   
   <section className='w-[306px] h-[325px] flex items-center justify-center mt-5 mx-3 cursor-pointer' onClick={()=>{window.location.href='/specialExpress'}}>
     <div className='rounded-2xl flex items-center justify-center flex-col'>
-    <div className='special-service'>
+    <div className={`${special}`}>
           <img src='../images/business/special.png' className='rounded-[16px]'/>
     </div>   
       <h6 className='mt-6 text-base md:text-2xl font-semibold flex items-center justify-center whitespace-nowrap'>Special Express</h6>
