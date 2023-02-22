@@ -30,7 +30,22 @@ const page = () => {
 
 function formsubmit(e){
   e.preventDefault();
-  router.push('/booking/additionalRequirements')
+    // const myForm = new FormData();
+
+    // myForm.set("first_name", firstName);
+    // myForm.set("last_name", lastName);
+    // myForm.set("email", emailAdress);
+    // myForm.set("phone", phoneNumber);
+    // myForm.set("street_number", streetNumber);
+    // myForm.set("street_name", streetName);
+    // myForm.set("postal_code", postalCode);
+    // myForm.set("city", city);
+    // myForm.set("street_name", streetName);
+    // console.log(Object.fromEntries(myForm))
+    let contactData = JSON.stringify(contact);
+    localStorage.setItem('contact',contactData)
+
+    router.push('/booking/additionalRequirements')
 }
 
   const navDetails={
@@ -180,7 +195,7 @@ const [cost,setCost]=useState('')
 <div className='flex justify-between'>
   <Link href={{pathname:'/booking/plan'}}><button className='bg-ligrey rounded-[50px] px-9 py-[8px] text-black text-[18px] font-semibold mt-10' >Back</button></Link>
   {/* <Link href={{pathname:'./booking/additionalRequirements'}}></Link> */}
-    <input type='submit' className='bg-blue rounded-[50px] px-9 py-[8px] text-white text-[18px] font-semibold mt-10' value='Next'/>
+    <input type='submit' className='bg-blue rounded-[50px] px-9 py-[8px] text-white cursor-pointer text-[18px] font-semibold mt-10' value='Next'/>
 </div>
 
 

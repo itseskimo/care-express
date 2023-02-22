@@ -3,6 +3,7 @@ import Navbar from '../../Components/navbar/navbar'
 import Footer from '../../Components/footer/footer'
 import BookingHeader from '../../Components/bookingHeader/page'
 import Link from 'next/link'
+import { useEffect,useState } from 'react'
 const page = () => {
 
   const navDetails={
@@ -35,8 +36,24 @@ const page = () => {
     InstaIcon:'../images/business/Icons/instagram.svg',
     FbIcon:'../images/business/Icons/facebook.svg',
   }
+  const [contact, setContact] = useState({})
+  const {firstName,lastName,emailAdress,phoneNumber,streetName,streetNumber,apartmentNumber,postalCode,city}=contact
+
+  const [hours,setHours]=useState('')
+  const [cost,setCost]=useState('')
+  
+
+useEffect(()=>{
+  let hours= localStorage.getItem('hours')
+  setHours(hours)
+  let cost= localStorage.getItem('cost')
+  setCost(cost)
 
 
+const contactData =localStorage.getItem('contact')
+let data = JSON.parse(contactData);
+setContact(data)
+},[contact])
   
   return (
     <>
@@ -56,12 +73,12 @@ const page = () => {
 <section className=' flex  items-center relative mx-2 sm:mx-3 lg:mx-14 xlg:mx-28 py-8'>
 <div className=' md:w-[16.5%] lg:w-[20%]'>
   <h6 className='tracking-[0.12em] text-xs font-semibold bg-yellow-500'>SELECT PLAN</h6>
-  <h6 className='text-[20px] lg:text-[24px] font-bold'>80 hours</h6>
+  <h6 className='text-[20px] lg:text-[24px] font-bold'>{hours}</h6>
 </div>
 
 <div className=' md:w-[16.5%] lg:w-[20%]'>
   <h6 className='tracking-[0.12em] text-xs font-semibold bg-rose-400'>PRICE/HOUR</h6>
-  <h6 className='text-[20px] lg:text-[24px] font-bold'>37,90 zł</h6>
+  <h6 className='text-[20px] lg:text-[24px] font-bold'>{cost}</h6>
 </div>
 
 <div className=' md:w-[16.5%] lg:w-[20%]'>
@@ -91,27 +108,27 @@ const page = () => {
 
 <div className=''>
     <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>FIRST NAME</h6>
-    <h6 className='text-[16px] font-semibold'>Natalia</h6>
+    <h6 className='text-[16px] font-semibold'>{firstName}</h6>
 </div>
 
 <div className='mt-6 block md:hidden'>
     <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>EMAIL ADDRESS</h6>
-    <h6 className='text-[16px] font-semibold'>nat_ko@gmail.com</h6>
+    <h6 className='text-[16px] font-semibold'>{emailAdress}</h6>
 </div>
 
 <div className='mt-6'>
     <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>STREET NAME</h6>
-    <h6 className='text-[16px] font-semibold'>Grójecka</h6>
+    <h6 className='text-[16px] font-semibold'>{streetName}</h6>
 </div>
 
 <div className='mt-6'>
     <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>CITY / TOWN</h6>
-    <h6 className='text-[16px] font-semibold'>Warszawa</h6>
+    <h6 className='text-[16px] font-semibold'>{city}</h6>
 </div>
 
 <div className='mt-6 md:hidden'>
     <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>POSTAL CODE</h6>
-    <h6 className='text-[16px] font-semibold'>02-031</h6>
+    <h6 className='text-[16px] font-semibold'>{postalCode}</h6>
 </div>
 </section>
 {/* ------------------------------------------------------------------------------------ */}
@@ -123,17 +140,17 @@ const page = () => {
 
 <div className='mt-6 xlsm:mt-0'>
     <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>LAST NAME</h6>
-    <h6 className='text-[16px] font-semibold'>Kowalska</h6>
+    <h6 className='text-[16px] font-semibold'>{lastName}</h6>
 </div>
 
 <div className='mt-6 block lg:hidden '>
     <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>PHONE NUMBER</h6>
-    <h6 className='text-[16px] font-semibold'>505 602 304</h6>
+    <h6 className='text-[16px] font-semibold'>{phoneNumber}</h6>
 </div>
 
 <div className='mt-6'>
     <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>STREET NUMBER</h6>
-    <h6 className='text-[16px] font-semibold'>45</h6>
+    <h6 className='text-[16px] font-semibold'>{streetNumber}</h6>
 </div>
 
 <div className='mt-6 block md:hidden'>
@@ -147,7 +164,7 @@ const page = () => {
 
 <div className=''>
     <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>EMAIL ADDRESS</h6>
-    <h6 className='text-[16px] font-semibold'>nat_ko@gmail.com</h6>
+    <h6 className='text-[16px] font-semibold'>{emailAdress}</h6>
 </div>
 
 <div className='mt-6'>
@@ -157,7 +174,7 @@ const page = () => {
 
 <div className='mt-6 block lg:hidden'>
     <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>POSTAL CODE</h6>
-    <h6 className='text-[16px] font-semibold'>02-031</h6>
+    <h6 className='text-[16px] font-semibold'>{postalCode}</h6>
 </div>
 </section>
 
@@ -167,12 +184,12 @@ const page = () => {
 
 <div className=''>
     <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>PHONE NUMBER</h6>
-    <h6 className='text-[16px] font-semibold'>505 602 304</h6>
+    <h6 className='text-[16px] font-semibold'>{phoneNumber}</h6>
 </div>
 
 <div className='mt-6'>
     <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>POSTAL CODE</h6>
-    <h6 className='text-[16px] font-semibold'>02-031</h6>
+    <h6 className='text-[16px] font-semibold'>{postalCode}</h6>
 </div>
 
 </section>

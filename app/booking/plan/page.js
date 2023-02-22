@@ -2,22 +2,27 @@
 import Navbar from '../../Components/navbar/navbar'
 import Footer from '../../Components/footer/footer'
 import BookingHeader from '../../Components/bookingHeader/page'
-import { useEffect, useState } from 'react'
+import 'react-date-range/dist/styles.css'; 
+import 'react-date-range/dist/theme/default.css';
+import {format} from 'date-fns'
+import { Calendar } from 'react-date-range';
+import {useState} from 'react'
 import Link from 'next/link'
 
 const page = () => {
 
-const [expressSelected,setExpressSelected]=useState('')
+const [careType,setCareTye]=useState('')
 const [selectTime,setSelectTime]=useState('')
-console.log(expressSelected)
 const [hours,setHours]=useState('')
 const [cost,setCost]=useState('')
+const [date, setDate] = useState(null);
 
 
 
 function saveData(){
   localStorage.setItem('hours', hours)
   localStorage.setItem('cost', cost)
+  localStorage.setItem('careType', careType)
 }
 
 
@@ -91,9 +96,9 @@ function extractText(e){
   <h6 className='font-semibold tracking-[0.02em] text-[16px]'>Select Care Type</h6>
   <section className='mt-2 flex flex-wrap gap-8'  >
 
-    <div className='border-[1px] border-solid border-gray-300	w-max rounded-[12px] relative cursor-pointer' id='Nanny Express' onClick={(e)=>setExpressSelected(e.target.id)}>
-      <nav className={`bg-grey absolute w-full h-full select-none pointer-events-none rounded-[12px] ${expressSelected === 'Nanny Express' ? 'block' : 'hidden'}`} >
-      <img src='../images/booking/check.png' className=' absolute top-[50%] select-none pointer-events-none left-[50%] -translate-y-[50%] -translate-x-[50%] select-none pointer-events-none'/>
+    <div className='border-[1px] border-solid border-gray-300	w-max rounded-[12px] relative cursor-pointer' id='Nanny' onClick={(e)=>setCareTye(e.target.id)}>
+      <nav className={`bg-grey absolute w-full h-full select-none pointer-events-none rounded-[12px] ${careType === 'Nanny' ? 'block' : 'hidden'}`} >
+      <img src='../images/booking/check.png' className=' absolute top-[50%]  left-[50%] -translate-y-[50%] -translate-x-[50%] select-none pointer-events-none'/>
       </nav>
       <img src='../images/booking/mom-son-cycle.png' className='select-none pointer-events-none'/>
       <h6 className='text-left font-semibold text-[16px] pl-3 py-3 select-none pointer-events-none' >Nanny Express</h6>
@@ -102,8 +107,8 @@ function extractText(e){
   
 
 
-    <div className='border-[1px] border-solid border-gray-300	w-max rounded-[12px] relative cursor-pointer' id='Senior Express' onClick={(e)=>setExpressSelected(e.target.id)}>
-    <nav className={`bg-grey absolute w-full h-full select-none pointer-events-none rounded-[12px] ${expressSelected === 'Senior Express' ? 'block' : 'hidden'}`}>
+    <div className='border-[1px] border-solid border-gray-300	w-max rounded-[12px] relative cursor-pointer' id='Senior' onClick={(e)=>setCareTye(e.target.id)}>
+    <nav className={`bg-grey absolute w-full h-full select-none pointer-events-none rounded-[12px] ${careType === 'Senior' ? 'block' : 'hidden'}`}>
       <img src='../images/booking/check.png' className=' absolute top-[50%] left-[50%] -translate-y-[50%] -translate-x-[50%] select-none pointer-events-none'/>
     </nav>
       <img src='../images/booking/nanny.png' className='pt-[10px] select-none pointer-events-none'/>
@@ -111,8 +116,8 @@ function extractText(e){
     </div>
 
 
-    <div className='border-[1px] border-solid border-gray-300	w-max rounded-[12px] relative cursor-pointer' id='Pet Express' onClick={(e)=>setExpressSelected(e.target.id)}>
-    <nav className={`bg-grey absolute w-full h-full select-none pointer-events-none rounded-[12px] ${expressSelected === 'Pet Express' ? 'block' : 'hidden'}`}>
+    <div className='border-[1px] border-solid border-gray-300	w-max rounded-[12px] relative cursor-pointer' id='Pet' onClick={(e)=>setCareTye(e.target.id)}>
+    <nav className={`bg-grey absolute w-full h-full select-none pointer-events-none rounded-[12px] ${careType === 'Pet' ? 'block' : 'hidden'}`}>
       <img src='../images/booking/check.png' className=' absolute top-[50%] left-[50%] -translate-y-[50%] -translate-x-[50%] select-none pointer-events-none' />
     </nav>
       <img src='../images/booking/pet.png' className='pt-[4px] select-none pointer-events-none'/>
@@ -120,8 +125,8 @@ function extractText(e){
     </div>
 
 
-    <div className='border-[1px] border-solid border-gray-300	w-max rounded-[12px] relative cursor-pointer' id='Special Express' onClick={(e)=>setExpressSelected(e.target.id)}>
-    <nav className={`bg-grey absolute w-full h-full select-none pointer-events-none rounded-[12px] ${expressSelected === 'Special Express' ? 'block' : 'hidden'}`} >
+    <div className='border-[1px] border-solid border-gray-300	w-max rounded-[12px] relative cursor-pointer' id='Special' onClick={(e)=>setCareTye(e.target.id)}>
+    <nav className={`bg-grey absolute w-full h-full select-none pointer-events-none rounded-[12px] ${careType === 'Special' ? 'block' : 'hidden'}`} >
       <img src='../images/booking/check.png' className=' absolute top-[50%] left-[50%] -translate-y-[50%] -translate-x-[50%] select-none pointer-events-none' />
     </nav>
       <img src='../images/booking/special.png' className='pt-[4px] select-none pointer-events-none' />
@@ -190,11 +195,29 @@ function extractText(e){
   <section className='mt-2 '>
 
     <div className='border-[1px] border-solid flex items-center justify-between border-gray-300 text-xs py-[10px] rounded-[12px] w-[46%] bg-inputbg'>
-    <h6 className='pl-3 font-semibold tracking-[0.02em] text-[16px] text-gray-300'>Care Start Date</h6>
+    <h6 className='pl-3 font-semibold tracking-[0.02em] text-[16px] text-gray-300'>{date === null ? 'Care Start Date' : `${format(date, "MM/dd/yyyy")}`}</h6>
     <img src='../images/booking/calendar.svg' className='pr-3'/>
     </div>
-    
-    
+
+<Calendar 
+showMonthAndYearPickers={false} 
+onChange={item => setDate(item)}
+date={date}  
+className='shadow-xl'
+/>
+
+
+
+
+
+
+
+
+
+
+
+
+
   </section>
 </div>
 

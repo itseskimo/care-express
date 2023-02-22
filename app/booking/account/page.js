@@ -3,9 +3,22 @@ import Navbar from '../../Components/navbar/navbar'
 import Footer from '../../Components/footer/footer'
 import BookingHeader from '../../Components/bookingHeader/page'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState , useEffect} from 'react'
 
 const page = () => {
+const [contact, setContact] = useState({})
+const {firstName,lastName,emailAdress,phoneNumber,streetName,streetNumber,apartmentNumber,postalCode,city}=contact
+
+
+
+useEffect(()=>{
+const contactData =localStorage.getItem('contact')
+let data = JSON.parse(contactData);
+setContact(data)
+},[contact])
+
+
+
 const [accountToggle, setAccountToggle]=useState(true)
   const [user, setUser] = useState({
     createPhoneNumber: "",
