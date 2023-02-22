@@ -6,7 +6,7 @@ import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 import {format} from 'date-fns'
 import { Calendar } from 'react-date-range';
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import Link from 'next/link'
 
 const page = () => {
@@ -195,7 +195,7 @@ function extractText(e){
   <section className='mt-2 '>
 
     <div className='border-[1px] border-solid flex items-center justify-between border-gray-300 text-xs py-[10px] rounded-[12px] w-[46%] bg-inputbg'>
-    <h6 className='pl-3 font-semibold tracking-[0.02em] text-[16px] text-gray-300'>{date === null ? 'Care Start Date' : `${format(date, "MM/dd/yyyy")}`}</h6>
+    <h6 className='pl-3 font-semibold tracking-[0.02em] text-[16px] text-gray-300' >{date === null ? 'Care Start Date' : `${format(date, "MM/dd/yyyy")}`}</h6>
     <img src='../images/booking/calendar.svg' className='pr-3'/>
     </div>
 
@@ -205,17 +205,6 @@ onChange={item => setDate(item)}
 date={date}  
 className='shadow-xl'
 />
-
-
-
-
-
-
-
-
-
-
-
 
 
   </section>
