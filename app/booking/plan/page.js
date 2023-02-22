@@ -23,6 +23,8 @@ function saveData(){
   localStorage.setItem('hours', hours)
   localStorage.setItem('cost', cost)
   localStorage.setItem('careType', careType)
+  localStorage.setItem('calendarDate', calendarDate)
+
 }
 
 function calendar(){
