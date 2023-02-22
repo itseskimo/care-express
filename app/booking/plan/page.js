@@ -5,13 +5,15 @@ import BookingHeader from '../../Components/bookingHeader/page'
 import 'react-date-range/dist/styles.css'; 
 import 'react-date-range/dist/theme/default.css';
 import {format} from 'date-fns'
-import { Calendar } from 'react-date-range';
-import {useState, useEffect} from 'react'
-import Link from 'next/link'
+import {Calendar} from 'react-date-range';
+import {useState,useEffect} from 'react'
+import {useRouter} from 'next/navigation';
 
 const page = () => {
 
-const [careType,setCareTye]=useState('')
+const router = useRouter();
+
+const [careType,setCareType]=useState('')
 const [selectTime,setSelectTime]=useState('')
 const [hours,setHours]=useState('')
 const [cost,setCost]=useState('')
@@ -19,12 +21,15 @@ const [calendarDate,setCalendarDate]=useState('')
 const [date, setDate] = useState(null);
 
 
-function saveData(){
+function formSubmit(e){
+  e.preventDefault();
+  if(calendarDate !== '' && selectTime !== '' && careType !== ''){
   localStorage.setItem('hours', hours)
   localStorage.setItem('cost', cost)
   localStorage.setItem('careType', careType)
   localStorage.setItem('calendarDate', calendarDate)
-
+  router.push('/booking/contact')
+  }
 }
 
 function calendar(){
@@ -39,9 +44,7 @@ calendar()
 
 function extractText(e){
   setSelectTime(e.target.id)
-
    let text=e.target.innerText.split('\n')
-
    if(text[0]=== 'MOST POPULAR'){
     setHours(text[1])
     setCost(text[2])
@@ -98,7 +101,7 @@ function extractText(e){
 
   <BookingHeader active={0}/>
 
-  <section className='bg-white h-max rounded-[16px] mt-10'>
+  <form className='bg-white h-max rounded-[16px] mt-10 ' onSubmit={formSubmit}>
 
   <main className='mx-28 py-10'>
 
@@ -107,19 +110,17 @@ function extractText(e){
   <h6 className='font-semibold tracking-[0.02em] text-[16px]'>Select Care Type</h6>
   <section className='mt-2 flex flex-wrap gap-8'  >
 
-    <div className='border-[1px] border-solid border-gray-300	w-max rounded-[12px] relative cursor-pointer' id='Nanny' onClick={(e)=>setCareTye(e.target.id)}>
-      <nav className={`bg-grey absolute w-full h-full select-none pointer-events-none rounded-[12px] ${careType === 'Nanny' ? 'block' : 'hidden'}`} >
+    <div className='border-[1px] border-solid border-gray-300	w-max rounded-[12px] relative cursor-pointer' id='nanny' onClick={(e)=>setCareType(e.target.id)}>
+      <nav className={`bg-grey absolute w-full h-full select-none pointer-events-none rounded-[12px] ${careType === 'nanny' ? 'block' : 'hidden'}`} >
       <img src='../images/booking/check.png' className=' absolute top-[50%]  left-[50%] -translate-y-[50%] -translate-x-[50%] select-none pointer-events-none'/>
       </nav>
       <img src='../images/booking/mom-son-cycle.png' className='select-none pointer-events-none'/>
       <h6 className='text-left font-semibold text-[16px] pl-3 py-3 select-none pointer-events-none' >Nanny Express</h6>
     </div>
 
-  
 
-
-    <div className='border-[1px] border-solid border-gray-300	w-max rounded-[12px] relative cursor-pointer' id='Senior' onClick={(e)=>setCareTye(e.target.id)}>
-    <nav className={`bg-grey absolute w-full h-full select-none pointer-events-none rounded-[12px] ${careType === 'Senior' ? 'block' : 'hidden'}`}>
+    <div className='border-[1px] border-solid border-gray-300	w-max rounded-[12px] relative cursor-pointer' id='senior' onClick={(e)=>setCareType(e.target.id)}>
+    <nav className={`bg-grey absolute w-full h-full select-none pointer-events-none rounded-[12px] ${careType === 'senior' ? 'block' : 'hidden'}`}>
       <img src='../images/booking/check.png' className=' absolute top-[50%] left-[50%] -translate-y-[50%] -translate-x-[50%] select-none pointer-events-none'/>
     </nav>
       <img src='../images/booking/nanny.png' className='pt-[10px] select-none pointer-events-none'/>
@@ -127,8 +128,8 @@ function extractText(e){
     </div>
 
 
-    <div className='border-[1px] border-solid border-gray-300	w-max rounded-[12px] relative cursor-pointer' id='Pet' onClick={(e)=>setCareTye(e.target.id)}>
-    <nav className={`bg-grey absolute w-full h-full select-none pointer-events-none rounded-[12px] ${careType === 'Pet' ? 'block' : 'hidden'}`}>
+    <div className='border-[1px] border-solid border-gray-300	w-max rounded-[12px] relative cursor-pointer' id='pet' onClick={(e)=>setCareType(e.target.id)}>
+    <nav className={`bg-grey absolute w-full h-full select-none pointer-events-none rounded-[12px] ${careType === 'pet' ? 'block' : 'hidden'}`}>
       <img src='../images/booking/check.png' className=' absolute top-[50%] left-[50%] -translate-y-[50%] -translate-x-[50%] select-none pointer-events-none' />
     </nav>
       <img src='../images/booking/pet.png' className='pt-[4px] select-none pointer-events-none'/>
@@ -136,8 +137,8 @@ function extractText(e){
     </div>
 
 
-    <div className='border-[1px] border-solid border-gray-300	w-max rounded-[12px] relative cursor-pointer' id='Special' onClick={(e)=>setCareTye(e.target.id)}>
-    <nav className={`bg-grey absolute w-full h-full select-none pointer-events-none rounded-[12px] ${careType === 'Special' ? 'block' : 'hidden'}`} >
+    <div className='border-[1px] border-solid border-gray-300	w-max rounded-[12px] relative cursor-pointer' id='special' onClick={(e)=>setCareType(e.target.id)}>
+    <nav className={`bg-grey absolute w-full h-full select-none pointer-events-none rounded-[12px] ${careType === 'special' ? 'block' : 'hidden'}`} >
       <img src='../images/booking/check.png' className=' absolute top-[50%] left-[50%] -translate-y-[50%] -translate-x-[50%] select-none pointer-events-none' />
     </nav>
       <img src='../images/booking/special.png' className='pt-[4px] select-none pointer-events-none' />
@@ -213,10 +214,10 @@ function extractText(e){
    name='createEmail'
    type='email'
    readOnly
-   value={date === null ? 'Care Start Date' : `${format(date, "MM/dd/yyyy")}` }
+   placeholder='Care Start Date'
+   value={date === null ? '' : `${format(date, "MM/dd/yyyy")}` }
    required
    onClick={calendar}
-
    id='extractCalendarTime'
    />
   </div>
@@ -235,21 +236,16 @@ className='shadow-xl'
 
 {/* ------------------------------------------------------------------------------------ */}
 <div className='flex justify-end'>
-<Link href={{pathname:'./booking/contact'}}><button className='bg-blue rounded-[50px] px-9 py-[8px] text-white text-[18px] font-semibold mt-10' onClick={saveData} >Next</button></Link>
+<input type='submit' className='bg-blue rounded-[50px] px-9 py-[8px] text-white cursor-pointer text-[18px] font-semibold mt-10' value='Next'/>
 </div>
 </main>
 
-</section>
-
+</form>
 
 
 </main>
 </main>
-{/* ----------------------------------------------------------------------------------------------------------------- */}
 
-
-
-    
 {/* ----------------------------------------------------------------------------------------------------------------- */}
 
 

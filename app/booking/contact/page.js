@@ -28,25 +28,23 @@ const page = () => {
     setContact({ ...contact, [e.target.name]: e.target.value });
   };
 
-function formsubmit(e){
-  e.preventDefault();
-    // const myForm = new FormData();
-
-    // myForm.set("first_name", firstName);
-    // myForm.set("last_name", lastName);
-    // myForm.set("email", emailAdress);
-    // myForm.set("phone", phoneNumber);
-    // myForm.set("street_number", streetNumber);
-    // myForm.set("street_name", streetName);
-    // myForm.set("postal_code", postalCode);
-    // myForm.set("city", city);
-    // myForm.set("street_name", streetName);
-    // console.log(Object.fromEntries(myForm))
+  function formsubmit(e){
+    e.preventDefault();
     let contactData = JSON.stringify(contact);
     localStorage.setItem('contact',contactData)
-
     router.push('/booking/additionalRequirements')
 }
+
+const [hours,setHours]=useState('')
+const [cost,setCost]=useState('')
+
+ useEffect(()=>{
+  let hours= localStorage.getItem('hours')
+  setHours(hours)
+  let cost= localStorage.getItem('cost')
+  setCost(cost)
+ },[])
+
 
   const navDetails={
     clicked:'Booking',
@@ -79,15 +77,7 @@ function formsubmit(e){
     FbIcon:'../images/business/Icons/facebook.svg',
   }
 
-const [hours,setHours]=useState('')
-const [cost,setCost]=useState('')
 
- useEffect(()=>{
-  let hours= localStorage.getItem('hours')
-  setHours(hours)
-  let cost= localStorage.getItem('cost')
-  setCost(cost)
- },[])
   
   return (
     <>

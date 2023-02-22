@@ -4,7 +4,10 @@ import Footer from '../../Components/footer/footer'
 import BookingHeader from '../../Components/bookingHeader/page'
 import Link from 'next/link'
 import { useEffect,useState } from 'react'
+import { useRouter } from 'next/navigation';
+
 const page = () => {
+  const router = useRouter();
 
   const navDetails={
     clicked:'Booking',
@@ -53,8 +56,14 @@ useEffect(()=>{
 const contactData =localStorage.getItem('contact')
 let data = JSON.parse(contactData);
 setContact(data)
-},[contact])
+},[])
   
+
+function formsubmit(e){
+  e.preventDefault();
+  router.push('/booking/account')
+}
+
   return (
     <>
 
@@ -67,26 +76,26 @@ setContact(data)
 
     <BookingHeader active={3}/>
 
-<section className='bg-white h-max rounded-[16px] mt-10'>
+<form className='bg-white h-max rounded-[16px] mt-10' onSubmit={formsubmit}>
 
 
 <section className=' flex  items-center relative mx-2 sm:mx-3 lg:mx-14 xlg:mx-28 py-8'>
 <div className=' md:w-[16.5%] lg:w-[20%]'>
-  <h6 className='tracking-[0.12em] text-xs font-semibold bg-yellow-500'>SELECT PLAN</h6>
+  <h6 className='tracking-[0.12em] text-xs font-semibold '>SELECT PLAN</h6>
   <h6 className='text-[20px] lg:text-[24px] font-bold'>{hours}</h6>
 </div>
 
 <div className=' md:w-[16.5%] lg:w-[20%]'>
-  <h6 className='tracking-[0.12em] text-xs font-semibold bg-rose-400'>PRICE/HOUR</h6>
+  <h6 className='tracking-[0.12em] text-xs font-semibold'>PRICE/HOUR</h6>
   <h6 className='text-[20px] lg:text-[24px] font-bold'>{cost}</h6>
 </div>
 
 <div className=' md:w-[16.5%] lg:w-[20%]'>
-  <h6 className='tracking-[0.12em] text-xs font-semibold bg-green'>TOTAL PRICE</h6>
+  <h6 className='tracking-[0.12em] text-xs font-semibold '>TOTAL PRICE</h6>
   <h6 className='text-[20px] lg:text-[24px] font-bold'>3032 zł</h6>
 </div>
 
-<div className=' md:w-[16.5%] lg:w-[20%] bg-slate-500 min-w-[140px] lg:min-w-[168px]'>
+<div className=' md:w-[16.5%] lg:w-[20%]  min-w-[140px] lg:min-w-[168px]'>
   <h6 className='tracking-[0.12em] text-xs font-semibold'>CARE START DATE</h6>
   <h6 className='text-[20px] lg:text-[24px] font-bold'>15 March 2023</h6>
 </div>
@@ -180,7 +189,7 @@ setContact(data)
 
 {/* ------------------------------------------------------------------------------------ */}
 
-<section className='hidden lg:block w-[20%] bg-green'>
+<section className='hidden lg:block w-[20%] '>
 
 <div className=''>
     <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>PHONE NUMBER</h6>
@@ -254,7 +263,7 @@ setContact(data)
 <section className='flex  items-center  mt-6'>
 
 <div className='flex items-center'>
-    <input type='checkbox' className='w-4 h-4 mr-2'></input>
+    <input type='checkbox' className='w-4 h-4 mr-2' required ></input>
     <h6 className='tracking-[0.02em] text-[16px] font-semibold'>I have accept the <span className='text-blue underline decoration-[1px] underline-offset-2'>Terms and Conditions</span> .</h6>
 </div>
 
@@ -265,7 +274,7 @@ setContact(data)
 <section className='flex  items-center  mt-6'>
 
 <div className='flex items-start '>
-    <input type='checkbox' className='w-4 h-4 mt-1 mr-2'></input>
+    <input type='checkbox' className='w-4 h-4 mt-1 mr-2' required></input>
     <h6 className='tracking-[0.02em] text-[16px] font-semibold w-[99%]'>I hereby give my consent to receive other notifications from CareExpress. In order to provide you with the requested content, we must store and process your personal data. If you consent to the storage of your personal data for this purpose, please tick the box on the left hand side.</h6>
 </div>
 
@@ -275,7 +284,9 @@ setContact(data)
 
 <div className='flex justify-between'>
 <Link href={{pathname:'/booking/additionalRequirements'}}><button className='bg-ligrey rounded-[50px] px-6 smd:px-9 py-[8px] text-black text-[14px] sm:text-[18px] font-semibold mt-10' >Back</button></Link>
-<Link href={{pathname:'./booking/account'}}><button className='bg-blue rounded-[50px] px-4 smd:px-9 py-[8px] text-white text-[14px] sm:text-[18px] font-semibold mt-10 ' >Confirm & Proceed to Sign up</button></Link>
+{/* <Link href={{pathname:'./booking/account'}}><button className='bg-blue rounded-[50px] px-4 smd:px-9 py-[8px] text-white text-[14px] sm:text-[18px] font-semibold mt-10 ' >Confirm & Proceed to Sign up</button></Link> */}
+{/* <button className='bg-blue rounded-[50px] px-4 smd:px-9 py-[8px] text-white text-[14px] sm:text-[18px] font-semibold mt-10 ' >Confirm & Proceed to Sign up</button> */}
+<input type='submit' className='bg-blue rounded-[50px] px-4 smd:px-9 py-[8px] text-white text-[14px] sm:text-[18px] font-semibold mt-10 cursor-pointer' value='Confirm & Proceed to Sign up'/>
 </div>
 
 </main>
@@ -298,7 +309,7 @@ setContact(data)
 
 
 
-</section>
+</form>
 
 
 

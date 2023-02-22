@@ -15,7 +15,7 @@ useEffect(()=>{
 const contactData =localStorage.getItem('contact')
 let data = JSON.parse(contactData);
 setContact(data)
-},[contact])
+},[])
 
 
 
@@ -32,12 +32,18 @@ const [accountToggle, setAccountToggle]=useState(true)
   const registerSubmit = (e) => {
     e.preventDefault();
     setAccountToggle(false)
-    const myForm = new FormData();
-    myForm.append("email", createEmail);
-    myForm.append("phonenumber", createPhoneNumber);  
-    myForm.append("password", createPassword);
-    myForm.append("confirmpassword", confirmPassword);
-    //dispatch(register(myForm));
+     const myForm = new FormData();
+    myForm.set("email", emailAdress);
+    myForm.set("password", createPassword);
+    myForm.set("first_name", firstName);
+    myForm.set("last_name", lastName);
+    myForm.set("phone", phoneNumber);
+    myForm.set("street_number", streetNumber);
+    myForm.set("street_name", streetName);
+    myForm.set("postal_code", postalCode);
+    myForm.set("city", city);
+
+    console.log(Object.fromEntries(myForm))
   };
 
 
@@ -91,14 +97,6 @@ const [accountToggle, setAccountToggle]=useState(true)
 
   return (
     <>
-      
-    {/* <nav  className='flex justify-end h-6 box-border bg-black'>
-    <section className='flex items-center mx-4 sm:mx-14 font-medium text-white tracking-widest text-xs  lg:text-sm py-2'>
-    <span className='px-2.5	mt-0.5 cursor-pointer'>FAQs</span>
-    <span className='px-2.5 mt-0.5	cursor-pointer'>About us</span>
-    <span className='px-2.5	mt-0.5 cursor-pointer '>Contact</span>
-    </section>
-    </nav> */}
 
     <Navbar color={'bg-blue'} {...navDetails}/>
 
