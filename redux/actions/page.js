@@ -1,6 +1,8 @@
 "use client"
 import axios from 'axios';
-import { LOGIN_FAIL, LOGIN_REQUEST,LOGIN_SUCCESS } from '../constants/page';
+import { LOGIN_FAIL, LOGIN_REQUEST,LOGIN_SUCCESS,REGISTER_USER_REQUEST,
+  REGISTER_USER_SUCCESS,
+  REGISTER_USER_FAIL, } from '../constants/page';
 
  const login = (email, password) => async (dispatch) => {
 
@@ -9,8 +11,8 @@ import { LOGIN_FAIL, LOGIN_REQUEST,LOGIN_SUCCESS } from '../constants/page';
   
     const config = { headers: { "Content-Type": "application/json" } };
     const { data } = await axios.post( `https://care-express-api.dthree.in/api/auth/login`,{ email, password }, config);
-  
       dispatch({ type: LOGIN_SUCCESS, payload:data });
+
     } catch (error) {
       dispatch({ type: LOGIN_FAIL, payload: error.response.data.message });
     }
@@ -19,13 +21,14 @@ import { LOGIN_FAIL, LOGIN_REQUEST,LOGIN_SUCCESS } from '../constants/page';
 
 
   export const register = (userData) => async (dispatch) => {
+
     try {
       dispatch({ type: REGISTER_USER_REQUEST });
   
       const config = { headers: { "Content-Type": "multipart/form-data" } };
   
-      const { data } = await axios.post(`https://care-express-api.dthree.in/api/auth/register`, userData, config);
-  
+      const { data } = await axios.post('https://care-express-api.dthree.in/api/auth/register', userData, config);
+
       dispatch({ type: REGISTER_USER_SUCCESS, payload: data.user });
     } catch (error) {
       dispatch({

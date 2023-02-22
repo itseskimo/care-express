@@ -57,7 +57,7 @@ const page = () => {
     myForm.set("street_name", streetName);
     myForm.set("postal_code", postalCode);
     myForm.set("city", city);
-    // dispatch(register(myForm));
+    dispatch(register(myForm));
     setAccountToggle(false)
     }else{
       
