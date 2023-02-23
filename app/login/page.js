@@ -5,7 +5,7 @@ import { useState,useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useRouter } from 'next/navigation';
 import login from '@/redux/actions/page'
-
+import { socialLogin } from '@/redux/actions/page'
 const page = () => {
 
   const { isAuthenticated, user } = useSelector((state) => state.user);
@@ -51,9 +51,9 @@ const [loginPassword,setLoginPassword]=useState('')
         e.preventDefault();
         setLoginEmail('')
         setLoginPassword('')
-        dispatch(login(loginEmail, loginPassword));
-        
+        dispatch(login(loginEmail, loginPassword));   
       };
+      
 
 function passwordToggle(){
   const passwordToggle= document.getElementById('passwordToggle')
@@ -95,7 +95,7 @@ if(passwordToggle.type==='password'){
 
 <section style={{ border: '1px solid #287EFE' }} className=' bg-white relative flex items-center justify-center flex-col h-[600px] w-full lg:w-[50%] lg:ml-3 rounded-[24px] mt-8 lg:mt-0 '>
 
-<section style={{background:'linear-gradient(180deg, rgba(40, 126, 254, 0.24) 0%, rgba(40, 126, 254, 0) 100%)', filter:'blur(49.5px)'}} className='w-[250px] h-[250px] absolute top-0 left-0' onSubmit={loginSubmit}></section>
+<section style={{background:'linear-gradient(180deg, rgba(40, 126, 254, 0.24) 0%, rgba(40, 126, 254, 0) 100%)', filter:'blur(49.5px)'}} className='w-[250px] h-[250px] absolute top-0 left-0' ></section>
 <img src='./images/Login/Background components.png' className='absolute right-0 bottom-0 '/>
 
 
@@ -145,14 +145,15 @@ if(passwordToggle.type==='password'){
   <h6 className='font-semibold text-sm mx-3 whitespace-nowrap'>Or Login With</h6>
   <div className='border-gray-400 border-[1px] border-solid w-[32%]'></div>
 </div>
+</form>
 
-<section className='flex justify-between mt-3'>
-<button className='bg-ligrey rounded-[24px] px-4  lg:px-3 xlg:px-[14px] py-[5px] font-semibold flex items-center text-[14px]'>  <img src='../images/booking/google.svg' className='pr-[10px]'/>Google</button>
-<button className='bg-ligrey rounded-[24px] px-4  lg:px-3 xlg:px-[14px] py-[5px] font-semibold flex items-center text-[14px]'>  <img src='../images/booking/Meta.svg' className='pr-[10px]'/>Meta</button>
-<button className='bg-ligrey rounded-[24px] px-4  lg:px-3 xlg:px-[14px] py-[5px] font-semibold flex items-center text-[14px]'>  <img src='../images/booking/apple.svg' className='pr-[10px]'/>Apple</button>
+<section className='flex gap-3 mt-3 z-10'>
+<button className='bg-ligrey rounded-[24px] px-4 cursor-pointer lg:px-3 xlg:px-[14px] py-[5px] font-semibold flex items-center text-[14px]' onClick={()=>dispatch(socialLogin())}>  <img src='../images/booking/google.svg' className='pr-[10px]'/>Google</button>
+<button className='bg-ligrey rounded-[24px] px-4 cursor-pointer lg:px-3 xlg:px-[14px] py-[5px] font-semibold flex items-center text-[14px]' >  <img src='../images/booking/Meta.svg' className='pr-[10px]'/>Meta</button>
+<button className='bg-ligrey rounded-[24px] px-4 cursor-pointer lg:px-3 xlg:px-[14px] py-[5px] font-semibold flex items-center text-[14px]' >  <img src='../images/booking/apple.svg' className='pr-[10px]'/>Apple</button>
 </section>
 
-</form>
+
 </section>
 
 </header>

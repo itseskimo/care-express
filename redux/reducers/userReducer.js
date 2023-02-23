@@ -7,12 +7,14 @@ export const userReducer = (state = { user: {} }, action) => {
 
       case LOGIN_REQUEST:
       case REGISTER_USER_REQUEST:
+      case SOCIAL_LOGIN_REQUEST:
         return {
           isAuthenticated: false,
         };
         
       case LOGIN_SUCCESS:
       case REGISTER_USER_SUCCESS:
+      case SOCIAL_LOGIN_SUCCESS:
         return {
           ...state,
           isAuthenticated: true,
@@ -22,6 +24,7 @@ export const userReducer = (state = { user: {} }, action) => {
       
       case LOGIN_FAIL:
       case REGISTER_USER_FAIL:
+      case SOCIAL_LOGIN_FAIL:
         return {
           ...state,
           isAuthenticated: false,
