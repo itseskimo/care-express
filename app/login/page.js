@@ -6,12 +6,20 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useRouter } from 'next/navigation';
 import login from '@/redux/actions/page'
 import { socialLogin } from '@/redux/actions/page'
+import { GoogleLogin, googleLogout } from '@react-oauth/google';
+import { GoogleOAuthProvider } from '@react-oauth/google';
+import jwt_decode from "jwt-decode";
+
+
+
 const page = () => {
 
   const { isAuthenticated, user } = useSelector((state) => state.user);
   
   const router = useRouter();
- 
+
+
+
   useEffect(()=>{
 
   let userData = JSON.stringify(user);
@@ -22,6 +30,11 @@ const page = () => {
      router.push('/')
     }
   },[isAuthenticated, user])
+
+
+
+
+
 
 const [loginEmail,setLoginEmail]=useState('')
 const [loginPassword,setLoginPassword]=useState('')
@@ -145,14 +158,29 @@ if(passwordToggle.type==='password'){
   <h6 className='font-semibold text-sm mx-3 whitespace-nowrap'>Or Login With</h6>
   <div className='border-gray-400 border-[1px] border-solid w-[32%]'></div>
 </div>
-</form>
 
+</form>
 <section className='flex gap-3 mt-3 z-10'>
 <button className='bg-ligrey rounded-[24px] px-4 cursor-pointer lg:px-3 xlg:px-[14px] py-[5px] font-semibold flex items-center text-[14px]' onClick={()=>dispatch(socialLogin())}>  <img src='../images/booking/google.svg' className='pr-[10px]'/>Google</button>
 <button className='bg-ligrey rounded-[24px] px-4 cursor-pointer lg:px-3 xlg:px-[14px] py-[5px] font-semibold flex items-center text-[14px]' >  <img src='../images/booking/Meta.svg' className='pr-[10px]'/>Meta</button>
 <button className='bg-ligrey rounded-[24px] px-4 cursor-pointer lg:px-3 xlg:px-[14px] py-[5px] font-semibold flex items-center text-[14px]' >  <img src='../images/booking/apple.svg' className='pr-[10px]'/>Apple</button>
 </section>
 
+<GoogleOAuthProvider clientId="338820813045-hmg3tmrbe741gf69fonr9qm34vl8k6hj.apps.googleusercontent.com">
+<GoogleLogin
+  theme='filled_black'
+  text='Google'
+  shape='pill'
+  onSuccess={credentialResponse => {
+    console.log(credentialResponse);
+    const token = jwt_decode(credentialResponse.credential);
+    console.log(token);
+  }}
+  onError={() => {
+    console.log('Login Failed');
+  }}
+/>;
+  </GoogleOAuthProvider>;
 
 </section>
 
