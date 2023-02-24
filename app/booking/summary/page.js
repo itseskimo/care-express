@@ -5,6 +5,7 @@ import BookingHeader from '../../Components/bookingHeader/page'
 import Link from 'next/link'
 import { useEffect,useState } from 'react'
 import { useRouter } from 'next/navigation';
+import { legacy_createStore } from 'redux'
 
 const page = () => {
   const router = useRouter();
@@ -44,13 +45,19 @@ const page = () => {
 
   const [hours,setHours]=useState('')
   const [cost,setCost]=useState('')
-  
+  const [saveCheckBoxesText,setSaveCheckBoxesText]=useState([])
+  const [additionalDescription,setAdditionalDescription]=useState('')
+console.log(saveCheckBoxesText,additionalDescription)
 
 useEffect(()=>{
   let hours= localStorage.getItem('hours')
   setHours(hours)
   let cost= localStorage.getItem('cost')
   setCost(cost)
+  let additionalArray= localStorage.getItem('additionalArray')
+  setSaveCheckBoxesText(additionalArray)
+  let additionalDescription= localStorage.getItem('additionalArray')
+  setAdditionalDescription(additionalDescription)
 
 
 const contactData =localStorage.getItem('contact')
