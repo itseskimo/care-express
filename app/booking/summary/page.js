@@ -223,6 +223,8 @@ function formsubmit(e){
 <section className='border-[1px]  border-solid  border-gray-300' ></section>
 
 {/* ------------------------------------------------------------------------------------ */}
+{saveCheckBoxesText && additionalDescription ? 
+  <>
 
 <main className=' mx-4 sm:mx-6 lg:mx-14 xlg:mx-28 py-10'>
 
@@ -249,10 +251,14 @@ function formsubmit(e){
 
 </section>
 
-
 </main>
-
 <section className='border-[1px]  border-solid  border-gray-300' ></section>
+
+</>
+: ''
+}
+
+
 
 {/* ------------------------------------------------------------------------------------ */}
 

@@ -6,20 +6,23 @@ import Link from 'next/link'
 import { useState , useEffect} from 'react'
 import { register } from '@/redux/actions/page'
 import { useDispatch } from 'react-redux'
-
+import { useSelector } from 'react-redux'
+import { useRouter } from 'next/navigation';
 
 const page = () => {
+  const router = useRouter();
 
+  const { isAuthenticated,user, error,payload } = useSelector((state) => state.user);
   const [accountToggle, setAccountToggle]=useState(true)
 
-  const [user, setUser] = useState({
+  const [client, setClient] = useState({
     createPhoneNumber: "",
     createEmail: "",
     createPassword: "",
     confirmPassword:'',
   });
 
-  const { createEmail, createPhoneNumber, createPassword, confirmPassword } = user;
+  const { createEmail, createPhoneNumber, createPassword, confirmPassword } = client;
 
 
   const [contact, setContact] = useState({})
@@ -60,7 +63,14 @@ const page = () => {
     myForm.set("plan", '937a1ae52d6364513cfff439');
     myForm.set("role", 'user');
     dispatch(register(myForm));
-    setAccountToggle(false)
+
+    if(isAuthenticated){
+      setAccountToggle(false)
+    }else{
+      alert("user with the same email is found. please login to continue")
+      router.push('/login')
+    }
+
     }else{
       
     }
@@ -101,7 +111,7 @@ const page = () => {
   }
 
   const registerDataChange = (e) => {
-      setUser({ ...user, [e.target.name]: e.target.value });
+      setClient({ ...client, [e.target.name]: e.target.value });
   };
 
   function passwordToggle(id){
@@ -246,7 +256,7 @@ const page = () => {
 <section className='bg-white h-max rounded-[16px] mt-10 '>
 <div className='flex items-center justify-center flex-col py-10 ]'>
     <img src='../images/booking/accountsuccess.svg' className='mb-10'/>
-    <h6 className='text-[24px] font-bold mb-10'>Account created for <span className='underline decoration-1 underline-offset-4'> nat_ko@gmail.com</span></h6>
+    <h6 className='text-[24px] font-bold mb-10'>Account created for <span className='underline decoration-1 underline-offset-4'>{emailAdress}</span></h6>
     <Link href={{pathname:'/booking/payment'}}>    <button className='bg-blue px-[120px]  text-white rounded-[50px] text-[18px] font-semibold py-3'>Proceed to Payment</button></Link>
 </div>
 </section>
