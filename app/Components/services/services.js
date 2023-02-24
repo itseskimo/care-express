@@ -2,7 +2,6 @@ import React from 'react'
 
 const services = (props) => {
   const{nanny,senior,pet,special}=props
-  console.log(nanny,senior,pet,special)
   return (
     <>
     
