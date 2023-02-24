@@ -3,8 +3,13 @@ import Navbar from '../../Components/navbar/navbar'
 import Footer from '../../Components/footer/footer'
 import BookingHeader from '../../Components/bookingHeader/page'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation';
+
 import { useState,useEffect } from 'react'
 const page = () => {
+
+  const router = useRouter();
+
 
   const navDetails={
     clicked:'Booking',
@@ -82,7 +87,7 @@ const [cost,setCost]=useState('')
 </div>
 
 
-<button className='md:absolute right-0 shrink-0 border-[1px] border-solid  border-gray-300 flex px-3 xlsm:px-5 py-[10px] text-sm font-semibold rounded-[50px]'><img src='../images/booking/Edit.svg' className='pr-2'/>Edit Plan</button>
+<button className='md:absolute right-0 shrink-0 border-[1px] border-solid  border-gray-300 flex px-3 xlsm:px-5 py-[10px] text-sm font-semibold rounded-[50px]' onClick={()=>router.push('/booking/plan')}><img src='../images/booking/Edit.svg' className='pr-2'/>Edit Plan</button>
 </section>
 
 </main>
