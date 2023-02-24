@@ -4,15 +4,21 @@ import Footer from '../../Components/footer/footer'
 import BookingHeader from '../../Components/bookingHeader/page'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation';
-
 import { useState,useEffect } from 'react'
+
 const page = () => {
 
-  const router = useRouter();
+const router = useRouter();
+const [saveCheckBoxes,setSaveCheckBoxes]=useState([])
+console.log(saveCheckBoxes)
+
+function checkboxSaver(id){
+ setSaveCheckBoxes([...new Set ([id,...saveCheckBoxes])].sort((a,b)=>b.length-a.length))
+}
 
 function saveAdditionalRequirements(){
   localStorage.setItem('additionalRequirements',additionalRequirements)
-}
+  }
 
   const navDetails={
     clicked:'Booking',
@@ -105,16 +111,16 @@ const [cost,setCost]=useState('')
 <h6 className='tracking-[0.02em] text-[16px] font-semibold mb-2'>Additional Services</h6>
 
 <section className='flex flex-col md:flex-row gap-4 md:gap-20 lg:gap-32 xlg:gap-48'>
-<div className='flex items-center '>
-    <input type='checkbox' className='w-4 h-4 mr-2'></input>
-    <h6 className='tracking-[0.02em] text-[16px] font-semibold whitespace-nowrap'>Language Tutoring</h6>
+<div className='flex items-center select-all' onClick={(e)=>checkboxSaver(e.target.innerText)}>
+    <input type='checkbox' className='w-4 h-4 mr-2' id='checkox1'></input>
+    <h6 className='tracking-[0.02em] text-[16px] font-semibold whitespace-nowrap '>Language Tutoring</h6>
 </div>
-<div className='flex items-center'>
-    <input type='checkbox' className='w-4 h-4 mr-2'></input>
+<div className='flex items-center'  onClick={(e)=>checkboxSaver(e.target.innerText)}>
+    <input type='checkbox' className='w-4 h-4 mr-2' id='checkox2'></input>
     <h6 className='tracking-[0.02em] text-[16px] font-semibold whitespace-nowrap'>VAS #2</h6>
 </div>
-<div className='flex items-center'>
-    <input type='checkbox' className='w-4 h-4 mr-2'></input>
+<div className='flex items-center'  onClick={(e)=>checkboxSaver(e.target.innerText)}>
+    <input type='checkbox' className='w-4 h-4 mr-2' id='checkox3'></input>
     <h6 className='tracking-[0.02em] text-[16px] font-semibold whitespace-nowrap'>VAS #3</h6>
 </div>
 
