@@ -55,8 +55,8 @@ useEffect(()=>{
   let cost= localStorage.getItem('cost')
   setCost(cost)
   let additionalArray= localStorage.getItem('additionalArray')
-  setSaveCheckBoxesText(additionalArray)
-  let additionalDescription= localStorage.getItem('additionalArray')
+  setSaveCheckBoxesText([additionalArray])
+  let additionalDescription= localStorage.getItem('additionalDescription')
   setAdditionalDescription(additionalDescription)
 
 
@@ -228,7 +228,11 @@ function formsubmit(e){
 
 <div className=''>
     <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>ADDITIONAL SERVICES</h6>
-    <h6 className='text-[16px] font-semibold'>Language Tutoring</h6>
+    
+    
+     <h6 className='text-[16px] font-semibold'>{saveCheckBoxesText}</h6>
+   
+
 </div>
 
 <div className=' absolute right-0'>
@@ -242,7 +246,7 @@ function formsubmit(e){
 
 <div className='w-full lg:w-[70%]'>
     <h6 className='tracking-[0.12em] text-xs font-semibold mb-3'>ANY SPECIAL NEEDS OR REQUIREMENTS</h6>
-    <h6 className='text-[16px] tracking-[0.02em] font-semibold'>Help with homework and school projects, including reading and writing support. Plan and participate in age-appropriate educational and recreational activities. Provide a safe and comfortable environment, both indoors and outdoors. Communicate effectively and professionally with the parents, other care providers, and healthcare providers. Maintain a clean and organized play and living area. Perform light housekeeping tasks related to the child's care, such as laundry and meal preparation</h6>
+    <h6 className='text-[16px] tracking-[0.02em] font-semibold'>{additionalDescription}</h6>
 </div>
 
 </section>
