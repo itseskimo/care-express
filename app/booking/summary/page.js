@@ -47,15 +47,17 @@ const page = () => {
   const [cost,setCost]=useState('')
   const [saveCheckBoxesText,setSaveCheckBoxesText]=useState([])
   const [additionalDescription,setAdditionalDescription]=useState('')
-console.log(saveCheckBoxesText,additionalDescription)
 
 useEffect(()=>{
   let hours= localStorage.getItem('hours')
   setHours(hours)
+
   let cost= localStorage.getItem('cost')
   setCost(cost)
+
   let additionalArray= localStorage.getItem('additionalArray')
-  setSaveCheckBoxesText([additionalArray])
+  setSaveCheckBoxesText([additionalArray.split(',')])
+
   let additionalDescription= localStorage.getItem('additionalDescription')
   setAdditionalDescription(additionalDescription)
 
@@ -228,11 +230,7 @@ function formsubmit(e){
 
 <div className=''>
     <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>ADDITIONAL SERVICES</h6>
-    
-    
      <h6 className='text-[16px] font-semibold'>{saveCheckBoxesText}</h6>
-   
-
 </div>
 
 <div className=' absolute right-0'>

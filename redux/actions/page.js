@@ -27,8 +27,8 @@ import { LOGIN_FAIL, LOGIN_REQUEST,LOGIN_SUCCESS,REGISTER_USER_REQUEST,
       const config = { headers: { "Content-Type": "application/json" } };
   
       const { data } = await axios.post('https://care-express-api.dthree.in/api/auth/register', userData, config);
-
-      dispatch({ type: REGISTER_USER_SUCCESS, payload: data.user });
+console.log(data)
+      dispatch({ type: REGISTER_USER_SUCCESS, payload: data });
     } catch (error) {
       dispatch({
         type: REGISTER_USER_FAIL,

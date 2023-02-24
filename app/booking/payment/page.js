@@ -2,9 +2,10 @@
 import Navbar from '../../Components/navbar/navbar'
 import Footer from '../../Components/footer/footer'
 import BookingHeader from '../../Components/bookingHeader/page'
-
+import { useSelector } from 'react-redux'
 const page = () => {
-
+  const { isAuthenticated, user,error,payload } = useSelector((state) => state.user);
+console.log(error)
 
   const navDetails={
     clicked:'Booking',

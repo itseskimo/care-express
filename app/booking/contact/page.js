@@ -167,7 +167,7 @@ const [cost,setCost]=useState('')
 
 <div className=' min-w-[300px] sm:min-w-[330px] lg:max-w-none w-[70%] lg:w-[50%]  mb-1 lg:mb-0'>
   <h6 className='text-[16px] tracking-[0.02em] font-semibold mb-[6px]'>Postal Code</h6>
-  <input style={{border:'1px solid #ABABAB'}} placeholder='Postal Code' required type='number' value={postalCode} onChange={contactDetails} name='postalCode' className='pl-3 outline-none bg-inputbg w-full  py-[10px] mb-2 rounded-[12px]' />
+  <input style={{border:'1px solid #ABABAB'}} placeholder='Postal Code'  value={postalCode} onChange={contactDetails} name='postalCode' className='pl-3 outline-none bg-inputbg w-full  py-[10px] mb-2 rounded-[12px]' />
 </div>
 </section>
 {/* ------------------------------------------------------------------------------------ */}
