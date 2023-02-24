@@ -43,6 +43,8 @@ function calendar(){
 
 useEffect(()=>{
 calendar()
+setToggleCalendar(false)
+
 },[date])
 
 
@@ -114,7 +116,7 @@ function extractText(e){
   <h6 className='font-semibold tracking-[0.02em] text-[16px]'>Select Care Type</h6>
   <section className='mt-2 flex flex-wrap gap-8'  >
 
-    <div className='border-[1px] border-solid border-gray-300	w-max rounded-[12px] relative cursor-pointer' id='nanny' onClick={(e)=>setCareType(e.target.id)}>
+    <div className='border-[1px] border-solid border-gray-300	 rounded-[12px] relative cursor-pointer w-[196px] h-[180px]' id='nanny' onClick={(e)=>setCareType(e.target.id)}>
       <nav className={`bg-grey absolute w-full h-full select-none pointer-events-none rounded-[12px] ${careType === 'nanny' ? 'block' : 'hidden'}`} >
       <img src='../images/booking/check.png' className=' absolute top-[50%]  left-[50%] -translate-y-[50%] -translate-x-[50%] select-none pointer-events-none'/>
       </nav>
