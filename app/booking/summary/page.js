@@ -92,7 +92,7 @@ function formsubmit(e){
 
 <div className=' md:w-[16.5%] lg:w-[20%]'>
   <h6 className='tracking-[0.12em] text-xs font-semibold '>TOTAL PRICE</h6>
-  <h6 className='text-[20px] lg:text-[24px] font-bold'>3032 zł</h6>
+  <h6 className='text-[20px] lg:text-[24px] font-bold'>{`${parseInt(hours)*parseInt(hours)} zł`}</h6>
 </div>
 
 <div className=' md:w-[16.5%] lg:w-[20%]  min-w-[140px] lg:min-w-[168px]'>
