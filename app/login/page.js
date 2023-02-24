@@ -6,9 +6,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useRouter } from 'next/navigation';
 import login from '@/redux/actions/page'
 import { socialLogin } from '@/redux/actions/page'
-import { GoogleLogin, googleLogout } from '@react-oauth/google';
+import { GoogleLogin} from '@react-oauth/google';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import jwt_decode from "jwt-decode";
+import  queryString from 'query-string';
 
 
 
@@ -18,6 +19,23 @@ const page = () => {
   
   const router = useRouter();
 
+
+
+  const stringifiedParams = queryString.stringify({
+    client_id: '338820813045-hmg3tmrbe741gf69fonr9qm34vl8k6hj.apps.googleusercontent.com',
+    redirect_uri: 'http://localhost:3000',
+    scope: [
+      'https://www.googleapis.com/auth/userinfo.email',
+      'https://www.googleapis.com/auth/userinfo.profile',
+    ].join(' '), 
+    response_type: 'code',
+    access_type: 'offline',
+    prompt: 'consent',
+  });
+  
+  const googleLoginUrl = `https://accounts.google.com/o/oauth2/v2/auth?${stringifiedParams}`;
+
+  
 
 
   useEffect(()=>{
@@ -30,9 +48,6 @@ const page = () => {
      router.push('/')
     }
   },[isAuthenticated, user])
-
-
-
 
 
 
@@ -161,7 +176,7 @@ if(passwordToggle.type==='password'){
 
 </form>
 <section className='flex gap-3 mt-3 z-10'>
-<button className='bg-ligrey rounded-[24px] px-4 cursor-pointer lg:px-3 xlg:px-[14px] py-[5px] font-semibold flex items-center text-[14px]' onClick={()=>dispatch(socialLogin())}>  <img src='../images/booking/google.svg' className='pr-[10px]'/>Google</button>
+  <a href={googleLoginUrl}><button className='bg-ligrey rounded-[24px] px-4 cursor-pointer lg:px-3 xlg:px-[14px] py-[5px] font-semibold flex items-center text-[14px]' onClick={()=>dispatch(socialLogin())}>  <img src='../images/booking/google.svg' className='pr-[10px]'/>Google</button></a>
 <button className='bg-ligrey rounded-[24px] px-4 cursor-pointer lg:px-3 xlg:px-[14px] py-[5px] font-semibold flex items-center text-[14px]' >  <img src='../images/booking/Meta.svg' className='pr-[10px]'/>Meta</button>
 <button className='bg-ligrey rounded-[24px] px-4 cursor-pointer lg:px-3 xlg:px-[14px] py-[5px] font-semibold flex items-center text-[14px]' >  <img src='../images/booking/apple.svg' className='pr-[10px]'/>Apple</button>
 </section>
@@ -179,8 +194,27 @@ if(passwordToggle.type==='password'){
   onError={() => {
     console.log('Login Failed');
   }}
-/>;
-  </GoogleOAuthProvider>;
+/>
+  </GoogleOAuthProvider>
+
+
+{/* <LoginSocialFacebook
+appId='872907897343690'
+onResolve={(response)=>{
+  console.log(response);
+}}
+onReject={(error)=>{
+  console.log(error);
+}}
+>
+  
+<FacebookLoginButton/>
+</LoginSocialFacebook> */}
+
+
+
+
+
 
 </section>
 

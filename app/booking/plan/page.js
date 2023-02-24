@@ -13,11 +13,12 @@ const page = () => {
 
 const router = useRouter();
 
-const [careType,setCareType]=useState('')
-const [selectTime,setSelectTime]=useState('')
+const [careType,setCareType]=useState('nanny')
+const [selectTime,setSelectTime]=useState('hours40')
 const [hours,setHours]=useState('')
 const [cost,setCost]=useState('')
 const [calendarDate,setCalendarDate]=useState('')
+const [togglecalendar,setToggleCalendar]=useState(false)
 const [date, setDate] = useState(null);
 
 
@@ -29,12 +30,15 @@ function formSubmit(e){
   localStorage.setItem('careType', careType)
   localStorage.setItem('calendarDate', calendarDate)
   router.push('/booking/contact')
+  }else{
+    alert('The fields are required and cannot be empty')
   }
 }
 
 function calendar(){
  const calendar= document.getElementById('extractCalendarTime')
  setCalendarDate(calendar.value)
+ setToggleCalendar(!togglecalendar)
 }
 
 useEffect(()=>{
@@ -208,7 +212,7 @@ function extractText(e){
     
   <div className='min-w-[300px] sm:min-w-[330px] lg:max-w-none w-[80%] lg:w-[50%]'>
   <div className='relative flex '>
-  <img src='../images/booking/calendar.svg' className='absolute  top-3 right-3'/>
+  <img src='../images/booking/calendar.svg' className='absolute  top-3 right-3 pointer-events-none select-none'/>
   <input style={{border:'1px solid #ABABAB'}}
    className='outline-none bg-inputbg w-full py-[10px] rounded-[8px] pl-3' 
    name='createEmail'
@@ -223,14 +227,14 @@ function extractText(e){
   </div>
 </div>
 
-
+{togglecalendar &&
 <Calendar 
 showMonthAndYearPickers={false} 
 onChange={item => setDate(item)}
 date={date}  
 className='shadow-xl'
 />
-
+}
   </section>
 </div>
 

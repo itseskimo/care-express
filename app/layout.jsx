@@ -16,9 +16,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${plusJakartaSans.variable} font-sans`}>
       <head>
       </head>
-      <body> {children}
-      <Script src="https://accounts.google.com/gsi/client" async defer></Script>
-      </body>  
+      <body> {children}</body>  
     </html>
     </Provider>
   );
