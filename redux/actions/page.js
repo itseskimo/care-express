@@ -39,7 +39,6 @@ import { LOGIN_FAIL, LOGIN_REQUEST,LOGIN_SUCCESS,REGISTER_USER_REQUEST,
 
 
 export const socialLogin = (code,login_type) => async (dispatch) => {
-  console.log(code,login_type)
 
   try {
     dispatch({ type: SOCIAL_LOGIN_REQUEST });
@@ -47,7 +46,6 @@ export const socialLogin = (code,login_type) => async (dispatch) => {
     const config = { headers: { "Content-Type": "application/json" } };
 
     const { data } = await axios.post('https://care-express-api.dthree.in/api/auth/socialLogin',{ code, login_type }, config);
-    console.log(data)
 
     dispatch({ type: SOCIAL_LOGIN_SUCCESS, payload: data });
   } catch (error) {

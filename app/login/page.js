@@ -6,9 +6,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useRouter } from 'next/navigation';
 import login from '@/redux/actions/page'
 import { socialLogin } from '@/redux/actions/page'
-import { GoogleLogin} from '@react-oauth/google';
-import { GoogleOAuthProvider } from '@react-oauth/google';
-import jwt_decode from "jwt-decode";
 import  queryString from 'query-string';
 
 
@@ -35,6 +32,17 @@ const page = () => {
   
   const googleLoginUrl = `https://accounts.google.com/o/oauth2/v2/auth?${stringifiedParams}`;
 
+
+  const stringifiedParamsFb = queryString.stringify({
+    client_id: '872907897343690',
+    redirect_uri: 'http://localhost:3000',
+    scope: ['email', 'user_friends'].join(','), 
+    response_type: 'code',
+    auth_type: 'rerequest',
+    display: 'popup',
+  });
+  
+  const facebookLoginUrl = `https://www.facebook.com/v4.0/dialog/oauth?${stringifiedParamsFb}`;
   
 
 
@@ -177,43 +185,10 @@ if(passwordToggle.type==='password'){
 </form>
 <section className='flex gap-3 mt-3 z-10'>
   <a href={googleLoginUrl}><button className='bg-ligrey rounded-[24px] px-4 cursor-pointer lg:px-3 xlg:px-[14px] py-[5px] font-semibold flex items-center text-[14px]' onClick={()=>dispatch(socialLogin())}>  <img src='../images/booking/google.svg' className='pr-[10px]'/>Google</button></a>
-<button className='bg-ligrey rounded-[24px] px-4 cursor-pointer lg:px-3 xlg:px-[14px] py-[5px] font-semibold flex items-center text-[14px]' >  <img src='../images/booking/Meta.svg' className='pr-[10px]'/>Meta</button>
+  <a href={facebookLoginUrl}><button className='bg-ligrey rounded-[24px] px-4 cursor-pointer lg:px-3 xlg:px-[14px] py-[5px] font-semibold flex items-center text-[14px]' >  <img src='../images/booking/Meta.svg' className='pr-[10px]'/>Meta</button></a>
+
 <button className='bg-ligrey rounded-[24px] px-4 cursor-pointer lg:px-3 xlg:px-[14px] py-[5px] font-semibold flex items-center text-[14px]' >  <img src='../images/booking/apple.svg' className='pr-[10px]'/>Apple</button>
 </section>
-
-<GoogleOAuthProvider clientId="338820813045-hmg3tmrbe741gf69fonr9qm34vl8k6hj.apps.googleusercontent.com">
-<GoogleLogin
-  theme='filled_black'
-  text='Google'
-  shape='pill'
-  onSuccess={credentialResponse => {
-    console.log(credentialResponse);
-    const token = jwt_decode(credentialResponse.credential);
-    console.log(token);
-  }}
-  onError={() => {
-    console.log('Login Failed');
-  }}
-/>
-  </GoogleOAuthProvider>
-
-
-{/* <LoginSocialFacebook
-appId='872907897343690'
-onResolve={(response)=>{
-  console.log(response);
-}}
-onReject={(error)=>{
-  console.log(error);
-}}
->
-  
-<FacebookLoginButton/>
-</LoginSocialFacebook> */}
-
-
-
-
 
 
 </section>

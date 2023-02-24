@@ -7,8 +7,10 @@ import queryString from 'query-string';
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { socialLogin } from '@/redux/actions/page'
+
 const page = () => {
-  const dispatch= useDispatch()
+
+const dispatch= useDispatch()
 
 useEffect(()=>{
   const urlParams = queryString.parse(window.location.search);
