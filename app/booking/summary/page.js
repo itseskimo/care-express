@@ -144,7 +144,7 @@ function formsubmit(e){
 
 <section className='absolute right-0 xlsm:static xlsm:w-[40%] md:w-[25%] lg:w-[20%]'>
 
-<button className='  border-[1px] border-solid  border-gray-300 xlsm:hidden flex  shrink-0 px-5 py-[10px] text-sm font-semibold rounded-[50px]'><img src='../images/booking/Edit.svg' className='pr-2'/>Edit Contact</button>
+<button className='  border-[1px] border-solid  border-gray-300 xlsm:hidden flex  shrink-0 px-5 py-[10px] text-sm font-semibold rounded-[50px]' onClick={()=>router.push('/booking/contact')}><img src='../images/booking/Edit.svg' className='pr-2'/>Edit Contact</button>
 
 
 <div className='mt-6 xlsm:mt-0'>
@@ -164,7 +164,7 @@ function formsubmit(e){
 
 <div className='mt-6 block md:hidden'>
     <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>APARTMENT NUMBER</h6>
-    <h6 className='text-[16px] font-semibold'>17</h6>
+    <h6 className='text-[16px] font-semibold'>{apartmentNumber ? apartmentNumber : '-'}</h6>
 </div>
 
 </section>
@@ -178,7 +178,7 @@ function formsubmit(e){
 
 <div className='mt-6'>
     <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>APARTMENT NUMBER</h6>
-    <h6 className='text-[16px] font-semibold'>17</h6>
+    <h6 className='text-[16px] font-semibold'>{apartmentNumber ? apartmentNumber : '-'}</h6>
 </div>
 
 <div className='mt-6 block lg:hidden'>
@@ -205,7 +205,7 @@ function formsubmit(e){
 
 {/* ------------------------------------------------------------------------------------ */}
 
-<button className='absolute right-0 border-[1px] border-solid  border-gray-300 hidden xlsm:flex  shrink-0 px-5 py-[10px] text-sm font-semibold rounded-[50px]'><img src='../images/booking/Edit.svg' className='pr-2'/>Edit Contact</button>
+<button className='absolute right-0 border-[1px] border-solid  border-gray-300 hidden xlsm:flex  shrink-0 px-5 py-[10px] text-sm font-semibold rounded-[50px]' onClick={()=>router.push('/booking/contact')}><img src='../images/booking/Edit.svg' className='pr-2'/>Edit Contact</button>
 
 </main>
 
@@ -225,7 +225,7 @@ function formsubmit(e){
 </div>
 
 <div className=' absolute right-0'>
-     <button className='border-[1px] border-solid  border-gray-300 flex px-2 xlsm:px-5 py-[10px] text-[13px] sm:text-sm font-semibold rounded-[50px]'><img src='../images/booking/Edit.svg' className='pr-2 sm:pr-3'/>Edit Requirements</button>
+     <button className='border-[1px] border-solid  border-gray-300 flex px-2 xlsm:px-5 py-[10px] text-[13px] sm:text-sm font-semibold rounded-[50px]' onClick={()=>router.push('/booking/additionalRequirements')}><img src='../images/booking/Edit.svg' className='pr-2 sm:pr-3'/>Edit Requirements</button>
 </div>
 
 </section>
