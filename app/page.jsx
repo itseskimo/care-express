@@ -5,8 +5,10 @@ import Services from './Components/services/services'
 import Testimonials from './Components/testimonial/page'
 import queryString from 'query-string';
 import { useEffect } from 'react'
-
+import { useDispatch } from 'react-redux'
+import { socialLogin } from '@/redux/actions/page'
 const page = () => {
+  const dispatch= useDispatch()
 
 useEffect(()=>{
   const urlParams = queryString.parse(window.location.search);
@@ -15,6 +17,7 @@ useEffect(()=>{
     console.log(`An error occurred: ${urlParams.error}`);
   } else {
     console.log(`The code is: ${urlParams.code}`);
+    dispatch(socialLogin(urlParams.code,"google"))
   }
 },[])
   

@@ -24,10 +24,10 @@ import { LOGIN_FAIL, LOGIN_REQUEST,LOGIN_SUCCESS,REGISTER_USER_REQUEST,
 
     try {
       dispatch({ type: REGISTER_USER_REQUEST });
+
       const config = { headers: { "Content-Type": "application/json" } };
   
       const { data } = await axios.post('https://care-express-api.dthree.in/api/auth/register', userData, config);
-console.log(data)
       dispatch({ type: REGISTER_USER_SUCCESS, payload: data });
     } catch (error) {
       dispatch({
@@ -38,26 +38,15 @@ console.log(data)
   };
 
 
-// export const socialLogin = () => async (dispatch) => {
-
-//   try {
-//     dispatch({ type: SOCIAL_LOGIN_REQUEST });
-
-//     const { data } = await axios.get('https://care-express-api.dthree.in/api/auth/socialLogin');
-//     console.log(data)
-
-//     dispatch({ type: SOCIAL_LOGIN_SUCCESS, payload: data.user });
-//   } catch (error) {
-//     dispatch({ type: SOCIAL_LOGIN_FAIL, payload: error.response.data.message });
-//   }
-// };
-
-export const socialLogin = () => async (dispatch) => {
+export const socialLogin = (code,login_type) => async (dispatch) => {
+  console.log(code,login_type)
 
   try {
     dispatch({ type: SOCIAL_LOGIN_REQUEST });
 
-    const { data } = await axios.post('https://care-express-api.dthree.in/api/auth/socialLogin');
+    const config = { headers: { "Content-Type": "application/json" } };
+
+    const { data } = await axios.post('https://care-express-api.dthree.in/api/auth/socialLogin',{ code, login_type }, config);
     console.log(data)
 
     dispatch({ type: SOCIAL_LOGIN_SUCCESS, payload: data });
