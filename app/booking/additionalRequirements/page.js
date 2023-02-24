@@ -10,10 +10,18 @@ const page = () => {
 
 const router = useRouter();
 const [saveCheckBoxes,setSaveCheckBoxes]=useState([])
-console.log(saveCheckBoxes)
+const [saveCheckBoxesText,setSaveCheckBoxesText]=useState([])
+console.log(saveCheckBoxesText)
 
-function checkboxSaver(id){
- setSaveCheckBoxes([...new Set ([id,...saveCheckBoxes])].sort((a,b)=>b.length-a.length))
+function checkboxSaver(id,num){
+  // let checkbox= `#checkbox${num}`
+  // setSaveCheckBoxes([...new Set ([checkbox,...saveCheckBoxes])])
+  // let tick = saveCheckBoxes.toString()
+  let blueCheck = document.getElementById(`checkbox${num}`)
+  
+  
+   console.log(blueCheck)
+ setSaveCheckBoxesText([...new Set ([id,...saveCheckBoxesText])].sort((a,b)=>b.length-a.length))
 }
 
 function saveAdditionalRequirements(){
@@ -111,17 +119,17 @@ const [cost,setCost]=useState('')
 <h6 className='tracking-[0.02em] text-[16px] font-semibold mb-2'>Additional Services</h6>
 
 <section className='flex flex-col md:flex-row gap-4 md:gap-20 lg:gap-32 xlg:gap-48'>
-<div className='flex items-center select-all' onClick={(e)=>checkboxSaver(e.target.innerText)}>
-    <input type='checkbox' className='w-4 h-4 mr-2' id='checkox1'></input>
-    <h6 className='tracking-[0.02em] text-[16px] font-semibold whitespace-nowrap '>Language Tutoring</h6>
+<div className='flex items-center ' onClick={(e)=>checkboxSaver(e.target.innerText,1)}>
+    <input type='checkbox' className='w-4 h-4 mr-2 select-none' id='checkbox1'></input>
+    <h6 className='tracking-[0.02em] text-[16px] font-semibold whitespace-nowrap'id='text1' >Language Tutoring</h6>
 </div>
-<div className='flex items-center'  onClick={(e)=>checkboxSaver(e.target.innerText)}>
-    <input type='checkbox' className='w-4 h-4 mr-2' id='checkox2'></input>
-    <h6 className='tracking-[0.02em] text-[16px] font-semibold whitespace-nowrap'>VAS #2</h6>
+<div className='flex items-center'  onClick={(e)=>checkboxSaver(e.target.innerText,2)}>
+    <input type='checkbox' className='w-4 h-4 mr-2 select-none' id='checkbox2'></input>
+    <h6 className='tracking-[0.02em] text-[16px] font-semibold whitespace-nowrap' id='text2'>VAS #2</h6>
 </div>
-<div className='flex items-center'  onClick={(e)=>checkboxSaver(e.target.innerText)}>
-    <input type='checkbox' className='w-4 h-4 mr-2' id='checkox3'></input>
-    <h6 className='tracking-[0.02em] text-[16px] font-semibold whitespace-nowrap'>VAS #3</h6>
+<div className='flex items-center'  onClick={(e)=>checkboxSaver(e.target.innerText,3)}>
+    <input type='checkbox' className='w-4 h-4 mr-2 select-none ' id='checkbox3'></input>
+    <h6 className='tracking-[0.02em] text-[16px] font-semibold whitespace-nowrap' id='text3'>VAS #3</h6>
 </div>
 
 </section>
