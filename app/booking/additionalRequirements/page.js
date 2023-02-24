@@ -10,6 +10,9 @@ const page = () => {
 
   const router = useRouter();
 
+function saveAdditionalRequirements(){
+  localStorage.setItem('additionalRequirements',additionalRequirements)
+}
 
   const navDetails={
     clicked:'Booking',
@@ -42,6 +45,8 @@ const page = () => {
     FbIcon:'../images/business/Icons/facebook.svg',
   }
 
+  const [additionalRequirements,setAdditionalRequirements]=useState('')
+console.log(additionalRequirements)
 const [hours,setHours]=useState('')
 const [cost,setCost]=useState('')
 
@@ -117,11 +122,11 @@ const [cost,setCost]=useState('')
 
 <h6 className='tracking-[0.02em] text-[16px] font-semibold mt-6 mb-3'>Any special needs or requirements</h6>
 
-<textarea style={{border:'1px solid #ABABAB'}} placeholder='Tell us anything else we need to know, like allergies etc.' className='  outline-none bg-inputbg w-full px-4 pt-4  pb-[200px] overflow-hidden rounded-[12px]'></textarea>
+<textarea style={{border:'1px solid #ABABAB'}} onChange={(e)=>setAdditionalRequirements(e.target.value)} placeholder='Tell us anything else we need to know, like allergies etc.' className='  outline-none bg-inputbg w-full px-4 pt-4  pb-[200px] overflow-hidden rounded-[12px]'></textarea>
 
 <div className='flex justify-between'>
 <Link href={{pathname:'/booking/contact'}}><button className='bg-ligrey rounded-[50px] px-9 py-[8px] text-black text-[18px] font-semibold mt-10' >Back</button></Link>
-  <Link href={{pathname:'./booking/summary'}}><button className='bg-blue rounded-[50px] px-9 py-[8px] text-white text-[18px] font-semibold mt-10' >Next</button></Link>
+  <Link href={{pathname:'./booking/summary'}}><button className='bg-blue rounded-[50px] px-9 py-[8px] text-white text-[18px] font-semibold mt-10' onClick={saveAdditionalRequirements}>Next</button></Link>
 </div>
 
 
