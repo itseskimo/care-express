@@ -15,8 +15,8 @@ const router = useRouter();
 
 const [careType,setCareType]=useState('nanny')
 const [selectTime,setSelectTime]=useState('hours40')
-const [hours,setHours]=useState('')
-const [cost,setCost]=useState('')
+const [hours,setHours]=useState('40 hours')
+const [cost,setCost]=useState('39,90 zł / h')
 const [calendarDate,setCalendarDate]=useState('')
 const [togglecalendar,setToggleCalendar]=useState(false)
 const [date, setDate] = useState(null);
@@ -44,7 +44,7 @@ function calendar(){
 useEffect(()=>{
 calendar()
 setToggleCalendar(false)
-
+// extractText('hours40')
 },[date])
 
 
