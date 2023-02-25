@@ -1,11 +1,24 @@
 "use client"
 import React, { useState} from 'react'
 import Link from 'next/link'
-
+import { AreaChart, Area, Tooltip, ResponsiveContainer, CartesianGrid, XAxis, YAxis } from "recharts";
+import { format,parseISO,subDays } from 'date-fns';
+import { Dropdown, Button } from "antd";
 
 const page = () => {
 
   const[navitem,setNavItem]=useState('')
+
+  let chart=[]
+
+  for (let num = 30; num >= 0; num--) {
+    chart.push({
+      date: subDays(new Date(), num).toISOString().substr(0, 10),
+      value: 1 + Math.random(),
+    });
+  }
+
+
 
 
   return (
@@ -57,13 +70,33 @@ const page = () => {
 
         {/* ----------------------------------------------------------------------------------- */}
 
-        <div className='bg-white px-6 py-6 w-[49%] rounded-xl shadow-md cursor-pointer'>
-          <h6 className='flex font-bold mb-2'>Current Usage</h6>
+        <div className='bg-white px-5 py-6 w-[49%] rounded-xl shadow-md cursor-pointer'>
+          <h6 className='flex font-bold mb-2'>Statistics</h6>
+          
           <section className=''>
 
-         
+        <ResponsiveContainer width="100%" height={100}  >
+        <AreaChart data={chart} width={500}>
+
+        <defs>
+          <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#2451B7" stopOpacity={0.4} />
+            <stop offset="75%" stopColor="#2451B7" stopOpacity={0.05} />
+            <stop offset="95%" stopColor="#2451B7" stopOpacity={0} />
+
+          </linearGradient>
+        </defs>
+
+          <Area type="monotone" dataKey="value" stroke="#2451B7"  strokeWidth={1.3} fill="url(#color)" />
+          <XAxis dataKey='date'  axisLine={false} tickLine={false} />
+          <Tooltip itemStyle={{ color: "#fff", backgroundColor: "#0A1322" }} contentStyle={{ color: "#fff", backgroundColor: "#0A1322" }}/>
+
+         </AreaChart>
+         </ResponsiveContainer>
             
           </section>
+
+
         </div>
 
         </section>
