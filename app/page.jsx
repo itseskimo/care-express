@@ -7,6 +7,7 @@ import queryString from 'query-string';
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { socialLogin } from '@/redux/actions/page'
+import Head from 'next/head'
 
 const page = () => {
 
@@ -72,6 +73,9 @@ const services ={
 
   return (
     <>
+
+      
+
     <main className='' >
       
  

@@ -216,7 +216,7 @@ function extractText(e){
   <div className='relative flex '>
   <img src='../images/booking/calendar.svg' className='absolute  top-3 right-3 pointer-events-none select-none'/>
   <input style={{border:'1px solid #ABABAB'}}
-   className='outline-none bg-inputbg w-full py-[10px] rounded-[8px] pl-3' 
+   className='outline-none bg-inputbg w-full py-[10px] rounded-[8px] pl-3 cursor-pointer' 
    name='createEmail'
    type='email'
    readOnly
