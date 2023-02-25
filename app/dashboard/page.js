@@ -54,10 +54,8 @@ const page = () => {
             
           </section>
         </div>
-
-
-        </section>
-        <section className='flex gap-6'>
+        
+        {/* ----------------------------------------------------------------------------------- */}
 
         <div className='bg-white px-6 py-6 w-[49%] rounded-xl shadow-md cursor-pointer'>
           <h6 className='flex font-bold mb-2'>Current Usage</h6>
@@ -80,14 +78,10 @@ const page = () => {
           </section>
         </div>
 
-
         </section>
 
 
         </main>
-
-
-
 
         {/* ----------------------------------------------------------------------------------- */}
 
