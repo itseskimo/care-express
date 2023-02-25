@@ -34,7 +34,7 @@ const page = () => {
         
         <section className='flex gap-6'>
 
-        <div className='bg-white px-6 py-6 w-[48%] rounded-xl shadow-md cursor-pointer'>
+        <div className='bg-white px-6 py-6 w-[49%] rounded-xl shadow-md cursor-pointer'>
           <h6 className='flex font-bold mb-2'>Current Usage</h6>
           <section className='flex items-center justify-between'>
 
@@ -42,13 +42,13 @@ const page = () => {
 
             <div>
             <h6 className='text-[14px] mb-2 text-slate-400'>Hours Used</h6>
-            <h1 className='font-extrabold text-4xl mb-2'>256</h1>
+            <h1 className='font-extrabold text-4xl mb-2'>768</h1>
             <h6 className='text-[14px] mb-2 text-slate-400'>Mar 1-31</h6>
             </div>
 
-            <div>
+            <div className='pr-12'>
             <h6 className='text-[14px] mb-2 text-slate-400'>Hours Left</h6>
-            <h1 className='font-extrabold text-4xl mb-2'>256</h1>
+            <h1 className='font-extrabold text-4xl mb-2'>432</h1>
             <h6 className='text-[14px] mb-2 text-slate-400'>30% Remaining</h6>
             </div>
             
