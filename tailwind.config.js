@@ -5,6 +5,7 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
+
   
 
   theme: {
@@ -102,5 +103,5 @@ module.exports = {
 
     },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
 };
