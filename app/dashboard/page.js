@@ -36,9 +36,9 @@ const page = () => {
 
         <div className='bg-white px-6 py-6 w-[48%] rounded-xl shadow-md cursor-pointer'>
           <h6 className='flex font-bold mb-2'>Current Usage</h6>
-          <section className='flex justify-between'>
+          <section className='flex items-center justify-between'>
 
-          <div className="radial-progress" style={{"--value":70}}>70%</div>
+          <div className="radial-progress text-radialProgress" style={{"--value":70, "--thickness": "8px", "--size": "4.4rem",}}>70%</div>
 
             <div>
             <h6 className='text-[14px] mb-2 text-slate-400'>Hours Used</h6>
