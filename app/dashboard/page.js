@@ -3,7 +3,8 @@ import React, { useState} from 'react'
 import Link from 'next/link'
 import { AreaChart, Area, Tooltip, ResponsiveContainer, CartesianGrid, XAxis, YAxis } from "recharts";
 import { format,parseISO,subDays } from 'date-fns';
-import { Dropdown, Button } from "antd";
+import { createUseStyles } from "react-jss";
+
 
 const page = () => {
 
@@ -17,7 +18,53 @@ const page = () => {
       value: 1 + Math.random(),
     });
   }
+  const dropdownCategories = [
+    {
+      key: 0,
+      content: "Today",
+      value: "Today",
+    },
+    {
+      key: 1,
+      content: "Yesterday",
+      value: "Yesterday",
+    },
+    {
+      key: 2,
+      content: "Last 7 days",
+      value: "Last_7_days",
+    },
+    {
+      key: 3,
+      content: "Last 14 days",
+      value: "Last_14_days",
+    },
+    {
+      key: 4,
+      content: "Last 30 days",
+      value: "Last_30_days",
+    },
+    {
+     key: 5,
+     content: "Last 90 days",
+     value: "Last_90_days",
+    }
+   ];
 
+   const [activeTimeFrame, setActiveTimeFrame] = useState(0);
+
+   function selectField(e){
+    setSelect(!select)
+     let selectText= document.getElementById('selectText')
+     let dropdownArrow= document.getElementById('dropdownArrow')
+  
+      dropdownArrow.classList.toggle('rotate-180')
+   
+     
+       selectText.innerHTML= e.target.innerText 
+  }
+
+  const[select,setSelect]=useState(false)
 
 
 
@@ -71,9 +118,36 @@ const page = () => {
         {/* ----------------------------------------------------------------------------------- */}
 
         <div className='bg-white px-5 py-6 w-[49%] rounded-xl shadow-md cursor-pointer'>
-          <h6 className='flex font-bold mb-2'>Statistics</h6>
+
+    <section className='flex justify-between'>
+      <h6 className='flex font-bold mb-2'>Statistics</h6>
+
+      <main className='w-44 relative' onClick={selectField}>
+
+      <section  className='w-full py-[6px] box-border border-solid border-gray-400 border-[1px]  bg-white rounded-lg flex items-center justify-between px-4 cursor-pointer'>
+      <p className='text-xs md:text-sm  lg:text-[15px] font-semibold select-none pointer-events-none' id='selectText'>Today </p>
+      <img src='../images/Icons/Arrowdown.svg' className='w-[9px] select-none pointer-events-none' id='dropdownArrow'/>
+      </section>
+
+      {select &&
+         <ul className='w-full bg-white shadow-md rounded-[8px] overflow-hidden absolute z-10' >
+           <li className='w-full h-9 list-none box-border cursor-pointer flex items-center justify-around' >
+            <p className=''>Month</p>
+           </li>
+ 
+           <li className='w-full h-9 list-none box-border cursor-pointer flex items-center justify-around ' >
+             <p className='' id='list2'>Year</p>
+           </li>
+      </ul>
+      }
+      </main>
+
+    </section>
           
-          <section className=''>
+
+
+          
+        <section className=''>
 
         <ResponsiveContainer width="100%" height={100}  >
         <AreaChart data={chart} width={500}>
