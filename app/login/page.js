@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 import login from '@/redux/actions/page'
 import { socialLogin } from '@/redux/actions/page'
 import  queryString from 'query-string';
+import Head from '../head'
 
 
 
@@ -107,6 +108,7 @@ if(passwordToggle.type==='password'){
 
   return (
     <>
+        <Head title='Login'/>
 
     <Navbar color={'bg-blue'} {...navDetails}/>
 

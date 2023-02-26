@@ -3,6 +3,7 @@ import Navbar from '../Components/navbar/navbar'
 import Services from '../Components/services/services'
 import Link from 'next/link'
 import Testimonials from '../Components/testimonial/page'
+import Head from '../head'
 
 // import { Splide, SplideSlide } from '@splidejs/react-splide'
 // import { Options } from '@splidejs/splide';
@@ -49,6 +50,8 @@ const personal = () => {
   }
   return (
     <>
+        <Head title='Personal'/>
+
     <main className=' '  >
       
 

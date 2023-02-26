@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { AreaChart, Area, Tooltip, ResponsiveContainer, CartesianGrid, XAxis, YAxis } from "recharts";
 import { format,parseISO,subDays } from 'date-fns';
 import { createUseStyles } from "react-jss";
+import Head from '../head'
 
 
 const page = () => {
@@ -70,6 +71,7 @@ const page = () => {
 
   return (
     <div className='bg-specialbg h-screen '>
+            <Head title='Dashboard'/>
 
 <main className='pt-10 ml-auto mr-auto w-[93%]'>
 

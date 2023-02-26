@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Navbar from '../Components/navbar/navbar'
 import Footer from '../Components/footer/footer'
 import Testimonials from '../Components/testimonial/page'
+import Head from '../head'
 
 
 
@@ -51,6 +52,8 @@ const seniorExpress = () => {
 
   return (
     <>
+    <Head title='Senior Express'/>
+
     <main className='' >
 
     {/* <nav  className='flex justify-end h-6 box-border bg-purple'>

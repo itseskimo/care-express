@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { useEffect,useState } from 'react'
 import { useRouter } from 'next/navigation';
 import { legacy_createStore } from 'redux'
+import Head from '../../head'
 
 const page = () => {
   const router = useRouter();
@@ -75,6 +76,7 @@ function formsubmit(e){
 
   return (
     <>
+            <Head title='Summary'/>
 
     <Navbar color={'bg-blue'} {...navDetails}/>
 

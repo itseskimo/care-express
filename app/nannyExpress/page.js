@@ -2,6 +2,8 @@
 import Navbar from '../Components/navbar/navbar'
 import Footer from '../Components/footer/footer'
 import Testimonials from '../Components/testimonial/page'
+import Head from '../head'
+
 const nannyExpress = () => {
 
 const navDetails={
@@ -47,6 +49,8 @@ const Testimonial={
 
   return (
     <>
+        <Head title='Nanny Express'/>
+
     <main className='' >
     
    

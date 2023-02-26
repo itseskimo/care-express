@@ -8,6 +8,7 @@ import {format} from 'date-fns'
 import {Calendar} from 'react-date-range';
 import {useState,useEffect} from 'react'
 import {useRouter} from 'next/navigation';
+import Head from '../../head'
 
 const page = () => {
 
@@ -94,6 +95,7 @@ function extractText(e){
   
   return (
     <>
+            <Head title='Select Plan'/>
 
     <Navbar color={'bg-blue'} {...navDetails}/>
  

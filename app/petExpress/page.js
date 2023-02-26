@@ -2,6 +2,7 @@
 import Navbar from '../Components/navbar/navbar'
 import Footer from '../Components/footer/footer'
 import Testimonials from '../Components/testimonial/page'
+import Head from '../head'
 
 
 const petExpress = () => {
@@ -49,6 +50,8 @@ const petExpress = () => {
 
   return (
     <>
+        <Head title='Pet Express'/>
+
     <main className='' >
       
 

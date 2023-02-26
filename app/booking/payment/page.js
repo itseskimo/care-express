@@ -2,6 +2,8 @@
 import Navbar from '../../Components/navbar/navbar'
 import Footer from '../../Components/footer/footer'
 import BookingHeader from '../../Components/bookingHeader/page'
+import Head from '../../head'
+
 const page = () => {
   
 
@@ -39,6 +41,7 @@ const page = () => {
 
   return (
     <>
+            <Head title='Payment'/>
 
     <Navbar color={'bg-blue'} {...navDetails}/>
 

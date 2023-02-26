@@ -4,6 +4,8 @@ import Footer from '../Components/footer/footer'
 import { useState, useEffect } from 'react'
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
+import Head from '../head'
+
 const page = () => {
 
   const searchParams = useSearchParams();
@@ -231,13 +233,8 @@ useEffect(()=>{
       }
   return (
     <>
-    {/* <nav className={`flex justify-end h-6 box-border ${navDetails.topHeader}`}>
-    <section className='flex items-center mx-4 sm:mx-14 font-medium text-white tracking-widest text-xs  lg:text-sm py-2'>
-    <span className='px-2.5	mt-0.5 cursor-pointer'>FAQs</span>
-    <Link href={{pathname:'/about'}}>    <span className='px-2.5 mt-0.5	cursor-pointer'>About us</span></Link>
-    <span className='px-2.5	mt-0.5 cursor-pointer '>Contact</span>
-    </section>
-    </nav> */}
+            <Head title='FAQs'/>
+
 
     <Navbar color={'bg-blue'} {...navDetails}/>
 

@@ -2,6 +2,7 @@
 import Navbar from '../Components/navbar/navbar'
 import Footer from '../Components/footer/footer'
 import Testimonials from '../Components/testimonial/page'
+import Head from '../head'
 
 const specialExpress = () => {
 
@@ -47,6 +48,8 @@ const specialExpress = () => {
 
   return (
     <>
+            <Head title='Special Express'/>
+
     <main className=''  >
       
 

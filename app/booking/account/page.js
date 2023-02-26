@@ -8,6 +8,7 @@ import { register } from '@/redux/actions/page'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import { useRouter } from 'next/navigation';
+import Head from '../../head'
 
 const page = () => {
   const router = useRouter();
@@ -130,6 +131,7 @@ const page = () => {
 
   return (
     <>
+            <Head title='Create Account'/>
 
     <Navbar color={'bg-blue'} {...navDetails}/>
 

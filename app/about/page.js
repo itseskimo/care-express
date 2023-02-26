@@ -3,6 +3,7 @@ import Navbar from '../Components/navbar/navbar'
 import Footer from '../Components/footer/footer'
 import Services from '../Components/services/services'
 import Testimonials from '../Components/testimonial/page'
+import Head from '../head'
 
 
 const page = () => {
@@ -57,6 +58,8 @@ const page = () => {
 
   return (
     <>
+            <Head title='About Us'/>
+
     <main className='' >
     
     {/* <nav  className='flex justify-end h-6 box-border bg-black'>

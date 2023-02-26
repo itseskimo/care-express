@@ -5,6 +5,7 @@ import BookingHeader from '../../Components/bookingHeader/page'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation';
+import Head from '../../head'
 
 const page = () => {
 
@@ -81,6 +82,7 @@ const [cost,setCost]=useState('')
   
   return (
     <>
+            <Head title='Contact Details'/>
 
     <Navbar color={'bg-blue'} {...navDetails}/>
    
