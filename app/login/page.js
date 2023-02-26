@@ -54,7 +54,7 @@ const page = () => {
   
   
   if(isAuthenticated){
-     router.push('/')
+     router.push('/dashboard')
     }
   },[isAuthenticated, user])
 

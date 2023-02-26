@@ -358,9 +358,9 @@ color:rebeccapurple;
 }
 
 div[role="progressbar"] {
-  --size: 12rem;
+  --size: 4rem;
   --fg: #369;
-  --bg: #def;
+  --bg: transparent;
   --pgPercentage: var(--value);
   animation: growProgressBar 3s 1 forwards;
   width: var(--size);

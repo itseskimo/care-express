@@ -100,7 +100,7 @@ const page = () => {
           <h6 className='flex font-bold mb-2'>Current Usage</h6>
           <section className='flex items-center justify-between'>
 
-          <div role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style={{"--value":65}}></div>
+          <div role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style={{"--value":75}}></div>
 
             <div>
             <h6 className='text-[14px] mb-2 text-slate-400'>Hours Used</h6>
