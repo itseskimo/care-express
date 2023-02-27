@@ -273,23 +273,25 @@ const page = () => {
         
         <section className='flex gap-6'>
 
-        <div className='bg-white px-6 py-6 w-[245px] rounded-xl shadow-md cursor-pointer'>
-          <h6 className='flex font-bold mb-2'><img className='pr-3' src='../images/business/Icons/business-express-separator-star.svg'/>Pet Express</h6>
-          <h6 className='text-xs mb-2 text-slate-400'>Hours Used</h6>
-          <h1 className='font-extrabold text-4xl'>256</h1>
+        <div style={{boxShadow:'0px 12px 40px rgba(0, 0, 0, 0.08)'}} className='bg-white px-6 py-6 w-[23.5%] rounded-[14px] cursor-pointer'>
+          <h6 className='flex font-semibold text-[20px] mb-2'><img className='pr-4' src='../images/business/Icons/business-express-separator-star.svg'/>Pet Express</h6>
+          <h6 className='text-[16px] mb-1 font-medium text-dashdrkgrey'>Hours Used</h6>
+          <h1 className='font-extrabold text-[40px]'>256</h1>
         </div>
+        <div style={{boxShadow:'0px 12px 40px rgba(0, 0, 0, 0.08)'}} className='bg-white px-6 py-6 w-[23.5%] rounded-[14px] cursor-pointer'>
+          <h6 className='flex font-semibold text-[20px] mb-2'><img className='pr-4' src='../images/business/Icons/business-express-separator-star.svg'/>Pet Express</h6>
+          <h6 className='text-[16px] mb-1 font-medium text-dashdrkgrey'>Hours Used</h6>
+          <h1 className='font-extrabold text-[40px]'>256</h1>
+        </div>
+        <div style={{boxShadow:'0px 12px 40px rgba(0, 0, 0, 0.08)'}} className='bg-white px-6 py-6 w-[23.5%] rounded-[14px] cursor-pointer'>
+          <h6 className='flex font-semibold text-[20px] mb-2'><img className='pr-4' src='../images/business/Icons/business-express-separator-star.svg'/>Pet Express</h6>
+          <h6 className='text-[16px] mb-1 font-medium text-dashdrkgrey'>Hours Used</h6>
+          <h1 className='font-extrabold text-[40px]'>256</h1>
+        </div>
+   
+        
 
-        <div className='bg-white px-6 py-6 w-[245px] rounded-xl shadow-md cursor-pointer'>
-          <h6 className='flex font-bold mb-2'><img className='pr-3' src='../images/business/Icons/business-express-separator-star.svg'/>Nanny Express</h6>
-          <h6 className='text-xs mb-2 text-slate-400'>Hours Used</h6>
-          <h1 className='font-extrabold text-4xl'>256</h1>
-        </div>
-
-        <div className='bg-white px-6 py-6 w-[245px] rounded-xl shadow-md cursor-pointer'>
-          <h6 className='flex font-bold mb-2'><img className='pr-3' src='../images/business/Icons/business-express-separator-star.svg'/>Senior Express</h6>
-          <h6 className='text-xs mb-2 text-slate-400'>Hours Used</h6>
-          <h1 className='font-extrabold text-4xl'>256</h1>
-        </div>
+        
 
         </section>
 
