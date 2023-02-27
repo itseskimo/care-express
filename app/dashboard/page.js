@@ -182,7 +182,7 @@ const page = () => {
         
         <section className='flex gap-6'>
 
-        <div className='bg-white px-6 py-8 w-[49%] rounded-xl shadow-md cursor-pointer'>
+        <div className='bg-white px-6 py-6 w-[49%] rounded-xl shadow-md cursor-pointer'>
           <h6 className='flex font-semibold text-[20px] mb-2'>Current Usage</h6>
           <section className='flex items-center justify-between'>
 
@@ -205,7 +205,7 @@ const page = () => {
 
         {/* ----------------------------------------------------------------------------------- */}
 
-        <div className='bg-white px-6 py-8 w-[49%] rounded-xl shadow-md cursor-pointer'>
+        <div className='bg-white px-6 py-6 w-[49%] rounded-xl shadow-md cursor-pointer'>
 
     <section className='flex justify-between'>
       <h6 className='flex font-semibold text-[20px] mb-2'>Statistics</h6>
