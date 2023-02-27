@@ -3,13 +3,30 @@ import React, { useState} from 'react'
 import Link from 'next/link'
 import { AreaChart, Area, Tooltip, ResponsiveContainer, CartesianGrid, XAxis, YAxis } from "recharts";
 import { format,parseISO,subDays } from 'date-fns';
-import { createUseStyles } from "react-jss";
 import Head from '../head'
-
+import DashboardNav from '../Components/dashboardNav/page'
+import queryString from 'query-string';
+import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { socialLogin } from '@/redux/actions/page'
 
 const page = () => {
 
-  const[navitem,setNavItem]=useState('')
+  const dispatch= useDispatch()
+
+  useEffect(()=>{
+    const urlParams = queryString.parse(window.location.search);
+    
+    if (urlParams.error) {
+      console.log(`An error occurred: ${urlParams.error}`);
+    } else {
+      console.log(`The code is: ${urlParams.code}`);
+      dispatch(socialLogin(urlParams.code,"google"))
+    }
+  },[])
+    
+
+
 
   let chart=[]
 
@@ -19,50 +36,134 @@ const page = () => {
       value: 1 + Math.random(),
     });
   }
-  const dropdownCategories = [
-    {
-      key: 0,
-      content: "Today",
-      value: "Today",
-    },
-    {
-      key: 1,
-      content: "Yesterday",
-      value: "Yesterday",
-    },
-    {
-      key: 2,
-      content: "Last 7 days",
-      value: "Last_7_days",
-    },
-    {
-      key: 3,
-      content: "Last 14 days",
-      value: "Last_14_days",
-    },
-    {
-      key: 4,
-      content: "Last 30 days",
-      value: "Last_30_days",
-    },
-    {
-     key: 5,
-     content: "Last 90 days",
-     value: "Last_90_days",
-    }
-   ];
 
-   const [activeTimeFrame, setActiveTimeFrame] = useState(0);
+
+  const data_1 = [
+    {
+      view: 1000,
+      name: "Jan",
+    },
+    {
+      view: 1200,
+      name: "Feb",
+    },
+    {
+      view: 1500,
+      name: "March",
+    },
+    // {
+    //   view: 1780,
+    //   name: "April",
+    // },
+    // {
+    //   view: 1000,
+    //   name: "May",
+    // },
+    // {
+    //   view: 1990,
+    //   name: "June",
+    // },
+    // {
+    //   view: 2190,
+    //   name: "July",
+    // },
+    // {
+    //   view: 2490,
+    //   name: "Aug",
+    // },
+    // {
+    //   view: 2200,
+    //   name: "Sept",
+    // },
+    // {
+    //   view: 2300,
+    //   name: "Oct",
+    // },
+    // {
+    //   view: 2500,
+    //   name: "Nov",
+    // },
+    // {
+    //   view: 2380,
+    //   name: "Dec",
+    // },
+  ];
+  
+  const data_2 = [
+    {
+      view: 100,
+      name: "Jan",
+    },
+    {
+      view: 200,
+      name: "Fab",
+    },
+    {
+      view: 150,
+      name: "March",
+    },
+    {
+      view: 1280,
+      name: "April",
+    },
+    {
+      view: 900,
+      name: "May",
+    },
+    {
+      view: 1190,
+      name: "June",
+    },
+    {
+      view: 1190,
+      name: "July",
+    },
+    {
+      view: 490,
+      name: "Aug",
+    },
+    {
+      view: 200,
+      name: "Sept",
+    },
+    {
+      view: 2300,
+      name: "Oct",
+    },
+    {
+      view: 2500,
+      name: "Nov",
+    },
+    {
+      view: 2380,
+      name: "Dec",
+    },
+  ];
+  
+   const dataSet = {
+    Today: data_1,
+    Yesterday: data_2,
+    Last_7_days: data_1,
+    Last_14_days: data_2,
+    Last_30_days: data_1,
+    Last_90_days: data_2,
+  };
+
+
+
+
+
+
+
+
+
 
    function selectField(e){
     setSelect(!select)
      let selectText= document.getElementById('selectText')
      let dropdownArrow= document.getElementById('dropdownArrow')
-  
-      dropdownArrow.classList.toggle('rotate-180')
-   
-     
-       selectText.innerHTML= e.target.innerText 
+     dropdownArrow.classList.toggle('rotate-180')
+     selectText.innerHTML= e.target.innerText 
   }
 
   const[select,setSelect]=useState(false)
@@ -75,21 +176,7 @@ const page = () => {
 
 <main className='pt-10 ml-auto mr-auto w-[93%]'>
 
-        <nav className='bg-white shadow-lg  h-16   flex sticky top-0 rounded-xl'>
-
-        <header className='flex items-center gap-6 w-[50%]'>
-        <img src='../images/petExpress/logo.jpg' className='pl-5' />
-        <h1 className={` py-[10px] rounded-[8px] px-3 cursor-pointer ${navitem === 'Dashboard' ? 'bg-gray-400' : '' }`} onClick={(e)=>setNavItem(e.target.innerText)}>Dashboard</h1>
-        <h1 className={` py-[10px] rounded-[8px] px-3 cursor-pointer ${navitem === 'Order History' ? 'bg-gray-400' : '' }`} onClick={(e)=>setNavItem(e.target.innerText)}>Order History</h1>
-        <h1 className={` py-[10px] rounded-[8px] px-3 cursor-pointer ${navitem === 'Reports' ? 'bg-gray-400' : '' }`} onClick={(e)=>setNavItem(e.target.innerText)}>Reports</h1>
-        </header>
-
-        <header className='flex items-center gap-6  justify-end w-[50%]'>
-        <Link href={{pathname:'/login'}}><button className='bg-blue text-white rounded-[27px] px-3 py-2'>Book Now</button></Link>
-        <h1 className='rounded-[50%] bg-green px-4 py-[7px] text-lg flex items-center justify-center font-bold mr-5'>P</h1>
-        </header>
-
-        </nav>
+        <DashboardNav navTitle='Dashboard'/>
         {/* ----------------------------------------------------------------------------------- */}
         <main className='mt-10 '>
           <h5 className='font-semibold mb-4'>Ongoing Services</h5>
@@ -119,7 +206,7 @@ const page = () => {
 
         {/* ----------------------------------------------------------------------------------- */}
 
-        <div className='bg-white px-5 py-6 w-[49%] rounded-xl shadow-md cursor-pointer'>
+        <div className='bg-white px-6 py-6 w-[49%] rounded-xl shadow-md cursor-pointer'>
 
     <section className='flex justify-between'>
       <h6 className='flex font-bold mb-2'>Statistics</h6>
@@ -152,7 +239,7 @@ const page = () => {
         <section className=''>
 
         <ResponsiveContainer width="100%" height={100}  >
-        <AreaChart data={chart} width={500}>
+        <AreaChart data={data_1} width={500}>
 
         <defs>
           <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
@@ -163,8 +250,8 @@ const page = () => {
           </linearGradient>
         </defs>
 
-          <Area type="monotone" dataKey="value" stroke="#2451B7"  strokeWidth={1.3} fill="url(#color)" />
-          <XAxis dataKey='date'  axisLine={false} tickLine={false} />
+          <Area type="monotone" dataKey="view" stroke="#2451B7"  strokeWidth={1.3} fill="url(#color)" />
+          <XAxis dataKey='name'  axisLine={false} tickLine={false} />
           <Tooltip itemStyle={{ color: "#fff", backgroundColor: "#0A1322" }} contentStyle={{ color: "#fff", backgroundColor: "#0A1322" }}/>
 
          </AreaChart>

@@ -21,7 +21,7 @@ const page = () => {
 
   const stringifiedParams = queryString.stringify({
     client_id: '338820813045-hmg3tmrbe741gf69fonr9qm34vl8k6hj.apps.googleusercontent.com',
-    redirect_uri: 'http://localhost:3000',
+    redirect_uri: 'http://localhost:3000/dashboard',
     scope: [
       'https://www.googleapis.com/auth/userinfo.email',
       'https://www.googleapis.com/auth/userinfo.profile',
@@ -36,7 +36,7 @@ const page = () => {
 
   const stringifiedParamsFb = queryString.stringify({
     client_id: '872907897343690',
-    redirect_uri: 'http://localhost:3000',
+    redirect_uri: 'http://localhost:3000/dashboard',
     scope: ['email', 'user_friends'].join(','), 
     response_type: 'code',
     auth_type: 'rerequest',

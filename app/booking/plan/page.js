@@ -32,13 +32,19 @@ function formSubmit(e){
   localStorage.setItem('calendarDate', calendarDate)
   router.push('/booking/contact')
   }else{
-    alert('The fields are required and cannot be empty')
+    alert('Select Care Start Date to proceed')
   }
 }
 
 function calendar(){
+ const calendarCalc=['null',"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+
  const calendar= document.getElementById('extractCalendarTime')
  setCalendarDate(calendar.value)
+ let dateCalc=`${calendar.value.substring(3,5)}`
+ let monthCalc = calendarCalc[calendar.value.substring(0,1) === '0' ? calendar.value.substring(1,2) : calendar.value.substring(0,2)] 
+ let yearCalc= `${calendar.value.substring(6,10)}`
+ console.log(calendarCalcDate)
  setToggleCalendar(!togglecalendar)
 }
 
@@ -60,6 +66,9 @@ function extractText(e){
     setCost(text[1])
    }
 }
+
+
+
 
   const navDetails={
     clicked:'Booking',
@@ -237,6 +246,8 @@ showMonthAndYearPickers={false}
 onChange={item => setDate(item)}
 date={date}  
 className='shadow-xl'
+minDate={new Date()}
+
 />
 }
   </section>
