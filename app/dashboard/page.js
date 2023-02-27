@@ -51,18 +51,18 @@ const page = () => {
       view: 1500,
       name: "March",
     },
-    // {
-    //   view: 1780,
-    //   name: "April",
-    // },
-    // {
-    //   view: 1000,
-    //   name: "May",
-    // },
-    // {
-    //   view: 1990,
-    //   name: "June",
-    // },
+    {
+      view: 1780,
+      name: "April",
+    },
+    {
+      view: 1000,
+      name: "May",
+    },
+    {
+      view: 1990,
+      name: "June",
+    },
     // {
     //   view: 2190,
     //   name: "July",
@@ -174,7 +174,7 @@ const page = () => {
     <div className='bg-specialbg h-screen '>
             <Head title='Dashboard'/>
 
-<main className='pt-8 ml-auto mr-auto w-[93%]'>
+<main className='pt-8 ml-auto mr-auto w-[92%]'>
 
         <DashboardNav navTitle='Dashboard'/>
         {/* ----------------------------------------------------------------------------------- */}
@@ -182,22 +182,22 @@ const page = () => {
         
         <section className='flex gap-6'>
 
-        <div className='bg-white px-6 py-6 w-[49%] rounded-xl shadow-md cursor-pointer'>
-          <h6 className='flex font-bold mb-2'>Current Usage</h6>
+        <div className='bg-white px-6 py-8 w-[49%] rounded-xl shadow-md cursor-pointer'>
+          <h6 className='flex font-semibold text-[20px] mb-2'>Current Usage</h6>
           <section className='flex items-center justify-between'>
 
           <div role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style={{"--value":75}}></div>
 
             <div>
-            <h6 className='text-[14px] mb-2 text-slate-400'>Hours Used</h6>
-            <h1 className='font-extrabold text-4xl mb-2'>768</h1>
-            <h6 className='text-[14px] mb-2 text-slate-400'>Mar 1-31</h6>
+            <h6 className=' mb-1 text-dashdrkgrey font-medium text-[16px]'>Hours Used</h6>
+            <h1 className='font-extrabold text-[40px] mb-1'>768</h1>
+            <h6 className='text-dashdrkgrey font-medium text-[16px] '>Mar 1-31</h6>
             </div>
 
-            <div className='pr-12'>
-            <h6 className='text-[14px] mb-2 text-slate-400'>Hours Left</h6>
-            <h1 className='font-extrabold text-4xl mb-2'>432</h1>
-            <h6 className='text-[14px] mb-2 text-slate-400'>30% Remaining</h6>
+            <div className='pr-14'>
+            <h6 className=' mb-1 text-dashdrkgrey font-medium text-[16px]'>Hours Left</h6>
+            <h1 className='font-extrabold text-[40px] mb-1'>432</h1>
+            <h6 className='text-dashdrkgrey font-medium text-[16px] '>30% Remaining</h6>
             </div>
             
           </section>
@@ -205,15 +205,15 @@ const page = () => {
 
         {/* ----------------------------------------------------------------------------------- */}
 
-        <div className='bg-white px-6 py-6 w-[49%] rounded-xl shadow-md cursor-pointer'>
+        <div className='bg-white px-6 py-8 w-[49%] rounded-xl shadow-md cursor-pointer'>
 
     <section className='flex justify-between'>
-      <h6 className='flex font-bold mb-2'>Statistics</h6>
+      <h6 className='flex font-semibold text-[20px] mb-2'>Statistics</h6>
 
-      <main className='w-44 relative' onClick={selectField}>
+      <main className='w-[179px] relative' onClick={selectField}>
 
       <section  className='w-full py-[6px] box-border border-solid border-gray-400 border-[1px]  bg-white rounded-lg flex items-center justify-between px-4 cursor-pointer'>
-      <p className='text-xs md:text-sm  lg:text-[15px] font-semibold select-none pointer-events-none' id='selectText'>Today </p>
+      <p className='text-xs md:text-sm  lg:text-[16px] font-medium select-none pointer-events-none' id='selectText'>Today </p>
       <img src='../images/Icons/Arrowdown.svg' className='w-[9px] select-none pointer-events-none' id='dropdownArrow'/>
       </section>
 
@@ -235,7 +235,7 @@ const page = () => {
 
 
           
-        <section className=''>
+        <section className='mt-6'>
 
         <ResponsiveContainer width="100%" height={100}  >
         <AreaChart data={data_1} width={500}>

@@ -358,8 +358,8 @@ color:rebeccapurple;
 }
 
 div[role="progressbar"] {
-  --size: 4rem;
-  --fg: #369;
+  --size: 5rem;
+  --fg: #416EEA;
   --bg: transparent;
   --pgPercentage: var(--value);
   animation: growProgressBar 3s 1 forwards;
@@ -385,14 +385,3 @@ div[role="progressbar"]::before {
 
 
 
-.leftvector{
-
-}
-
-.rightvector{
-  background: #FFFFFF;
-border: 1px solid #D9D9D9;
-transform: matrix(-1, 0, 0, 1, 0, 0);
-width: 8.7px;
-height: 9.29px;
-}

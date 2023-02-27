@@ -68,6 +68,7 @@ module.exports = {
       fadingcherry:'#FDFBF4',
       fadegrey:'rgba(0, 0, 0, 0.6)',
       dashgrey:'#B4B7BB',
+      dashdrkgrey:'#9FA3A9',
 
     },
 
