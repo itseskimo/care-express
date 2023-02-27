@@ -269,7 +269,7 @@ const page = () => {
         {/* ----------------------------------------------------------------------------------- */}
 
         <main className='mt-10'>
-          <h5 className='font-semibold mb-4'>Ongoing Services</h5>
+          <h5 className='flex font-semibold text-[20px] mb-4'>Ongoing Services</h5>
         
         <section className='flex gap-6'>
 
