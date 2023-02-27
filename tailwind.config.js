@@ -87,7 +87,6 @@ module.exports = {
       grey:'rgba(28, 27, 27, 0.2)',
       ligrey:'#F0F0F0',
       hazyblue:'#416EEA',
-
       purple:'#CC3C9D',
       topaz:'#0DB0B5',
       skin:'#FFA3A1',
@@ -96,7 +95,12 @@ module.exports = {
       midblue:'#2668F4',
       liyellow:'#FFFDF4',
       midblue:'#E8EEFF',
+      dashblue:'#C5D5FF',
       pink:'#FF699F',
+
+      dashgrey:'#E8E9EB',
+
+
       yellowfader:'linear-gradient(90deg, #FFFDF4 0%, rgba(0, 0, 0, 0) 24%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0) 76%, #FFFDF4 100%)',
     },
 

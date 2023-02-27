@@ -174,12 +174,11 @@ const page = () => {
     <div className='bg-specialbg h-screen '>
             <Head title='Dashboard'/>
 
-<main className='pt-10 ml-auto mr-auto w-[93%]'>
+<main className='pt-8 ml-auto mr-auto w-[93%]'>
 
         <DashboardNav navTitle='Dashboard'/>
         {/* ----------------------------------------------------------------------------------- */}
         <main className='mt-10 '>
-          <h5 className='font-semibold mb-4'>Ongoing Services</h5>
         
         <section className='flex gap-6'>
 
