@@ -44,7 +44,6 @@ function calendar(){
  let dateCalc=`${calendar.value.substring(3,5)}`
  let monthCalc = calendarCalc[calendar.value.substring(0,1) === '0' ? calendar.value.substring(1,2) : calendar.value.substring(0,2)] 
  let yearCalc= `${calendar.value.substring(6,10)}`
- console.log(calendarCalcDate)
  setToggleCalendar(!togglecalendar)
 }
 

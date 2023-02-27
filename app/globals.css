@@ -385,3 +385,14 @@ div[role="progressbar"]::before {
 
 
 
+.leftvector{
+
+}
+
+.rightvector{
+  background: #FFFFFF;
+border: 1px solid #D9D9D9;
+transform: matrix(-1, 0, 0, 1, 0, 0);
+width: 8.7px;
+height: 9.29px;
+}

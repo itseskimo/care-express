@@ -67,6 +67,7 @@ module.exports = {
       logingrey:'#9F9F9F',
       fadingcherry:'#FDFBF4',
       fadegrey:'rgba(0, 0, 0, 0.6)',
+      dashgrey:'#B4B7BB',
 
     },
 
@@ -85,6 +86,7 @@ module.exports = {
       green:'#63C154',
       grey:'rgba(28, 27, 27, 0.2)',
       ligrey:'#F0F0F0',
+      hazyblue:'#416EEA',
 
       purple:'#CC3C9D',
       topaz:'#0DB0B5',

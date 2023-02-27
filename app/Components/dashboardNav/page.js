@@ -14,7 +14,7 @@ const page = ({navTitle}) => {
 <img src='../images/petExpress/logo.jpg' className='pl-5' />
 <Link href={{pathname:'/dashboard'}}><h1 className={` py-[10px] rounded-[8px] px-3 cursor-pointer ${navitem === 'Dashboard' ? 'bg-ligrey' : '' }`} onClick={(e)=>setNavItem(e.target.innerText)}>Dashboard</h1></Link>
 <Link href={{pathname:'/orderHistory'}}><h1 className={` py-[10px] rounded-[8px] px-3 cursor-pointer ${navitem === 'Order History' ? 'bg-ligrey' : '' }`} onClick={(e)=>setNavItem(e.target.innerText)}>Order History</h1></Link>
-<h1 className={` py-[10px] rounded-[8px] px-3 cursor-pointer ${navitem === 'Reports' ? 'bg-gray-400' : '' }`} onClick={(e)=>setNavItem(e.target.innerText)}>Reports</h1>
+<Link href={{pathname:'/reports'}}><h1 className={` py-[10px] rounded-[8px] px-3 cursor-pointer ${navitem === 'Reports' ? 'bg-ligrey' : '' }`} onClick={(e)=>setNavItem(e.target.innerText)}>Reports</h1></Link>
 </header>
 
 <header className='flex items-center gap-6  justify-end w-[50%]'>
