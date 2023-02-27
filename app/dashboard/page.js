@@ -274,17 +274,17 @@ const page = () => {
         <section className='flex gap-6'>
 
         <div style={{boxShadow:'0px 12px 40px rgba(0, 0, 0, 0.08)'}} className='bg-white px-6 py-6 w-[23.5%] rounded-[14px] cursor-pointer'>
-          <h6 className='flex font-semibold text-[20px] mb-2'><img className='pr-4' src='../images/business/Icons/business-express-separator-star.svg'/>Pet Express</h6>
+          <h6 className='flex font-semibold text-[20px] mb-2'><img className='pr-4' src='../images/dashboard/pet.svg'/>Pet Express</h6>
           <h6 className='text-[16px] mb-1 font-medium text-dashdrkgrey'>Hours Used</h6>
           <h1 className='font-extrabold text-[40px]'>256</h1>
         </div>
         <div style={{boxShadow:'0px 12px 40px rgba(0, 0, 0, 0.08)'}} className='bg-white px-6 py-6 w-[23.5%] rounded-[14px] cursor-pointer'>
-          <h6 className='flex font-semibold text-[20px] mb-2'><img className='pr-4' src='../images/business/Icons/business-express-separator-star.svg'/>Pet Express</h6>
+          <h6 className='flex font-semibold text-[20px] mb-2'><img className='pr-4' src='../images/dashboard/Vector.svg'/>Nanny Express</h6>
           <h6 className='text-[16px] mb-1 font-medium text-dashdrkgrey'>Hours Used</h6>
           <h1 className='font-extrabold text-[40px]'>256</h1>
         </div>
         <div style={{boxShadow:'0px 12px 40px rgba(0, 0, 0, 0.08)'}} className='bg-white px-6 py-6 w-[23.5%] rounded-[14px] cursor-pointer'>
-          <h6 className='flex font-semibold text-[20px] mb-2'><img className='pr-4' src='../images/business/Icons/business-express-separator-star.svg'/>Pet Express</h6>
+          <h6 className='flex font-semibold text-[20px] mb-2'><img className='pr-4' src='../images/dashboard/Frame.svg'/>Senior Express</h6>
           <h6 className='text-[16px] mb-1 font-medium text-dashdrkgrey'>Hours Used</h6>
           <h1 className='font-extrabold text-[40px]'>256</h1>
         </div>
