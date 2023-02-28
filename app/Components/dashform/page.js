@@ -1,7 +1,7 @@
 "use client"
 import { useState } from 'react'
 
-const page = () => {
+const page = ({isToggle}) => {
 
     const [form, setForm] = useState({
         title: "",
@@ -11,6 +11,8 @@ const page = () => {
         postalCode:'',
         city:'',
       });
+
+const [editToggle,setEditToggle]=useState(isToggle)
 
       const {title,streetName,streetNumber,apartmentNumber,postalCode,city}=form
 
@@ -72,13 +74,11 @@ const page = () => {
 </section>
 
 <section className='flex justify-end gap-[10px] mt-[20px]'>
-<button className='p-[16px] rounded-lg font-medium text-[16px]'>CANCEL</button>
-<input type='submit' className='bg-dashyellow p-[16px] rounded-lg font-medium text-[16px]' value='SAVE'/>
+<button className='p-[16px] rounded-lg font-medium text-[16px] cursor-pointer' >CANCEL</button>
+<input type='submit' className='bg-dashyellow p-[16px] rounded-lg font-medium text-[16px] cursor-pointer' value='SAVE' />
 </section>
 
 </form>
-
-
 
 </section>
     </>
