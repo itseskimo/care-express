@@ -9,16 +9,16 @@ const page = ({navTitle}) => {
 
   return (
     <>
-<nav className='bg-white shadow-lg  h-[80px]   flex sticky top-0 rounded-xl'>
+<nav className='bg-white shadow-lg  h-[80px]   flex justify-between sticky top-0 rounded-xl'>
 
-<header className='flex items-center gap-6 w-[50%]'>
+<header className='flex items-center gap-6 '>
 <Link href={{pathname:'/'}}><img src='../images/petExpress/logo.jpg' className='pl-5' /></Link>
 <Link href={{pathname:'/dashboard'}}><h1 className={` py-[10px] rounded-[8px] px-3  text-[20px] cursor-pointer ${navitem === 'Dashboard' ? 'bg-dashgrey' : '' }`} onClick={(e)=>setNavItem(e.target.innerText)}>Dashboard</h1></Link>
 <Link href={{pathname:'/orderHistory'}}><h1 className={` py-[10px] rounded-[8px] px-3 text-[20px] cursor-pointer ${navitem === 'Order History' ? 'bg-dashgrey' : '' }`} onClick={(e)=>setNavItem(e.target.innerText)}>Order History</h1></Link>
 <Link href={{pathname:'/reports'}}><h1 className={` py-[10px] rounded-[8px] px-3 text-[20px] cursor-pointer ${navitem === 'Reports' ? 'bg-dashgrey' : '' }`} onClick={(e)=>setNavItem(e.target.innerText)}>Reports</h1></Link>
 </header>
 
-<header className='flex items-center gap-6  justify-end w-[50%]'>
+<header className='flex items-center gap-6 '>
 <Link href={{pathname:'/login'}}><button className='bg-hazyblue text-white text-[16px] rounded-[23.5px] px-5 py-[12px]'>Book Now</button></Link>
 <h1 className='rounded-[50%] cursor-pointer bg-dashblue px-[19px] py-[8px] text-center text-[24px] flex items-center justify-center font-extrabold mr-5' onClick={()=>setSelect(!select)}>P</h1>
 </header>
