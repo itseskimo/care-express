@@ -48,6 +48,7 @@ const page = () => {
   const [cost,setCost]=useState('')
   const [saveCheckBoxesText,setSaveCheckBoxesText]=useState([])
   const [additionalDescription,setAdditionalDescription]=useState('')
+  const [calendarDate,setCalendarDate]=useState('')
 
 useEffect(()=>{
   let hours= localStorage.getItem('hours')
@@ -62,6 +63,8 @@ useEffect(()=>{
   let additionalDescription= localStorage.getItem('additionalDescription')
   setAdditionalDescription(additionalDescription)
 
+  let calendarDate =localStorage.getItem('calendarDate')
+  setCalendarDate(calendarDate)
 
 const contactData =localStorage.getItem('contact')
 let data = JSON.parse(contactData);
@@ -108,7 +111,7 @@ function formsubmit(e){
 
 <div className=' md:w-[16.5%] lg:w-[20%]  min-w-[140px] lg:min-w-[168px]'>
   <h6 className='tracking-[0.12em] text-xs font-semibold'>CARE START DATE</h6>
-  <h6 className='text-[20px] lg:text-[24px] font-bold'>15 March 2023</h6>
+  <h6 className='text-[20px] lg:text-[24px] font-bold'>{calendarDate}</h6>
 </div>
 
 <div className='absolute right-0'>

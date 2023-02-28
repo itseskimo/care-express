@@ -106,7 +106,11 @@ module.exports = {
     },
 
    
+    boxShadow: {
+    clipshadow:'0 20px 0 0 #522d5b'
 
+    }
+  
 
     },
   },
