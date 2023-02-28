@@ -186,7 +186,6 @@ const [cost,setCost]=useState('')
 
 <div className='flex justify-between'>
   <Link href={{pathname:'/booking/plan'}}><button className='bg-ligrey rounded-[50px] px-9 py-[8px] text-black text-[18px] font-semibold mt-10' >Back</button></Link>
-  {/* <Link href={{pathname:'./booking/additionalRequirements'}}></Link> */}
     <input type='submit' className='bg-blue rounded-[50px] px-9 py-[8px] text-white cursor-pointer text-[18px] font-semibold mt-10' value='Next'/>
 </div>
 

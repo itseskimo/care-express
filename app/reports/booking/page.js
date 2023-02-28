@@ -32,7 +32,7 @@ const page = () => {
       localStorage.setItem('cost', cost)
       localStorage.setItem('careType', careType)
       localStorage.setItem('calendarDate', calendarDate)
-      // router.push('/booking/contact')
+      router.push('/reports/contactDetails')
       }else{
         alert('Select Care Start Date to proceed')
       }
