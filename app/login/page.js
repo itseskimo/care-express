@@ -1,7 +1,7 @@
 "use client"
 import Navbar from '../Components/navbar/navbar'
 import Link from 'next/link'
-import { useState,useEffect } from 'react'
+import { useState,useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useRouter } from 'next/navigation';
 import login from '@/redux/actions/page'
@@ -14,10 +14,8 @@ import Head from '../head'
 const page = () => {
 
   const { isAuthenticated, user } = useSelector((state) => state.user);
-  
+
   const router = useRouter();
-
-
 
   const stringifiedParams = queryString.stringify({
     client_id: '338820813045-hmg3tmrbe741gf69fonr9qm34vl8k6hj.apps.googleusercontent.com',
@@ -46,34 +44,16 @@ const page = () => {
   const facebookLoginUrl = `https://www.facebook.com/v4.0/dialog/oauth?${stringifiedParamsFb}`;
   
 
-
   useEffect(()=>{
-
-  
-  
   
   if(isAuthenticated){
      router.push('/dashboard')
     }
 
-
-  let userData = JSON.stringify(user);
-  localStorage.setItem("user", userData);
-
-  
-    
-   
-  // let avoidResetUser =  localStorage.getItem("user");
-  
-  // if(avoidResetUser === undefined ||  avoidResetUser === null ||  avoidResetUser === {}){
-  //   console.log('fdd')
-
-  // }else{
-  //   let userData = JSON.stringify(user);
-  //   localStorage.setItem("user", userData);
-  // }
-  
-
+  if(!localStorage.getItem('user')){
+    let userData = JSON.stringify(user);
+    localStorage.setItem("user", userData);
+  }
 
   },[isAuthenticated, user])
 

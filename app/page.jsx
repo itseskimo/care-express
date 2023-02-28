@@ -3,27 +3,10 @@ import Navbar from './Components/navbar/navbar'
 import Footer from './Components/footer/footer'
 import Services from './Components/services/services'
 import Testimonials from './Components/testimonial/page'
-// import queryString from 'query-string';
-// import { useEffect } from 'react'
-// import { useDispatch } from 'react-redux'
-// import { socialLogin } from '@/redux/actions/page'
+
 import Head from './head'
 
 const page = () => {
-
-// const dispatch= useDispatch()
-
-// useEffect(()=>{
-//   const urlParams = queryString.parse(window.location.search);
-  
-//   if (urlParams.error) {
-//     console.log(`An error occurred: ${urlParams.error}`);
-//   } else {
-//     console.log(`The code is: ${urlParams.code}`);
-//     dispatch(socialLogin(urlParams.code,"google"))
-//   }
-// },[])
-  
 
   const navDetails={
     clicked:'For Business',
