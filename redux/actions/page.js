@@ -2,7 +2,9 @@
 import axios from 'axios';
 import { LOGIN_FAIL, LOGIN_REQUEST,LOGIN_SUCCESS,REGISTER_USER_REQUEST,
   REGISTER_USER_SUCCESS,
-  REGISTER_USER_FAIL, SOCIAL_LOGIN_REQUEST, SOCIAL_LOGIN_SUCCESS, SOCIAL_LOGIN_FAIL } from '../constants/page';
+  REGISTER_USER_FAIL, SOCIAL_LOGIN_REQUEST, SOCIAL_LOGIN_SUCCESS, SOCIAL_LOGIN_FAIL,
+  POST_ADDRESS_REQUEST,POST_ADDRESS_SUCCESS,POST_ADDRESS_FAIL, 
+  GET_ADDRESS_REQUEST, GET_ADDRESS_SUCCESS, GET_ADDRESS_FAIL } from '../constants/page';
 
 export const login = (email, password) => async (dispatch) => {
 
@@ -53,6 +55,32 @@ export const socialLogin = (code,login_type) => async (dispatch) => {
   }
 };
 
+export const postAddress = (addressData) => async (dispatch) => {
+  try {
+    dispatch({ type: POST_ADDRESS_REQUEST });
+
+    const config = { headers: { "Content-Type": "application/json"} };
+
+    const { data } = await axios.post('https://care-express-api.dthree.in/api/customer/address', addressData , config);
+    console.log(data)
+
+    dispatch({ type: POST_ADDRESS_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({ type: POST_ADDRESS_FAIL, payload: error.response.data.message });
+  }
+};
+
+export const getAddresses = () => async (dispatch) => {
+  try {
+    dispatch({ type: GET_ADDRESS_REQUEST });
+
+    const { data } = await axios.get('https://care-express-api.dthree.in/api/customer/addresses');
+
+    dispatch({ type: GET_ADDRESS_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({ type: GET_ADDRESS_FAIL, payload: error.response.data.message });
+  }
+};
 
 
 
@@ -61,6 +89,6 @@ export const socialLogin = (code,login_type) => async (dispatch) => {
 
 
 
-  
+
 
   

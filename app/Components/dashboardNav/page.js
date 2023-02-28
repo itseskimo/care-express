@@ -9,10 +9,10 @@ const page = ({navTitle}) => {
 
   return (
     <>
-<nav className='bg-white shadow-lg  h-[80px]   flex justify-between sticky top-0 rounded-xl'>
+<nav className='bg-white shadow-lg  h-[80px]   flex justify-between sticky top-0 rounded-xl z-50'>
 
 <header className='flex items-center gap-6 '>
-<Link href={{pathname:'/'}}><img src='../images/petExpress/logo.jpg' className='pl-5' /></Link>
+<Link href={{pathname:'/'}}><img src='../images/petExpress/logo.jpg' className='pl-5 shrink-0' /></Link>
 <Link href={{pathname:'/dashboard'}}><h1 className={` py-[10px] rounded-[8px] px-3  text-[20px] cursor-pointer ${navitem === 'Dashboard' ? 'bg-dashgrey' : '' }`} onClick={(e)=>setNavItem(e.target.innerText)}>Dashboard</h1></Link>
 <Link href={{pathname:'/orderHistory'}}><h1 className={` py-[10px] rounded-[8px] px-3 text-[20px] cursor-pointer ${navitem === 'Order History' ? 'bg-dashgrey' : '' }`} onClick={(e)=>setNavItem(e.target.innerText)}>Order History</h1></Link>
 <Link href={{pathname:'/reports'}}><h1 className={` py-[10px] rounded-[8px] px-3 text-[20px] cursor-pointer ${navitem === 'Reports' ? 'bg-dashgrey' : '' }`} onClick={(e)=>setNavItem(e.target.innerText)}>Reports</h1></Link>
@@ -28,11 +28,11 @@ const page = ({navTitle}) => {
 {select &&
          <ul className='w-[220px] bg-white shadow-md rounded-[8px] overflow-hidden absolute right-0 top-2 cursor-pointer z-10 px-7' onClick={()=>setSelect(!select)} >
            <li className='w-full py-3 list-none box-border cursor-pointer flex items-center justify-start' >
-            <p className=''>Account</p>
+           <Link href={{pathname:'/dashboard/account'}}><p className='text-[14px]'>Account</p></Link>
            </li>
  
            <li className='w-full py-3 list-none box-border cursor-pointer flex items-center justify-start ' >
-             <p className='' id='list2'>Logout</p>
+             <p className='text-[14px]' >Logout</p>
            </li>
       </ul>
       }

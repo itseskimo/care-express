@@ -4,8 +4,13 @@ import DashboardNav from '../../Components/dashboardNav/page'
 import Head from '../../head'
 import SubDashboardNav from '../../Components/subdashboardNav/page'
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { postAddress } from '@/redux/actions/page'
+
 
 const page = () => {
+  const dispatch = useDispatch();
+
 
   const [form, setForm] = useState({
     title: "",
@@ -26,15 +31,22 @@ const page = () => {
     e.preventDefault();
     const myForm = new FormData();
     
-    myForm.set("title", title);
-    myForm.set("street_number", streetNumber);
-    myForm.set("street_name", streetName);
-    myForm.set("postal_code", postalCode);
-    myForm.set("city", city);
-    myForm.set("apartment_number", apartmentNumber);
-    setFormToggle(!formToggle)
-    //dispatch(register(myForm));
-  };
+    // myForm.set("title", title);
+    // myForm.set("street_name", streetName);
+    // myForm.set("street_number", streetNumber);
+    // myForm.set("apartment_number", apartmentNumber);
+    // myForm.set("postal_code", postalCode);
+    // myForm.set("city", city);
+    // setFormToggle(!formToggle)
+    myForm.set("title", "Home");
+    myForm.set("street_name", "Krawiecka 1");
+    myForm.set("street_number", "7-11");
+    myForm.set("apartment_number", '');
+    myForm.set("postal_code", "50-148");
+    myForm.set("city", "Worclaw");
+    
+    dispatch(postAddress(myForm));
+  }
 
   const [formToggle,setFormToggle]=useState(false)
 
@@ -42,12 +54,18 @@ const page = () => {
   setFormToggle(!formToggle)
   }
 
+  const [deleteToggle,setDeleteToggle]=useState(false)
+
+  function deleteTogg(){
+  setDeleteToggle(!deleteToggle)
+  }
+
 
 
   return (
     <>
 {formToggle && <section className='sticky top-0 left-0  h-screen z-50 flex items-center justify-center   bg-dashoverlay overflow-hidden'>
-<form className='flex flex-col gap-[22px]  rounded-[16px] h-max w-[564px] bg-soothingyellow p-7' onSubmit={addressSubmit}>
+<form className='flex flex-col gap-[22px]  rounded-[16px] h-max w-[564px] bg-soothingyellow p-7 shadow-dashshadow' onSubmit={addressSubmit}>
 <h6 className='text-[20px] font-semibold mb-2'>Edit Address 1</h6>
 
 <div className=''>
@@ -94,6 +112,19 @@ const page = () => {
 
 
 
+{deleteToggle && <section className='sticky top-0 left-0  h-screen z-50 flex items-center justify-center  bg-dashoverlay overflow-hidden'>
+<main className='flex flex-col gap-[22px]  rounded-[16px] h-max w-[564px] bg-soothingyellow p-6 shadow-dashshadow '>
+<h6 className='text-[20px] font-semibold'>Delete Address 1?</h6>
+
+<section className='flex justify-end gap-[10px] mt-[20px]'>
+<button className='p-[16px] rounded-lg font-medium text-[16px] cursor-pointer' onClick={deleteTogg}>CANCEL</button>
+<button className='p-[16px] rounded-lg font-medium text-white bg-dashlired text-[16px] cursor-pointer' >DELETE</button>
+</section>
+
+</main>
+</section>}
+
+
 
 
 
@@ -103,15 +134,21 @@ const page = () => {
 <div className='bg-specialbg h-screen absolute top-0 w-full '>
 <Head title='Reports' />
 <main className='pt-8 ml-auto mr-auto w-[92%]'>
-<DashboardNav navTitle='Reports'/>
+<DashboardNav />
 
-<SubDashboardNav/>
+<SubDashboardNav navTitle='Addresses'/>
 <section className='flex gap-6 mt-10 flex-wrap'>
 
-<div className='bg-white px-6 py-6 w-[245px] rounded-[14px] shadow-md cursor-pointer'>
-  <h6 className='flex font-semibold text-[20px] mb-2'>Address 1</h6>
-  <h6 className='text-xs mb-2 text-[20px] w-[80%] leading-4 tracking-wider'>Targowa 20a, 03-727 Warszawa, Poland</h6>
-  <div className='flex mt-4'><img className='pr-3' src='../images/business/Icons/business-express-separator-star.svg'/><img className='pr-3' src='../images/business/Icons/business-express-separator-star.svg' onClick={editToggle}/></div>
+<div className='bg-white px-6 py-6 w-[22%] rounded-[14px] shadow-md cursor-pointer'>
+  <h6 className=' font-semibold text-[20px] mb-2'>Address 1</h6>
+  <h6 className=' mb-2 text-[20px]  leading-7 '>Targowa 20a, 03-727 Warszawa, Poland</h6>
+  <div className='flex mt-4'><img className='pr-3' src='../images/dashboard/delete.svg' onClick={deleteTogg}/><img className='pr-3' src='../images/dashboard/edit.svg' onClick={editToggle}/></div>
+</div>
+
+<div className='bg-white px-6 py-6 w-[22%] rounded-[14px] shadow-md cursor-pointer'>
+  <h6 className=' font-semibold text-[20px] mb-2'>Address 1</h6>
+  <h6 className=' mb-2 text-[20px]  leading-7 '>Targowa 20a, 03-727 Warszawa, Poland</h6>
+  <div className='flex mt-4'><img className='pr-3' src='../images/dashboard/delete.svg' onClick={deleteTogg}/><img className='pr-3' src='../images/dashboard/edit.svg' onClick={editToggle}/></div>
 </div>
 
 </section>

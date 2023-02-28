@@ -42,7 +42,6 @@ const page = () => {
 
 
   const dispatch = useDispatch();
-  const [message,setMessage]=useState('')
 
   const registerSubmit = (e) => {
     e.preventDefault();

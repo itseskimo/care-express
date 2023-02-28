@@ -1,45 +1,70 @@
 import React from 'react'
 import DashboardNav from '../Components/dashboardNav/page'
 import Head from '../head'
-import SubDashboardNav from '../Components/subdashboardNav/page'
 
-const page = () => {
-  return (
-    <div className='bg-specialbg h-screen '>
-    <Head title='Reports' />
+const page = () => (
+  <div className='bg-specialbg  h-max'>
+    <Head title='Order History' />
     <main className='pt-8 ml-auto mr-auto w-[92%]'>
-     <DashboardNav navTitle='Reports'/>
+      <DashboardNav navTitle='Reports' />
+      <section className='mt-9  overflow-hidden'>
+        <table className='w-full '>
+        <tbody>
+          <tr className='text-left  '>
+            <th className='py-5 pl-10 font-semibold text-[14px] tracking-[0.15em]'>REPORT MONTH</th>
+            <th className='py-5 font-semibold text-[14px] tracking-[0.15em]'>PET EXPRESS</th>
+            <th className='py-5 font-semibold text-[14px] tracking-[0.15em]'>NANNY EXPRESS</th>
+            <th className='py-5 font-semibold text-[14px] tracking-[0.15em]'>SENIOR EXPRESS</th>
+            <th className='py-5 font-semibold text-[14px] tracking-[0.15em]'>SPECIAL EXPRESS</th>
+            <th className='py-5 pr-10 font-semibold text-[14px] tracking-[0.15em]'>ACTIONS</th>
+          </tr>
 
 
-{/* <nav className='flex mt-10 gap-6 border-b-[1px] border-solid border-gray-300 w-max cursor-pointer'>
-  <span className='bg-white px-5 py-3 rounded-t-[9px] shadow text-black text-[20px] font-normal mr-2 relative before:absolute before:h-4 before:w-4 before:bg-green before:left-[-15px] before:bottom-0 before:rounded-br-xl '>Account</span>
-<span className='fancyButton'>Addresses</span>
-<span className='bg-transparent px-5 py-3 rounded-t-[9px] text-dashgrey text-[20px] font-normal'>Settings</span>
-</nav> */}
-<SubDashboardNav/>
+          <tr className='border-b-[1px] border-solid border-gray-300 bg-white'>
+            <td className='py-5 text-[14px] pl-10'>FEB 2023</td>
+            <td className='py-5 text-[14px]'>10 Hours</td>
+            <td className='py-5 text-[14px]'>10 Hours</td>
+            <td className='py-5 text-[14px]'>10 Hours</td>
+            <td className='py-5 text-[14px]'>10 Hours</td>
+            <td className='py-5 text-[14px] underline underline-offset-2 decoration-[1px] text-blue cursor-pointer flex'><img className='pr-3' src='../images/dashboard/eye.svg'/>View Report</td>
+          </tr>
+          <tr className='border-b-[1px] border-solid border-gray-300 bg-white'>
+            <td className='py-5 text-[14px] pl-10'>FEB 2023</td>
+            <td className='py-5 text-[14px]'>10 Hours</td>
+            <td className='py-5 text-[14px]'>10 Hours</td>
+            <td className='py-5 text-[14px]'>10 Hours</td>
+            <td className='py-5 text-[14px]'>10 Hours</td>
+            <td className='py-5 text-[14px] underline underline-offset-2 decoration-[1px] text-blue cursor-pointer flex'><img className='pr-3' src='../images/dashboard/eye.svg'/>View Report</td>
+          </tr>
+          <tr className='border-b-[1px] border-solid border-gray-300 bg-white'>
+            <td className='py-5 text-[14px] pl-10'>FEB 2023</td>
+            <td className='py-5 text-[14px]'>10 Hours</td>
+            <td className='py-5 text-[14px]'>10 Hours</td>
+            <td className='py-5 text-[14px]'>10 Hours</td>
+            <td className='py-5 text-[14px]'>10 Hours</td>
+            <td className='py-5 text-[14px] underline underline-offset-2 decoration-[1px] text-blue cursor-pointer flex'><img className='pr-3' src='../images/dashboard/eye.svg'/>View Report</td>
+          </tr>
+          <tr className=' bg-white'>
+            <td className='py-5 text-[14px] pl-10'>FEB 2023</td>
+            <td className='py-5 text-[14px]'>10 Hours</td>
+            <td className='py-5 text-[14px]'>10 Hours</td>
+            <td className='py-5 text-[14px]'>10 Hours</td>
+            <td className='py-5 text-[14px]'>10 Hours</td>
+            <td className='py-5 text-[14px] underline underline-offset-2 decoration-[1px] text-blue cursor-pointer flex'><img className='pr-3' src='../images/dashboard/eye.svg'/>View Report</td>
+          </tr>
+         
+         
+          </tbody>
+        </table>
 
+      </section>
 
-<section className='flex gap-5 mt-8'>
-  
-  <div>
-    <h6 className='mb-2 text-sm'>First Name</h6>
-    <input type='text' className='px-3 py-[13px] outline-none rounded-[10px] text-[14px] w-[306px]'  style={{border:'1px solid #C8CACD'}} />
-  </div>
-  <div>
-    <h6 className='mb-2 text-sm'>Last Name</h6>
-    <input type='text' className='px-3 py-[13px] outline-none rounded-[10px] text-[14px] w-[306px]'  style={{border:'1px solid #C8CACD'}} />
-  </div>
-  <div>
-    <h6 className='mb-2 text-sm'>Password</h6>
-    <input type='password' className='px-3 py-[13px] outline-none rounded-[10px] text-[14px] w-[306px]'  style={{border:'1px solid #C8CACD'}} />
-  </div>
-  
-</section>
-  <button className='px-[20px] py-[13px] bg-hazyblue text-white rounded-[23.5px] text-[16px] mt-8'>Save Details</button>
+<div className='flex items-center justify-center mt-36 pb-14'>
+      <button className='bg-hazyblue px-16 py-[15px] text-white text-[16px] font-semibold rounded-lg'>PAGE 1</button>
+</div>
 
     </main>
-    </div>
-  )
-}
+  </div>
+)
 
 export default page

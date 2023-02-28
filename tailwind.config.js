@@ -103,13 +103,17 @@ module.exports = {
       soothingyellow:'#FCFCFC',
       dashyellow:'#FBBD23',
       dashoverlay:'rgba(0, 0, 0, 0.24)',
+      dashlired:'#F87272',
+      dashgreen:'#36D399',
 
       yellowfader:'linear-gradient(90deg, #FFFDF4 0%, rgba(0, 0, 0, 0) 24%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0) 76%, #FFFDF4 100%)',
     },
 
    
     boxShadow: {
-    clipshadow:'0 20px 0 0 #522d5b'
+    clipshadow:'0 20px 0 0 #522d5b',
+    dashshadow:'0px 12px 40px rgba(0, 0, 0, 0.16)',
+    dashlishadow:'0px 12px 40px rgba(0, 0, 0, 0.08)',
 
     }
   
