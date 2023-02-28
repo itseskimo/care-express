@@ -82,14 +82,14 @@ const page = () => {
 
 <form className='bg-white h-max rounded-[16px] mt-10 ' onSubmit={formSubmit}>
 
-<main className='mx-28 py-10'>
+<main className='mx-32 py-10'>
 
-<div>
+<div className=''>
 
 <h6 className='font-semibold tracking-[0.02em] text-[16px]'>Select Care Type</h6>
-<section className='mt-2 flex flex-wrap gap-8'  >
+<section className='mt-2 flex flex-wrap gap-9'  >
 
-  <div className='border-[1px] border-solid border-gray-300	 rounded-[12px] relative cursor-pointer w-[196px] h-[180px]' id='nanny' onClick={(e)=>setCareType(e.target.id)}>
+  <div className='border-[1px] border-solid border-gray-300	 rounded-[12px] relative cursor-pointer w-[196px]' id='nanny' onClick={(e)=>setCareType(e.target.id)}>
     <nav className={`bg-grey absolute w-full h-full select-none pointer-events-none rounded-[12px] ${careType === 'nanny' ? 'block' : 'hidden'}`} >
     <img src='../images/booking/check.png' className=' absolute top-[50%]  left-[50%] -translate-y-[50%] -translate-x-[50%] select-none pointer-events-none'/>
     </nav>
@@ -130,7 +130,7 @@ const page = () => {
 
 <div>
 <h6 className='font-semibold tracking-[0.02em] text-[16px] my-5'>Choose Plan</h6>
-<section className='mt-2 flex flex-wrap gap-8' >
+<section className='mt-2 flex flex-wrap gap-9' >
   
   <div className={`border-[1px] border-solid ${selectTime === 'hours10'? 'border-blue' : 'border-gray-300' } 	w-[196px] h-[180px] rounded-[12px] relative cursor-pointer`} id='hours10' onClick={extractText}>
     <section className='font-semibold flex flex-col pl-2 pt-9  rounded-[12px] select-none pointer-events-none' >
@@ -182,7 +182,7 @@ const page = () => {
 {/* ------------------------------------------------------------------------------------ */}
 
 <div>
-<h6 className='font-bold mt-5'>When would you like for the care to begin ?</h6>
+<h6 className='font-bold mt-6'>When would you like for the care to begin ?</h6>
 <section className='mt-2 '>
   
 <div className='min-w-[300px] sm:min-w-[330px] lg:max-w-none w-[80%] lg:w-[50%]'>
