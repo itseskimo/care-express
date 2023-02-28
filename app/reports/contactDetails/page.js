@@ -75,7 +75,7 @@ const page = () => {
 {/* ------------------------------------------------------------------------------------ */}
 <div className='flex justify-between'>
   <Link href={{pathname:'/reports/booking'}}><button className='bg-ligrey rounded-[50px] px-9 py-[8px] text-black text-[18px] font-semibold mt-10' >Back</button></Link>
-  <Link href={{pathname:'/reports/additionalRequirements'}}><button className='bg-hazyblue rounded-[50px] px-9 py-[8px] text-white text-[18px] font-semibold mt-10' >Next</button></Link>
+  <Link href={{pathname:'/reports/additionalRequirements'}}><button className='bg-blue rounded-[50px] px-9 py-[8px] text-white text-[18px] font-semibold mt-10' >Next</button></Link>
 </div>
 
 
