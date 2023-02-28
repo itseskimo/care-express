@@ -56,12 +56,13 @@ const page = () => {
      router.push('/dashboard')
     }
 
-    if(user){
+
   let userData = JSON.stringify(user);
   localStorage.setItem("user", userData);
-    }else{
-      console.log('nn')
-    }
+
+  
+    
+   
   // let avoidResetUser =  localStorage.getItem("user");
   
   // if(avoidResetUser === undefined ||  avoidResetUser === null ||  avoidResetUser === {}){
@@ -69,7 +70,7 @@ const page = () => {
 
   // }else{
   //   let userData = JSON.stringify(user);
-  // localStorage.setItem("user", userData);
+  //   localStorage.setItem("user", userData);
   // }
   
 
