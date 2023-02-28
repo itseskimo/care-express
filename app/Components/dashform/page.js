@@ -34,7 +34,7 @@ const page = () => {
 
   return (
     <>
-<section className='flex flex-col items-center justify-center h-screen  bg-blue'>
+<section className='flex flex-col items-center justify-center h-screen  bg-dashoverlay'>
 <form className='flex flex-col gap-[22px]  rounded-[16px] h-max w-[564px] bg-soothingyellow p-7' onSubmit={addressSubmit}>
 <h6 className='text-[20px] font-semibold mb-2'>Edit Address 1</h6>
 

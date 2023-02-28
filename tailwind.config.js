@@ -102,6 +102,7 @@ module.exports = {
       dashgrey:'#E8E9EB',
       soothingyellow:'#FCFCFC',
       dashyellow:'#FBBD23',
+      dashoverlay:'rgba(0, 0, 0, 0.24)',
 
       yellowfader:'linear-gradient(90deg, #FFFDF4 0%, rgba(0, 0, 0, 0) 24%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0) 76%, #FFFDF4 100%)',
     },
