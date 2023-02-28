@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useState,useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useRouter } from 'next/navigation';
-import login from '@/redux/actions/page'
+import { login } from '@/redux/actions/page'
 import { socialLogin } from '@/redux/actions/page'
 import  queryString from 'query-string';
 import Head from '../head'

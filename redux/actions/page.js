@@ -4,7 +4,7 @@ import { LOGIN_FAIL, LOGIN_REQUEST,LOGIN_SUCCESS,REGISTER_USER_REQUEST,
   REGISTER_USER_SUCCESS,
   REGISTER_USER_FAIL, SOCIAL_LOGIN_REQUEST, SOCIAL_LOGIN_SUCCESS, SOCIAL_LOGIN_FAIL } from '../constants/page';
 
- const login = (email, password) => async (dispatch) => {
+export const login = (email, password) => async (dispatch) => {
 
     try {
       dispatch({ type: LOGIN_REQUEST });
@@ -62,6 +62,5 @@ export const socialLogin = (code,login_type) => async (dispatch) => {
 
 
   
-  export default login;
 
   
