@@ -1,6 +1,7 @@
 import React from 'react'
 import DashboardNav from '../Components/dashboardNav/page'
 import Head from '../head'
+import SubDashboardNav from '../Components/subdashboardNav/page'
 
 const page = () => {
   return (
@@ -10,11 +11,13 @@ const page = () => {
      <DashboardNav navTitle='Reports'/>
 
 
-<nav className='flex mt-10 gap-6 border-b-[1px] border-solid border-gray-300 w-max cursor-pointer'>
+{/* <nav className='flex mt-10 gap-6 border-b-[1px] border-solid border-gray-300 w-max cursor-pointer'>
   <span className='bg-white px-5 py-3 rounded-t-[9px] shadow text-black text-[20px] font-normal mr-2 relative before:absolute before:h-4 before:w-4 before:bg-green before:left-[-15px] before:bottom-0 before:rounded-br-xl '>Account</span>
 <span className='fancyButton'>Addresses</span>
 <span className='bg-transparent px-5 py-3 rounded-t-[9px] text-dashgrey text-[20px] font-normal'>Settings</span>
-</nav>
+</nav> */}
+<SubDashboardNav/>
+
 
 <section className='flex gap-5 mt-8'>
   
