@@ -49,13 +49,31 @@ const page = () => {
 
   useEffect(()=>{
 
-  let userData = JSON.stringify(user);
-  localStorage.setItem("user", userData);
+  
   
   
   if(isAuthenticated){
      router.push('/dashboard')
     }
+
+    if(user){
+  let userData = JSON.stringify(user);
+  localStorage.setItem("user", userData);
+    }else{
+      console.log('nn')
+    }
+  // let avoidResetUser =  localStorage.getItem("user");
+  
+  // if(avoidResetUser === undefined ||  avoidResetUser === null ||  avoidResetUser === {}){
+  //   console.log('fdd')
+
+  // }else{
+  //   let userData = JSON.stringify(user);
+  // localStorage.setItem("user", userData);
+  // }
+  
+
+
   },[isAuthenticated, user])
 
 
@@ -88,7 +106,7 @@ const [loginPassword,setLoginPassword]=useState('')
         e.preventDefault();
         setLoginEmail('')
         setLoginPassword('')
-        dispatch(login(loginEmail, loginPassword));   
+        dispatch(login(loginEmail, loginPassword));  
       };
       
 
