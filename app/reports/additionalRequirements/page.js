@@ -48,7 +48,7 @@ const [cost,setCost]=useState('')
     <main className='py-8 ml-auto mr-auto w-[92%]'>
     <DashboardNav navTitle='Reports' />
     
-    <DashBookingHeader active={1}/>
+    <DashBookingHeader active={3}/>
 
 
     <section className='bg-white h-max rounded-[16px] mt-10'>
@@ -104,8 +104,8 @@ const [cost,setCost]=useState('')
 <textarea style={{border:'1px solid #ABABAB'}} onChange={(e)=>setAdditionalRequirements(e.target.value)} placeholder='Tell us anything else we need to know, like allergies etc.' className='  outline-none bg-inputbg w-full px-4 pt-4  pb-[200px] overflow-hidden rounded-[12px]'></textarea>
 
 <div className='flex justify-between'>
-<Link href={{pathname:'/booking/contact'}}><button className='bg-ligrey rounded-[50px] px-9 py-[8px] text-black text-[18px] font-semibold mt-10' >Back</button></Link>
-  <Link href={{pathname:'./booking/summary'}}><button className='bg-blue rounded-[50px] px-9 py-[8px] text-white text-[18px] font-semibold mt-10' onClick={saveAdditionalRequirements}>Next</button></Link>
+<Link href={{pathname:'/reports/contactDetails'}}><button className='bg-ligrey rounded-[50px] px-9 py-[8px] text-black text-[18px] font-semibold mt-10' >Back</button></Link>
+  <Link href={{pathname:'/reports/summary'}}><button className='bg-blue rounded-[50px] px-9 py-[8px] text-white text-[18px] font-semibold mt-10' onClick={saveAdditionalRequirements}>Next</button></Link>
 </div>
 
 

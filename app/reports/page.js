@@ -1,9 +1,17 @@
-import React from 'react'
+"use client"
+
 import DashboardNav from '../Components/dashboardNav/page'
 import Head from '../head'
+import Link from 'next/link'
+import {useRouter} from 'next/navigation';
 
-const page = () => (
-  <div className='bg-specialbg  h-max'>
+
+const page = () => {
+  const router = useRouter();
+
+
+  return (
+    <div className='bg-specialbg  h-max'>
     <Head title='Order History' />
     <main className='pt-8 ml-auto mr-auto w-[92%]'>
       <DashboardNav navTitle='Reports' />
@@ -26,7 +34,7 @@ const page = () => (
             <td className='py-5 text-[14px]'>10 Hours</td>
             <td className='py-5 text-[14px]'>10 Hours</td>
             <td className='py-5 text-[14px]'>10 Hours</td>
-            <td className='py-5 text-[14px] underline underline-offset-2 decoration-[1px] text-blue cursor-pointer flex'><img className='pr-3' src='../images/dashboard/eye.svg'/>View Report</td>
+            <td className='py-5 text-[14px] underline underline-offset-2 decoration-[1px] text-blue cursor-pointer flex' onClick={()=>router.push('/reports/month')}><img className='pr-3' src='../images/dashboard/eye.svg'/>View Report</td>
           </tr>
           <tr className='border-b-[1px] border-solid border-gray-300 bg-white'>
             <td className='py-5 text-[14px] pl-10'>FEB 2023</td>
@@ -34,7 +42,7 @@ const page = () => (
             <td className='py-5 text-[14px]'>10 Hours</td>
             <td className='py-5 text-[14px]'>10 Hours</td>
             <td className='py-5 text-[14px]'>10 Hours</td>
-            <td className='py-5 text-[14px] underline underline-offset-2 decoration-[1px] text-blue cursor-pointer flex'><img className='pr-3' src='../images/dashboard/eye.svg'/>View Report</td>
+            <td className='py-5 text-[14px] underline underline-offset-2 decoration-[1px] text-blue cursor-pointer flex' onClick={()=>router.push('/reports/month')}><img className='pr-3' src='../images/dashboard/eye.svg'/>View Report</td>
           </tr>
           <tr className='border-b-[1px] border-solid border-gray-300 bg-white'>
             <td className='py-5 text-[14px] pl-10'>FEB 2023</td>
@@ -42,7 +50,7 @@ const page = () => (
             <td className='py-5 text-[14px]'>10 Hours</td>
             <td className='py-5 text-[14px]'>10 Hours</td>
             <td className='py-5 text-[14px]'>10 Hours</td>
-            <td className='py-5 text-[14px] underline underline-offset-2 decoration-[1px] text-blue cursor-pointer flex'><img className='pr-3' src='../images/dashboard/eye.svg'/>View Report</td>
+            <td className='py-5 text-[14px] underline underline-offset-2 decoration-[1px] text-blue cursor-pointer flex' onClick={()=>router.push('/reports/month')}><img className='pr-3' src='../images/dashboard/eye.svg'/>View Report</td>
           </tr>
           <tr className=' bg-white'>
             <td className='py-5 text-[14px] pl-10'>FEB 2023</td>
@@ -50,7 +58,7 @@ const page = () => (
             <td className='py-5 text-[14px]'>10 Hours</td>
             <td className='py-5 text-[14px]'>10 Hours</td>
             <td className='py-5 text-[14px]'>10 Hours</td>
-            <td className='py-5 text-[14px] underline underline-offset-2 decoration-[1px] text-blue cursor-pointer flex'><img className='pr-3' src='../images/dashboard/eye.svg'/>View Report</td>
+            <td className='py-5 text-[14px] underline underline-offset-2 decoration-[1px] text-blue cursor-pointer flex' onClick={()=>router.push('/reports/month')}><img className='pr-3' src='../images/dashboard/eye.svg'/>View Report</td>
           </tr>
          
          
@@ -65,6 +73,7 @@ const page = () => (
 
     </main>
   </div>
-)
+  )
+}
 
 export default page
