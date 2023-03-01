@@ -4,7 +4,8 @@ import { LOGIN_FAIL, LOGIN_REQUEST,LOGIN_SUCCESS,REGISTER_USER_REQUEST,
   REGISTER_USER_SUCCESS,
   REGISTER_USER_FAIL, SOCIAL_LOGIN_REQUEST, SOCIAL_LOGIN_SUCCESS, SOCIAL_LOGIN_FAIL,
   POST_ADDRESS_REQUEST,POST_ADDRESS_SUCCESS,POST_ADDRESS_FAIL, 
-  GET_ADDRESS_REQUEST, GET_ADDRESS_SUCCESS, GET_ADDRESS_FAIL } from '../constants/page';
+  GET_ADDRESS_REQUEST, GET_ADDRESS_SUCCESS, GET_ADDRESS_FAIL, 
+  DELETE_ADDRESS_REQUEST, DELETE_ADDRESS_SUCCESS, DELETE_ADDRESS_FAIL, } from '../constants/page';
 
 export const login = (email, password) => async (dispatch) => {
 
@@ -84,6 +85,20 @@ export const getAddresses = (token) => async (dispatch) => {
   }
 };
 
+export const deleteAddress = (id) => async (dispatch) => {
+  try {
+    dispatch({ type: DELETE_ADDRESS_REQUEST });
+
+    const { data } = await axios.delete(`/api/customer/address/${id}`);
+
+    dispatch({ type: DELETE_ADDRESS_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({
+      type: DELETE_ADDRESS_FAIL,
+      payload: error.response.data.message,
+    });
+  }
+};
 
 
 
