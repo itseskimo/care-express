@@ -13,7 +13,43 @@ const page = () => {
     const router = useRouter();
 
 
-   
+    const [form, setForm] = useState({
+      title: "",
+      streetName:'',
+      streetNumber:'',
+      apartmentNumber:'',
+      postalCode:'',
+      city:'',
+    });
+  
+    const {title,streetName,streetNumber,apartmentNumber,postalCode,city}=form
+  
+    const formDetails = (e) => {
+      setForm({ ...form, [e.target.name]: e.target.value });
+    };
+  
+    const addressSubmit = (e) => {
+      e.preventDefault();
+      const myForm = new FormData();
+      
+      myForm.set("title", title);
+      myForm.set("street_name", streetName);
+      myForm.set("street_number", streetNumber);
+      myForm.set("apartment_number", apartmentNumber);
+      myForm.set("postal_code", postalCode);
+      myForm.set("city", city);
+      setFormToggle(!formToggle)
+      dispatch(postAddress(myForm, user.token));
+    }
+  
+    const [formToggle,setFormToggle]=useState(false)
+  
+    function editToggle(){
+    setFormToggle(!formToggle)
+    }
+  
+    
+  
 
   return (
     <>
@@ -21,14 +57,8 @@ const page = () => {
 
 
 
-
-
-
-
-
-
     
-    <div className='bg-specialbg  h-max'>
+    <div className='bg-specialbg  h-max relative'>
     <Head title='Order History' />
     <main className='py-8 ml-auto mr-auto w-[92%]'>
     <DashboardNav navTitle='Reports' />
@@ -69,7 +99,7 @@ const page = () => {
 
 <main className='mt-2 flex'>
 
-<div className='border-dashed border-[1px] border-gray-400 py-16 rounded-[14px] w-[196px]'>
+<div className='border-dashed border-[1px] border-gray-400 py-16 rounded-[14px] w-[196px]' onClick={editToggle}>
 <section className='flex items-center justify-center flex-col gap-3'>
 <img className='' src='../images/dashboard/Plusblack.svg'/>
 <h6 className='text-[20px] font-semibold'>Add Address</h6> 
@@ -111,6 +141,55 @@ const page = () => {
 
 
     </main>
+
+{formToggle && <section className='fixed top-[50%] left-[50%]  -translate-y-[50%] -translate-x-[50%] w-full h-full  z-50 flex items-center justify-center   bg-dashoverlay overflow-hidden'>
+<form className='flex flex-col gap-[22px]  rounded-[16px] h-max w-[564px] bg-soothingyellow p-7 shadow-dashshadow' onSubmit={addressSubmit}>
+<h6 className='text-[20px] font-semibold mb-2'>Add Address</h6>
+
+<div className=''>
+<h6 className='text-[14px] mb-[6px]'>Save as</h6>
+<input style={{border:'1px solid #C8CACD'}} name='title' required value={title} onChange={formDetails} className='w-full rounded-[10px] px-4 py-3 outline-none '/>
+</div>
+
+<div className=''>
+<h6 className='text-[14px] mb-[6px]'>Street Name</h6>
+<input style={{border:'1px solid #C8CACD'}} name='streetName' required value={streetName} onChange={formDetails} className='w-full rounded-[10px] px-4 py-3 outline-none'/>
+</div>
+
+<div className=''>
+<h6 className='text-[14px] mb-[6px]'>Street Number</h6>
+<input style={{border:'1px solid #C8CACD'}} type='number' name='streetNumber' required value={streetNumber} onChange={formDetails} className='w-full rounded-[10px] px-4 py-3 outline-none'/>
+</div>
+
+<div className=''>
+<h6 className='text-[14px] mb-[6px]'>Apartment Number(optional)</h6>
+<input style={{border:'1px solid #C8CACD'}}  name='apartmentNumber' value={apartmentNumber} onChange={formDetails} className='w-full rounded-[10px] px-4 py-3 outline-none'/>
+</div>
+
+
+<section className='flex gap-4 '>
+<div className='w-[50%]'>
+<h6 className='text-[14px] mb-[6px]'>Postal Code</h6>
+<input style={{border:'1px solid #C8CACD'}} name='postalCode' required value={postalCode} onChange={formDetails} className='w-full rounded-[10px] px-4 py-3 outline-none'/>
+</div>
+
+<div className='w-[50%]'>
+<h6 className='text-[14px] mb-[6px]'>City / Town</h6>
+<input style={{border:'1px solid #C8CACD'}} name='city' required value={city}  onChange={formDetails} className='w-full rounded-[10px] px-4 py-3 outline-none'/>
+</div>
+</section>
+
+<section className='flex justify-end gap-[10px] mt-[20px]'>
+<button className='p-[16px] rounded-lg font-medium text-[16px] cursor-pointer' onClick={editToggle}>CANCEL</button>
+<input type='submit' className='bg-dashgreen p-[16px] rounded-lg font-medium text-[16px] cursor-pointer' value='ADD' />
+</section>
+
+</form>
+
+</section>}
+
+
+
   </div>
   </>
     )

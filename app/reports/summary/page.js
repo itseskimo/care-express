@@ -60,33 +60,32 @@ const page = () => {
 
 
 
-    <form className='bg-white h-max rounded-[16px] mt-10' onSubmit={formsubmit}>
+    <form className='bg-white h-max rounded-[16px] mt-10' >
 
 
-<section className=' flex  items-center relative mx-2 sm:mx-3 lg:mx-14 xlg:mx-28 py-8'>
-<div className=' md:w-[16.5%] lg:w-[20%]'>
+<section className=' flex  justify-between   mx-2 sm:mx-3 lg:mx-14 xlg:mx-28 py-8'>
+<main className='flex gap-32'>
+<div className=' md:w-[16.5%] lg:w-[20%] bg-yellow-50'>
   <h6 className='tracking-[0.12em] text-xs font-semibold '>SELECT PLAN</h6>
-  <h6 className='text-[20px] lg:text-[24px] font-bold'>{hours}</h6>
+  <h6 className='text-[20px] lg:text-[24px] font-bold'>hh</h6>
 </div>
 
 <div className=' md:w-[16.5%] lg:w-[20%]'>
   <h6 className='tracking-[0.12em] text-xs font-semibold'>PRICE/HOUR</h6>
-  <h6 className='text-[20px] lg:text-[24px] font-bold'>{cost}</h6>
+  <h6 className='text-[20px] lg:text-[24px] font-bold'>hj</h6>
 </div>
 
 <div className=' md:w-[16.5%] lg:w-[20%]'>
   <h6 className='tracking-[0.12em] text-xs font-semibold '>TOTAL PRICE</h6>
-  <h6 className='text-[20px] lg:text-[24px] font-bold'>{`${parseInt(hours)*parseInt(hours)} zł`}</h6>
+  <h6 className='text-[20px] lg:text-[24px] font-bold'>uyu</h6>
 </div>
 
 <div className=' md:w-[16.5%] lg:w-[20%]  min-w-[140px] lg:min-w-[168px]'>
   <h6 className='tracking-[0.12em] text-xs font-semibold'>CARE START DATE</h6>
-  <h6 className='text-[20px] lg:text-[24px] font-bold'>{calendarDate}</h6>
+  <h6 className='text-[20px] lg:text-[24px] font-bold'>h</h6>
 </div>
-
-<div className='absolute right-0'>
-<button className='border-[1px] border-solid  border-gray-300 flex px-5 py-[10px] text-sm font-semibold rounded-[50px]' onClick={()=>router.push('/booking/plan')}><img src='../images/booking/Edit.svg' className='pr-2'/>Edit Plan</button>
-</div>
+</main>
+<button className='border-[1px] border-solid  border-gray-300 flex px-5 py-[10px] text-sm font-semibold rounded-[50px]'><img src='../images/booking/Edit.svg' className='pr-2'/>Edit Plan</button>
 
 </section>
 
@@ -100,90 +99,41 @@ const page = () => {
 <section className='w-[50%] xlsm:w-[40%] md:w-[25%] lg:w-[20%]'>
 
 <div className=''>
-    <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>FIRST NAME</h6>
-    <h6 className='text-[16px] font-semibold'>{firstName}</h6>
-</div>
-
-<div className='mt-6 block md:hidden'>
-    <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>EMAIL ADDRESS</h6>
-    <h6 className='text-[16px] font-semibold'>{emailAdress}</h6>
-</div>
-
-<div className='mt-6'>
     <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>STREET NAME</h6>
-    <h6 className='text-[16px] font-semibold'>{streetName}</h6>
-</div>
-
-<div className='mt-6'>
-    <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>CITY / TOWN</h6>
-    <h6 className='text-[16px] font-semibold'>{city}</h6>
-</div>
-
-<div className='mt-6 md:hidden'>
-    <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>POSTAL CODE</h6>
-    <h6 className='text-[16px] font-semibold'>{postalCode}</h6>
-</div>
-</section>
-{/* ------------------------------------------------------------------------------------ */}
-
-<section className='absolute right-0 xlsm:static xlsm:w-[40%] md:w-[25%] lg:w-[20%]'>
-
-<button className='  border-[1px] border-solid  border-gray-300 xlsm:hidden flex  shrink-0 px-5 py-[10px] text-sm font-semibold rounded-[50px]' onClick={()=>router.push('/booking/contact')}><img src='../images/booking/Edit.svg' className='pr-2'/>Edit Contact</button>
-
-
-<div className='mt-6 xlsm:mt-0'>
-    <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>LAST NAME</h6>
-    <h6 className='text-[16px] font-semibold'>{lastName}</h6>
-</div>
-
-<div className='mt-6 block lg:hidden '>
-    <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>PHONE NUMBER</h6>
-    <h6 className='text-[16px] font-semibold'>{phoneNumber}</h6>
-</div>
-
-<div className='mt-6'>
-    <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>STREET NUMBER</h6>
-    <h6 className='text-[16px] font-semibold'>{streetNumber}</h6>
+    <h6 className='text-[16px] font-semibold'>JHHJ</h6>
 </div>
 
 <div className='mt-6 block md:hidden'>
-    <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>APARTMENT NUMBER</h6>
-    <h6 className='text-[16px] font-semibold'>{apartmentNumber ? apartmentNumber : '-'}</h6>
-</div>
-
-</section>
-{/* ------------------------------------------------------------------------------------ */}
-<section className='hidden md:block w-[25%] lg:w-[20%] '>
-
-<div className=''>
-    <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>EMAIL ADDRESS</h6>
-    <h6 className='text-[16px] font-semibold'>{emailAdress}</h6>
+    <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>STREET NUMBER</h6>
+    <h6 className='text-[16px] font-semibold'>JJH</h6>
 </div>
 
 <div className='mt-6'>
     <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>APARTMENT NUMBER</h6>
-    <h6 className='text-[16px] font-semibold'>{apartmentNumber ? apartmentNumber : '-'}</h6>
+    <h6 className='text-[16px] font-semibold'>JM</h6>
 </div>
 
-<div className='mt-6 block lg:hidden'>
+<div className='mt-6'>
     <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>POSTAL CODE</h6>
-    <h6 className='text-[16px] font-semibold'>{postalCode}</h6>
+    <h6 className='text-[16px] font-semibold'>J</h6>
 </div>
+
+
 </section>
+{/* ------------------------------------------------------------------------------------ */}
+
+
 
 {/* ------------------------------------------------------------------------------------ */}
 
 <section className='hidden lg:block w-[20%] '>
 
 <div className=''>
-    <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>PHONE NUMBER</h6>
-    <h6 className='text-[16px] font-semibold'>{phoneNumber}</h6>
+    <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>CITY / TOWN</h6>
+    <h6 className='text-[16px] font-semibold'>JJJ</h6>
 </div>
 
-<div className='mt-6'>
-    <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>POSTAL CODE</h6>
-    <h6 className='text-[16px] font-semibold'>{postalCode}</h6>
-</div>
+
 
 </section>
 
@@ -198,21 +148,18 @@ const page = () => {
 <section className='border-[1px]  border-solid  border-gray-300' ></section>
 
 {/* ------------------------------------------------------------------------------------ */}
-{saveCheckBoxesText && additionalDescription ? 
-  <>
+
 
 <main className=' mx-4 sm:mx-6 lg:mx-14 xlg:mx-28 py-10'>
 
-<section className='flex  items-center relative'>
+<section className='flex  items-center justify-between'>
 
 <div className=''>
     <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>ADDITIONAL SERVICES</h6>
-     <h6 className='text-[16px] font-semibold'>{saveCheckBoxesText}</h6>
+    <h6 className='text-[16px] font-semibold'>Language Tutoring</h6>
 </div>
 
-<div className=' absolute right-0'>
      <button className='border-[1px] border-solid  border-gray-300 flex px-2 xlsm:px-5 py-[10px] text-[13px] sm:text-sm font-semibold rounded-[50px]' onClick={()=>router.push('/booking/additionalRequirements')}><img src='../images/booking/Edit.svg' className='pr-2 sm:pr-3'/>Edit Requirements</button>
-</div>
 
 </section>
 {/* ------------------------------------------------------------------------------------ */}
@@ -221,7 +168,7 @@ const page = () => {
 
 <div className='w-full lg:w-[70%]'>
     <h6 className='tracking-[0.12em] text-xs font-semibold mb-3'>ANY SPECIAL NEEDS OR REQUIREMENTS</h6>
-    <h6 className='text-[16px] tracking-[0.02em] font-semibold'>{additionalDescription}</h6>
+    <h6 className='text-[16px] tracking-[0.02em] font-semibold'>Help with homework and school projects, including reading and writing support. Plan and participate in age-appropriate educational and recreational activities. Provide a safe and comfortable environment, both indoors and outdoors. Communicate effectively and professionally with the parents, other care providers, and healthcare providers. Maintain a clean and organized play and living area. Perform light housekeeping tasks related to the child's care, such as laundry and meal preparation</h6>
 </div>
 
 </section>
@@ -229,9 +176,7 @@ const page = () => {
 </main>
 <section className='border-[1px]  border-solid  border-gray-300' ></section>
 
-</>
-: ''
-}
+
 
 
 

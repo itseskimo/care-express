@@ -72,14 +72,14 @@ export const postAddress = (addressData ,token) => async (dispatch) => {
 };
 
 export const getAddresses = (token) => async (dispatch) => {
-  console.log(token)
+
   try {
     dispatch({ type: GET_ADDRESS_REQUEST });
     const config = { headers: { "Content-Type": "application/json" , 'Authorization': `Bearer ${token}`} };
 
     const { data } = await axios.get('https://care-express-api.dthree.in/api/customer/addresses' , config);
 
-    dispatch({ type: GET_ADDRESS_SUCCESS, payload: data });
+    dispatch({ type: GET_ADDRESS_SUCCESS, payload: data.addresses });
   } catch (error) {
     dispatch({ type: GET_ADDRESS_FAIL, payload: error.response.data.message });
   }

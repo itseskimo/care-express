@@ -9,8 +9,6 @@ export const userReducer = (state = { user: {} }, action) => {
       case LOGIN_REQUEST:
       case REGISTER_USER_REQUEST:
       case SOCIAL_LOGIN_REQUEST:
-      case POST_ADDRESS_REQUEST:
-      case GET_ADDRESS_REQUEST:
         return {
           isAuthenticated: false,
         };
@@ -18,8 +16,6 @@ export const userReducer = (state = { user: {} }, action) => {
       case LOGIN_SUCCESS:
       case REGISTER_USER_SUCCESS:
       case SOCIAL_LOGIN_SUCCESS:
-      case POST_ADDRESS_SUCCESS:
-      case GET_ADDRESS_SUCCESS:
         return {
           ...state,
           isAuthenticated: true,
@@ -30,6 +26,48 @@ export const userReducer = (state = { user: {} }, action) => {
       case LOGIN_FAIL:
       case REGISTER_USER_FAIL:
       case SOCIAL_LOGIN_FAIL:
+        return {
+          ...state,
+          isAuthenticated: false,
+          user: null,
+          error: action.payload,
+        };
+  
+  
+      default:
+        return state;
+    }
+  };
+
+
+
+
+
+
+
+
+
+
+
+
+  export const addressReducer = (state = { address: [] }, action) => {
+    switch (action.type) {
+
+      case POST_ADDRESS_REQUEST:
+      case GET_ADDRESS_REQUEST:
+        return {
+          isAuthenticated: false,
+        };
+        
+      case POST_ADDRESS_SUCCESS:
+      case GET_ADDRESS_SUCCESS:
+        return {
+          ...state,
+          isAuthenticated: true,
+          address: action.payload,
+        };
+  
+      
       case POST_ADDRESS_FAIL:
       case GET_ADDRESS_FAIL:
         return {

@@ -11,7 +11,7 @@ import { postAddress , getAddresses } from '@/redux/actions/page'
 const page = () => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
-
+  const { address } = useSelector((state) => state.address);
 
   const [form, setForm] = useState({
     title: "",
@@ -55,7 +55,6 @@ const page = () => {
   }
 
 useEffect(()=>{
-  console.log('jj')
   dispatch(getAddresses('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZjhjMGUwYjMzZWNlYmNiOGZmM2RiOSIsInJvbGUiOiJ1c2VyIiwiZW1haWwiOiJva2tAZ21haWwuY29tIiwiaWF0IjoxNjc3NjgzNjg5LCJleHAiOjE2ODAyNzU2ODl9.PZ3jC4VyAlqzuOMxiXb3VoLAjd-OWMYYtRm9pTSyytE'))
 },[])
 
@@ -136,12 +135,13 @@ useEffect(()=>{
 <SubDashboardNav navTitle='Addresses'/>
 <section className='flex gap-6 mt-10 flex-wrap'>
 
+
+
 <div className='bg-white px-6 py-6 w-[22%] rounded-[14px] shadow-md cursor-pointer'>
   <h6 className=' font-semibold text-[20px] mb-2'>Address 1</h6>
   <h6 className=' mb-2 text-[20px]  leading-7 '>Targowa 20a, 03-727 Warszawa, Poland</h6>
   <div className='flex mt-4'><img className='pr-3' src='../images/dashboard/delete.svg' onClick={deleteTogg}/><img className='pr-3' src='../images/dashboard/edit.svg' onClick={editToggle}/></div>
 </div>
-
 <div className='bg-white px-6 py-6 w-[22%] rounded-[14px] shadow-md cursor-pointer'>
   <h6 className=' font-semibold text-[20px] mb-2'>Address 1</h6>
   <h6 className=' mb-2 text-[20px]  leading-7 '>Targowa 20a, 03-727 Warszawa, Poland</h6>

@@ -69,6 +69,7 @@ module.exports = {
       fadegrey:'rgba(0, 0, 0, 0.6)',
       dashgrey:'#B4B7BB',
       dashdrkgrey:'#9FA3A9',
+      dashxtrmgrey:'#727F96',
 
     },
 
@@ -106,6 +107,7 @@ module.exports = {
       dashlired:'#F87272',
       dashred:'#EA4141',
       dashgreen:'#36D399',
+      dashbluebtn:'#287EFE',
 
       yellowfader:'linear-gradient(90deg, #FFFDF4 0%, rgba(0, 0, 0, 0) 24%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0) 76%, #FFFDF4 100%)',
     },
@@ -115,7 +117,7 @@ module.exports = {
     clipshadow:'0 20px 0 0 #522d5b',
     dashshadow:'0px 12px 40px rgba(0, 0, 0, 0.16)',
     dashlishadow:'0px 12px 40px rgba(0, 0, 0, 0.08)',
-
+paymentshadow:'0px 2px 4px rgba(0, 0, 0, 0.07)'
     }
   
 
