@@ -4,12 +4,13 @@ import DashboardNav from '../../Components/dashboardNav/page'
 import Head from '../../head'
 import SubDashboardNav from '../../Components/subdashboardNav/page'
 import { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch ,useSelector } from 'react-redux'
 import { postAddress } from '@/redux/actions/page'
 
 
 const page = () => {
   const dispatch = useDispatch();
+  const { isAuthenticated, user } = useSelector((state) => state.user);
 
 
   const [form, setForm] = useState({
@@ -31,21 +32,14 @@ const page = () => {
     e.preventDefault();
     const myForm = new FormData();
     
-    // myForm.set("title", title);
-    // myForm.set("street_name", streetName);
-    // myForm.set("street_number", streetNumber);
-    // myForm.set("apartment_number", apartmentNumber);
-    // myForm.set("postal_code", postalCode);
-    // myForm.set("city", city);
-    // setFormToggle(!formToggle)
-    myForm.set("title", "Home");
-    myForm.set("street_name", "Krawiecka 1");
-    myForm.set("street_number", "7-11");
-    myForm.set("apartment_number", '');
-    myForm.set("postal_code", "50-148");
-    myForm.set("city", "Worclaw");
-    
-    dispatch(postAddress(myForm));
+    myForm.set("title", title);
+    myForm.set("street_name", streetName);
+    myForm.set("street_number", streetNumber);
+    myForm.set("apartment_number", apartmentNumber);
+    myForm.set("postal_code", postalCode);
+    myForm.set("city", city);
+    setFormToggle(!formToggle)
+    dispatch(postAddress(myForm, user.token));
   }
 
   const [formToggle,setFormToggle]=useState(false)

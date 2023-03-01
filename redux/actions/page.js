@@ -55,11 +55,11 @@ export const socialLogin = (code,login_type) => async (dispatch) => {
   }
 };
 
-export const postAddress = (addressData) => async (dispatch) => {
+export const postAddress = (addressData ,token) => async (dispatch) => {
   try {
     dispatch({ type: POST_ADDRESS_REQUEST });
 
-    const config = { headers: { "Content-Type": "application/json"} };
+    const config = { headers: { "Content-Type": "application/json" , 'Authorization': `Bearer ${token}`} };
 
     const { data } = await axios.post('https://care-express-api.dthree.in/api/customer/address', addressData , config);
     console.log(data)
