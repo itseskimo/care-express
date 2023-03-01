@@ -3,14 +3,14 @@ import React from 'react'
 import DashboardNav from '../../Components/dashboardNav/page'
 import Head from '../../head'
 import SubDashboardNav from '../../Components/subdashboardNav/page'
-import { useState } from 'react'
+import { useState ,useEffect } from 'react'
 import { useDispatch ,useSelector } from 'react-redux'
-import { postAddress } from '@/redux/actions/page'
+import { postAddress , getAddresses } from '@/redux/actions/page'
 
 
 const page = () => {
   const dispatch = useDispatch();
-  const { isAuthenticated, user } = useSelector((state) => state.user);
+  const { user } = useSelector((state) => state.user);
 
 
   const [form, setForm] = useState({
@@ -54,7 +54,10 @@ const page = () => {
   setDeleteToggle(!deleteToggle)
   }
 
-
+useEffect(()=>{
+  console.log('jj')
+  dispatch(getAddresses('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZjhjMGUwYjMzZWNlYmNiOGZmM2RiOSIsInJvbGUiOiJ1c2VyIiwiZW1haWwiOiJva2tAZ21haWwuY29tIiwiaWF0IjoxNjc3NjgzNjg5LCJleHAiOjE2ODAyNzU2ODl9.PZ3jC4VyAlqzuOMxiXb3VoLAjd-OWMYYtRm9pTSyytE'))
+},[])
 
   return (
     <>
