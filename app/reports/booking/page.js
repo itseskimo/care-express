@@ -17,9 +17,12 @@ const page = () => {
     const router = useRouter();
 
     const [careType,setCareType]=useState('nanny')
-    const [selectTime,setSelectTime]=useState('hours40')
     const [hours,setHours]=useState('40 hours')
     const [cost,setCost]=useState('39,90 zł / h')
+    const [time,setTime]=useState('')
+
+
+    const [selectTime,setSelectTime]=useState('hours40')
     const [calendarDate,setCalendarDate]=useState('')
     const [togglecalendar,setToggleCalendar]=useState(false)
     const [date, setDate] = useState(null);
@@ -31,7 +34,7 @@ const page = () => {
       localStorage.setItem('hours', hours)
       localStorage.setItem('cost', cost)
       localStorage.setItem('careType', careType)
-      localStorage.setItem('calendarDate', calendarDate)
+      localStorage.setItem('calendarDate', time)
       router.push('/reports/contactDetails')
       }else{
         alert('Select Care Start Date to proceed')
@@ -46,7 +49,7 @@ const page = () => {
      let monthCalc = calendarCalc[calendar.value.substring(0,1) === '0' ? calendar.value.substring(1,2) : calendar.value.substring(0,2)] 
      let yearCalc= `${calendar.value.substring(6,10)}`
      const finalDate=`${dateCalc}` + `${monthCalc}` + `${yearCalc}`
-    //  setCalendarDate(finalDate)/
+     setTime(finalDate)
      setCalendarDate(calendar.value)
 
      setToggleCalendar(!togglecalendar)

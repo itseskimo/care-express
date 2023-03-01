@@ -9,7 +9,7 @@ const page = ({navTitle}) => {
 
   return (
     <>
-<nav className='bg-white shadow-lg  h-[80px]   flex justify-between sticky top-0 rounded-xl z-50'>
+<nav className='bg-white shadow-lg  h-[80px]   flex justify-between sticky top-0 rounded-xl z-10'>
 
 <header className='flex items-center gap-6 '>
 <Link href={{pathname:'/'}}><img src='../images/petExpress/logo.jpg' className='pl-5 shrink-0' /></Link>
@@ -19,7 +19,7 @@ const page = ({navTitle}) => {
 </header>
 
 <header className='flex items-center gap-6 '>
-<Link href={{pathname:'/login'}}><button className='bg-hazyblue text-white text-[16px] rounded-[23.5px] px-5 py-[12px]'>Book Now</button></Link>
+<Link href={{pathname:'/reports/booking'}}><button className='bg-hazyblue text-white text-[16px] rounded-[23.5px] px-5 py-[12px]'>Book Now</button></Link>
 <h1 className='rounded-[50%] cursor-pointer bg-dashblue px-[19px] py-[8px] text-center text-[24px] flex items-center justify-center font-extrabold mr-5' onClick={()=>setSelect(!select)}>P</h1>
 </header>
 
