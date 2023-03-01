@@ -5,7 +5,7 @@ import Head from '../../head'
 import SubDashboardNav from '../../Components/subdashboardNav/page'
 import { useState ,useEffect } from 'react'
 import { useDispatch ,useSelector } from 'react-redux'
-import { postAddress , getAddresses } from '@/redux/actions/page'
+import { postAddress , getAddresses , deleteAddress} from '@/redux/actions/page'
 
 
 const page = () => {
@@ -56,6 +56,7 @@ const page = () => {
 
 useEffect(()=>{
   dispatch(getAddresses('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZjhjMGUwYjMzZWNlYmNiOGZmM2RiOSIsInJvbGUiOiJ1c2VyIiwiZW1haWwiOiJva2tAZ21haWwuY29tIiwiaWF0IjoxNjc3NjgzNjg5LCJleHAiOjE2ODAyNzU2ODl9.PZ3jC4VyAlqzuOMxiXb3VoLAjd-OWMYYtRm9pTSyytE'))
+  // dispatch(deleteAddress('63ff69d819bb65c5b2b5fc57','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZjhjMGUwYjMzZWNlYmNiOGZmM2RiOSIsInJvbGUiOiJ1c2VyIiwiZW1haWwiOiJva2tAZ21haWwuY29tIiwiaWF0IjoxNjc3NjgzNjg5LCJleHAiOjE2ODAyNzU2ODl9.PZ3jC4VyAlqzuOMxiXb3VoLAjd-OWMYYtRm9pTSyytE'))
 },[])
 
   return (

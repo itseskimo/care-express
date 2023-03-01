@@ -85,11 +85,12 @@ export const getAddresses = (token) => async (dispatch) => {
   }
 };
 
-export const deleteAddress = (id) => async (dispatch) => {
+export const deleteAddress = (id ,token) => async (dispatch) => {
   try {
     dispatch({ type: DELETE_ADDRESS_REQUEST });
+    const config = { headers: { "Content-Type": "application/json" , 'Authorization': `Bearer ${token}`}, data:{ 'address_id': `${id}`} };
 
-    const { data } = await axios.delete(`/api/customer/address/${id}`);
+    const { data } = await axios.delete(`https://care-express-api.dthree.in/api/customer/address`, config);
 
     dispatch({ type: DELETE_ADDRESS_SUCCESS, payload: data });
   } catch (error) {
