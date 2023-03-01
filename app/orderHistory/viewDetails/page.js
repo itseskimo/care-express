@@ -21,7 +21,7 @@ const page = () => {
 <main className='flex flex-col  rounded-[16px] h-max w-[564px] bg-soothingyellow p-6 shadow-dashshadow '>
 <h6 className='text-[20px] font-semibold '>Please select a restart date for your care</h6>
 <h6 className='text-[14px] mt-4 mb-2'>Care Restart Date</h6>
-<input className='py-3 outline-none w-[50%] border-solid border-[1px] border-gray-300 rounded-[10px]'/>
+<input className='py-3 px-3 text-[14px] outline-none w-[50%] border-solid border-[1px] border-gray-300 rounded-[10px]'/>
 <section className='flex justify-end gap-[10px] mt-[10px]'>
 <button className='p-[16px] rounded-lg font-medium text-[16px] cursor-pointer'>CANCEL</button>
 <button className='p-[16px] rounded-lg font-medium text-black bg-dashyellow text-[16px] cursor-pointer' >PAUSE CARE</button>
