@@ -104,6 +104,7 @@ module.exports = {
       dashyellow:'#FBBD23',
       dashoverlay:'rgba(0, 0, 0, 0.24)',
       dashlired:'#F87272',
+      dashred:'#EA4141',
       dashgreen:'#36D399',
 
       yellowfader:'linear-gradient(90deg, #FFFDF4 0%, rgba(0, 0, 0, 0) 24%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0) 76%, #FFFDF4 100%)',
