@@ -16,6 +16,18 @@ const page = () => {
    
 
   return (
+    <>
+
+
+
+
+
+
+
+
+
+
+    
     <div className='bg-specialbg  h-max'>
     <Head title='Order History' />
     <main className='py-8 ml-auto mr-auto w-[92%]'>
@@ -100,6 +112,7 @@ const page = () => {
 
     </main>
   </div>
+  </>
     )
 }
 
