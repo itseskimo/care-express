@@ -41,6 +41,7 @@ const page = () => {
     myForm.set("city", city);
     setAddAddressToggle(!addAddressToggle)
     dispatch(postAddress(myForm, token));
+    setForm({title: "", streetName:'', streetNumber:'', apartmentNumber:'', postalCode:'', city:''})
   }
 
   const [formToggle,setFormToggle]=useState(false)
