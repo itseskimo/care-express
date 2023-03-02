@@ -4,8 +4,8 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react'
 
 const page = ({navTitle, addAddressToggle,setAddAddressToggle}) => {
-console.log(addAddressToggle)
-    const router = useRouter();
+
+  const router = useRouter();
     const[navitem,setNavItem]=useState(`${navTitle}`)
 
     function redirect(id,url) {

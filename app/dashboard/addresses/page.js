@@ -39,6 +39,7 @@ const page = () => {
     myForm.set("postal_code", postalCode);
     myForm.set("city", city);
     setAddAddressToggle(!addAddressToggle)
+
     dispatch(postAddress(myForm, token));
     setForm({title: "", streetName:'', streetNumber:'', apartmentNumber:'', postalCode:'', city:''})
   }
@@ -66,8 +67,11 @@ const page = () => {
 
   const [deleteToggle,setDeleteToggle]=useState(false)
 
-  function deleteTogg(){
-  setDeleteToggle(!deleteToggle)
+  function deleteTogg(isDeleted){
+    console.log(isDeleted)
+  dispatch(deleteAddress(isDeleted, token))
+
+  // setDeleteToggle(!deleteToggle)
   }
 
   const [addAddressToggle,setAddAddressToggle]=useState(false)
@@ -84,13 +88,13 @@ const page = () => {
     form.token=loginData.token
     dispatch(getAddresses(loginData.token))
   }
-  // dispatch(deleteAddress('63ff69d819bb65c5b2b5fc57','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZjhjMGUwYjMzZWNlYmNiOGZmM2RiOSIsInJvbGUiOiJ1c2VyIiwiZW1haWwiOiJva2tAZ21haWwuY29tIiwiaWF0IjoxNjc3NjgzNjg5LCJleHAiOjE2ODAyNzU2ODl9.PZ3jC4VyAlqzuOMxiXb3VoLAjd-OWMYYtRm9pTSyytE'))
+  // dispatch(deleteAddress("6400e4c0f910ea3256fcaa44", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZjhjMGUwYjMzZWNlYmNiOGZmM2RiOSIsInJvbGUiOiJ1c2VyIiwiZW1haWwiOiJva2tAZ21haWwuY29tIiwiaWF0IjoxNjc3Nzc0NjQ5LCJleHAiOjE2ODAzNjY2NDl9.VV1mNJWcdzzOKkm-mZMr_-vIG_eQq1LxfcPAyJACprA"))
 },[formToggle, addAddressToggle])
 
   return (
     <>
 {addAddressToggle && <section className='sticky top-0 left-0  h-screen z-50 flex items-center justify-center   bg-dashoverlay overflow-hidden'>
-<form className='flex flex-col gap-[22px]  rounded-[16px] h-max w-[564px] bg-soothingyellow p-7 shadow-dashshadow' onSubmit={editAddressSubmit}>
+<form className='flex flex-col gap-[22px]  rounded-[16px] h-max w-[564px] bg-soothingyellow p-7 shadow-dashshadow' onSubmit={addressSubmit}>
 <h6 className='text-[20px] font-semibold mb-2'>Add Address</h6>
 
 <div className=''>
@@ -218,18 +222,22 @@ const page = () => {
 <section className='flex gap-6 mt-10 flex-wrap'>
 
 
-
-<div className='bg-white px-6 py-6 w-[22%] rounded-[14px] shadow-md cursor-pointer'>
-  <h6 className=' font-semibold text-[20px] mb-2'>Address 1</h6>
-  <h6 className=' text-[20px]  leading-7 '>Targowa 20a, 03-727</h6>
-  <h6 className='text-[20px]  leading-7'> Warszawa, Poland</h6>
-  <div className='flex mt-4'><img className='pr-3' src='../images/dashboard/delete.svg' onClick={deleteTogg}/><img className='pr-3' src='../images/dashboard/edit.svg' onClick={editToggle}/></div>
+{address  && address.map((item)=>{
+  return <div key={item._id} className='bg-white px-6 py-6 w-[22%] rounded-[14px] shadow-md cursor-pointer'>
+  <h6 className=' font-semibold text-[20px] mb-2'>{item.title}</h6>
+  <h6 className=' text-[20px]  leading-7 '>{item.street_name} {item.postal_code}</h6>
+  <h6 className='text-[20px]  leading-7'> {item.city}, Poland</h6>
+  <div className='flex mt-4'><img className='pr-3' src='../images/dashboard/delete.svg' onClick={()=>deleteTogg(item._id)}/><img className='pr-3' src='../images/dashboard/edit.svg' onClick={editToggle}/></div>
 </div>
-<div className='bg-white px-6 py-6 w-[22%] rounded-[14px] shadow-md cursor-pointer'>
+})}
+
+{/* <div className='bg-white px-6 py-6 w-[22%] rounded-[14px] shadow-md cursor-pointer'>
   <h6 className=' font-semibold text-[20px] mb-2'>Address 1</h6>
   <h6 className=' mb-2 text-[20px]  leading-7 '>Targowa 20a, 03-727 Warszawa, Poland</h6>
   <div className='flex mt-4'><img className='pr-3' src='../images/dashboard/delete.svg' onClick={deleteTogg}/><img className='pr-3' src='../images/dashboard/edit.svg' onClick={editToggle}/></div>
-</div>
+</div> */}
+
+
 
 </section>
 </main>
