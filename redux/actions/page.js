@@ -109,20 +109,27 @@ export const deleteAddress = (id ,token) => async (dispatch) => {
 };
 
 
-export const updateAddress = (token) => async (dispatch) => {
+export const updateAddress = (id,token) => async (dispatch) => {
 
   try {
 
     dispatch({ type: UPDATE_ADDRESS_REQUEST });
     const config = { headers: { "Content-Type": "application/json" , 'Authorization': `Bearer ${token}`} };
 
-    const { data } = await axios.patch('https://care-express-api.dthree.in/api/customer/address', config);
+    
+    const { data } = await axios.patch('https://care-express-api.dthree.in/api/customer/address',{
+      "address_id": "64010fc4f910ea3256fd4755",
+      "title": "Home 1",
+      "postal_code": "50-148"
+    }, config);
 
     dispatch({ type: UPDATE_ADDRESS_SUCCESS, payload: data });
   } catch (error) {
+
     dispatch({ type: UPDATE_ADDRESS_FAIL, payload: error.response.data.message });
   }
 };
+
 
 
 export const getCompletedOrders = (token) => async (dispatch) => {

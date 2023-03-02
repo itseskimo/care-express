@@ -80,6 +80,7 @@ const page = () => {
     let loginData = JSON.parse(data);
     form.token=loginData.token
     dispatch(getAddresses(loginData.token))
+
   }
 },[formToggle, addAddressToggle])
 
@@ -230,7 +231,7 @@ const page = () => {
 </div> */}
 
 
-
+<button className='bg-black' onClick={()=>dispatch(updateAddress('64010fc4f910ea3256fd4755',token))}>kkkkk</button>
 </section>
 </main>
 </div>
