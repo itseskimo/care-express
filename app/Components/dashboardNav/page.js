@@ -27,7 +27,7 @@ const page = ({navTitle}) => {
 <main className='relative'> 
 {select &&
          <ul className='w-[220px] bg-white shadow-md rounded-[8px] overflow-hidden absolute right-0 top-2 cursor-pointer z-10 px-7' onClick={()=>setSelect(!select)} >
-           <li className='w-full py-3 list-none box-border cursor-pointer flex items-center justify-start' >
+           <li className='w-full py-3 list-none box-border cursor-pointer flex items-center justify-start border-b-[1px] border-solid border-gray-300' >
            <Link href={{pathname:'/dashboard/account'}}><p className='text-[14px]'>Account</p></Link>
            </li>
  
