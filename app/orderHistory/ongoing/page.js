@@ -1,10 +1,22 @@
+"use client"
 import React from 'react'
 import DashboardNav from '../../Components/dashboardNav/page'
 import SubOrderHistoryNav from '../../Components/subOrderHistoryNav/page'
 import Head from '../../head'
+import { useEffect } from 'react'
+import { useDispatch ,useSelector } from 'react-redux'
+import { getAllOrders} from '@/redux/actions/page'
 
-const page = () => (
-  <div className='bg-specialbg  '>
+const page = () => {
+  const dispatch = useDispatch();
+  // const { address } = useSelector((state) => state.address);
+
+useEffect(()=>{
+dispatch(getAllOrders('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZjhjMGUwYjMzZWNlYmNiOGZmM2RiOSIsInJvbGUiOiJ1c2VyIiwiZW1haWwiOiJva2tAZ21haWwuY29tIiwiaWF0IjoxNjc3NjgzNjg5LCJleHAiOjE2ODAyNzU2ODl9.PZ3jC4VyAlqzuOMxiXb3VoLAjd-OWMYYtRm9pTSyytE'))
+},[])
+
+  return (
+    <div className='bg-specialbg  '>
     <Head title='Order History' />
     <main className='pt-8 ml-auto mr-auto w-[92%]'>
       <DashboardNav navTitle='Order History' />
@@ -89,7 +101,7 @@ const page = () => (
 </div>
 
     </main>
-  </div>
-)
+  </div>  )
+}
 
 export default page

@@ -1,6 +1,10 @@
 "use client"
 import { LOGIN_FAIL, LOGIN_REQUEST,LOGIN_SUCCESS ,REGISTER_USER_REQUEST,REGISTER_USER_SUCCESS,REGISTER_USER_FAIL,SOCIAL_LOGIN_REQUEST, SOCIAL_LOGIN_SUCCESS, SOCIAL_LOGIN_FAIL,
-  POST_ADDRESS_REQUEST,POST_ADDRESS_SUCCESS,POST_ADDRESS_FAIL,GET_ADDRESS_REQUEST, GET_ADDRESS_SUCCESS, GET_ADDRESS_FAIL } from '../constants/page';
+  POST_ADDRESS_REQUEST,POST_ADDRESS_SUCCESS,POST_ADDRESS_FAIL,GET_ADDRESS_REQUEST, GET_ADDRESS_SUCCESS, GET_ADDRESS_FAIL,
+  COMPLETED_ORDERS_REQUEST,COMPLETED_ORDERS_SUCCESS,COMPLETED_ORDERS_FAIL,
+
+
+} from '../constants/page';
 
 
 export const userReducer = (state = { user: {} }, action) => {
@@ -55,12 +59,14 @@ export const userReducer = (state = { user: {} }, action) => {
 
       case POST_ADDRESS_REQUEST:
       case GET_ADDRESS_REQUEST:
+        case COMPLETED_ORDERS_REQUEST:
         return {
           isAuthenticated: false,
         };
         
       case POST_ADDRESS_SUCCESS:
       case GET_ADDRESS_SUCCESS:
+      case  COMPLETED_ORDERS_SUCCESS:
         return {
           ...state,
           isAuthenticated: true,
@@ -70,6 +76,7 @@ export const userReducer = (state = { user: {} }, action) => {
       
       case POST_ADDRESS_FAIL:
       case GET_ADDRESS_FAIL:
+        case COMPLETED_ORDERS_FAIL:
         return {
           ...state,
           isAuthenticated: false,
