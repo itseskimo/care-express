@@ -89,3 +89,37 @@ export const userReducer = (state = { user: {} }, action) => {
         return state;
     }
   };
+
+
+  export const ordersReducer = (state = { orders: [] }, action) => {
+    switch (action.type) {
+
+   
+        case COMPLETED_ORDERS_REQUEST:
+        return {
+          isAuthenticated: false,
+        };
+        
+      
+      case  COMPLETED_ORDERS_SUCCESS:
+        return {
+          ...state,
+          isAuthenticated: true,
+          address: action.payload,
+        };
+  
+      
+      
+        case COMPLETED_ORDERS_FAIL:
+        return {
+          ...state,
+          isAuthenticated: false,
+          user: null,
+          error: action.payload,
+        };
+  
+  
+      default:
+        return state;
+    }
+  };
