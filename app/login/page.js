@@ -50,7 +50,8 @@ const page = () => {
      router.push('/dashboard')
     }
 
-  if(!localStorage.getItem('user')){
+  
+    if(!localStorage.getItem('user') ){
     let userData = JSON.stringify(user);
     localStorage.setItem("user", userData);
   }

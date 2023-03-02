@@ -1,9 +1,20 @@
+"use client"
 import React from 'react'
 import DashboardNav from '../../Components/dashboardNav/page'
 import Head from '../../head'
 import SubDashboardNav from '../../Components/subdashboardNav/page'
+import { getDashboardAccountDetails } from '@/redux/actions/page'
+import { useDispatch, useSelector } from 'react-redux'
+import { useEffect} from 'react'
 
 const page = () => {
+  const dispatch= useDispatch()
+
+useEffect(()=>{
+dispatch(getDashboardAccountDetails("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZjhjMGUwYjMzZWNlYmNiOGZmM2RiOSIsInJvbGUiOiJ1c2VyIiwiZW1haWwiOiJva2tAZ21haWwuY29tIiwiaWF0IjoxNjc3NzY2MDczLCJleHAiOjE2ODAzNTgwNzN9.UK3MnarwJXKBGtnFywTHW6Oi5qzaq8qO7caR9zNZz08"))
+},[])
+
+  
   return (
     <div className='bg-specialbg  '>
     <Head title='Reports' />
