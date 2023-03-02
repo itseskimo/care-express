@@ -43,6 +43,21 @@ const page = () => {
     setForm({title: "", streetName:'', streetNumber:'', apartmentNumber:'', postalCode:'', city:''})
   }
 
+  const editAddressSubmit = (e) => {
+    e.preventDefault();
+    const myForm = new FormData();
+    
+    myForm.set("title", title);
+    myForm.set("street_name", streetName);
+    myForm.set("street_number", streetNumber);
+    myForm.set("apartment_number", apartmentNumber);
+    myForm.set("postal_code", postalCode);
+    myForm.set("city", city);
+    setFormToggle(!formToggle)
+    // dispatch(postAddress(myForm, token));
+    setForm({title: "", streetName:'', streetNumber:'', apartmentNumber:'', postalCode:'', city:''})
+  }
+
   const [formToggle,setFormToggle]=useState(false)
 
   function editToggle(){
@@ -75,7 +90,7 @@ const page = () => {
   return (
     <>
 {addAddressToggle && <section className='sticky top-0 left-0  h-screen z-50 flex items-center justify-center   bg-dashoverlay overflow-hidden'>
-<form className='flex flex-col gap-[22px]  rounded-[16px] h-max w-[564px] bg-soothingyellow p-7 shadow-dashshadow' onSubmit={addressSubmit}>
+<form className='flex flex-col gap-[22px]  rounded-[16px] h-max w-[564px] bg-soothingyellow p-7 shadow-dashshadow' onSubmit={editAddressSubmit}>
 <h6 className='text-[20px] font-semibold mb-2'>Add Address</h6>
 
 <div className=''>
