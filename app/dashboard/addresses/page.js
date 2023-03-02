@@ -12,6 +12,7 @@ const page = () => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
   const { address } = useSelector((state) => state.address);
+  console.log(address)
 
   const [form, setForm] = useState({
     title: "",
@@ -22,7 +23,7 @@ const page = () => {
     city:'',
   });
 
-  const {title,streetName,streetNumber,apartmentNumber,postalCode,city}=form
+  const {title,streetName,streetNumber,apartmentNumber,postalCode,city,token}=form
 
   const formDetails = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -39,7 +40,7 @@ const page = () => {
     myForm.set("postal_code", postalCode);
     myForm.set("city", city);
     setFormToggle(!formToggle)
-    dispatch(postAddress(myForm, user.token));
+    dispatch(postAddress(myForm, token));
   }
 
   const [formToggle,setFormToggle]=useState(false)
@@ -54,17 +55,15 @@ const page = () => {
   setDeleteToggle(!deleteToggle)
   }
 
-useEffect(()=>{
-
+  useEffect(()=>{
   if(localStorage.getItem('user')){
     let data = localStorage.getItem('user')
     let loginData = JSON.parse(data);
-
+    form.token=loginData.token
     dispatch(getAddresses(loginData.token))
-
   }
   // dispatch(deleteAddress('63ff69d819bb65c5b2b5fc57','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZjhjMGUwYjMzZWNlYmNiOGZmM2RiOSIsInJvbGUiOiJ1c2VyIiwiZW1haWwiOiJva2tAZ21haWwuY29tIiwiaWF0IjoxNjc3NjgzNjg5LCJleHAiOjE2ODAyNzU2ODl9.PZ3jC4VyAlqzuOMxiXb3VoLAjd-OWMYYtRm9pTSyytE'))
-},[])
+},[formToggle])
 
   return (
     <>
