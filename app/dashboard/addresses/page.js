@@ -12,7 +12,6 @@ const page = () => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
   const { address } = useSelector((state) => state.address);
-
   
   const [form, setForm] = useState({
     title: "",
@@ -114,7 +113,7 @@ const page = () => {
 
 <section className='flex justify-end gap-[10px] mt-[20px]'>
 <button className='p-[16px] rounded-lg font-medium text-[16px] cursor-pointer' onClick={addAddressTogg}>CANCEL</button>
-<input type='submit' className='bg-dashyellow p-[16px] rounded-lg font-medium text-[16px] cursor-pointer' value='SAVE' />
+<input type='submit' className='bg-dashyellow p-[16px] rounded-lg font-medium text-[16px] cursor-pointer' value='ADD' />
 </section>
 
 </form>
@@ -122,8 +121,7 @@ const page = () => {
 </section>}
 
 
-
-{/* <section className='sticky top-0 left-0  h-screen z-50 flex items-center justify-center   bg-dashoverlay overflow-hidden'>
+{formToggle && <section className='sticky top-0 left-0  h-screen z-50 flex items-center justify-center   bg-dashoverlay overflow-hidden'>
 <form className='flex flex-col gap-[22px]  rounded-[16px] h-max w-[564px] bg-soothingyellow p-7 shadow-dashshadow' onSubmit={addressSubmit}>
 <h6 className='text-[20px] font-semibold mb-2'>Edit Address 1</h6>
 
@@ -167,7 +165,8 @@ const page = () => {
 
 </form>
 
-</section> */}
+</section>}
+
 
 
 
