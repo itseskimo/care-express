@@ -17,7 +17,7 @@ const page = () => {
 </main>
 </section> */}
         
-<section className='sticky top-0 left-0  h-screen z-50 flex items-center justify-center shadow-dashshadow  bg-dashoverlay overflow-hidden'>
+{/* <section className='sticky top-0 left-0  h-screen z-50 flex items-center justify-center shadow-dashshadow  bg-dashoverlay overflow-hidden'>
 <main className='flex flex-col  rounded-[16px] h-max w-[564px] bg-soothingyellow p-6 shadow-dashshadow '>
 <h6 className='text-[20px] font-semibold '>Please select a restart date for your care</h6>
 <h6 className='text-[14px] mt-4 mb-2'>Care Restart Date</h6>
@@ -28,7 +28,7 @@ const page = () => {
 </section>
 
 </main>
-</section>
+</section> */}
         
         
         
@@ -82,18 +82,48 @@ const page = () => {
 
 
 <section className='mt-10   '>
-  <main className='grid grid-cols-3 bg-slate-600 px-10'>
-    <h6 className='py-5 font-semibold text-[14px] tracking-[0.15em]'>VISIT HOURS</h6>
-    <h6 className='py-5 font-semibold text-[14px] tracking-[0.15em] bg-rose-50'>VISIT TIME</h6>
-    <h6 className='py-5 font-semibold text-[14px] tracking-[0.15em] bg-green'>VISIT HOURS</h6>
+  {/* <main className='grid grid-cols-3 bg-slate-600 px-10'>
+    <h6 className='py-5 font-semibold text-[14px]  tracking-[0.15em]'>VISIT HOURS</h6>
+    <h6 className='py-5 font-semibold text-[14px] justify-self-center tracking-[0.15em] bg-rose-50'>VISIT TIME</h6>
+    <h6 className='py-5 font-semibold text-[14px] justify-self-end tracking-[0.15em] bg-green'>VISIT HOURS</h6>
   </main>
 
   <section className='grid grid-cols-3 bg-white border-b-[1px] border-solid border-gray-300 px-10 '>
     <h6 className=' py-5 text-[14px]'>8 hours</h6>
-    <h6 className=' py-5 text-[14px] '>9:15 am - 5:15 pm</h6>
-    <h6 className=' py-5 text-[14px] '>24 Feb 2023</h6>
-  </section>
-  
+    <h6 className=' py-5 text-[14px] justify-self-center'>9:15 am - 5:15 pm</h6>
+    <h6 className=' py-5 text-[14px] justify-self-end'>24 Feb 2023</h6>
+  </section> */}
+  <main className='grid grid-cols-3 px-10'>
+    <div className='justify-self-start bg-slate-400'>
+    <h6 className='py-5 font-semibold text-[14px]  tracking-[0.15em]'>VISIT DATE</h6>
+    <h6 className='py-5 text-[14px]  bg-white '>24 Feb 2023</h6>
+    </div>
+
+    <div className='justify-self-center bg-pink'>
+    <h6 className='py-5 font-semibold text-[14px] tracking-[0.15em]'>VISIT TIME</h6>
+    <h6 className='py-5 text-[14px]  bg-white'>9:15 am - 5:15 pm</h6>
+    </div>
+
+    <div className='justify-self-end bg-rose-200'>
+    <h6 className='py-5 font-semibold text-[14px] tracking-[0.15em]'>VISIT HOURS</h6>
+    <h6 className='py-5 text-[14px] bg-white'>8 hours</h6>
+    </div>
+  </main>
+
+  {/* <main className='grid grid-cols-3 px-10 bg-white'>
+    <div className='justify-self-start'>
+    <h6 className='py-5 text-[14px]  '>24 Feb 2023</h6>
+    </div>
+
+    <div className='justify-self-center'>
+    <h6 className='py-5 text-[14px]  '>9:15 am - 5:15 pm</h6>
+    </div>
+
+    <div className='justify-self-end'>
+    <h6 className='py-5 text-[14px] '>8 hours</h6>
+    </div>
+  </main> */}
+
        
       </section>
 
