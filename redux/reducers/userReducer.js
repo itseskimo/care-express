@@ -1,7 +1,7 @@
 "use client"
 import { LOGIN_FAIL, LOGIN_REQUEST,LOGIN_SUCCESS ,REGISTER_USER_REQUEST,REGISTER_USER_SUCCESS,REGISTER_USER_FAIL,SOCIAL_LOGIN_REQUEST, SOCIAL_LOGIN_SUCCESS, SOCIAL_LOGIN_FAIL,
   POST_ADDRESS_REQUEST,POST_ADDRESS_SUCCESS,POST_ADDRESS_FAIL,GET_ADDRESS_REQUEST, GET_ADDRESS_SUCCESS, GET_ADDRESS_FAIL,
-  COMPLETED_ORDERS_REQUEST,COMPLETED_ORDERS_SUCCESS,COMPLETED_ORDERS_FAIL, DELETE_ADDRESS_REQUEST, DELETE_ADDRESS_SUCCESS, DELETE_ADDRESS_FAIL,
+  COMPLETED_ORDERS_REQUEST,COMPLETED_ORDERS_SUCCESS,COMPLETED_ORDERS_FAIL, DELETE_ADDRESS_REQUEST, DELETE_ADDRESS_SUCCESS, DELETE_ADDRESS_FAIL,ONGOING_ORDERS_REQUEST, ONGOING_ORDERS_SUCCESS, ONGOING_ORDERS_FAIL,
 
 
 } from '../constants/page';
@@ -96,12 +96,14 @@ export const userReducer = (state = { user: {} }, action) => {
 
    
         case COMPLETED_ORDERS_REQUEST:
+        case ONGOING_ORDERS_REQUEST: 
         return {
           isAuthenticated: false,
         };
         
       
       case  COMPLETED_ORDERS_SUCCESS:
+      case ONGOING_ORDERS_SUCCESS:  
         return {
           ...state,
           isAuthenticated: true,
@@ -111,6 +113,7 @@ export const userReducer = (state = { user: {} }, action) => {
       
       
         case COMPLETED_ORDERS_FAIL:
+        case ONGOING_ORDERS_FAIL:  
         return {
           ...state,
           isAuthenticated: false,

@@ -126,7 +126,7 @@ export const getCompletedOrders = (token) => async (dispatch) => {
 
 
 
-export const deleteOrder = (token) => async (dispatch) => {
+export const getOngoingOrders = (token) => async (dispatch) => {
   try {
     
     dispatch({ type: ONGOING_ORDERS_REQUEST });
