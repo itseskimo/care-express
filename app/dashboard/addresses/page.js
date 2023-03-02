@@ -55,6 +55,13 @@ const page = () => {
   setDeleteToggle(!deleteToggle)
   }
 
+  const [addAddressToggle,setAddAddressToggle]=useState(false)
+
+  function deleteTogg(){
+    setAddAddressToggle(!addAddressToggle)
+  }
+
+
   useEffect(()=>{
   if(localStorage.getItem('user')){
     let data = localStorage.getItem('user')
