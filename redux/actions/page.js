@@ -106,7 +106,7 @@ export const deleteAddress = (id ,token) => async (dispatch) => {
 
 
 
-export const getAllOrders = (token) => async (dispatch) => {
+export const getCompletedOrders = (token) => async (dispatch) => {
   try {
     
     dispatch({ type: COMPLETED_ORDERS_REQUEST });
@@ -126,13 +126,13 @@ export const getAllOrders = (token) => async (dispatch) => {
 
 
 
-export const deleteOrder = (id,token) => async (dispatch) => {
+export const deleteOrder = (token) => async (dispatch) => {
   try {
     
     dispatch({ type: ONGOING_ORDERS_REQUEST });
     const config = { headers: { "Content-Type": "application/json" , 'Authorization': `Bearer ${token}`} };
 
-    const { data } = await axios.get(`https://care-express-api.dthree.in/api/customer/orders/ongoing/${id}`, config);
+    const { data } = await axios.get('https://care-express-api.dthree.in/api/customer/orders/ongoing', config);
 
     dispatch({ type: ONGOING_ORDERS_SUCCESS, payload: data });
   } catch (error) {

@@ -8,12 +8,11 @@ import { useDispatch ,useSelector } from 'react-redux'
 import { getAllOrders} from '@/redux/actions/page'
 
 const page = () => {
-  const dispatch = useDispatch();
-  // const { address } = useSelector((state) => state.address);
+//   const dispatch = useDispatch();
 
-useEffect(()=>{
-dispatch(getAllOrders('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZjhjMGUwYjMzZWNlYmNiOGZmM2RiOSIsInJvbGUiOiJ1c2VyIiwiZW1haWwiOiJva2tAZ21haWwuY29tIiwiaWF0IjoxNjc3NjgzNjg5LCJleHAiOjE2ODAyNzU2ODl9.PZ3jC4VyAlqzuOMxiXb3VoLAjd-OWMYYtRm9pTSyytE'))
-},[])
+// useEffect(()=>{
+// dispatch(getAllOrders('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZjhjMGUwYjMzZWNlYmNiOGZmM2RiOSIsInJvbGUiOiJ1c2VyIiwiZW1haWwiOiJva2tAZ21haWwuY29tIiwiaWF0IjoxNjc3NjgzNjg5LCJleHAiOjE2ODAyNzU2ODl9.PZ3jC4VyAlqzuOMxiXb3VoLAjd-OWMYYtRm9pTSyytE'))
+// },[])
 
   return (
     <div className='bg-specialbg  '>
