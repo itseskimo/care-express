@@ -55,7 +55,14 @@ const page = () => {
   }
 
 useEffect(()=>{
-  dispatch(getAddresses('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZjhjMGUwYjMzZWNlYmNiOGZmM2RiOSIsInJvbGUiOiJ1c2VyIiwiZW1haWwiOiJva2tAZ21haWwuY29tIiwiaWF0IjoxNjc3NjgzNjg5LCJleHAiOjE2ODAyNzU2ODl9.PZ3jC4VyAlqzuOMxiXb3VoLAjd-OWMYYtRm9pTSyytE'))
+
+  if(localStorage.getItem('user')){
+    let data = localStorage.getItem('user')
+    let loginData = JSON.parse(data);
+
+    dispatch(getAddresses(loginData.token))
+
+  }
   // dispatch(deleteAddress('63ff69d819bb65c5b2b5fc57','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZjhjMGUwYjMzZWNlYmNiOGZmM2RiOSIsInJvbGUiOiJ1c2VyIiwiZW1haWwiOiJva2tAZ21haWwuY29tIiwiaWF0IjoxNjc3NjgzNjg5LCJleHAiOjE2ODAyNzU2ODl9.PZ3jC4VyAlqzuOMxiXb3VoLAjd-OWMYYtRm9pTSyytE'))
 },[])
 
@@ -106,6 +113,60 @@ useEffect(()=>{
 </form>
 
 </section>}
+
+
+
+{/* 
+<section className='sticky top-0 left-0  h-screen z-50 flex items-center justify-center   bg-dashoverlay overflow-hidden'>
+<form className='flex flex-col gap-[22px]  rounded-[16px] h-max w-[564px] bg-soothingyellow p-7 shadow-dashshadow' onSubmit={addressSubmit}>
+<h6 className='text-[20px] font-semibold mb-2'>Add Address</h6>
+
+<div className=''>
+<h6 className='text-[14px] mb-[6px]'>Save as</h6>
+<input style={{border:'1px solid #C8CACD'}} name='title' required value={title} onChange={formDetails} className='w-full rounded-[10px] px-4 py-3 outline-none '/>
+</div>
+
+<div className=''>
+<h6 className='text-[14px] mb-[6px]'>Street Name</h6>
+<input style={{border:'1px solid #C8CACD'}} name='streetName' required value={streetName} onChange={formDetails} className='w-full rounded-[10px] px-4 py-3 outline-none'/>
+</div>
+
+<div className=''>
+<h6 className='text-[14px] mb-[6px]'>Street Number</h6>
+<input style={{border:'1px solid #C8CACD'}} type='number' name='streetNumber' required value={streetNumber} onChange={formDetails} className='w-full rounded-[10px] px-4 py-3 outline-none'/>
+</div>
+
+<div className=''>
+<h6 className='text-[14px] mb-[6px]'>Apartment Number(optional)</h6>
+<input style={{border:'1px solid #C8CACD'}}  name='apartmentNumber' value={apartmentNumber} onChange={formDetails} className='w-full rounded-[10px] px-4 py-3 outline-none'/>
+</div>
+
+
+<section className='flex gap-4 '>
+<div className='w-[50%]'>
+<h6 className='text-[14px] mb-[6px]'>Postal Code</h6>
+<input style={{border:'1px solid #C8CACD'}} name='postalCode' required value={postalCode} onChange={formDetails} className='w-full rounded-[10px] px-4 py-3 outline-none'/>
+</div>
+
+<div className='w-[50%]'>
+<h6 className='text-[14px] mb-[6px]'>City / Town</h6>
+<input style={{border:'1px solid #C8CACD'}} name='city' required value={city}  onChange={formDetails} className='w-full rounded-[10px] px-4 py-3 outline-none'/>
+</div>
+</section>
+
+<section className='flex justify-end gap-[10px] mt-[20px]'>
+<button className='p-[16px] rounded-lg font-medium text-[16px] cursor-pointer' onClick={editToggle}>CANCEL</button>
+<input type='submit' className='bg-dashyellow p-[16px] rounded-lg font-medium text-[16px] cursor-pointer' value='SAVE' />
+</section>
+
+</form>
+
+</section> */}
+
+
+
+
+
 
 
 
