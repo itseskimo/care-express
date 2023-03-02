@@ -10,7 +10,8 @@ import { LOGIN_FAIL, LOGIN_REQUEST,LOGIN_SUCCESS,REGISTER_USER_REQUEST,
   ONGOING_ORDERS_REQUEST,ONGOING_ORDERS_SUCCESS,ONGOING_ORDERS_FAIL,
   GET_ORDER_REQUEST,GET_ORDER_SUCCESS,GET_ORDER_FAIL,
   GET_ACCOUNT_FAIL,GET_ACCOUNT_REQUEST,GET_ACCOUNT_SUCCESS,
-  UPDATE_ACCOUNT_REQUEST,UPDATE_ACCOUNT_SUCCESS,UPDATE_ACCOUNT_FAIL
+  UPDATE_ACCOUNT_REQUEST,UPDATE_ACCOUNT_SUCCESS,UPDATE_ACCOUNT_FAIL,
+  UPDATE_ADDRESS_REQUEST,UPDATE_ADDRESS_SUCCESS,UPDATE_ADDRESS_FAIL
 } from '../constants/page';
 
 export const login = (email, password) => async (dispatch) => {
@@ -107,6 +108,20 @@ export const deleteAddress = (id ,token) => async (dispatch) => {
   }
 };
 
+
+export const updateAddress = (token) => async (dispatch) => {
+  try {
+
+    dispatch({ type: UPDATE_ADDRESS_REQUEST });
+    const config = { headers: { "Content-Type": "application/json" , 'Authorization': `Bearer ${token}`} };
+
+    const { data } = await axios.patch('https://care-express-api.dthree.in/api/customer/address', config);
+
+    dispatch({ type: UPDATE_ADDRESS_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({ type: UPDATE_ADDRESS_FAIL, payload: error.response.data.message });
+  }
+};
 
 
 export const getCompletedOrders = (token) => async (dispatch) => {
