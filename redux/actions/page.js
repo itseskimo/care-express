@@ -9,7 +9,8 @@ import { LOGIN_FAIL, LOGIN_REQUEST,LOGIN_SUCCESS,REGISTER_USER_REQUEST,
   COMPLETED_ORDERS_REQUEST,COMPLETED_ORDERS_SUCCESS,COMPLETED_ORDERS_FAIL,
   ONGOING_ORDERS_REQUEST,ONGOING_ORDERS_SUCCESS,ONGOING_ORDERS_FAIL,
   GET_ORDER_REQUEST,GET_ORDER_SUCCESS,GET_ORDER_FAIL,
-  GET_ACCOUNT_FAIL,GET_ACCOUNT_REQUEST,GET_ACCOUNT_SUCCESS
+  GET_ACCOUNT_FAIL,GET_ACCOUNT_REQUEST,GET_ACCOUNT_SUCCESS,
+  UPDATE_ACCOUNT_REQUEST,UPDATE_ACCOUNT_SUCCESS,UPDATE_ACCOUNT_FAIL
 } from '../constants/page';
 
 export const login = (email, password) => async (dispatch) => {
@@ -167,5 +168,22 @@ export const getDashboardAccountDetails = (token) => async (dispatch) => {
     dispatch({ type: GET_ACCOUNT_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: GET_ACCOUNT_FAIL, payload: error.response.data.message });
+  }
+};
+
+
+
+export const updateDashboardAccountDetails = (token) => async (dispatch) => {
+  try {
+
+    dispatch({ type: UPDATE_ACCOUNT_REQUEST });
+    const config = { headers: { "Content-Type": "application/json" , 'Authorization': `Bearer ${token}`} };
+
+    const { data } = await axios.patch('https://care-express-api.dthree.in/api/customer/account', config);
+    console.log(data)
+
+    dispatch({ type: UPDATE_ACCOUNT_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({ type: UPDATE_ACCOUNT_FAIL, payload: error.response.data.message });
   }
 };

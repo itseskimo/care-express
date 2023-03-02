@@ -2,7 +2,7 @@
 import { LOGIN_FAIL, LOGIN_REQUEST,LOGIN_SUCCESS ,REGISTER_USER_REQUEST,REGISTER_USER_SUCCESS,REGISTER_USER_FAIL,SOCIAL_LOGIN_REQUEST, SOCIAL_LOGIN_SUCCESS, SOCIAL_LOGIN_FAIL,
   POST_ADDRESS_REQUEST,POST_ADDRESS_SUCCESS,POST_ADDRESS_FAIL,GET_ADDRESS_REQUEST, GET_ADDRESS_SUCCESS, GET_ADDRESS_FAIL,
   COMPLETED_ORDERS_REQUEST,COMPLETED_ORDERS_SUCCESS,COMPLETED_ORDERS_FAIL, DELETE_ADDRESS_REQUEST, DELETE_ADDRESS_SUCCESS, DELETE_ADDRESS_FAIL,ONGOING_ORDERS_REQUEST, ONGOING_ORDERS_SUCCESS, ONGOING_ORDERS_FAIL,GET_ORDER_REQUEST ,GET_ORDER_SUCCESS, GET_ORDER_FAIL, GET_ACCOUNT_FAIL, GET_ACCOUNT_SUCCESS, GET_ACCOUNT_REQUEST,
-
+UPDATE_ACCOUNT_REQUEST,UPDATE_ACCOUNT_SUCCESS,UPDATE_ACCOUNT_FAIL
 
 } from '../constants/page';
 
@@ -99,6 +99,8 @@ export const userReducer = (state = { user: {} }, action) => {
         case ONGOING_ORDERS_REQUEST: 
         case GET_ORDER_REQUEST: 
         case GET_ACCOUNT_REQUEST:
+        case UPDATE_ACCOUNT_REQUEST:
+
         return {
           isAuthenticated: false,
         };
@@ -108,6 +110,7 @@ export const userReducer = (state = { user: {} }, action) => {
       case ONGOING_ORDERS_SUCCESS:  
       case GET_ORDER_SUCCESS: 
       case GET_ACCOUNT_SUCCESS:
+      case UPDATE_ACCOUNT_SUCCESS:
         return {
           ...state,
           isAuthenticated: true,
@@ -120,6 +123,7 @@ export const userReducer = (state = { user: {} }, action) => {
         case ONGOING_ORDERS_FAIL:  
         case GET_ORDER_FAIL: 
         case GET_ACCOUNT_FAIL:
+        case UPDATE_ACCOUNT_FAIL:
         return {
           ...state,
           isAuthenticated: false,
