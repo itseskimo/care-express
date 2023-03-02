@@ -47,14 +47,14 @@ const page = () => {
   useEffect(()=>{
   
   if(isAuthenticated){
-     router.push('/dashboard')
+    router.push('/dashboard')
     }
 
-  
-    if(!localStorage.getItem('user') ){
+    if(Object.keys(user || {}).length > 0){
     let userData = JSON.stringify(user);
     localStorage.setItem("user", userData);
   }
+
 
   },[isAuthenticated, user])
 
