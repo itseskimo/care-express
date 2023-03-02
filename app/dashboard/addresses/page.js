@@ -5,7 +5,7 @@ import Head from '../../head'
 import SubDashboardNav from '../../Components/subdashboardNav/page'
 import { useState ,useEffect } from 'react'
 import { useDispatch ,useSelector } from 'react-redux'
-import { postAddress , getAddresses , deleteAddress} from '@/redux/actions/page'
+import { postAddress , getAddresses , deleteAddress, updateAddress} from '@/redux/actions/page'
 
 
 const page = () => {
@@ -46,16 +46,9 @@ const page = () => {
 
   const editAddressSubmit = (e) => {
     e.preventDefault();
-    const myForm = new FormData();
-    
-    myForm.set("title", title);
-    myForm.set("street_name", streetName);
-    myForm.set("street_number", streetNumber);
-    myForm.set("apartment_number", apartmentNumber);
-    myForm.set("postal_code", postalCode);
-    myForm.set("city", city);
+   
     setFormToggle(!formToggle)
-    // dispatch(postAddress(myForm, token));
+    dispatch(updateAddress( token));
     setForm({title: "", streetName:'', streetNumber:'', apartmentNumber:'', postalCode:'', city:''})
   }
 
@@ -88,7 +81,6 @@ const page = () => {
     form.token=loginData.token
     dispatch(getAddresses(loginData.token))
   }
-  // dispatch(deleteAddress("6400e4c0f910ea3256fcaa44", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZjhjMGUwYjMzZWNlYmNiOGZmM2RiOSIsInJvbGUiOiJ1c2VyIiwiZW1haWwiOiJva2tAZ21haWwuY29tIiwiaWF0IjoxNjc3Nzc0NjQ5LCJleHAiOjE2ODAzNjY2NDl9.VV1mNJWcdzzOKkm-mZMr_-vIG_eQq1LxfcPAyJACprA"))
 },[formToggle, addAddressToggle])
 
   return (
@@ -141,7 +133,7 @@ const page = () => {
 
 
 {formToggle && <section className='sticky top-0 left-0  h-screen z-50 flex items-center justify-center   bg-dashoverlay overflow-hidden'>
-<form className='flex flex-col gap-[22px]  rounded-[16px] h-max w-[564px] bg-soothingyellow p-7 shadow-dashshadow' onSubmit={addressSubmit}>
+<form className='flex flex-col gap-[22px]  rounded-[16px] h-max w-[564px] bg-soothingyellow p-7 shadow-dashshadow' onSubmit={editAddressSubmit}>
 <h6 className='text-[20px] font-semibold mb-2'>Edit Address 1</h6>
 
 <div className=''>
