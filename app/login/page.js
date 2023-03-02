@@ -45,16 +45,20 @@ const page = () => {
   
 
   useEffect(()=>{
-  
-  if(isAuthenticated){
-    router.push('/dashboard')
-    }
 
-    if(Object.keys(user || {}).length > 0){
+  if(Object.keys(user || {}).length > 0){
     let userData = JSON.stringify(user);
     localStorage.setItem("user", userData);
   }
 
+  if(localStorage.getItem('user')){
+    let data = localStorage.getItem('user')
+    let loginData = JSON.parse(data);
+
+  if(loginData.token){
+    router.push('/dashboard')
+    }
+  }
 
   },[isAuthenticated, user])
 
