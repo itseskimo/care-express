@@ -12,8 +12,8 @@ const page = () => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
   const { address } = useSelector((state) => state.address);
-  console.log(address)
 
+  
   const [form, setForm] = useState({
     title: "",
     streetName:'',
@@ -39,7 +39,7 @@ const page = () => {
     myForm.set("apartment_number", apartmentNumber);
     myForm.set("postal_code", postalCode);
     myForm.set("city", city);
-    setFormToggle(!formToggle)
+    setAddAddressToggle(!addAddressToggle)
     dispatch(postAddress(myForm, token));
   }
 
@@ -57,7 +57,7 @@ const page = () => {
 
   const [addAddressToggle,setAddAddressToggle]=useState(false)
 
-  function deleteTogg(){
+  function addAddressTogg(){
     setAddAddressToggle(!addAddressToggle)
   }
 
@@ -70,13 +70,13 @@ const page = () => {
     dispatch(getAddresses(loginData.token))
   }
   // dispatch(deleteAddress('63ff69d819bb65c5b2b5fc57','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZjhjMGUwYjMzZWNlYmNiOGZmM2RiOSIsInJvbGUiOiJ1c2VyIiwiZW1haWwiOiJva2tAZ21haWwuY29tIiwiaWF0IjoxNjc3NjgzNjg5LCJleHAiOjE2ODAyNzU2ODl9.PZ3jC4VyAlqzuOMxiXb3VoLAjd-OWMYYtRm9pTSyytE'))
-},[formToggle])
+},[formToggle, addAddressToggle])
 
   return (
     <>
-{formToggle && <section className='sticky top-0 left-0  h-screen z-50 flex items-center justify-center   bg-dashoverlay overflow-hidden'>
+{addAddressToggle && <section className='sticky top-0 left-0  h-screen z-50 flex items-center justify-center   bg-dashoverlay overflow-hidden'>
 <form className='flex flex-col gap-[22px]  rounded-[16px] h-max w-[564px] bg-soothingyellow p-7 shadow-dashshadow' onSubmit={addressSubmit}>
-<h6 className='text-[20px] font-semibold mb-2'>Edit Address 1</h6>
+<h6 className='text-[20px] font-semibold mb-2'>Add Address</h6>
 
 <div className=''>
 <h6 className='text-[14px] mb-[6px]'>Save as</h6>
@@ -112,7 +112,7 @@ const page = () => {
 </section>
 
 <section className='flex justify-end gap-[10px] mt-[20px]'>
-<button className='p-[16px] rounded-lg font-medium text-[16px] cursor-pointer' onClick={editToggle}>CANCEL</button>
+<button className='p-[16px] rounded-lg font-medium text-[16px] cursor-pointer' onClick={addAddressTogg}>CANCEL</button>
 <input type='submit' className='bg-dashyellow p-[16px] rounded-lg font-medium text-[16px] cursor-pointer' value='SAVE' />
 </section>
 
@@ -122,10 +122,9 @@ const page = () => {
 
 
 
-{/* 
-<section className='sticky top-0 left-0  h-screen z-50 flex items-center justify-center   bg-dashoverlay overflow-hidden'>
+{/* <section className='sticky top-0 left-0  h-screen z-50 flex items-center justify-center   bg-dashoverlay overflow-hidden'>
 <form className='flex flex-col gap-[22px]  rounded-[16px] h-max w-[564px] bg-soothingyellow p-7 shadow-dashshadow' onSubmit={addressSubmit}>
-<h6 className='text-[20px] font-semibold mb-2'>Add Address</h6>
+<h6 className='text-[20px] font-semibold mb-2'>Edit Address 1</h6>
 
 <div className=''>
 <h6 className='text-[14px] mb-[6px]'>Save as</h6>
@@ -200,7 +199,7 @@ const page = () => {
 <main className='pt-8 ml-auto mr-auto w-[92%]'>
 <DashboardNav />
 
-<SubDashboardNav navTitle='Addresses'/>
+<SubDashboardNav navTitle='Addresses' addAddressToggle={addAddressToggle} setAddAddressToggle={setAddAddressToggle}/>
 <section className='flex gap-6 mt-10 flex-wrap'>
 
 
