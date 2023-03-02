@@ -231,7 +231,7 @@ const page = () => {
 </div> */}
 
 
-<button className='bg-black' onClick={()=>dispatch(updateAddress('64010fc4f910ea3256fd4755',token))}>kkkkk</button>
+<button className='bg-black' onClick={()=>dispatch(updateAddress(token))}>kkkkk</button>
 </section>
 </main>
 </div>

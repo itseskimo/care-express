@@ -109,7 +109,7 @@ export const deleteAddress = (id ,token) => async (dispatch) => {
 };
 
 
-export const updateAddress = (id,token) => async (dispatch) => {
+export const updateAddress = (token) => async (dispatch) => {
 
   try {
 
@@ -119,7 +119,8 @@ export const updateAddress = (id,token) => async (dispatch) => {
     
     const { data } = await axios.patch('https://care-express-api.dthree.in/api/customer/address',{
       "address_id": "64010fc4f910ea3256fd4755",
-      "title": "Home 1",
+
+      "title": "Homgge",
       "postal_code": "50-148"
     }, config);
 
