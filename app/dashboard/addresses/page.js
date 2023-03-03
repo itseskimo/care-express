@@ -9,10 +9,11 @@ import { postAddress , getAddresses , deleteAddress, updateAddress} from '@/redu
 
 
 const page = () => {
+  
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
   const { address } = useSelector((state) => state.address);
-  console.log(address)
+
   const [form, setForm] = useState({
     title: "",
     streetName:'',
@@ -21,9 +22,10 @@ const page = () => {
     postalCode:'',
     city:'',
   });
+console.log(form)
+  const {title,streetName,streetNumber,apartmentNumber,postalCode,city,token,addressId}=form
 
-  const {title,streetName,streetNumber,apartmentNumber,postalCode,city,token}=form
-
+  
   const formDetails = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -44,44 +46,57 @@ const page = () => {
     setForm({title: "", streetName:'', streetNumber:'', apartmentNumber:'', postalCode:'', city:''})
   }
 
+// ----------------------------------------------------------------------------------------------------
   const editAddressSubmit = (e) => {
-    e.preventDefault();
+  e.preventDefault();
    
-    setFormToggle(!formToggle)
-    dispatch(updateAddress( token));
-    setForm({title: "", streetName:'', streetNumber:'', apartmentNumber:'', postalCode:'', city:''})
+  const myForm = new FormData();
+
+  myForm.set("address_id", addressId);
+  myForm.set("title", title);
+  myForm.set("street_name", streetName);
+  myForm.set("street_number", streetNumber);
+  myForm.set("apartment_number", apartmentNumber);
+  myForm.set("postal_code", postalCode);
+  myForm.set("city", city);
+
+  dispatch(updateAddress(myForm,token));
+  setFormToggle(!formToggle)
+  setForm({title: "", streetName:'', streetNumber:'', apartmentNumber:'', postalCode:'', city:''})
   }
 
   const [formToggle,setFormToggle]=useState(false)
 
-  function editToggle(){
+  function editToggle(id,title,streetNumber,streetName,postalCode,city,apartmentNumber){
+  setForm({ addressId: id  ,title: title || '', streetName:streetName || '', streetNumber:streetNumber || '', apartmentNumber:apartmentNumber || '', postalCode:postalCode || '', city:city|| ''})
   setFormToggle(!formToggle)
   }
 
   const [deleteToggle,setDeleteToggle]=useState(false)
 
-  function deleteTogg(isDeleted){
-    console.log(isDeleted)
-  dispatch(deleteAddress(isDeleted, token))
-
-  // setDeleteToggle(!deleteToggle)
+  function deleteTogg(toBeDeleted){
+  dispatch(deleteAddress(toBeDeleted, token))
+  setDeleteToggle(!deleteToggle)
   }
 
   const [addAddressToggle,setAddAddressToggle]=useState(false)
 
   function addAddressTogg(){
-    setAddAddressToggle(!addAddressToggle)
+  setAddAddressToggle(!addAddressToggle)
+  setForm({title: "", streetName:'', streetNumber:'', apartmentNumber:'', postalCode:'', city:''})
   }
 
 
   useEffect(()=>{
   if(localStorage.getItem('user')){
+
     let data = localStorage.getItem('user')
     let loginData = JSON.parse(data);
     form.token=loginData.token
     dispatch(getAddresses(loginData.token))
 
   }
+
 },[formToggle, addAddressToggle])
 
   return (
@@ -149,7 +164,7 @@ const page = () => {
 
 <div className=''>
 <h6 className='text-[14px] mb-[6px]'>Street Number</h6>
-<input style={{border:'1px solid #C8CACD'}} type='number' name='streetNumber' required value={streetNumber} onChange={formDetails} className='w-full rounded-[10px] px-4 py-3 outline-none'/>
+<input style={{border:'1px solid #C8CACD'}}  name='streetNumber' required value={streetNumber} onChange={formDetails} className='w-full rounded-[10px] px-4 py-3 outline-none'/>
 </div>
 
 <div className=''>
@@ -220,7 +235,7 @@ const page = () => {
   <h6 className=' font-semibold text-[20px] mb-2'>{item.title}</h6>
   <h6 className=' text-[20px]  leading-7 '>{item.street_name} {item.postal_code}</h6>
   <h6 className='text-[20px]  leading-7'> {item.city}, Poland</h6>
-  <div className='flex mt-4'><img className='pr-3' src='../images/dashboard/delete.svg' onClick={()=>deleteTogg(item._id)}/><img className='pr-3' src='../images/dashboard/edit.svg' onClick={editToggle}/></div>
+  <div className='flex mt-4'><img className='pr-3' src='../images/dashboard/delete.svg' onClick={()=>deleteTogg(item._id)}/><img className='pr-3' src='../images/dashboard/edit.svg' onClick={()=>editToggle(item._id,item.title,item.street_number,item.street_name,item.postal_code,item.city,item.apartment_number)}/></div>
 </div>
 })}
 
@@ -231,7 +246,6 @@ const page = () => {
 </div> */}
 
 
-<button className='bg-black' onClick={()=>dispatch(updateAddress(token))}>kkkkk</button>
 </section>
 </main>
 </div>
