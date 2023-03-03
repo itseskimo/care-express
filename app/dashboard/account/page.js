@@ -10,12 +10,15 @@ import { useEffect} from 'react'
 const page = () => {
 
   const { orders } = useSelector((state) => state.orders);
-  console.log(orders)
 
   const dispatch= useDispatch()
 
-useEffect(()=>{
-dispatch(getDashboardAccountDetails("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZjhjMGUwYjMzZWNlYmNiOGZmM2RiOSIsInJvbGUiOiJ1c2VyIiwiZW1haWwiOiJva2tAZ21haWwuY29tIiwiaWF0IjoxNjc3NzY2MDczLCJleHAiOjE2ODAzNTgwNzN9.UK3MnarwJXKBGtnFywTHW6Oi5qzaq8qO7caR9zNZz08"))
+  useEffect(()=>{
+  if(localStorage.getItem('user')){
+    let data = localStorage.getItem('user')
+    let loginData = JSON.parse(data);
+    dispatch(getDashboardAccountDetails(loginData.token))
+  }
 },[])
 
   
