@@ -1,36 +1,41 @@
 "use client"
 import React, { useState,useEffect } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation';
 
 const navbar = (props) => {
 const{first, second, third ,color,subcolour,clicked , border,background, shadow}=props
+const router = useRouter();
 
 const[navitem,setNavItem]=useState(`${clicked}` )
 const[sidebar,setSidebar]=useState(false)
 const[select,setSelect]=useState(false)
-
-
 const[userlogin,setUserLogin]=useState('')
-console.log(userlogin)
+
+
+const[userLoggedIn,setuserLoggedIn]=useState('user')
+console.log(userLoggedIn)
 // --------------------------------------------------------------
 useEffect(()=>{
- 
-  // const text = localStorage.getItem("user");
-  // if (text !== {} && text !== undefined){
-
-  //   let loginData = JSON.parse(text);
-  //   setUserLogin(loginData.first_name)
-  // }
-  
-
-
 
  const navClicked = sessionStorage.getItem('navClicked')
  const navbarArray=['Nanny Express','Pet Express','Senior Express','Special Express', 'Personal','For Business' ]
  if(navbarArray.includes(navClicked) ){
   setNavItem(navClicked)
  }
-},[navClicked])
+
+ if(localStorage.getItem('user')){
+  let data = localStorage.getItem('user')
+  let loginData = JSON.parse(data);
+  setuserLoggedIn(loginData.first_name)
+}
+},[navClicked,userLoggedIn])
+
+function Logout(){
+  localStorage.clear()
+  setuserLoggedIn('user')
+  router.push('/')
+}
 
 
     function hamburger(){
@@ -93,14 +98,37 @@ useEffect(()=>{
 
   return (
     <>
+  {userLoggedIn === 'user' ? 
+    <nav className={`flex justify-end h-6 box-border ${background} whitespace-nowrap px-4 sm:px-14`}>
+    <section className='flex items-center  font-medium text-white tracking-widest text-xs  lg:text-sm '>
+    <Link href={{pathname:'/faq',query:{search:`${clicked}`}}}><span className='px-2.5	mt-0.5 cursor-pointer' onClick={(e)=>navClicked(e.target.innerText)}>FAQs</span></Link>
+    <Link href={{pathname:'/about'}}>    <span className='px-2.5 mt-0.5	cursor-pointer'  onClick={(e)=>navClicked(e.target.innerText)}>About us</span></Link>
+    <span className='px-2.5	mt-0.5 cursor-pointer '>Contact</span>
+    </section>
+    </nav> 
+    :
+    <nav className={`flex justify-between h-6 box-border ${background} whitespace-nowrap px-4 sm:px-14`}>
+    <section className='flex items-center gap-4  font-medium text-white tracking-widest text-xs  lg:text-sm '>
+    <span className='cursor-pointer'>{`Welcome  ${userLoggedIn}`}</span>
+    <span onClick={Logout} className='cursor-pointer'>Logout</span>
+    </section>
 
-    <nav  className={`flex justify-end h-6 box-border ${background}`}>
-    <section className='flex items-center mx-4 sm:mx-14 font-medium text-white tracking-widest text-xs  lg:text-sm py-2'>
+    <section className='flex items-center  font-medium text-white tracking-widest text-xs  lg:text-sm '>
     <Link href={{pathname:'/faq',query:{search:`${clicked}`}}}><span className='px-2.5	mt-0.5 cursor-pointer' onClick={(e)=>navClicked(e.target.innerText)}>FAQs</span></Link>
     <Link href={{pathname:'/about'}}>    <span className='px-2.5 mt-0.5	cursor-pointer'  onClick={(e)=>navClicked(e.target.innerText)}>About us</span></Link>
     <span className='px-2.5	mt-0.5 cursor-pointer '>Contact</span>
     </section>
     </nav>
+}
+    
+
+     {/* <nav  className={`flex justify-end h-6 box-border ${background} whitespace-nowrap px-4 sm:px-14`}>
+    <section className='flex items-center  font-medium text-white tracking-widest text-xs  lg:text-sm '>
+    <Link href={{pathname:'/faq',query:{search:`${clicked}`}}}><span className='px-2.5	mt-0.5 cursor-pointer' onClick={(e)=>navClicked(e.target.innerText)}>FAQs</span></Link>
+    <Link href={{pathname:'/about'}}>    <span className='px-2.5 mt-0.5	cursor-pointer'  onClick={(e)=>navClicked(e.target.innerText)}>About us</span></Link>
+    <span className='px-2.5	mt-0.5 cursor-pointer '>Contact</span>
+    </section>
+    </nav>  */}
 
 
   <header className='sticky top-0 w-full h-[62px] bg-white z-[200] shadow ' id='header'>

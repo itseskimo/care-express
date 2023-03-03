@@ -11,7 +11,8 @@ import { LOGIN_FAIL, LOGIN_REQUEST,LOGIN_SUCCESS,REGISTER_USER_REQUEST,
   GET_ORDER_REQUEST,GET_ORDER_SUCCESS,GET_ORDER_FAIL,
   GET_ACCOUNT_FAIL,GET_ACCOUNT_REQUEST,GET_ACCOUNT_SUCCESS,
   UPDATE_ACCOUNT_REQUEST,UPDATE_ACCOUNT_SUCCESS,UPDATE_ACCOUNT_FAIL,
-  UPDATE_ADDRESS_REQUEST,UPDATE_ADDRESS_SUCCESS,UPDATE_ADDRESS_FAIL
+  UPDATE_ADDRESS_REQUEST,UPDATE_ADDRESS_SUCCESS,UPDATE_ADDRESS_FAIL,
+  GET_SERVICE_SUCCESS,GET_SERVICE_FAIL,GET_SERVICE_REQUEST
 } from '../constants/page';
 
 export const login = (email, password) => async (dispatch) => {
@@ -204,5 +205,19 @@ export const updateDashboardAccountDetails = (form,token) => async (dispatch) =>
     dispatch({ type: UPDATE_ACCOUNT_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: UPDATE_ACCOUNT_FAIL, payload: error.response.data.message });
+  }
+};
+
+export const getServicePricing = () => async (dispatch) => {
+
+  try {
+    dispatch({ type: GET_SERVICE_REQUEST });
+    const config = { headers: { "Content-Type": "application/json"} };
+
+    const { data } = await axios.get('https://care-express-api.dthree.in/api/pricing/nanny', config);
+
+    dispatch({ type: GET_SERVICE_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({ type: GET_SERVICE_FAIL, payload: error.response.data.message });
   }
 };
