@@ -1,11 +1,18 @@
 "use client"
 import Link from 'next/link'
 import { useState } from 'react'
+import { useRouter } from 'next/navigation';
 
 const page = ({navTitle}) => {
 
   const[navitem,setNavItem]=useState(`${navTitle}`)
   const[select,setSelect]=useState(false)
+  const router = useRouter();
+
+function logout(){
+  localStorage.clear()
+router.push('/')
+}
 
   return (
     <>
@@ -32,7 +39,7 @@ const page = ({navTitle}) => {
            </li>
  
            <li className='w-full py-3 list-none box-border cursor-pointer flex items-center justify-start ' >
-             <p className='text-[14px]' >Logout</p>
+             <p className='text-[14px]' onClick={logout}>Logout</p>
            </li>
       </ul>
       }
