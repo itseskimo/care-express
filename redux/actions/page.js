@@ -192,13 +192,13 @@ export const getDashboardAccountDetails = (token) => async (dispatch) => {
 
 
 
-export const updateDashboardAccountDetails = (token) => async (dispatch) => {
+export const updateDashboardAccountDetails = (form,token) => async (dispatch) => {
   try {
 
     dispatch({ type: UPDATE_ACCOUNT_REQUEST });
     const config = { headers: { "Content-Type": "application/json" , 'Authorization': `Bearer ${token}`} };
 
-    const { data } = await axios.patch('https://care-express-api.dthree.in/api/customer/account', config);
+    const { data } = await axios.patch('https://care-express-api.dthree.in/api/customer/account',form, config);
     console.log(data)
 
     dispatch({ type: UPDATE_ACCOUNT_SUCCESS, payload: data });
