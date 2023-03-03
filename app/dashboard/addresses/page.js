@@ -226,7 +226,7 @@ const page = () => {
 <main className='pt-8 ml-auto mr-auto w-[92%]'>
 <DashboardNav />
 
-<SubDashboardNav navTitle='Addresses' addAddressToggle={addAddressToggle} setAddAddressToggle={setAddAddressToggle}/>
+<SubDashboardNav navTitle='Addresses' addAddressToggle={addAddressToggle} setAddAddressToggle={setAddAddressToggle} buttonshow={true}/>
 <section className='flex gap-6 mt-10 flex-wrap'>
 
 

@@ -47,7 +47,7 @@ const page = () => {
     <main className=' pt-8 ml-auto mr-auto h-screen  w-[92%]  '>
      <DashboardNav />
 
-<SubDashboardNav navTitle='Account'/>
+<SubDashboardNav navTitle='Account' buttonshow={false}/>
 
 <form onSubmit={formSubmit}>
 <section className='flex gap-5 mt-8'>

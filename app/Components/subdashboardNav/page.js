@@ -3,7 +3,7 @@ import React from 'react'
 import { useRouter } from 'next/navigation';
 import { useState } from 'react'
 
-const page = ({navTitle, addAddressToggle,setAddAddressToggle}) => {
+const page = ({navTitle, addAddressToggle,setAddAddressToggle,buttonshow}) => {
 
   const router = useRouter();
     const[navitem,setNavItem]=useState(`${navTitle}`)
@@ -24,9 +24,11 @@ const page = ({navTitle, addAddressToggle,setAddAddressToggle}) => {
 <span className={` px-5 py-3 rounded-t-[9px] cursor-pointer text-[20px] font-normal mr-2 ${navitem==='Settings' ? 'bg-white text-black shadow' : ''} `} onClick={(e)=>redirect(e.target.innerText,'/dashboard/addresses') }>Settings</span>
 </nav>
 
+{buttonshow &&
 <section className=''>
 <button className='px-[20px] py-[16px] bg-hazyblue text-white rounded-[7px] text-[16px] flex items-center' onClick={()=>setAddAddressToggle(!addAddressToggle)}><img className='pr-3' src='../images/dashboard/plus.svg'/>Add Address</button>
 </section>
+}
 </header>
 
     </>
