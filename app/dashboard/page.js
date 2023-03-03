@@ -30,7 +30,7 @@ const page = () => {
     if(localStorage.getItem('user')){
       let data = localStorage.getItem('user')
       let loginData = JSON.parse(data);
-      dispatch(getOrderById('63f7c9989d0078faca4d6ee0',loginData.token))
+      // dispatch(getOrderById('63f7c9989d0078faca4d6ee0',loginData.token))
       dispatch(getServicePricing())
     }
 

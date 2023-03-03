@@ -10,12 +10,13 @@ import { useEffect,useState} from 'react'
 const page = () => {
 
   const { orders } = useSelector((state) => state.orders);
+  // console.log(orders?.first_name,orders?.last_name)
   const dispatch= useDispatch()
   const[token,setToken]=useState(null)
 
   
   const [form, setForm] = useState({
-    first_name: "",
+    first_name: '',
     password:'',
     last_name:'',
   });
@@ -54,15 +55,15 @@ const page = () => {
   
   <div>
     <h6 className='mb-2 text-sm'>First Name</h6>
-    <input type='text'  name='first_name' required value={first_name} onChange={formDetails} className='px-3 py-[13px] outline-none rounded-[10px] text-[14px] w-[306px]'  style={{border:'1px solid #C8CACD'}} />
+    <input type='text'  name='first_name' required  value={first_name} onChange={formDetails} className='px-3 py-[13px] outline-none rounded-[10px] text-[14px] w-[306px]'  style={{border:'1px solid #C8CACD'}} />
   </div>
   <div>
     <h6 className='mb-2 text-sm'>Last Name</h6>
-    <input type='text'  name='last_name' required value={last_name} onChange={formDetails} className='px-3 py-[13px] outline-none rounded-[10px] text-[14px] w-[306px]'  style={{border:'1px solid #C8CACD'}} />
+    <input type='text'  name='last_name' required  value={last_name} onChange={formDetails} className='px-3 py-[13px] outline-none rounded-[10px] text-[14px] w-[306px]'  style={{border:'1px solid #C8CACD'}} />
   </div>
   <div>
     <h6 className='mb-2 text-sm'>Password</h6>
-    <input type='password'  name='password' required value={password} onChange={formDetails} className='px-3 py-[13px] outline-none rounded-[10px] text-[14px] w-[306px]'  style={{border:'1px solid #C8CACD'}} />
+    <input type='password'  name='password' required  value={password} onChange={formDetails} className='px-3 py-[13px] outline-none rounded-[10px] text-[14px] w-[306px]'  style={{border:'1px solid #C8CACD'}} />
   </div>
   
 </section>

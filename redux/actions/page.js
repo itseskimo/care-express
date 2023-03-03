@@ -183,9 +183,8 @@ export const getDashboardAccountDetails = (token) => async (dispatch) => {
     const config = { headers: { "Content-Type": "application/json" , 'Authorization': `Bearer ${token}`} };
 
     const { data } = await axios.get('https://care-express-api.dthree.in/api/customer/account', config);
-    console.log(data)
 
-    dispatch({ type: GET_ACCOUNT_SUCCESS, payload: data });
+    dispatch({ type: GET_ACCOUNT_SUCCESS, payload: data.user });
   } catch (error) {
     dispatch({ type: GET_ACCOUNT_FAIL, payload: error.response.data.message });
   }
