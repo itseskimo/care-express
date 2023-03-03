@@ -22,7 +22,7 @@ const page = () => {
     postalCode:'',
     city:'',
   });
-console.log(form)
+
   const {title,streetName,streetNumber,apartmentNumber,postalCode,city,token,addressId}=form
 
   
@@ -117,7 +117,7 @@ console.log(form)
 
 <div className=''>
 <h6 className='text-[14px] mb-[6px]'>Street Number</h6>
-<input style={{border:'1px solid #C8CACD'}} type='number' name='streetNumber' required value={streetNumber} onChange={formDetails} className='w-full rounded-[10px] px-4 py-3 outline-none'/>
+<input style={{border:'1px solid #C8CACD'}}  name='streetNumber' required value={streetNumber} onChange={formDetails} className='w-full rounded-[10px] px-4 py-3 outline-none'/>
 </div>
 
 <div className=''>
@@ -208,7 +208,7 @@ console.log(form)
 
 <section className='flex justify-end gap-[10px] mt-[20px]'>
 <button className='p-[16px] rounded-lg font-medium text-[16px] cursor-pointer' onClick={deleteTogg}>CANCEL</button>
-<button className='p-[16px] rounded-lg font-medium text-white bg-dashlired text-[16px] cursor-pointer' >DELETE</button>
+<button className='p-[16px] rounded-lg font-medium text-white bg-dashlired text-[16px] cursor-pointer'>DELETE</button>
 </section>
 
 </main>
