@@ -3,6 +3,8 @@ import DashBookingHeader from '../../Components/dashBookingHeader/page'
 import DashboardNav from '../../Components/dashboardNav/page'
 import Head from '../../head'
 import Link from 'next/link'
+import { useDispatch ,useSelector } from 'react-redux'
+import { postAddress} from '@/redux/actions/page'
 
 import {useState,useEffect} from 'react'
 import {useRouter} from 'next/navigation';
@@ -11,6 +13,7 @@ import {useRouter} from 'next/navigation';
 
 const page = () => {
     const router = useRouter();
+    const dispatch = useDispatch();
 
 
     const [form, setForm] = useState({
@@ -39,7 +42,7 @@ const page = () => {
       myForm.set("postal_code", postalCode);
       myForm.set("city", city);
       setFormToggle(!formToggle)
-      dispatch(postAddress(myForm, user.token));
+      dispatch(postAddress(myForm, token));
     }
   
     const [formToggle,setFormToggle]=useState(false)
@@ -48,7 +51,16 @@ const page = () => {
     setFormToggle(!formToggle)
     }
   
-    
+    const [token,setToken]=useState(null)
+  
+    useEffect(()=>{
+    if(localStorage.getItem('user')){
+      let data = localStorage.getItem('user')
+      let loginData = JSON.parse(data);
+      form.token=loginData.token
+      setToken(loginData.token)
+    }
+  },[])
   
 
   return (
