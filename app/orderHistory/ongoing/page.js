@@ -26,7 +26,7 @@ useEffect(()=>{
       <DashboardNav navTitle='Order History' />
       <SubOrderHistoryNav navTitle='Ongoing'/>
       <section className='mt-10  overflow-hidden'>
-        <table className=' w-full'>
+        <table className='w-full'>
         <tbody>
           <tr className='text-left  '>
             <th className='py-5 pl-10 font-semibold text-[14px] tracking-[0.15em]'>ORDER DATE</th>

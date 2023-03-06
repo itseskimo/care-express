@@ -1,11 +1,11 @@
 "use client"
 import Navbar from '../Components/navbar/navbar'
 import Link from 'next/link'
-import { useState,useEffect, useRef } from 'react'
+import { useState,useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useRouter } from 'next/navigation';
 import { login } from '@/redux/actions/page'
-import { socialLogin } from '@/redux/actions/page'
+import { socialLogin, getSocialLogin } from '@/redux/actions/page'
 import  queryString from 'query-string';
 import Head from '../head'
 
@@ -190,8 +190,8 @@ if(passwordToggle.type==='password'){
 
 </form>
 <section className='flex gap-3 mt-3 z-10'>
-  <a href={googleLoginUrl}><button className='bg-ligrey rounded-[24px] px-4 cursor-pointer lg:px-3 xlg:px-[14px] py-[5px] font-semibold flex items-center text-[14px]' onClick={()=>dispatch(socialLogin())}>  <img src='../images/booking/google.svg' className='pr-[10px]'/>Google</button></a>
-  <a href={facebookLoginUrl}><button className='bg-ligrey rounded-[24px] px-4 cursor-pointer lg:px-3 xlg:px-[14px] py-[5px] font-semibold flex items-center text-[14px]' >  <img src='../images/booking/Meta.svg' className='pr-[10px]'/>Meta</button></a>
+  <a href={googleLoginUrl}><button className='bg-ligrey rounded-[24px] px-4 cursor-pointer lg:px-3 xlg:px-[14px] py-[5px] font-semibold flex items-center text-[14px]' onClick={()=>dispatch(socialLogin("google"))}>  <img src='../images/booking/google.svg' className='pr-[10px]'/>Google</button></a>
+  <a href={facebookLoginUrl}><button className='bg-ligrey rounded-[24px] px-4 cursor-pointer lg:px-3 xlg:px-[14px] py-[5px] font-semibold flex items-center text-[14px]' onClick={()=>dispatch(socialLogin("meta"))}>  <img src='../images/booking/Meta.svg' className='pr-[10px]'/>Meta</button></a>
 
 <button className='bg-ligrey rounded-[24px] px-4 cursor-pointer lg:px-3 xlg:px-[14px] py-[5px] font-semibold flex items-center text-[14px]' >  <img src='../images/booking/apple.svg' className='pr-[10px]'/>Apple</button>
 </section>

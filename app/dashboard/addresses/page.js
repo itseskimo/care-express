@@ -12,7 +12,7 @@ const page = () => {
   
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
-  const { address } = useSelector((state) => state.address);
+  const  address  = useSelector((state) => state.address);
 
   const [form, setForm] = useState({
     title: "",
@@ -23,7 +23,7 @@ const page = () => {
     city:'',
   });
 
-  const {title,streetName,streetNumber,apartmentNumber,postalCode,city,token,addressId}=form
+  const {title,streetName,streetNumber,apartmentNumber,postalCode,city,addressId}=form
 
   
   const formDetails = (e) => {
@@ -73,9 +73,12 @@ const page = () => {
   }
 
   const [deleteToggle,setDeleteToggle]=useState(false)
+  const [toBeDeletedId,setToBeDeletedId]=useState(null)
+  const [modalTitle,setModalTitle]=useState(null)
 
-  function deleteTogg(toBeDeleted){
-  dispatch(deleteAddress(toBeDeleted, token))
+  function deleteTogg(toBeDeleted,title){
+  setToBeDeletedId(toBeDeleted)
+  setModalTitle(title)
   setDeleteToggle(!deleteToggle)
   }
 
@@ -86,18 +89,17 @@ const page = () => {
   setForm({title: "", streetName:'', streetNumber:'', apartmentNumber:'', postalCode:'', city:''})
   }
 
-
+  const [token,setToken]=useState(null)
+  
   useEffect(()=>{
   if(localStorage.getItem('user')){
-
     let data = localStorage.getItem('user')
     let loginData = JSON.parse(data);
     form.token=loginData.token
     dispatch(getAddresses(loginData.token))
-
+    setToken(loginData.token)
   }
-
-},[formToggle, addAddressToggle])
+},[])
 
   return (
     <>
@@ -196,19 +198,13 @@ const page = () => {
 
 
 
-
-
-
-
-
-
 {deleteToggle && <section className='sticky top-0 left-0  h-screen z-50 flex items-center justify-center  bg-dashoverlay overflow-hidden'>
 <main className='flex flex-col gap-[22px]  rounded-[16px] h-max w-[564px] bg-soothingyellow p-6 shadow-dashshadow '>
-<h6 className='text-[20px] font-semibold'>Delete Address 1?</h6>
+<h6 className='text-[20px] font-semibold'>Delete {modalTitle}?</h6>
 
 <section className='flex justify-end gap-[10px] mt-[20px]'>
 <button className='p-[16px] rounded-lg font-medium text-[16px] cursor-pointer' onClick={deleteTogg}>CANCEL</button>
-<button className='p-[16px] rounded-lg font-medium text-white bg-dashlired text-[16px] cursor-pointer'>DELETE</button>
+<button className='p-[16px] rounded-lg font-medium text-white bg-dashlired text-[16px] cursor-pointer' onClick={()=>{dispatch(deleteAddress(toBeDeletedId, token)),setDeleteToggle(false)}}>DELETE</button>
 </section>
 
 </main>
@@ -227,15 +223,16 @@ const page = () => {
 <DashboardNav />
 
 <SubDashboardNav navTitle='Addresses' addAddressToggle={addAddressToggle} setAddAddressToggle={setAddAddressToggle} buttonshow={true}/>
-<section className='flex gap-6 mt-10 flex-wrap'>
+{address.length === 0 && <h6 className='flex items-center justify-center font-extrabold text-4xl mt-10'>NO ADDRESSES FOUND</h6>}
 
+<section className='flex gap-6 mt-10 flex-wrap'>
 
 {address  && address.map((item)=>{
   return <div key={item._id} className='bg-white px-6 py-6 w-[22%] rounded-[14px] shadow-md cursor-pointer'>
   <h6 className=' font-semibold text-[20px] mb-2'>{item.title}</h6>
   <h6 className=' text-[20px]  leading-7 '>{item.street_name} {item.postal_code}</h6>
-  <h6 className='text-[20px]  leading-7'> {item.city}, Poland</h6>
-  <div className='flex mt-4'><img className='pr-3' src='../images/dashboard/delete.svg' onClick={()=>deleteTogg(item._id)}/><img className='pr-3' src='../images/dashboard/edit.svg' onClick={()=>editToggle(item._id,item.title,item.street_number,item.street_name,item.postal_code,item.city,item.apartment_number)}/></div>
+  <h6 className='text-[20px]  leading-7'> {item.city}</h6>
+  <div className='flex  mt-4'><img className='pr-3' src='../images/dashboard/delete.svg' onClick={()=>deleteTogg(item._id,item.title)}/><img className='pr-3' src='../images/dashboard/edit.svg' onClick={()=>editToggle(item._id,item.title,item.street_number,item.street_name,item.postal_code,item.city,item.apartment_number)}/></div>
 </div>
 })}
 
@@ -244,7 +241,6 @@ const page = () => {
   <h6 className=' mb-2 text-[20px]  leading-7 '>Targowa 20a, 03-727 Warszawa, Poland</h6>
   <div className='flex mt-4'><img className='pr-3' src='../images/dashboard/delete.svg' onClick={deleteTogg}/><img className='pr-3' src='../images/dashboard/edit.svg' onClick={editToggle}/></div>
 </div> */}
-
 
 </section>
 </main>

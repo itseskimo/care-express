@@ -12,7 +12,8 @@ import { LOGIN_FAIL, LOGIN_REQUEST,LOGIN_SUCCESS,REGISTER_USER_REQUEST,
   GET_ACCOUNT_FAIL,GET_ACCOUNT_REQUEST,GET_ACCOUNT_SUCCESS,
   UPDATE_ACCOUNT_REQUEST,UPDATE_ACCOUNT_SUCCESS,UPDATE_ACCOUNT_FAIL,
   UPDATE_ADDRESS_REQUEST,UPDATE_ADDRESS_SUCCESS,UPDATE_ADDRESS_FAIL,
-  GET_SERVICE_SUCCESS,GET_SERVICE_FAIL,GET_SERVICE_REQUEST
+  GET_SERVICE_SUCCESS,GET_SERVICE_FAIL,GET_SERVICE_REQUEST,
+  GET_SOCIAL_LOGIN_REQUEST,GET_SOCIAL_LOGIN_SUCCESS,GET_SOCIAL_LOGIN_FAIL
 } from '../constants/page';
 
 export const login = (email, password) => async (dispatch) => {
@@ -40,11 +41,9 @@ export const login = (email, password) => async (dispatch) => {
   
       const { data } = await axios.post('https://care-express-api.dthree.in/api/auth/register', userData, config);
       dispatch({ type: REGISTER_USER_SUCCESS, payload: data });
+
     } catch (error) {
-      dispatch({
-        type: REGISTER_USER_FAIL,
-        payload: error.response.data.message,
-      });
+      dispatch({ type: REGISTER_USER_FAIL,payload: error.response.data.message});
     }
   };
 
@@ -54,13 +53,31 @@ export const socialLogin = (code,login_type) => async (dispatch) => {
   try {
     dispatch({ type: SOCIAL_LOGIN_REQUEST });
 
-    const config = { headers: { "Content-Type": "application/json" } };
+    const config = { headers: { "Content-Type": "application/json"} };
 
-    const { data } = await axios.post('https://care-express-api.dthree.in/api/auth/socialLogin',{ code, login_type }, config);
+    const { data } = await axios.post('https://care-express-api.dthree.in/api/auth/socialLogin',{ code,  login_type }, config);
 
     dispatch({ type: SOCIAL_LOGIN_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: SOCIAL_LOGIN_FAIL, payload: error.response.data.message });
+  }
+};
+
+
+
+
+export const getSocialLogin = () => async (dispatch) => {
+
+  try {
+    dispatch({ type: GET_SOCIAL_LOGIN_REQUEST });
+
+    const config = { headers: { "Content-Type": "application/json" } };
+
+    const { data } = await axios.post('https://care-express-api.dthree.in/api/auth/socialLogin', config);
+
+    dispatch({ type: GET_SOCIAL_LOGIN_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({ type: GET_SOCIAL_LOGIN_FAIL, payload: error.response.data.message });
   }
 };
 
@@ -71,9 +88,8 @@ export const postAddress = (addressData ,token) => async (dispatch) => {
     const config = { headers: { "Content-Type": "application/json" , 'Authorization': `Bearer ${token}`} };
 
     const { data } = await axios.post('https://care-express-api.dthree.in/api/customer/address', addressData , config);
-    console.log(data)
 
-    dispatch({ type: POST_ADDRESS_SUCCESS, payload: data });
+    dispatch({ type: POST_ADDRESS_SUCCESS, payload:Object.fromEntries(addressData)  });
   } catch (error) {
     dispatch({ type: POST_ADDRESS_FAIL, payload: error.response.data.message });
   }
@@ -94,13 +110,14 @@ export const getAddresses = (token) => async (dispatch) => {
 };
 
 export const deleteAddress = (id ,token) => async (dispatch) => {
+
   try {
     dispatch({ type: DELETE_ADDRESS_REQUEST });
     const config = { headers: { "Content-Type": "application/json" , 'Authorization': `Bearer ${token}`}, data:{ 'address_id': `${id}`} };
 
     const { data } = await axios.delete(`https://care-express-api.dthree.in/api/customer/address`, config);
 
-    dispatch({ type: DELETE_ADDRESS_SUCCESS, payload: data });
+    dispatch({ type: DELETE_ADDRESS_SUCCESS, payload: id });
   } catch (error) {
     dispatch({
       type: DELETE_ADDRESS_FAIL,
@@ -120,7 +137,7 @@ export const updateAddress = (form,token) => async (dispatch) => {
     
     const { data } = await axios.patch('https://care-express-api.dthree.in/api/customer/address',form, config);
 
-    dispatch({ type: UPDATE_ADDRESS_SUCCESS, payload: data });
+    dispatch({ type: UPDATE_ADDRESS_SUCCESS, payload: Object.fromEntries(form) });
   } catch (error) {
 
     dispatch({ type: UPDATE_ADDRESS_FAIL, payload: error.response.data.message });
@@ -199,9 +216,8 @@ export const updateDashboardAccountDetails = (form,token) => async (dispatch) =>
     const config = { headers: { "Content-Type": "application/json" , 'Authorization': `Bearer ${token}`} };
 
     const { data } = await axios.patch('https://care-express-api.dthree.in/api/customer/account',form, config);
-    console.log(data)
 
-    dispatch({ type: UPDATE_ACCOUNT_SUCCESS, payload: data });
+    dispatch({ type: UPDATE_ACCOUNT_SUCCESS, payload: form });
   } catch (error) {
     dispatch({ type: UPDATE_ACCOUNT_FAIL, payload: error.response.data.message });
   }
