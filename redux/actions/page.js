@@ -73,7 +73,7 @@ export const getSocialLogin = () => async (dispatch) => {
 
     const config = { headers: { "Content-Type": "application/json" } };
 
-    const { data } = await axios.post('https://care-express-api.dthree.in/api/auth/socialLogin', config);
+    const { data } = await axios.get('https://care-express-api.dthree.in/api/auth/getSocialLogin', config);
 
     dispatch({ type: GET_SOCIAL_LOGIN_SUCCESS, payload: data });
   } catch (error) {

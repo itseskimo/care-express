@@ -19,19 +19,19 @@ const page = () => {
 
   useEffect(()=>{
     const urlParams = queryString.parse(window.location.search);
-    // dispatch(getSocialLogin())
+    dispatch(getSocialLogin())
 
     if (urlParams.error) {
       console.log(`An error occurred: ${urlParams.error}`);
     } else {
       console.log(`The code is: ${urlParams.code}`);
-      dispatch(socialLogin(urlParams.code,"google"))
+      // dispatch(socialLogin(urlParams.code,"google"))
     }
 
     if(localStorage.getItem('user')){
       let data = localStorage.getItem('user')
       let loginData = JSON.parse(data);
-      // dispatch(getOrderById('63f7c9989d0078faca4d6ee0',loginData.token))
+      //  dispatch(getOrderById('63f7c9989d0078faca4d6ee0',loginData.token))
       dispatch(getServicePricing())
     }
 
