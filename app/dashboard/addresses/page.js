@@ -142,7 +142,7 @@ const page = () => {
 
 <section className='flex justify-end gap-[10px] mt-[20px]'>
 <button className='p-[16px] rounded-lg font-medium text-[16px] cursor-pointer' onClick={addAddressTogg}>CANCEL</button>
-<input type='submit' className='bg-dashyellow p-[16px] rounded-lg font-medium text-[16px] cursor-pointer' value='ADD' />
+<input type='submit' className='bg-hazyblue text-white p-[16px] rounded-lg font-medium text-[16px] cursor-pointer' value='ADD' />
 </section>
 
 </form>
@@ -189,7 +189,7 @@ const page = () => {
 
 <section className='flex justify-end gap-[10px] mt-[20px]'>
 <button className='p-[16px] rounded-lg font-medium text-[16px] cursor-pointer' onClick={editToggle}>CANCEL</button>
-<input type='submit' className='bg-dashyellow p-[16px] rounded-lg font-medium text-[16px] cursor-pointer' value='SAVE' />
+<input type='submit' className='bg-hazyblue text-white p-[16px] rounded-lg font-medium text-[16px] cursor-pointer' value='SAVE' />
 </section>
 
 </form>
