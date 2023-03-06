@@ -45,7 +45,7 @@ const page = () => {
   
   function formsubmit(e){
     e.preventDefault();
-    router.push('/booking/account')
+    router.push('/reports/payment')
   }
   
   
@@ -60,7 +60,7 @@ const page = () => {
 
 
 
-    <form className='bg-white h-max rounded-[16px] mt-10' >
+    <form className='bg-white h-max rounded-[16px] mt-10' onSubmit={formsubmit}>
 
 
 <section className=' flex  justify-between   mx-2 sm:mx-3 lg:mx-14 xlg:mx-28 py-8'>
