@@ -5,8 +5,7 @@ import { useState,useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useRouter } from 'next/navigation';
 import { login } from '@/redux/actions/page'
-import { socialLogin, getSocialLogin } from '@/redux/actions/page'
-import  queryString from 'query-string';
+import { getSocialLogin } from '@/redux/actions/page'
 import Head from '../head'
 
 
@@ -14,37 +13,14 @@ import Head from '../head'
 const page = () => {
 
   const { isAuthenticated, user } = useSelector((state) => state.user);
+  const {social} = useSelector((state) => state.social);
 
   const router = useRouter();
-
-  const stringifiedParams = queryString.stringify({
-    client_id: '338820813045-hmg3tmrbe741gf69fonr9qm34vl8k6hj.apps.googleusercontent.com',
-    redirect_uri: 'http://localhost:3000/dashboard',
-    scope: [
-      'https://www.googleapis.com/auth/userinfo.email',
-      'https://www.googleapis.com/auth/userinfo.profile',
-    ].join(' '), 
-    response_type: 'code',
-    access_type: 'offline',
-    prompt: 'consent',
-  });
   
-  const googleLoginUrl = `https://accounts.google.com/o/oauth2/v2/auth?${stringifiedParams}`;
-
-
-  const stringifiedParamsFb = queryString.stringify({
-    client_id: '872907897343690',
-    redirect_uri: 'http://localhost:3000/dashboard',
-    scope: ['email', 'user_friends'].join(','), 
-    response_type: 'code',
-    auth_type: 'rerequest',
-    display: 'popup',
-  });
+   const googleLoginUrl = social?.google;
+   const facebookLoginUrl = social?.meta;
   
-  const facebookLoginUrl = `https://www.facebook.com/v4.0/dialog/oauth?${stringifiedParamsFb}`;
-  
-
-  useEffect(()=>{
+   useEffect(()=>{
 
   if(Object.keys(user || {}).length > 0){
     let userData = JSON.stringify(user);
@@ -59,9 +35,9 @@ const page = () => {
     router.push('/dashboard')
     }
   }
+  dispatch(getSocialLogin())
 
-  },[isAuthenticated, user])
-
+  },[user,isAuthenticated])
 
 
 const [loginEmail,setLoginEmail]=useState('')
@@ -190,8 +166,8 @@ if(passwordToggle.type==='password'){
 
 </form>
 <section className='flex gap-3 mt-3 z-10'>
-  <a href={googleLoginUrl}><button className='bg-ligrey rounded-[24px] px-4 cursor-pointer lg:px-3 xlg:px-[14px] py-[5px] font-semibold flex items-center text-[14px]' onClick={()=>dispatch(socialLogin("google"))}>  <img src='../images/booking/google.svg' className='pr-[10px]'/>Google</button></a>
-  <a href={facebookLoginUrl}><button className='bg-ligrey rounded-[24px] px-4 cursor-pointer lg:px-3 xlg:px-[14px] py-[5px] font-semibold flex items-center text-[14px]' onClick={()=>dispatch(socialLogin("meta"))}>  <img src='../images/booking/Meta.svg' className='pr-[10px]'/>Meta</button></a>
+  <a href={googleLoginUrl}><button className='bg-ligrey rounded-[24px] px-4 cursor-pointer lg:px-3 xlg:px-[14px] py-[5px] font-semibold flex items-center text-[14px]' >  <img src='../images/booking/google.svg' className='pr-[10px]'/>Google</button></a>
+  <a href={facebookLoginUrl}><button className='bg-ligrey rounded-[24px] px-4 cursor-pointer lg:px-3 xlg:px-[14px] py-[5px] font-semibold flex items-center text-[14px]' >  <img src='../images/booking/Meta.svg' className='pr-[10px]'/>Meta</button></a>
 
 <button className='bg-ligrey rounded-[24px] px-4 cursor-pointer lg:px-3 xlg:px-[14px] py-[5px] font-semibold flex items-center text-[14px]' >  <img src='../images/booking/apple.svg' className='pr-[10px]'/>Apple</button>
 </section>

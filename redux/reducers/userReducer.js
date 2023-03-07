@@ -15,16 +15,16 @@ export const userReducer = (state = { user: {} }, action) => {
 
       case LOGIN_REQUEST:
       case REGISTER_USER_REQUEST:
-      case SOCIAL_LOGIN_REQUEST:
-      case GET_SOCIAL_LOGIN_REQUEST:
+      // case SOCIAL_LOGIN_REQUEST:
+      // case GET_SOCIAL_LOGIN_REQUEST:
         return {
           isAuthenticated: false,
         };
         
       case LOGIN_SUCCESS:
       case REGISTER_USER_SUCCESS:
-      case SOCIAL_LOGIN_SUCCESS:
-      case GET_SOCIAL_LOGIN_SUCCESS:
+      // case SOCIAL_LOGIN_SUCCESS:
+      // case GET_SOCIAL_LOGIN_SUCCESS:
         return {
           ...state,
           isAuthenticated: true,
@@ -34,8 +34,8 @@ export const userReducer = (state = { user: {} }, action) => {
       
       case LOGIN_FAIL:
       case REGISTER_USER_FAIL:
-      case SOCIAL_LOGIN_FAIL:
-      case GET_SOCIAL_LOGIN_FAIL:
+      // case SOCIAL_LOGIN_FAIL:
+      // case GET_SOCIAL_LOGIN_FAIL:
         return {
           ...state,
           isAuthenticated: false,
@@ -50,7 +50,41 @@ export const userReducer = (state = { user: {} }, action) => {
   };
 
 
+  export const socialReducer = (state = { social: {} }, action) => {
+    switch (action.type) {
 
+     
+      case SOCIAL_LOGIN_REQUEST:
+      case GET_SOCIAL_LOGIN_REQUEST:
+        return {
+          isAuthenticated: false,
+        };
+        
+   
+      case SOCIAL_LOGIN_SUCCESS:
+      case GET_SOCIAL_LOGIN_SUCCESS:
+        return {
+          ...state,
+          isAuthenticated: true,
+          social: action.payload,
+        };
+  
+      
+    
+      case SOCIAL_LOGIN_FAIL:
+      case GET_SOCIAL_LOGIN_FAIL:
+        return {
+          ...state,
+          isAuthenticated: false,
+          social: null,
+          error: action.payload,
+        };
+  
+  
+      default:
+        return state;
+    }
+  };
 
 
   export const addressReducer = (state = [] , action) => {

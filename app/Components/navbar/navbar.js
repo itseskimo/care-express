@@ -14,7 +14,7 @@ const[userlogin,setUserLogin]=useState('')
 
 
 const[userLoggedIn,setuserLoggedIn]=useState('user')
-console.log(userLoggedIn)
+
 // --------------------------------------------------------------
 useEffect(()=>{
 

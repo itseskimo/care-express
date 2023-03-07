@@ -6,9 +6,11 @@ import Head from '../../head'
 import { useEffect } from 'react'
 import { useDispatch ,useSelector } from 'react-redux'
 import { getOngoingOrders} from '@/redux/actions/page'
+  import {useRouter} from 'next/navigation';
 
 const page = () => {
   const dispatch = useDispatch();
+  const router = useRouter();
 
 
 useEffect(()=>{
@@ -44,7 +46,7 @@ useEffect(()=>{
             <td className='py-5 text-[14px]'>10 Hours</td>
             <td className='py-5 text-[14px]'>55 zl/h</td>
             <td className='py-5 text-[14px]'>550 zl</td>
-            <td className='py-5 text-[14px] underline underline-offset-2 decoration-[1px] text-blue cursor-pointer flex'><img className='pr-2' src='../images/dashboard/pdf.svg'/>Download Invoice <span className='flex pl-5'><img className='pr-2' src='../images/dashboard/eye.svg'/>View Details</span></td>
+            <td className='py-5 text-[14px] underline underline-offset-2 decoration-[1px] text-blue cursor-pointer flex'><img className='pr-2' src='../images/dashboard/pdf.svg'/>Download Invoice <span onClick={()=>router.push('/orderHistory/viewDetails')} className='flex pl-5'><img className='pr-2' src='../images/dashboard/eye.svg' />View Details</span></td>
           </tr>
           <tr className='border-b-[1px] border-solid border-gray-300 bg-white'>
             <td className='py-5 text-[14px] pl-10'>24 FEB 2023</td>
@@ -52,7 +54,7 @@ useEffect(()=>{
             <td className='py-5 text-[14px]'>10 Hours</td>
             <td className='py-5 text-[14px]'>55 zl/h</td>
             <td className='py-5 text-[14px]'>550 zl</td>
-            <td className='py-5 text-[14px] underline underline-offset-2 decoration-[1px] text-blue cursor-pointer flex'><img className='pr-2' src='../images/dashboard/pdf.svg'/>Download Invoice <span className='flex pl-5'><img className='pr-2' src='../images/dashboard/eye.svg'/>View Details</span></td>
+            <td className='py-5 text-[14px] underline underline-offset-2 decoration-[1px] text-blue cursor-pointer flex'><img className='pr-2' src='../images/dashboard/pdf.svg'/>Download Invoice <span onClick={()=>router.push('/orderHistory/viewDetails')} className='flex pl-5'><img className='pr-2' src='../images/dashboard/eye.svg' />View Details</span></td>
           </tr>
           <tr className='border-b-[1px] border-solid border-gray-300 bg-white'>
             <td className='py-5 text-[14px] pl-10'>24 FEB 2023</td>
@@ -60,7 +62,7 @@ useEffect(()=>{
             <td className='py-5 text-[14px]'>10 Hours</td>
             <td className='py-5 text-[14px]'>55 zl/h</td>
             <td className='py-5 text-[14px]'>550 zl</td>
-            <td className='py-5 text-[14px] underline underline-offset-2 decoration-[1px] text-blue cursor-pointer flex'><img className='pr-2' src='../images/dashboard/pdf.svg'/>Download Invoice <span className='flex pl-5'><img className='pr-2' src='../images/dashboard/eye.svg'/>View Details</span></td>
+            <td className='py-5 text-[14px] underline underline-offset-2 decoration-[1px] text-blue cursor-pointer flex'><img className='pr-2' src='../images/dashboard/pdf.svg'/>Download Invoice <span onClick={()=>router.push('/orderHistory/viewDetails')} className='flex pl-5'><img className='pr-2' src='../images/dashboard/eye.svg' />View Details</span></td>
           </tr>
           <tr className='border-b-[1px] border-solid border-gray-300 bg-white'>
             <td className='py-5 text-[14px] pl-10'>24 FEB 2023</td>
@@ -68,7 +70,7 @@ useEffect(()=>{
             <td className='py-5 text-[14px]'>10 Hours</td>
             <td className='py-5 text-[14px]'>55 zl/h</td>
             <td className='py-5 text-[14px]'>550 zl</td>
-            <td className='py-5 text-[14px] underline underline-offset-2 decoration-[1px] text-blue cursor-pointer flex'><img className='pr-2' src='../images/dashboard/pdf.svg'/>Download Invoice <span className='flex pl-5'><img className='pr-2' src='../images/dashboard/eye.svg'/>View Details</span></td>
+            <td className='py-5 text-[14px] underline underline-offset-2 decoration-[1px] text-blue cursor-pointer flex'><img className='pr-2' src='../images/dashboard/pdf.svg'/>Download Invoice <span onClick={()=>router.push('/orderHistory/viewDetails')} className='flex pl-5'><img className='pr-2' src='../images/dashboard/eye.svg' />View Details</span></td>
           </tr>
           <tr className='border-b-[1px] border-solid border-gray-300 bg-white'>
             <td className='py-5 text-[14px] pl-10'>24 FEB 2023</td>
@@ -76,7 +78,7 @@ useEffect(()=>{
             <td className='py-5 text-[14px]'>10 Hours</td>
             <td className='py-5 text-[14px]'>55 zl/h</td>
             <td className='py-5 text-[14px]'>550 zl</td>
-            <td className='py-5 text-[14px] underline underline-offset-2 decoration-[1px] text-blue cursor-pointer flex'><img className='pr-2' src='../images/dashboard/pdf.svg'/>Download Invoice <span className='flex pl-5'><img className='pr-2' src='../images/dashboard/eye.svg'/>View Details</span></td>
+            <td className='py-5 text-[14px] underline underline-offset-2 decoration-[1px] text-blue cursor-pointer flex'><img className='pr-2' src='../images/dashboard/pdf.svg'/>Download Invoice <span onClick={()=>router.push('/orderHistory/viewDetails')} className='flex pl-5'><img className='pr-2' src='../images/dashboard/eye.svg' />View Details</span></td>
           </tr>
           <tr className='border-b-[1px] border-solid border-gray-300 bg-white'>
             <td className='py-5 text-[14px] pl-10'>24 FEB 2023</td>
@@ -84,7 +86,7 @@ useEffect(()=>{
             <td className='py-5 text-[14px]'>10 Hours</td>
             <td className='py-5 text-[14px]'>55 zl/h</td>
             <td className='py-5 text-[14px]'>550 zl</td>
-            <td className='py-5 text-[14px] underline underline-offset-2 decoration-[1px] text-blue cursor-pointer flex'><img className='pr-2' src='../images/dashboard/pdf.svg'/>Download Invoice <span className='flex pl-5'><img className='pr-2' src='../images/dashboard/eye.svg'/>View Details</span></td>
+            <td className='py-5 text-[14px] underline underline-offset-2 decoration-[1px] text-blue cursor-pointer flex'><img className='pr-2' src='../images/dashboard/pdf.svg'/>Download Invoice <span onClick={()=>router.push('/orderHistory/viewDetails')} className='flex pl-5'><img className='pr-2' src='../images/dashboard/eye.svg' />View Details</span></td>
           </tr>
           <tr className='bg-white'>
             <td className='py-5 text-[14px] pl-10'>24 FEB 2023</td>
@@ -92,7 +94,7 @@ useEffect(()=>{
             <td className='py-5 text-[14px]'>10 Hours</td>
             <td className='py-5 text-[14px]'>55 zl/h</td>
             <td className='py-5 text-[14px]'>550 zl</td>
-            <td className='py-5 text-[14px] underline underline-offset-2 decoration-[1px] text-blue cursor-pointer flex'><img className='pr-2' src='../images/dashboard/pdf.svg'/>Download Invoice <span className='flex pl-5'><img className='pr-2' src='../images/dashboard/eye.svg'/>View Details</span></td>
+            <td className='py-5 text-[14px] underline underline-offset-2 decoration-[1px] text-blue cursor-pointer flex'><img className='pr-2' src='../images/dashboard/pdf.svg'/>Download Invoice <span onClick={()=>router.push('/orderHistory/viewDetails')} className='flex pl-5'><img className='pr-2' src='../images/dashboard/eye.svg' />View Details</span></td>
           </tr>
          
           </tbody>

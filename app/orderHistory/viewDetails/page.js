@@ -3,8 +3,10 @@ import React from 'react'
 import DashboardNav from '../../Components/dashboardNav/page'
 import Head from '../../head'
 import { useState ,useEffect } from 'react'
+import {useRouter} from 'next/navigation';
 
 const page = () => {
+    const router = useRouter();
 
     const [pauseToggle,setPauseToggle]=useState(false)
 
@@ -26,7 +28,7 @@ const page = () => {
 <main className='flex flex-col gap-[22px]  rounded-[16px] h-max w-[564px] bg-soothingyellow p-6 shadow-dashshadow '>
 <h6 className='text-[20px] font-semibold'>Are you sure you want to cancel the order?</h6>
 <h6 className='text-[16px] pr-4'>You will receive a refund for the remaining 2 hours and your care will be stopped immediately. Would you like to continue?</h6>
-<section className='flex justify-end gap-[10px] mt-[20px]'>
+<section className='flex justify-end gap-[10px] mt-[15px]'>
 <button className='p-[16px] rounded-lg font-medium text-[16px] cursor-pointer' onClick={cancelToggler}>NO</button>
 <button className='p-[16px] rounded-lg font-medium text-white bg-dashlired text-[16px] cursor-pointer' >YES</button>
 </section>
@@ -38,8 +40,11 @@ const page = () => {
 <main className='flex flex-col  rounded-[16px] h-max w-[564px] bg-soothingyellow p-6 shadow-dashshadow '>
 <h6 className='text-[20px] font-semibold '>Please select a restart date for your care</h6>
 <h6 className='text-[14px] mt-4 mb-2'>Care Restart Date</h6>
-<input className='py-3 px-3 text-[14px] outline-none w-[50%] border-solid border-[1px] border-gray-300 rounded-[10px]'/>
-<section className='flex justify-end gap-[10px] mt-[10px]'>
+<div className='relative flex w-[56%]'>
+    <img className='bg-dashdrkgrey absolute right-0 p-[10px] rounded-r-[10px]' src='../images/dashboard/Calendar.svg' />
+    <input className='py-[15px] px-3 text-[14px] outline-none w-full border-solid border-[1px] border-gray-300 rounded-[10px]'/>
+</div>
+<section className='flex justify-end gap-[10px] pt-[30px]'>
 <button className='p-[16px] rounded-lg font-medium text-[16px] cursor-pointer' onClick={pauseToggler}>CANCEL</button>
 <button className='p-[16px] rounded-lg font-medium text-black bg-dashyellow text-[16px] cursor-pointer' >PAUSE CARE</button>
 </section>
@@ -55,7 +60,7 @@ const page = () => {
                 <DashboardNav navTitle='Order History' />
                 <section className='mt-10  flex justify-between'>
                     <div className='flex items-center'>
-                        <img className='pr-2 h-8' src='../images/dashboard/ArrowLeft.svg' />
+                        <img className='pr-2 h-8 cursor-pointer' src='../images/dashboard/ArrowLeft.svg' onClick={()=>router.push('/orderHistory/ongoing')}/>
                         <h6 className='font-extrabold text-[32px] whitespace-nowrap'>Order Details</h6>
                     </div>
 
@@ -69,7 +74,7 @@ const page = () => {
                 <section className='flex items-center justify-between mt-7'>
                     <div>
                         <h6 className='text-[16px] font-semibold mb-1'>Order Number</h6>
-                        <div className='flex'>
+                        <div className='flex cursor-pointer'>
                         <h6 className='text-[16px]'>6378f...6922f0</h6>
                         <img className='pl-3' src='../images/dashboard/copy.svg'/>
                         </div>
@@ -98,36 +103,22 @@ const page = () => {
 {/* -------------------------------------------------------------------------------------------- */}
 
 
-<section className='mt-10   '>
- 
-  {/* <main className=' px-10'>
-  <section className='flex justify-between'>
-    <h6 className='py-5 font-semibold text-[14px]  tracking-[0.15em] basis-[40%]	'>VISIT DATE</h6>
-    <h6 className='py-5 font-semibold text-[14px]  tracking-[0.15em] basis-[50%]	'>VISIT TIME</h6>
-    <h6 className='py-5 font-semibold text-[14px]  tracking-[0.15em] basis-[10%]	'>VISIT HOURS</h6>
-   </section>
-    
-   <section className='flex justify-between bg-white'>
-   <h6 className='py-5 text-[14px] basis-[40%]	 '>24 Feb 2023</h6>
-   <h6 className='py-5 text-[14px] basis-[50%]	 '>9:15 am - 5:15 pm</h6>  
-   <h6 className='py-5 text-[14px] basis-[10%]	 '>8 hours</h6>
-   </section>  
-  </main> */}
+<section className='mt-10'>
 
 <main className='grid grid-cols-[max-content,auto,max-content]'>
     <div className=''>
-    <h6 className='py-5 font-semibold text-[14px]  tracking-[0.15em]'>VISIT DATE</h6>
-    <h6 className='py-5 text-[14px] bg-white '>24 Feb 2023</h6>
+    <h6 className='py-5 font-semibold text-[14px]  tracking-[0.15em] pl-10'>VISIT DATE</h6>
+    <h6 className='py-5 text-[14px] bg-white pl-10'>24 Feb 2023</h6>
     </div>
 
-    <div className=''>
+    <div className='text-center'>
     <h6 className='py-5 font-semibold text-[14px]  tracking-[0.15em]'>VISIT TIME</h6>
-    <h6 className='py-5 text-[14px]  bg-white'>9:15 am - 5:15 pm</h6>   
+    <h6 className='py-5 text-[14px] bg-white pl-7'>9:15 am - 5:15 pm</h6>   
     </div>
 
     <div className=''>
-    <h6 className='py-5 font-semibold text-[14px]  tracking-[0.15em] bg-yellow-50 '>VISIT HOURS</h6>
-    <h6 className='py-5 text-[14px] bg-white'>8 hours</h6>     
+    <h6 className='py-5 font-semibold text-[14px]  tracking-[0.15em]  pr-10'>VISIT HOURS</h6>
+    <h6 className='py-5 text-[14px] bg-white pr-10'>8 hours</h6>     
     </div>   
 
   </main>

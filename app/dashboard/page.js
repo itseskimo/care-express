@@ -10,7 +10,7 @@ import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { useRouter } from 'next/navigation';
 import { socialLogin } from '@/redux/actions/page'
- import { getOrderById, getServicePricing,getSocialLogin  } from '@/redux/actions/page'
+import { getOrderById, getServicePricing } from '@/redux/actions/page'
 
 const page = () => {
 
@@ -19,13 +19,12 @@ const page = () => {
 
   useEffect(()=>{
     const urlParams = queryString.parse(window.location.search);
-    dispatch(getSocialLogin())
 
     if (urlParams.error) {
       console.log(`An error occurred: ${urlParams.error}`);
     } else {
       console.log(`The code is: ${urlParams.code}`);
-      // dispatch(socialLogin(urlParams.code,"google"))
+      dispatch(socialLogin(urlParams.code,"google"))
     }
 
     if(localStorage.getItem('user')){

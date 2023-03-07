@@ -27,11 +27,20 @@ const page = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+ const [accountSuccess,setAccountSucceess]=useState(false)
+
   const formSubmit = (e) => {
     e.preventDefault();
     dispatch(updateDashboardAccountDetails(form,token));
+    setAccountSucceess(true)
     setForm({first_name: "", last_name:'', password:''})
     }
+
+  setTimeout(()=>{
+  if(accountSuccess){
+  setAccountSucceess(false)
+  }
+  },1000)
 
   useEffect(()=>{
   if(localStorage.getItem('user')){
@@ -68,14 +77,15 @@ const page = () => {
   </div>
   
 </section>
-<input type='submit'  className='px-[20px] py-[13px] bg-hazyblue text-white rounded-[23.5px] text-[16px] mt-8' value='Save Details'/>
+<input type='submit'  className='px-[20px] py-[13px] bg-hazyblue cursor-pointer text-white rounded-[23.5px] text-[16px] mt-8' value='Save Details'/>
 </form>
 
-
-
+{accountSuccess && <div className='flex justify-end items-end '>
+<section className='bg-dashgreen py-6 px-4 rounded-[17px] w-max text-[16px] animate-pulse'>Account saved successfully</section>
+</div> }
 
     </main>
-    
+  
 
     </div>
   )

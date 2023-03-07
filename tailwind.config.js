@@ -101,6 +101,7 @@ module.exports = {
       pink:'#FF699F',
 
       dashgrey:'#E8E9EB',
+      dashdrkgrey:'#3D4451',
       soothingyellow:'#FCFCFC',
       dashyellow:'#FBBD23',
       dashoverlay:'rgba(0, 0, 0, 0.24)',
