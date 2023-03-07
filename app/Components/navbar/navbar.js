@@ -27,7 +27,7 @@ useEffect(()=>{
  if(localStorage.getItem('user')){
   let data = localStorage.getItem('user')
   let loginData = JSON.parse(data);
-  setuserLoggedIn(loginData.first_name)
+  setuserLoggedIn(loginData?.first_name)
 }
 },[navClicked,userLoggedIn])
 
