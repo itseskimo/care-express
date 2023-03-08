@@ -16,38 +16,34 @@ import locale from 'date-fns/locale/en-GB'
 
 const page = () => {
   const { orders}  = useSelector((state) => state.orders);
-
   const dispatch= useDispatch()
 
   useEffect(()=>{
-   
-
     if(localStorage.getItem('user')){
       dispatch(getServicePricing())
-
     }
-
   },[])
   
 
     const router = useRouter();
 
     const [careType,setCareType]=useState('nanny')
-    const [hours,setHours]=useState('40 hours')
-    const [cost,setCost]=useState('39,90 zł / h')
+    const [selectPlanId,setSelectPlanId]=useState('')
+    const [hours,setHours]=useState('')
+    const [cost,setCost]=useState('')
+
     const [time,setTime]=useState('')
 
 
-    const [selectTime,setSelectTime]=useState('hours40')
     const [calendarDate,setCalendarDate]=useState('')
     const [togglecalendar,setToggleCalendar]=useState(false)
     const [date, setDate] = useState(null);
 
 
-
+    
     function formSubmit(e){
       e.preventDefault();
-      if(calendarDate !== '' && selectTime !== '' && careType !== ''){
+      if(calendarDate !== '' && selectPlanId !== '' && careType !== ''){
       localStorage.setItem('hours', hours)
       localStorage.setItem('cost', cost)
       localStorage.setItem('careType', careType)
@@ -61,28 +57,31 @@ const page = () => {
     function calendar(){
       const calendarCalc=['null',"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
      
-      const calendar= document.getElementById('extractCalendarTime')
+       const calendar= document.getElementById('extractCalendarTime')
       let dateCalc= calendar.value.substring(0,1) === '0' ? calendar.value.substring(1,2) : calendar.value.substring(0,2)
       let monthCalc = calendarCalc[calendar.value.substring(3,4) === '0' ? calendar.value.substring(4,5) : calendar.value.substring(3,5)] 
       let yearCalc= `${calendar.value.substring(6,10)}`
 
       const finalDate=`${dateCalc}` + `${monthCalc}` + `${yearCalc}`
-      console.log(finalDate)
+
       setTime(finalDate)
       setCalendarDate(calendar.value)
+
       setToggleCalendar(!togglecalendar)
-     }
+
+    }
 
 
     function calendarOnchange(item){
       setDate(item)
-      setToggleCalendar(!togglecalendar)
+      
+      // setToggleCalendar(false)
     }
     
     
     function extractText(id, hours , rpHours){
       localStorage.setItem('plan', id)
-      setSelectTime(id)
+      setSelectPlanId(id)
       setHours(hours)
       setCost(rpHours)
     }
@@ -91,7 +90,7 @@ const page = () => {
     <div className='bg-specialbg  h-max' >
     <Head title='Order History' />
     <main className='py-8 ml-auto mr-auto w-[92%]'>
-      <DashboardNav navTitle='Reports' />
+    <DashboardNav navTitle='Reports' />
       
 
 <DashBookingHeader active={0}/>
@@ -153,17 +152,17 @@ const page = () => {
 
  if(item.most_popular === false){
 
-  return <div key={item._id} className={`border-[1px] border-solid ${selectTime === item._id? 'border-blue' : 'border-bookingborder' } 	w-[196px] h-[180px] rounded-[12px] relative cursor-pointer`} onClick={()=>extractText(item._id, item.hours,item.rate_per_hour)}>
+  return <div key={item._id} className={`border-[1px] border-solid ${selectPlanId === item._id? 'border-blue' : 'border-bookingborder' } 	w-[196px] h-[180px] rounded-[12px] relative cursor-pointer`} onClick={()=>extractText(item._id, item.hours,item.rate_per_hour)}>
     <section className='font-semibold flex flex-col pl-2 pt-9  rounded-[12px] select-none pointer-events-none' >
     <h6 className='text-2xl font-medium mb-3 select-none pointer-events-none' >{item.hours} hours</h6>
     <h6 className=' font-bold text-2xl select-none pointer-events-none' >{item.rate_per_hour} zł / h</h6>
     </section>
-      <img src='../images/booking/check.png' className={`absolute bottom-3 select-none pointer-events-none left-3 ${selectTime === item._id ? 'block' : 'hidden'}`} />
+      <img src='../images/booking/check.png' className={`absolute bottom-3 select-none pointer-events-none left-3 ${selectPlanId === item._id ? 'block' : 'hidden'}`} />
   </div>
 
  }else{
 
-  return <div className={`border-[1px] border-solid 	w-[196px] h-[180px] ${selectTime === item._id? 'border-blue' : 'border-bookingborder' } rounded-[12px] relative cursor-pointer`} onClick={()=>extractText(item._id, item.hours,item.rate_per_hour)}>
+  return <div className={`border-[1px] border-solid 	w-[196px] h-[180px] ${selectPlanId === item._id? 'border-blue' : 'border-bookingborder' } rounded-[12px] relative cursor-pointer`} onClick={()=>extractText(item._id, item.hours,item.rate_per_hour)}>
   <nav className='flex bg-green w-max rounded-lg py-1 px-2 mt-2 ml-2 select-none pointer-events-none' >
   <img src='../images/booking/Star.svg' className='pr-2 select-none pointer-events-none' />
   <h6 className='text-xs font-bold text-white select-none pointer-events-none' >MOST POPULAR</h6>
@@ -172,7 +171,7 @@ const page = () => {
   <h6 className='text-2xl font-medium mb-3 select-none pointer-events-none' >{item.hours} hours</h6>
   <h6 className=' font-bold text-2xl select-none pointer-events-none' >{item.rate_per_hour} zł / h</h6>
   </section>
-  <img src='../images/booking/check.png' className={`absolute select-none pointer-events-none  bottom-3 left-3 ${selectTime === item._id? 'block' : 'hidden'}`} />
+  <img src='../images/booking/check.png' className={`absolute select-none pointer-events-none  bottom-3 left-3 ${selectPlanId === item._id? 'block' : 'hidden'}`} />
 </div>
  }
 
@@ -204,7 +203,7 @@ const page = () => {
 
 
 {togglecalendar &&
-
+<section onClick={calendar}>
 <Calendar 
 showMonthAndYearPickers={false} 
 onChange={item => calendarOnchange(item)}
@@ -212,7 +211,7 @@ date={date}
 className='shadow-xl absolute z-[1]'
 minDate={ new Date(new Date().setDate(new Date().getDate() + 1))}
 />
-
+</section>
 }
 
 </section>

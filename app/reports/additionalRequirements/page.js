@@ -62,7 +62,7 @@ const [cost,setCost]=useState('')
 <section className='flex gap-28'>
 <div className=''>
   <h6 className='tracking-[0.12em] text-xs font-semibold'>SELECT PLAN</h6>
-  <h6 className='text-[19px]  xlsm:text-[24px] font-bold'>{hours}</h6>
+  <h6 className='text-[19px]  xlsm:text-[24px] font-bold'>{hours} hours</h6>
 </div>
 
 <div>

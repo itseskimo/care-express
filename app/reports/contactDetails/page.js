@@ -74,8 +74,13 @@ const page = () => {
   },[])
   
   const [addStyles,setAddStyles]=useState('')
-function styles(id){
-setAddStyles(id)
+
+function styles(item){
+  let contact = JSON.stringify(item);
+  localStorage.setItem("contact", contact);
+
+  
+  setAddStyles(item._id)
 }
 
 
@@ -105,7 +110,7 @@ setAddStyles(id)
 <section className='flex gap-28'>
 <div className=''>
   <h6 className='tracking-[0.12em] text-xs font-semibold'>SELECT PLAN</h6>
-  <h6 className='text-[19px]  xlsm:text-[24px] font-bold'>{hours}</h6>
+  <h6 className='text-[19px]  xlsm:text-[24px] font-bold'>{hours} hours</h6>
 </div>
 
 <div>
@@ -138,7 +143,7 @@ setAddStyles(id)
 
 
 {address  && address.map((item)=>{
-  return <div key={item._id} className={`bg-white px-6 py-6 relative w-[25%] rounded-[14px] border-solid border-[1px] cursor-pointer ${addStyles === item._id ? 'border-bookingblue' : 'border-bookingborder'}`} onClick={()=>styles(item._id)}>
+  return <div key={item._id} className={`bg-white px-6 py-6 relative w-[25%] rounded-[14px] border-solid border-[1px] cursor-pointer ${addStyles === item._id ? 'border-bookingblue' : 'border-bookingborder'}`} onClick={()=>styles(item,)}>
   <div className='h-full flex flex-col'>
   <h6 className=' font-semibold text-[20px] mb-2'>{item.title}</h6>
   <h6 className=' mb-2 text-[20px]  leading-7 '>{item.street_name} {item.postal_code}</h6>

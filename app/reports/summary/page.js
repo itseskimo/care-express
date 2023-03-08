@@ -67,12 +67,12 @@ const page = () => {
 
 <div className=''>
   <h6 className='tracking-[0.12em] text-xs font-semibold '>SELECT PLAN</h6>
-  <h6 className='text-[20px] lg:text-[24px] font-bold'>{hours}</h6>
+  <h6 className='text-[20px] lg:text-[24px] font-bold'>{hours} hours</h6>
 </div>
 
 <div className=''>
   <h6 className='tracking-[0.12em] text-xs font-semibold'>PRICE/HOUR</h6>
-  <h6 className='text-[20px] lg:text-[24px] font-bold'>{cost}</h6>
+  <h6 className='text-[20px] lg:text-[24px] font-bold'>{cost} zł</h6>
 </div>
 
 <div className=''>
