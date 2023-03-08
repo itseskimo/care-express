@@ -60,7 +60,7 @@ const page = () => {
 
 
 
-    <form className='bg-white h-max rounded-[16px] mt-10' onSubmit={formsubmit}>
+<form className='bg-white h-max rounded-[16px] mt-10' onSubmit={formsubmit}>
 
 
 <section className=' flex  justify-between items-start   mx-2 sm:mx-3 lg:mx-14 xlg:mx-28 py-8'>
@@ -94,52 +94,41 @@ const page = () => {
 <section className='border-[1px]  border-solid  border-gray-300' ></section>
 
 {/* ------------------------------------------------------------------------------------ */}
-<main className='flex items-start relative  mx-4 sm:mx-6 lg:mx-14 xlg:mx-28 py-10 '>
+<main className='flex items-start justify-between mx-4 sm:mx-6 lg:mx-14 xlg:mx-28 py-10 '>
 
-<section className='w-[50%] xlsm:w-[40%] md:w-[25%] lg:w-[20%]'>
 
 <div className=''>
+  <div>
     <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>STREET NAME</h6>
-    <h6 className='text-[16px] font-semibold'>JHHJ</h6>
+    <h6 className='text-[16px] font-semibold'>Grójecka</h6>
+  </div>
+  
+  <div className='mt-6'>
+  <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>CITY / TOWN</h6>
+  <h6 className='text-[16px] font-semibold'>Warszawa</h6>
+  </div>
 </div>
-
-<div className='mt-6 block md:hidden'>
-    <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>STREET NUMBER</h6>
-    <h6 className='text-[16px] font-semibold'>JJH</h6>
-</div>
-
-<div className='mt-6'>
-    <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>APARTMENT NUMBER</h6>
-    <h6 className='text-[16px] font-semibold'>JM</h6>
-</div>
-
-<div className='mt-6'>
-    <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>POSTAL CODE</h6>
-    <h6 className='text-[16px] font-semibold'>J</h6>
-</div>
-
-
-</section>
-{/* ------------------------------------------------------------------------------------ */}
-
-
-
-{/* ------------------------------------------------------------------------------------ */}
-
-<section className='hidden lg:block w-[20%] '>
 
 <div className=''>
-    <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>CITY / TOWN</h6>
-    <h6 className='text-[16px] font-semibold'>JJJ</h6>
+    <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>STREET NUMBER</h6>
+    <h6 className='text-[16px] font-semibold'>45</h6>
 </div>
 
+<div className=''>
+    <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>APARTMENT NUMBER</h6>
+    <h6 className='text-[16px] font-semibold'>17</h6>
+</div>
 
+<div className=''>
+    <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>POSTAL CODE</h6>
+    <h6 className='text-[16px] font-semibold'>02-031</h6>
+</div>
 
-</section>
+<button className='flex border-[1px] border-solid  border-gray-300  shrink-0 px-5 py-[10px] text-sm font-semibold rounded-[50px]' onClick={()=>router.push('/booking/contact')}><img src='../images/booking/Edit.svg' className='pr-2'/>Edit Contact</button>
 
 {/* ------------------------------------------------------------------------------------ */}
 
-<button className='absolute right-0 border-[1px] border-solid  border-gray-300 hidden xlsm:flex  shrink-0 px-5 py-[10px] text-sm font-semibold rounded-[50px]' onClick={()=>router.push('/booking/contact')}><img src='../images/booking/Edit.svg' className='pr-2'/>Edit Contact</button>
+
 
 </main>
 
