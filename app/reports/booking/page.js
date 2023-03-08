@@ -8,11 +8,23 @@ import {format} from 'date-fns'
 import {Calendar} from 'react-date-range';
 import {useState,useEffect} from 'react'
 import {useRouter} from 'next/navigation';
+import { useDispatch } from 'react-redux'
+import { getServicePricing } from '@/redux/actions/page'
 
 
 
 const page = () => {
+  const dispatch= useDispatch()
 
+  useEffect(()=>{
+   
+
+    if(localStorage.getItem('user')){
+      dispatch(getServicePricing())
+    }
+
+  },[])
+  
 
     const router = useRouter();
 
