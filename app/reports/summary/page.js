@@ -63,29 +63,29 @@ const page = () => {
 <form className='bg-white h-max rounded-[16px] mt-10' onSubmit={formsubmit}>
 
 
-<section className=' flex  justify-between items-start   mx-2 sm:mx-3 lg:mx-14 xlg:mx-28 py-8'>
+<section className=' grid grid-cols-5  mx-2 sm:mx-3 lg:mx-14 xlg:mx-28 py-8'>
 
-<div className=' md:w-[16.5%] lg:w-[20%] bg-yellow-50'>
+<div className=''>
   <h6 className='tracking-[0.12em] text-xs font-semibold '>SELECT PLAN</h6>
   <h6 className='text-[20px] lg:text-[24px] font-bold'>80 hours</h6>
 </div>
 
-<div className=' md:w-[16.5%] lg:w-[20%]'>
+<div className=''>
   <h6 className='tracking-[0.12em] text-xs font-semibold'>PRICE/HOUR</h6>
   <h6 className='text-[20px] lg:text-[24px] font-bold'>37,90 zł</h6>
 </div>
 
-<div className=' md:w-[16.5%] lg:w-[20%]'>
+<div className=''>
   <h6 className='tracking-[0.12em] text-xs font-semibold '>TOTAL PRICE</h6>
   <h6 className='text-[20px] lg:text-[24px] font-bold'>3032 zł</h6>
 </div>
 
-<div className=' md:w-[16.5%] lg:w-[20%]  min-w-[140px] lg:min-w-[168px]'>
+<div className=''>
   <h6 className='tracking-[0.12em] text-xs font-semibold'>CARE START DATE</h6>
   <h6 className='text-[20px] lg:text-[24px] font-bold'>15 March 2023</h6>
 </div>
 
-<button className='border-[1px] border-solid  border-gray-300 flex px-5 py-[10px] text-sm font-semibold rounded-[50px]'><img src='../images/booking/Edit.svg' className='pr-2'/>Edit Plan</button>
+<button className='border-[1px] border-solid justify-self-end self-start border-gray-300 flex px-5 py-[10px] text-sm font-semibold rounded-[50px]'><img src='../images/booking/Edit.svg' className='pr-2'/>Edit Plan</button>
 
 </section>
 
@@ -94,7 +94,7 @@ const page = () => {
 <section className='border-[1px]  border-solid  border-gray-300' ></section>
 
 {/* ------------------------------------------------------------------------------------ */}
-<main className='flex items-start justify-between mx-4 sm:mx-6 lg:mx-14 xlg:mx-28 py-10 '>
+<main className='grid grid-cols-5 mx-4 sm:mx-6 lg:mx-14 xlg:mx-28 py-10 '>
 
 
 <div className=''>
@@ -124,7 +124,7 @@ const page = () => {
     <h6 className='text-[16px] font-semibold'>02-031</h6>
 </div>
 
-<button className='flex border-[1px] border-solid  border-gray-300  shrink-0 px-5 py-[10px] text-sm font-semibold rounded-[50px]' onClick={()=>router.push('/booking/contact')}><img src='../images/booking/Edit.svg' className='pr-2'/>Edit Contact</button>
+<button className='flex border-[1px] border-solid justify-self-end self-start  border-gray-300  shrink-0 px-5 py-[10px] text-sm font-semibold rounded-[50px]' onClick={()=>router.push('/booking/contact')}><img src='../images/booking/Edit.svg' className='pr-2'/>Edit Contact</button>
 
 {/* ------------------------------------------------------------------------------------ */}
 
