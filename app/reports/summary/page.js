@@ -138,8 +138,42 @@ const page = () => {
 
 {/* ------------------------------------------------------------------------------------ */}
 
+{saveCheckBoxesText && additionalDescription ? 
+  <>
 
 <main className=' mx-4 sm:mx-6 lg:mx-14 xlg:mx-28 py-10'>
+
+<section className='flex  items-center relative'>
+
+<div className=''>
+    <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>ADDITIONAL SERVICES</h6>
+     <h6 className='text-[16px] font-semibold'>{saveCheckBoxesText}</h6>
+</div>
+
+<div className=' absolute right-0'>
+     <button className='border-[1px] border-solid  border-gray-300 flex px-2 xlsm:px-5 py-[10px] text-[13px] sm:text-sm font-semibold rounded-[50px]' onClick={()=>router.push('/booking/additionalRequirements')}><img src='../images/booking/Edit.svg' className='pr-2 sm:pr-3'/>Edit Requirements</button>
+</div>
+
+</section>
+{/* ------------------------------------------------------------------------------------ */}
+
+<section className='flex  items-center  mt-8'>
+
+<div className='w-full lg:w-[70%]'>
+    <h6 className='tracking-[0.12em] text-xs font-semibold mb-3'>ANY SPECIAL NEEDS OR REQUIREMENTS</h6>
+    <h6 className='text-[16px] tracking-[0.02em] font-semibold'>{additionalDescription}</h6>
+</div>
+
+</section>
+
+</main>
+<section className='border-[1px]  border-solid  border-gray-300' ></section>
+
+</>
+: ''
+}
+
+{/* <main className=' mx-4 sm:mx-6 lg:mx-14 xlg:mx-28 py-10'>
 
 <section className='flex  items-center justify-between'>
 
@@ -151,7 +185,6 @@ const page = () => {
      <button className='border-[1px] border-solid  border-gray-300 flex px-2 xlsm:px-5 py-[10px] text-[13px] sm:text-sm font-semibold rounded-[50px]' onClick={()=>router.push('/reports/additionalRequirements')}><img src='../images/booking/Edit.svg' className='pr-2 sm:pr-3'/>Edit Requirements</button>
 
 </section>
-{/* ------------------------------------------------------------------------------------ */}
 
 <section className='flex  items-center  mt-8'>
 
@@ -163,7 +196,7 @@ const page = () => {
 </section>
 
 </main>
-<section className='border-[1px]  border-solid  border-gray-300' ></section>
+<section className='border-[1px]  border-solid  border-gray-300' ></section> */}
 
 
 
