@@ -8,12 +8,14 @@ import {format} from 'date-fns'
 import {Calendar} from 'react-date-range';
 import {useState,useEffect} from 'react'
 import {useRouter} from 'next/navigation';
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { getServicePricing } from '@/redux/actions/page'
 
 
 
 const page = () => {
+  const { orders}  = useSelector((state) => state.orders);
+console.log(orders?.pricing)
   const dispatch= useDispatch()
 
   useEffect(()=>{
