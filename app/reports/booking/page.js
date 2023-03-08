@@ -210,7 +210,7 @@ const page = () => {
 showMonthAndYearPickers={false} 
 onChange={item => setDate(item)}
 date={date}  
-className='shadow-xl'
+className='shadow-xl absolute'
 minDate={new Date()}
 
 />
