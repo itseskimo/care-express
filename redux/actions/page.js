@@ -246,7 +246,7 @@ export const getServicePricing = () => async (dispatch) => {
 
     const { data } = await axios.get('https://care-express-api.dthree.in/api/pricing/nanny', config);
 
-    dispatch({ type: GET_SERVICE_SUCCESS, payload: data });
+    dispatch({ type: GET_SERVICE_SUCCESS, payload: data.pricing });
   } catch (error) {
     dispatch({ type: GET_SERVICE_FAIL, payload: error.response.data.message });
   }

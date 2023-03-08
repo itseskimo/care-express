@@ -5,6 +5,7 @@ import Head from '../../head'
 import Link from 'next/link'
 import { useDispatch ,useSelector } from 'react-redux'
 import { postAddress} from '@/redux/actions/page'
+import {  getAddresses , deleteAddress, updateAddress} from '@/redux/actions/page'
 
 import {useState,useEffect} from 'react'
 import {useRouter} from 'next/navigation';
@@ -14,6 +15,8 @@ import {useRouter} from 'next/navigation';
 const page = () => {
     const router = useRouter();
     const dispatch = useDispatch();
+    const  address  = useSelector((state) => state.address);
+
 
 
     const [form, setForm] = useState({
@@ -61,6 +64,7 @@ const page = () => {
       let loginData = JSON.parse(data);
       form.token=loginData.token
       setToken(loginData.token)
+      dispatch(getAddresses(loginData.token))
 
       let hours= localStorage.getItem('hours')
       setHours(hours)
@@ -69,7 +73,14 @@ const page = () => {
     }
   },[])
   
-console.log(hours,cost)
+  const [addStyles,setAddStyles]=useState('')
+function styles(id){
+setAddStyles(id)
+}
+
+
+
+
   return (
     <>
 
@@ -125,29 +136,22 @@ console.log(hours,cost)
 </section>
 </div>
 
-<div className='bg-white px-6 py-6 w-[25%] rounded-[14px] border-solid border-[1px] border-gray-300 cursor-pointer'>
-  <div className='h-full flex flex-col'>
-  <h6 className=' font-semibold text-[20px] mb-2'>Address 1</h6>
-  <h6 className=' mb-2 text-[20px]  leading-7 '>Targowa 20a, 03-727 Warszawa, Poland</h6>
-  <div className='flex mt-7'><img className='pr-3' src='../images/dashboard/delete.svg' /><img className='pr-3' src='../images/dashboard/edit.svg'/></div>
-</div>
-</div>
 
-<div className='bg-white px-6 py-6 w-[25%] rounded-[14px] border-solid border-[1px] border-gray-300 cursor-pointer'>
+{address  && address.map((item)=>{
+  return <div key={item._id} className={`bg-white px-6 py-6 relative w-[25%] rounded-[14px] border-solid border-[1px] cursor-pointer ${addStyles === item._id ? 'border-bookingblue' : 'border-bookingborder'}`} onClick={()=>styles(item._id)}>
   <div className='h-full flex flex-col'>
-  <h6 className=' font-semibold text-[20px] mb-2'>Address 1</h6>
-  <h6 className=' mb-2 text-[20px]  leading-7 '>Targowa 20a, 03-727 Warszawa, Poland</h6>
-  <div className='flex mt-7'><img className='pr-3' src='../images/dashboard/delete.svg' /><img className='pr-3' src='../images/dashboard/edit.svg'/></div>
-</div>
-</div>
+  <h6 className=' font-semibold text-[20px] mb-2'>{item.title}</h6>
+  <h6 className=' mb-2 text-[20px]  leading-7 '>{item.street_name} {item.postal_code}</h6>
+  <h6 className=' mb-2 text-[20px]  leading-4 '>{item.city}</h6>
+  <div className={`flex mt-7 ${addStyles === item._id ? 'hidden' : 'block'}`}><img className='pr-3' src='../images/dashboard/delete.svg' /><img className='pr-3' src='../images/dashboard/edit.svg'/></div>
+  <img src='../images/booking/check.png' className={`absolute bottom-5 select-none pointer-events-none left-5 ${addStyles === item._id ? 'block' : 'hidden'}`}  />
 
-<div className='bg-white px-6 py-6 w-[25%] rounded-[14px] border-solid border-[1px] border-gray-300 cursor-pointer'>
-  <div className='h-full flex flex-col'>
-  <h6 className=' font-semibold text-[20px] mb-2'>Address 1</h6>
-  <h6 className=' mb-2 text-[20px]  leading-7 '>Targowa 20a, 03-727 Warszawa, Poland</h6>
-  <div className='flex mt-7'><img className='pr-3' src='../images/dashboard/delete.svg' /><img className='pr-3' src='../images/dashboard/edit.svg'/></div>
 </div>
 </div>
+  
+})}
+
+
 
 </main>
 

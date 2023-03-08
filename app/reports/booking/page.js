@@ -4,18 +4,19 @@ import DashboardNav from '../../Components/dashboardNav/page'
 import Head from '../../head'
 import 'react-date-range/dist/styles.css'; 
 import 'react-date-range/dist/theme/default.css';
-import {format} from 'date-fns'
+import {format,subDays} from 'date-fns'
 import {Calendar} from 'react-date-range';
 import {useState,useEffect} from 'react'
 import {useRouter} from 'next/navigation';
 import { useDispatch, useSelector } from 'react-redux'
 import { getServicePricing } from '@/redux/actions/page'
+import locale from 'date-fns/locale/en-GB'
 
 
 
 const page = () => {
   const { orders}  = useSelector((state) => state.orders);
-console.log(orders?.pricing)
+
   const dispatch= useDispatch()
 
   useEffect(()=>{
@@ -23,6 +24,7 @@ console.log(orders?.pricing)
 
     if(localStorage.getItem('user')){
       dispatch(getServicePricing())
+
     }
 
   },[])
@@ -40,8 +42,9 @@ console.log(orders?.pricing)
     const [calendarDate,setCalendarDate]=useState('')
     const [togglecalendar,setToggleCalendar]=useState(false)
     const [date, setDate] = useState(null);
-    
-    
+
+
+
     function formSubmit(e){
       e.preventDefault();
       if(calendarDate !== '' && selectTime !== '' && careType !== ''){
@@ -56,39 +59,36 @@ console.log(orders?.pricing)
     }
     
     function calendar(){
-     const calendarCalc=['null',"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-    
-     const calendar= document.getElementById('extractCalendarTime')
-     let dateCalc=`${calendar.value.substring(3,5)}`
-     let monthCalc = calendarCalc[calendar.value.substring(0,1) === '0' ? calendar.value.substring(1,2) : calendar.value.substring(0,2)] 
-     let yearCalc= `${calendar.value.substring(6,10)}`
-     const finalDate=`${dateCalc}` + `${monthCalc}` + `${yearCalc}`
-     setTime(finalDate)
-     setCalendarDate(calendar.value)
+      const calendarCalc=['null',"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+     
+      const calendar= document.getElementById('extractCalendarTime')
+      let dateCalc= calendar.value.substring(0,1) === '0' ? calendar.value.substring(1,2) : calendar.value.substring(0,2)
+      let monthCalc = calendarCalc[calendar.value.substring(3,4) === '0' ? calendar.value.substring(4,5) : calendar.value.substring(3,5)] 
+      let yearCalc= `${calendar.value.substring(6,10)}`
 
-     setToggleCalendar(!togglecalendar)
+      const finalDate=`${dateCalc}` + `${monthCalc}` + `${yearCalc}`
+      console.log(finalDate)
+      setTime(finalDate)
+      setCalendarDate(calendar.value)
+      setToggleCalendar(!togglecalendar)
+     }
+
+
+    function calendarOnchange(item){
+      setDate(item)
+      setToggleCalendar(!togglecalendar)
     }
     
-    useEffect(()=>{
-    calendar()
-    setToggleCalendar(false)
-    },[date])
     
-    
-    function extractText(e){
-      setSelectTime(e.target.id)
-       let text=e.target.innerText.split('\n')
-       if(text[0]=== 'MOST POPULAR'){
-        setHours(text[1])
-        setCost(text[2])
-       }else{
-        setHours(text[0])
-        setCost(text[1])
-       }
+    function extractText(id, hours , rpHours){
+      localStorage.setItem('plan', id)
+      setSelectTime(id)
+      setHours(hours)
+      setCost(rpHours)
     }
 
   return (
-    <div className='bg-specialbg  h-max'>
+    <div className='bg-specialbg  h-max' >
     <Head title='Order History' />
     <main className='py-8 ml-auto mr-auto w-[92%]'>
       <DashboardNav navTitle='Reports' />
@@ -148,50 +148,36 @@ console.log(orders?.pricing)
 <div>
 <h6 className='font-semibold tracking-[0.02em] text-[16px] my-5'>Choose Plan</h6>
 <section className='mt-2 flex flex-wrap gap-9' >
-  
-  <div className={`border-[1px] border-solid ${selectTime === 'hours10'? 'border-blue' : 'border-bookingborder' } 	w-[196px] h-[180px] rounded-[12px] relative cursor-pointer`} id='hours10' onClick={extractText}>
+
+{orders && orders.map((item)=>{
+
+ if(item.most_popular === false){
+
+  return <div key={item._id} className={`border-[1px] border-solid ${selectTime === item._id? 'border-blue' : 'border-bookingborder' } 	w-[196px] h-[180px] rounded-[12px] relative cursor-pointer`} onClick={()=>extractText(item._id, item.hours,item.rate_per_hour)}>
     <section className='font-semibold flex flex-col pl-2 pt-9  rounded-[12px] select-none pointer-events-none' >
-    <h6 className='text-2xl font-medium mb-3 select-none pointer-events-none' >10 hours</h6>
-    <h6 className=' font-bold text-2xl select-none pointer-events-none' >55 zł / h</h6>
+    <h6 className='text-2xl font-medium mb-3 select-none pointer-events-none' >{item.hours} hours</h6>
+    <h6 className=' font-bold text-2xl select-none pointer-events-none' >{item.rate_per_hour} zł / h</h6>
     </section>
-      <img src='../images/booking/check.png' className={`absolute bottom-3 select-none pointer-events-none left-3 ${selectTime === 'hours10'? 'block' : 'hidden'}`} />
+      <img src='../images/booking/check.png' className={`absolute bottom-3 select-none pointer-events-none left-3 ${selectTime === item._id ? 'block' : 'hidden'}`} />
   </div>
+
+ }else{
+
+  return <div className={`border-[1px] border-solid 	w-[196px] h-[180px] ${selectTime === item._id? 'border-blue' : 'border-bookingborder' } rounded-[12px] relative cursor-pointer`} onClick={()=>extractText(item._id, item.hours,item.rate_per_hour)}>
+  <nav className='flex bg-green w-max rounded-lg py-1 px-2 mt-2 ml-2 select-none pointer-events-none' >
+  <img src='../images/booking/Star.svg' className='pr-2 select-none pointer-events-none' />
+  <h6 className='text-xs font-bold text-white select-none pointer-events-none' >MOST POPULAR</h6>
+  </nav>
+  <section className='font-semibold flex flex-col pl-2 pt-[6px] select-none pointer-events-none rounded-[12px]' >
+  <h6 className='text-2xl font-medium mb-3 select-none pointer-events-none' >{item.hours} hours</h6>
+  <h6 className=' font-bold text-2xl select-none pointer-events-none' >{item.rate_per_hour} zł / h</h6>
+  </section>
+  <img src='../images/booking/check.png' className={`absolute select-none pointer-events-none  bottom-3 left-3 ${selectTime === item._id? 'block' : 'hidden'}`} />
+</div>
+ }
+
+}) }
   
-  <div className={`border-[1px] border-solid 	w-[196px] h-[180px] ${selectTime === 'hours20'? 'border-blue' : 'border-bookingborder' } rounded-[12px] relative cursor-pointer`} id='hours20' onClick={extractText}>
-    <section className='font-semibold flex flex-col pl-2 pt-9 select-none pointer-events-none rounded-[12px]' >
-    <h6 className='text-2xl font-medium mb-3 select-none pointer-events-none' >20 hours</h6>
-    <h6 className=' font-bold text-2xl select-none pointer-events-none' >45 zł / h</h6>
-    </section>
-    <img src='../images/booking/check.png' className={`absolute bottom-3 select-none pointer-events-none left-3 ${selectTime === 'hours20'? 'block' : 'hidden'}`} />
-  </div>
-  
-  <div className={`border-[1px] border-solid 	w-[196px] h-[180px] ${selectTime === 'hours40'? 'border-blue' : 'border-bookingborder' } rounded-[12px] relative cursor-pointer`} id='hours40' onClick={extractText}>
-    <nav className='flex bg-green w-max rounded-lg py-1 px-2 mt-2 ml-2 select-none pointer-events-none' >
-    <img src='../images/booking/Star.svg' className='pr-2 select-none pointer-events-none' />
-    <h6 className='text-xs font-bold text-white select-none pointer-events-none' >MOST POPULAR</h6>
-    </nav>
-    <section className='font-semibold flex flex-col pl-2 pt-[6px] select-none pointer-events-none rounded-[12px]' >
-    <h6 className='text-2xl font-medium mb-3 select-none pointer-events-none' >40 hours</h6>
-    <h6 className=' font-bold text-2xl select-none pointer-events-none' >39,90 zł / h</h6>
-    </section>
-    <img src='../images/booking/check.png' className={`absolute select-none pointer-events-none  bottom-3 left-3 ${selectTime === 'hours40'? 'block' : 'hidden'}`} />
-  </div>
-  
-  <div className={`border-[1px] border-solid 	w-[196px] h-[180px] ${selectTime === 'hours80'? 'border-blue' : 'border-bookingborder' } rounded-[12px] relative cursor-pointer`} id='hours80' onClick={extractText}>
-    <section className='font-semibold flex flex-col pl-2 pt-9 select-none pointer-events-none rounded-[12px]' >
-    <h6 className='text-2xl font-medium mb-3 select-none pointer-events-none' >80 hours</h6>
-    <h6 className=' font-bold text-2xl select-none pointer-events-none' >37,90 zł / h</h6>
-    </section>
-    <img src='../images/booking/check.png' className={`absolute select-none pointer-events-none bottom-3 left-3 ${selectTime === 'hours80'? 'block' : 'hidden'}`} />
-  </div>
-  
-  <div className={`border-[1px] border-solid 	w-[196px] h-[180px] ${selectTime === 'hours160'? 'border-blue' : 'border-bookingborder' } rounded-[12px] relative cursor-pointer`} id='hours160' onClick={extractText}>
-    <section className='font-semibold flex flex-col pl-2 pt-9 rounded-[12px] select-none pointer-events-none' >
-    <h6 className='text-2xl font-medium mb-3 select-none pointer-events-none'>160 hours</h6>
-    <h6 className=' font-bold text-2xl select-none pointer-events-none' >35,90 zł / h</h6>
-    </section>
-    <img src='../images/booking/check.png' className={`absolute bottom-3 select-none pointer-events-none left-3 ${selectTime === 'hours160'? 'block' : 'hidden'}`} />
-  </div>
   
 </section>
 </div>
@@ -207,28 +193,28 @@ console.log(orders?.pricing)
 <img src='../images/booking/calendar.svg' className='absolute  top-3 right-3 pointer-events-none select-none'/>
 <input
  className='outline-none bg-inputbg w-full py-[10px] rounded-[8px] pl-3 cursor-pointer border-bookingborder border-[1px] border-solid' 
- name='createEmail'
- type='email'
  readOnly
  placeholder='Care Start Date'
- value={date === null ? '' : `${format(date, "MM/dd/yyyy")}` }
- required
+ value={date === null ? '' : `${format(date, "dd/MM/yyyy")}` }
  onClick={calendar}
  id='extractCalendarTime'
  />
 </div>
 </div>
 
+
 {togglecalendar &&
+
 <Calendar 
 showMonthAndYearPickers={false} 
-onChange={item => setDate(item)}
+onChange={item => calendarOnchange(item)}
 date={date}  
-className='shadow-xl absolute'
-minDate={new Date()}
-
+className='shadow-xl absolute z-[1]'
+minDate={ new Date(new Date().setDate(new Date().getDate() + 1))}
 />
+
 }
+
 </section>
 </div>
 
