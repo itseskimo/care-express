@@ -69,7 +69,7 @@ const page = () => {
     }
   },[])
   
-
+console.log(hours,cost)
   return (
     <>
 
@@ -118,8 +118,8 @@ const page = () => {
 
 <main className='mt-2 flex gap-8'>
 
-<div className=' border-dashed border-[1px] border-gray-400 py-16 rounded-[14px] w-[196px]' onClick={editToggle}>
-<section className='flex items-center justify-center flex-col gap-3'>
+<div className='flex items-center justify-center flex-col gap-3 border-dashed border-[1px] border-gray-400 py-16 rounded-[14px] w-[196px]' onClick={editToggle}>
+<section className='flex items-center justify-center flex-col'>
 <img className='' src='../images/dashboard/Plusblack.svg'/>
 <h6 className='text-[20px] font-semibold'>Add Address</h6> 
 </section>
