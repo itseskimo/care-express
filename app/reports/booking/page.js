@@ -228,12 +228,6 @@ minDate={new Date()}
 
 
 
-
-
-
-
-
-
     </main>
   </div>
     )
