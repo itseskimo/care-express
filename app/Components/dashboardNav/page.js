@@ -1,6 +1,6 @@
 "use client"
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation';
 
 const page = ({navTitle}) => {
@@ -13,6 +13,16 @@ function logout(){
   localStorage.clear()
 router.push('/')
 }
+
+const [firstLetter, setFirstLetter]=useState('')
+
+useEffect(()=>{
+  if(localStorage.getItem('user')){
+    let data = localStorage.getItem('user')
+    let loginData = JSON.parse(data);
+    setFirstLetter(loginData?.first_name[0].toUpperCase())
+  }
+},[])
 
   return (
     <>
@@ -27,7 +37,7 @@ router.push('/')
 
 <header className='flex items-center gap-6 '>
 <Link href={{pathname:'/reports/booking'}}><button className='bg-hazyblue text-white text-[16px] rounded-[23.5px] px-5 py-[12px]'>Book Now</button></Link>
-<h1 className='rounded-[50%] cursor-pointer bg-dashblue px-[19px] py-[8px] text-center text-[24px] flex items-center justify-center font-extrabold mr-5' onClick={()=>setSelect(!select)}>P</h1>
+<h1 className='rounded-[50%] cursor-pointer bg-dashblue px-[19px] py-[8px] text-center text-[24px] flex items-center justify-center font-extrabold mr-5' onClick={()=>setSelect(!select)}>{firstLetter}</h1>
 </header>
 
 </nav>
