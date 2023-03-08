@@ -70,6 +70,7 @@ module.exports = {
       dashgrey:'#B4B7BB',
       dashdrkgrey:'#9FA3A9',
       dashxtrmgrey:'#727F96',
+      bookingborder:'#ABABAB'
 
     },
 
