@@ -85,19 +85,19 @@ const page = () => {
 
 <div className='flex flex-col justify-start items-start mt-3'>
     <h6 className='text-dashxtrmgrey text-[13px] font-semibold mb-[2px]'>Card Number</h6>
-    <input placeholder='1234-1234-1234-1234' style={{ border: '2px solid #E0E0E0'}} className='shadow-paymentshadow outline-none w-full px-3 py-[13px] rounded-[6px] font-semibold text-[13px] flex items-center justify-center '/>  
+    <input placeholder='1234-1234-1234-1234' required style={{ border: '2px solid #E0E0E0'}} className='shadow-paymentshadow outline-none w-full px-3 py-[13px] rounded-[6px] font-semibold text-[13px] flex items-center justify-center '/>  
 </div>
 
 
 <section className='flex gap-4'>
 <div className='flex flex-col w-[50%] mt-3'>
     <h6 className='text-dashxtrmgrey text-[13px] font-semibold mb-[2px]'>Expiry</h6>
-    <input placeholder='MM/YY' style={{ border: '2px solid #E0E0E0'}} className='shadow-paymentshadow outline-none w-full px-3 py-[13px] rounded-[6px] font-semibold text-[13px] flex items-center justify-center '/>  
+    <input placeholder='MM/YY' required style={{ border: '2px solid #E0E0E0'}} className='shadow-paymentshadow outline-none w-full px-3 py-[13px] rounded-[6px] font-semibold text-[13px] flex items-center justify-center '/>  
 </div>
 
 <div className='flex flex-col w-[50%]  mt-3'>
     <h6 className='text-dashxtrmgrey text-[13px] font-semibold mb-[2px]'>CVC</h6>
-    <input placeholder='CVC' style={{ border: '2px solid #E0E0E0'}} className='shadow-paymentshadow outline-none w-full px-3 py-[13px] rounded-[6px] font-semibold text-[13px] flex items-center justify-center '/>  
+    <input placeholder='CVC' required style={{ border: '2px solid #E0E0E0'}} className='shadow-paymentshadow outline-none w-full px-3 py-[13px] rounded-[6px] font-semibold text-[13px] flex items-center justify-center '/>  
 </div>
 </section>
 
@@ -127,7 +127,7 @@ const page = () => {
 
 <div className='flex flex-col w-[50%]  mt-3'>
     <h6 className='text-dashxtrmgrey text-[13px] font-semibold mb-[2px]'>Postal Code</h6>
-    <input placeholder='90210' style={{ border: '2px solid #E0E0E0'}} className='shadow-paymentshadow outline-none w-full px-3 py-[13px] rounded-[6px] font-semibold text-[13px] flex items-center justify-center '/>  
+    <input placeholder='90210' required style={{ border: '2px solid #E0E0E0'}} className='shadow-paymentshadow outline-none w-full px-3 py-[13px] rounded-[6px] font-semibold text-[13px] flex items-center justify-center '/>  
 </div>
 </section>
 
