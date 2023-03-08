@@ -92,7 +92,7 @@ const page = () => {
 <h6 className='font-semibold tracking-[0.02em] text-[16px]'>Select Care Type</h6>
 <section className='mt-2 flex flex-wrap gap-9'  >
 
-  <div className='border-[1px] border-solid border-bookingborder	 rounded-[12px] relative cursor-pointer' id='nanny' onClick={(e)=>setCareType(e.target.id)}>
+  <div className={`border-[1px] border-solid w-max rounded-[12px] relative cursor-pointer ${careType === 'nanny' ? 'border-bookingblue' : 'border-bookingborder	'}`} id='nanny' onClick={(e)=>setCareType(e.target.id)}>
     <nav className={`bg-grey absolute w-full h-full select-none pointer-events-none rounded-[12px] ${careType === 'nanny' ? 'block' : 'hidden'}`} >
     <img src='../images/booking/check.png' className=' absolute top-[50%]  left-[50%] -translate-y-[50%] -translate-x-[50%] select-none pointer-events-none'/>
     </nav>
@@ -101,7 +101,7 @@ const page = () => {
   </div>
 
 
-  <div className='border-[1px] border-solid border-bookingborder	w-max rounded-[12px] relative cursor-pointer' id='senior' onClick={(e)=>setCareType(e.target.id)}>
+  <div className={`border-[1px] border-solid w-max rounded-[12px] relative cursor-pointer ${careType === 'senior' ? 'border-bookingblue' : 'border-bookingborder	'}`} id='senior' onClick={(e)=>setCareType(e.target.id)}>
   <nav className={`bg-grey absolute w-full h-full select-none pointer-events-none rounded-[12px] ${careType === 'senior' ? 'block' : 'hidden'}`}>
     <img src='../images/booking/check.png' className=' absolute top-[50%] left-[50%] -translate-y-[50%] -translate-x-[50%] select-none pointer-events-none'/>
   </nav>
@@ -110,7 +110,7 @@ const page = () => {
   </div>
 
 
-  <div className='border-[1px] border-solid border-bookingborder	w-max rounded-[12px] relative cursor-pointer' id='pet' onClick={(e)=>setCareType(e.target.id)}>
+  <div className={`border-[1px] border-solid w-max rounded-[12px] relative cursor-pointer ${careType === 'pet' ? 'border-bookingblue' : 'border-bookingborder	'}`} id='pet' onClick={(e)=>setCareType(e.target.id)}>
   <nav className={`bg-grey absolute w-full h-full select-none pointer-events-none rounded-[12px] ${careType === 'pet' ? 'block' : 'hidden'}`}>
     <img src='../images/booking/check.png' className=' absolute top-[50%] left-[50%] -translate-y-[50%] -translate-x-[50%] select-none pointer-events-none' />
   </nav>
@@ -119,7 +119,7 @@ const page = () => {
   </div>
 
 
-  <div className='border-[1px] border-solid border-bookingborder	w-max rounded-[12px] relative cursor-pointer' id='special' onClick={(e)=>setCareType(e.target.id)}>
+  <div className={`border-[1px] border-solid w-max rounded-[12px] relative cursor-pointer ${careType === 'special' ? 'border-bookingblue' : 'border-bookingborder	'}`} id='special' onClick={(e)=>setCareType(e.target.id)}>
   <nav className={`bg-grey absolute w-full h-full select-none pointer-events-none rounded-[12px] ${careType === 'special' ? 'block' : 'hidden'}`} >
     <img src='../images/booking/check.png' className=' absolute top-[50%] left-[50%] -translate-y-[50%] -translate-x-[50%] select-none pointer-events-none' />
   </nav>
