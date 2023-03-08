@@ -63,8 +63,8 @@ const page = () => {
     <form className='bg-white h-max rounded-[16px] mt-10' onSubmit={formsubmit}>
 
 
-<section className=' flex  justify-between   mx-2 sm:mx-3 lg:mx-14 xlg:mx-28 py-8'>
-<main className='flex gap-32'>
+<section className=' flex  justify-between items-start   mx-2 sm:mx-3 lg:mx-14 xlg:mx-28 py-8'>
+
 <div className=' md:w-[16.5%] lg:w-[20%] bg-yellow-50'>
   <h6 className='tracking-[0.12em] text-xs font-semibold '>SELECT PLAN</h6>
   <h6 className='text-[20px] lg:text-[24px] font-bold'>80 hours</h6>
@@ -84,7 +84,7 @@ const page = () => {
   <h6 className='tracking-[0.12em] text-xs font-semibold'>CARE START DATE</h6>
   <h6 className='text-[20px] lg:text-[24px] font-bold'>15 March 2023</h6>
 </div>
-</main>
+
 <button className='border-[1px] border-solid  border-gray-300 flex px-5 py-[10px] text-sm font-semibold rounded-[50px]'><img src='../images/booking/Edit.svg' className='pr-2'/>Edit Plan</button>
 
 </section>
