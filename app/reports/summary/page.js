@@ -12,35 +12,35 @@ import {useRouter} from 'next/navigation';
 const page = () => {
     const router = useRouter();
 
-//     const [contact, setContact] = useState({})
-//     const {firstName,lastName,emailAdress,phoneNumber,streetName,streetNumber,apartmentNumber,postalCode,city}=contact
+
   
-//     const [hours,setHours]=useState('')
-//     const [cost,setCost]=useState('')
-//     const [saveCheckBoxesText,setSaveCheckBoxesText]=useState([])
-//     const [additionalDescription,setAdditionalDescription]=useState('')
-//     const [calendarDate,setCalendarDate]=useState('')
+    const [hours,setHours]=useState('')
+    const [cost,setCost]=useState('')
+    const [saveCheckBoxesText,setSaveCheckBoxesText]=useState([])
+    const [additionalDescription,setAdditionalDescription]=useState('')
+    const [calendarDate,setCalendarDate]=useState('')
   
-//   useEffect(()=>{
-//     let hours= localStorage.getItem('hours')
-//     setHours(hours)
+  useEffect(()=>{
+    if(localStorage.getItem('user')){
+    let hours= localStorage.getItem('hours')
+    setHours(hours)
   
-//     let cost= localStorage.getItem('cost')
-//     setCost(cost)
+    let cost= localStorage.getItem('cost')
+    setCost(cost)
   
-//     let additionalArray= localStorage.getItem('additionalArray')
-//     setSaveCheckBoxesText([additionalArray.split(',')])
+    let additionalArray= localStorage.getItem('additionalArray')
+    setSaveCheckBoxesText([additionalArray.split(',')])
   
-//     let additionalDescription= localStorage.getItem('additionalDescription')
-//     setAdditionalDescription(additionalDescription)
+    let additionalDescription= localStorage.getItem('additionalDescription')
+    setAdditionalDescription(additionalDescription)
   
-//     let calendarDate =localStorage.getItem('calendarDate')
-//     setCalendarDate(calendarDate)
+    let calendarDate =localStorage.getItem('calendarDate')
+    setCalendarDate(calendarDate)
+
+    }
+    
   
-//   const contactData =localStorage.getItem('contact')
-//   let data = JSON.parse(contactData);
-//   setContact(data)
-//   },[])
+  },[])
     
   
   function formsubmit(e){
@@ -67,22 +67,22 @@ const page = () => {
 
 <div className=''>
   <h6 className='tracking-[0.12em] text-xs font-semibold '>SELECT PLAN</h6>
-  <h6 className='text-[20px] lg:text-[24px] font-bold'>80 hours</h6>
+  <h6 className='text-[20px] lg:text-[24px] font-bold'>{hours}</h6>
 </div>
 
 <div className=''>
   <h6 className='tracking-[0.12em] text-xs font-semibold'>PRICE/HOUR</h6>
-  <h6 className='text-[20px] lg:text-[24px] font-bold'>37,90 zł</h6>
+  <h6 className='text-[20px] lg:text-[24px] font-bold'>{cost}</h6>
 </div>
 
 <div className=''>
   <h6 className='tracking-[0.12em] text-xs font-semibold '>TOTAL PRICE</h6>
-  <h6 className='text-[20px] lg:text-[24px] font-bold'>3032 zł</h6>
+  <h6 className='text-[20px] lg:text-[24px] font-bold'>{`${parseInt(hours)*parseInt(cost)} zł`}</h6>
 </div>
 
 <div className=''>
   <h6 className='tracking-[0.12em] text-xs font-semibold'>CARE START DATE</h6>
-  <h6 className='text-[20px] lg:text-[24px] font-bold'>15 March 2023</h6>
+  <h6 className='text-[20px] lg:text-[24px] font-bold'>{calendarDate}</h6>
 </div>
 
 <button className='border-[1px] border-solid justify-self-end self-start border-gray-300 flex px-5 py-[10px] text-sm font-semibold rounded-[50px]'><img src='../images/booking/Edit.svg' className='pr-2'/>Edit Plan</button>
