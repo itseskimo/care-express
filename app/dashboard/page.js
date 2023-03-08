@@ -39,15 +39,6 @@ const page = () => {
 
 
 
-  let chart=[]
-
-  for (let num = 30; num >= 0; num--) {
-    chart.push({
-      date: subDays(new Date(), num).toISOString().substr(0, 10),
-      value: 1 + Math.random(),
-    });
-  }
-
 
   const data_1 = [
     {
@@ -161,9 +152,7 @@ const page = () => {
   };
 
 
-
-
-
+ 
 
 
 
@@ -248,7 +237,7 @@ const page = () => {
           
         <section className='mt-6'>
 
-        <ResponsiveContainer width="100%" height={100}  >
+        <ResponsiveContainer width="100%" height={100} >
         <AreaChart data={data_1} width={500}>
 
         <defs>
