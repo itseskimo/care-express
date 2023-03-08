@@ -30,6 +30,21 @@ const page = () => {
         container.classList.add('h-screen')
         setAccountToggle(false)
       }
+
+
+      const [hours,setHours]=useState('')
+      const [cost,setCost]=useState('')
+    
+    useEffect(()=>{
+      if(localStorage.getItem('user')){
+      let hours= localStorage.getItem('hours')
+      setHours(hours)
+    
+      let cost= localStorage.getItem('cost')
+      setCost(cost)
+      } 
+    },[])
+
   return (
     <>
     
@@ -44,7 +59,7 @@ const page = () => {
 
 <div className='mt-10'>
     <h6 className='text-[12px] tracking-[0.12em] font-semibold'>TOTAL PRICE</h6>
-    <h6 className='text-[24px] font-bold'>3032 zł</h6>
+    <h6 className='text-[24px] font-bold'>{`${parseInt(hours)*parseInt(cost)} zł`}</h6>
 </div>
 
 
