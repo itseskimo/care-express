@@ -96,7 +96,7 @@ const page = () => {
 </div>
 </section>
 
-  <button className=' shrink-0 border-[1px] border-solid  border-gray-300 flex px-3 xlsm:px-5 py-[10px] text-sm font-semibold rounded-[50px]' onClick={()=>router.push('/booking/plan')}><img src='../images/booking/Edit.svg' className='pr-2'/>Edit Plan</button>
+  <button className=' shrink-0 border-[1px] border-solid  border-gray-300 flex px-3 xlsm:px-5 py-[10px] text-sm font-semibold rounded-[50px]' onClick={()=>router.push('/reports/booking')}><img src='../images/booking/Edit.svg' className='pr-2'/>Edit Plan</button>
 
 </section>
 
@@ -109,7 +109,7 @@ const page = () => {
 
 <h6 className='text-[16px] tracking-[0.02em] font-semibold'>Saved Addresses</h6>
 
-<main className='mt-2 flex'>
+<main className='mt-2 flex gap-8'>
 
 <div className='border-dashed border-[1px] border-gray-400 py-16 rounded-[14px] w-[196px]' onClick={editToggle}>
 <section className='flex items-center justify-center flex-col gap-3'>
@@ -118,10 +118,28 @@ const page = () => {
 </section>
 </div>
 
-<div className='bg-white px-6 py-6 w-[22%] rounded-[14px] border-solid border-[1px] border-gray-300 cursor-pointer'>
+<div className='bg-white px-6 py-6 w-[25%] rounded-[14px] border-solid border-[1px] border-gray-300 cursor-pointer'>
+  <div className='h-full flex flex-col'>
   <h6 className=' font-semibold text-[20px] mb-2'>Address 1</h6>
   <h6 className=' mb-2 text-[20px]  leading-7 '>Targowa 20a, 03-727 Warszawa, Poland</h6>
-  <div className='flex mt-4'><img className='pr-3' src='../images/dashboard/delete.svg' /><img className='pr-3' src='../images/dashboard/edit.svg'/></div>
+  <div className='flex mt-7'><img className='pr-3' src='../images/dashboard/delete.svg' /><img className='pr-3' src='../images/dashboard/edit.svg'/></div>
+</div>
+</div>
+
+<div className='bg-white px-6 py-6 w-[25%] rounded-[14px] border-solid border-[1px] border-gray-300 cursor-pointer'>
+  <div className='h-full flex flex-col'>
+  <h6 className=' font-semibold text-[20px] mb-2'>Address 1</h6>
+  <h6 className=' mb-2 text-[20px]  leading-7 '>Targowa 20a, 03-727 Warszawa, Poland</h6>
+  <div className='flex mt-7'><img className='pr-3' src='../images/dashboard/delete.svg' /><img className='pr-3' src='../images/dashboard/edit.svg'/></div>
+</div>
+</div>
+
+<div className='bg-white px-6 py-6 w-[25%] rounded-[14px] border-solid border-[1px] border-gray-300 cursor-pointer'>
+  <div className='h-full flex flex-col'>
+  <h6 className=' font-semibold text-[20px] mb-2'>Address 1</h6>
+  <h6 className=' mb-2 text-[20px]  leading-7 '>Targowa 20a, 03-727 Warszawa, Poland</h6>
+  <div className='flex mt-7'><img className='pr-3' src='../images/dashboard/delete.svg' /><img className='pr-3' src='../images/dashboard/edit.svg'/></div>
+</div>
 </div>
 
 </main>

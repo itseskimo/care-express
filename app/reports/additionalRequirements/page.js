@@ -48,7 +48,7 @@ const [cost,setCost]=useState('')
     <main className='py-8 ml-auto mr-auto w-[92%]'>
     <DashboardNav navTitle='Reports' />
     
-    <DashBookingHeader active={3}/>
+    <DashBookingHeader active={2}/>
 
 
     <section className='bg-white h-max rounded-[16px] mt-10'>
@@ -69,7 +69,7 @@ const [cost,setCost]=useState('')
 </div>
 </section>
 
-  <button className=' shrink-0 border-[1px] border-solid  border-gray-300 flex px-3 xlsm:px-5 py-[10px] text-sm font-semibold rounded-[50px]' onClick={()=>router.push('/booking/plan')}><img src='../images/booking/Edit.svg' className='pr-2'/>Edit Plan</button>
+  <button className=' shrink-0 border-[1px] border-solid  border-gray-300 flex px-3 xlsm:px-5 py-[10px] text-sm font-semibold rounded-[50px]' onClick={()=>router.push('/reports/booking')}><img src='../images/booking/Edit.svg' className='pr-2'/>Edit Plan</button>
 
 </section>
 
