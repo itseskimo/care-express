@@ -34,13 +34,15 @@ const [additionalRequirements,setAdditionalRequirements]=useState('')
 const [hours,setHours]=useState('')
 const [cost,setCost]=useState('')
 
- useEffect(()=>{
-  let hours= localStorage.getItem('hours')
-  setHours(hours)
-  let cost= localStorage.getItem('cost')
-  setCost(cost)
- },[])
    
+ useEffect(()=>{
+  if(localStorage.getItem('user')){
+    let hours= localStorage.getItem('hours')
+    setHours(hours)
+    let cost= localStorage.getItem('cost')
+    setCost(cost)
+  }
+},[])
 
   return (
     <div className='bg-specialbg  h-max'>
@@ -60,12 +62,12 @@ const [cost,setCost]=useState('')
 <section className='flex gap-28'>
 <div className=''>
   <h6 className='tracking-[0.12em] text-xs font-semibold'>SELECT PLAN</h6>
-  <h6 className='text-[19px]  xlsm:text-[24px] font-bold'>80 hours</h6>
+  <h6 className='text-[19px]  xlsm:text-[24px] font-bold'>{hours}</h6>
 </div>
 
 <div>
   <h6 className='tracking-[0.12em] text-xs font-semibold'>TOTAL PRICE</h6>
-  <h6 className='text-[19px]  xlsm:text-[24px] font-bold'>3032 zł</h6>
+  <h6 className='text-[19px]  xlsm:text-[24px] font-bold'>{`${parseInt(hours)*parseInt(cost)} zł`}</h6>
 </div>
 </section>
 

@@ -52,13 +52,20 @@ const page = () => {
     }
   
     const [token,setToken]=useState(null)
-  
+    const [hours,setHours]=useState('')
+    const [cost,setCost]=useState('')
+
     useEffect(()=>{
     if(localStorage.getItem('user')){
       let data = localStorage.getItem('user')
       let loginData = JSON.parse(data);
       form.token=loginData.token
       setToken(loginData.token)
+
+      let hours= localStorage.getItem('hours')
+      setHours(hours)
+      let cost= localStorage.getItem('cost')
+      setCost(cost)
     }
   },[])
   
@@ -87,12 +94,12 @@ const page = () => {
 <section className='flex gap-28'>
 <div className=''>
   <h6 className='tracking-[0.12em] text-xs font-semibold'>SELECT PLAN</h6>
-  <h6 className='text-[19px]  xlsm:text-[24px] font-bold'>80 hours</h6>
+  <h6 className='text-[19px]  xlsm:text-[24px] font-bold'>{hours}</h6>
 </div>
 
 <div>
   <h6 className='tracking-[0.12em] text-xs font-semibold'>TOTAL PRICE</h6>
-  <h6 className='text-[19px]  xlsm:text-[24px] font-bold'>3032 zł</h6>
+  <h6 className='text-[19px]  xlsm:text-[24px] font-bold'>{`${parseInt(hours)*parseInt(cost)} zł`}</h6>
 </div>
 </section>
 
