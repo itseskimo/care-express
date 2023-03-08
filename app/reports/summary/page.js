@@ -85,7 +85,7 @@ const page = () => {
   <h6 className='text-[20px] lg:text-[24px] font-bold'>{calendarDate}</h6>
 </div>
 
-<button className='border-[1px] border-solid justify-self-end self-start border-gray-300 flex px-5 py-[10px] text-sm font-semibold rounded-[50px]'><img src='../images/booking/Edit.svg' className='pr-2'/>Edit Plan</button>
+<button className='border-[1px] border-solid justify-self-end self-start border-gray-300 flex px-5 py-[10px] text-sm font-semibold rounded-[50px]' onClick={()=>router.push('/reports/booking')}><img src='../images/booking/Edit.svg' className='pr-2'/>Edit Plan</button>
 
 </section>
 
@@ -124,7 +124,7 @@ const page = () => {
     <h6 className='text-[16px] font-semibold'>02-031</h6>
 </div>
 
-<button className='flex border-[1px] border-solid justify-self-end self-start  border-gray-300  shrink-0 px-5 py-[10px] text-sm font-semibold rounded-[50px]' onClick={()=>router.push('/booking/contact')}><img src='../images/booking/Edit.svg' className='pr-2'/>Edit Contact</button>
+<button className='flex border-[1px] border-solid justify-self-end self-start  border-gray-300  shrink-0 px-5 py-[10px] text-sm font-semibold rounded-[50px]' onClick={()=>router.push('/reports/contactDetails')}><img src='../images/booking/Edit.svg' className='pr-2'/>Edit Contact</button>
 
 {/* ------------------------------------------------------------------------------------ */}
 
@@ -148,7 +148,7 @@ const page = () => {
     <h6 className='text-[16px] font-semibold'>Language Tutoring</h6>
 </div>
 
-     <button className='border-[1px] border-solid  border-gray-300 flex px-2 xlsm:px-5 py-[10px] text-[13px] sm:text-sm font-semibold rounded-[50px]' onClick={()=>router.push('/booking/additionalRequirements')}><img src='../images/booking/Edit.svg' className='pr-2 sm:pr-3'/>Edit Requirements</button>
+     <button className='border-[1px] border-solid  border-gray-300 flex px-2 xlsm:px-5 py-[10px] text-[13px] sm:text-sm font-semibold rounded-[50px]' onClick={()=>router.push('/reports/additionalRequirements')}><img src='../images/booking/Edit.svg' className='pr-2 sm:pr-3'/>Edit Requirements</button>
 
 </section>
 {/* ------------------------------------------------------------------------------------ */}
