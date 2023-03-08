@@ -63,13 +63,13 @@ const page = () => {
     myForm.set("plan", '937a1ae52d6364513cfff439');
     myForm.set("role", 'user');
     dispatch(register(myForm));
+    setAccountToggle(false)
 
-    if(isAuthenticated){
-      setAccountToggle(false)
-    }else{
-      alert("user with the same email is found. please login to continue")
-      router.push('/login')
-    }
+    // if(isAuthenticated){
+    //   setAccountToggle(false)
+    // }else{
+    //   alert("user with the same email is found. please login to continue")
+    // }
 
     }else{
       
