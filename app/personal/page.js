@@ -183,9 +183,9 @@ your beloved pet has no one to take care of him? </h6>
  the release of Letraset sheets containing..</h2> 
         
        
-      <button className='bg-blue mt-10 lg:mt-12 px-[18px] py-[13px] text-white rounded-[27px] text-base  lg:text-xl font-semibold tracking-wide hidden lg:flex items-center justify-evenly  '><img src='../images/Icons/calendar.svg' className='pr-[18px]'/>Book your care</button>
+      <button className='bg-blue mt-10 lg:mt-12 px-[24px] py-[13px] text-white rounded-[27px] text-base  lg:text-xl font-semibold tracking-wide hidden lg:flex items-center justify-evenly  '>Learn more</button>
       </div>
-      <button className='bg-blue mt-10 lg:mt-12 px-[18px] py-[13px] text-white rounded-[27px] text-base  lg:text-xl font-semibold tracking-wide lg:hidden flex items-center justify-evenly  '><img src='../images/Icons/calendar.svg' className='pr-[18px]'/>Book your care</button>
+      <button className='bg-blue mt-10 lg:mt-12 px-[24px] py-[13px] text-white rounded-[27px] text-base  lg:text-xl font-semibold tracking-wide lg:hidden flex items-center justify-evenly  '>Learn more</button>
 
      </section>
     </header>
