@@ -236,11 +236,10 @@ const Testimonial={
        <h2 className='text-sm lg:text-lg tracking-[0.01em] mb-5 mt-4 ml-5'>It’s you who decides which package of hours works best for you</h2>
        </section>
 
-       
-      <button className='bg-orange mt-10 lg:mt-16 px-[20px] py-[13px] text-white rounded-[27px] text-base  lg:text-xl font-semibold tracking-wide hidden lg:flex items-center justify-evenly  '><img src='../images/Icons/calendar.svg' className='pr-[18px]'/>Book your babysitter</button>
+       <Link href={{pathname:'/reports/booking'}}><button className='bg-orange mt-10 lg:mt-16 px-[20px] py-[13px] text-white rounded-[27px] text-base  lg:text-xl font-semibold tracking-wide hidden lg:flex items-center justify-evenly  '><img src='../images/Icons/calendar.svg' className='pr-[18px]'/>Book your babysitter</button></Link>
 
       </div>
-      <button className='bg-orange mt-10 lg:mt-16 px-[20px] py-[13px] text-white rounded-[27px] text-base  lg:text-xl font-semibold tracking-wide lg:hidden flex items-center justify-evenly  '><img src='../images/Icons/calendar.svg' className='pr-[18px]'/>Book your babysitter</button>
+      <Link href={{pathname:'/reports/booking'}}> <button className='bg-orange mt-10 lg:mt-16 px-[20px] py-[13px] text-white rounded-[27px] text-base  lg:text-xl font-semibold tracking-wide lg:hidden flex items-center justify-evenly  '><img src='../images/Icons/calendar.svg' className='pr-[18px]'/>Book your babysitter</button></Link>
 
      </section>
     </header>

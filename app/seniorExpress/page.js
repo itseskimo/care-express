@@ -224,11 +224,10 @@ const seniorExpress = () => {
        <h2 className='text-sm  xlsm:text-base md:text-lg  mb-5 mt-4 ml-5 tracking-[0.01em] '>It’s you who decides which package of hours works best for you</h2>
        </section>
 
-
-        <button className='bg-purple mt-10 lg:mt-16 px-[20px] py-[13px] text-white rounded-[27px] text-base  lg:text-xl font-semibold tracking-wide hidden lg:flex items-center justify-evenly  '><img src='../images/Icons/calendar.svg' className='pr-[18px]'/>Book your senior care</button>
+       <Link href={{pathname:'/reports/booking'}}><button className='bg-purple mt-10 lg:mt-16 px-[20px] py-[13px] text-white rounded-[27px] text-base  lg:text-xl font-semibold tracking-wide hidden lg:flex items-center justify-evenly  '><img src='../images/Icons/calendar.svg' className='pr-[18px]'/>Book your senior care</button></Link>
 
       </div>
-      <button className='bg-purple mt-10 lg:mt-16 px-[20px] py-[13px] text-white rounded-[27px] text-base  lg:text-xl font-semibold tracking-wide lg:hidden flex items-center justify-evenly  '><img src='../images/Icons/calendar.svg' className='pr-[18px]'/>Book your senior care</button>
+      <Link href={{pathname:'/reports/booking'}}><button className='bg-purple mt-10 lg:mt-16 px-[20px] py-[13px] text-white rounded-[27px] text-base  lg:text-xl font-semibold tracking-wide lg:hidden flex items-center justify-evenly  '><img src='../images/Icons/calendar.svg' className='pr-[18px]'/>Book your senior care</button></Link>
 
      </section>
     </header>
