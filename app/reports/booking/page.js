@@ -38,7 +38,7 @@ const page = () => {
     const [date, setDate] = useState(null);
 
 
-    
+    console.log(calendarDate,date,time)
     function formSubmit(e){
       e.preventDefault();
       if(calendarDate !== '' && selectPlanId !== '' && careType !== ''){
@@ -52,7 +52,7 @@ const page = () => {
       }
     }
     
-    function calendar(){
+    function calendar(e){
       const calendarCalc=['null',"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
      
        const calendar= document.getElementById('extractCalendarTime')
@@ -65,16 +65,13 @@ const page = () => {
       setTime(finalDate)
       setCalendarDate(calendar.value)
 
-      setToggleCalendar(!togglecalendar)
-
+      if(e.target.outerHTML !== '<i></i>'){
+          setToggleCalendar(!togglecalendar)
+      }
     }
 
 
-    function calendarOnchange(item){
-      setDate(item)
-      
-      // setToggleCalendar(false)
-    }
+    
     
     
     function extractText(id, hours , rpHours){
@@ -204,7 +201,7 @@ const page = () => {
 <section onClick={calendar}>
 <Calendar 
 showMonthAndYearPickers={false} 
-onChange={item => calendarOnchange(item)}
+onChange={item => setDate(item)}
 date={date}  
 className='shadow-xl absolute z-[1]'
 minDate={ new Date(new Date().setDate(new Date().getDate() + 1))}
