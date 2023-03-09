@@ -18,7 +18,7 @@ const page = () => {
   const { orders}  = useSelector((state) => state.orders);
   const dispatch= useDispatch()
   const router = useRouter();
-// console.log(orders?.[0]?._id)
+//  console.log(orders?.[0]?._id)
   
 
     const [careType,setCareType]=useState('nanny')
@@ -37,10 +37,20 @@ const page = () => {
     useEffect(()=>{
       if(localStorage.getItem('user')){
         dispatch(getServicePricing())
-        
-  
+        setSelectPlanId(orders?.[0]?._id)
+
+
+      if(localStorage.getItem('plan')){
+       const plan = localStorage.getItem('plan')
+       setSelectPlanId(plan)
+      }
+
+
+
+       
       }
     },[])
+
 
     function formSubmit(e){
       e.preventDefault();

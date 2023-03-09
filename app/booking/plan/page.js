@@ -21,6 +21,11 @@ const page = () => {
   useEffect(()=>{
     if(localStorage.getItem('user')){
       dispatch(getServicePricing())
+
+      if(localStorage.getItem('plan')){
+      const plan = localStorage.getItem('plan')
+      setSelectPlanId(plan)
+      }
     }
   },[])
   
