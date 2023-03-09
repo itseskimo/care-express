@@ -66,8 +66,7 @@ const [loginPassword,setLoginPassword]=useState('')
 
       const loginSubmit = (e) => {
         e.preventDefault();
-        setLoginEmail('')
-        setLoginPassword('')
+        
         dispatch(login(loginEmail, loginPassword));  
       };
       

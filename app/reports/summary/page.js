@@ -5,20 +5,27 @@ import Head from '../../head'
 import Link from 'next/link'
 import {useState,useEffect} from 'react'
 import {useRouter} from 'next/navigation';
+import { postOrder } from '@/redux/actions/page'
+import { useDispatch, useSelector } from 'react-redux'
 
 
 
 const page = () => {
     const router = useRouter();
+    const dispatch= useDispatch()
 
     const [contact, setContact] = useState({})
-    const {street_name,street_number,apartment_number,postal_code,city}=contact
+    const {_id ,street_name,street_number,apartment_number,postal_code,city}=contact
 
     const [hours,setHours]=useState('')
     const [cost,setCost]=useState('')
     const [saveCheckBoxesText,setSaveCheckBoxesText]=useState([])
     const [additionalDescription,setAdditionalDescription]=useState('')
     const [calendarDate,setCalendarDate]=useState('')
+
+    const [careType,setCareType]=useState('')
+    const [plan,setPlan]=useState('')
+    const [token,setToken]=useState('')
   
   useEffect(()=>{
     if(localStorage.getItem('user')){
@@ -41,15 +48,32 @@ const page = () => {
     let data = JSON.parse(contactData);
     setContact(data)
 
+    // ------------------------------
+    const careType =localStorage.getItem('careType')
+    setCareType(careType)
+
+    const plan =localStorage.getItem('plan')
+    setPlan(plan)
+
+
+    let user = localStorage.getItem('user')
+    let loginData = JSON.parse(user);
+    setToken(loginData.token)
     }
     
   
   },[])
-    
+    console.log(careType,plan,_id,calendarDate,token)
   
   function formsubmit(e){
     e.preventDefault();
-    router.push('/reports/payment')
+    const myForm = new FormData();
+    myForm.set("care_type", careType);
+    myForm.set("plan", plan);
+    myForm.set("address", _id);
+    myForm.set("start_date", calendarDate);
+    dispatch(postOrder(myForm,token));
+    // router.push('/reports/payment')
   }
   
   

@@ -161,13 +161,13 @@ export const getCompletedOrders = (token) => async (dispatch) => {
   }
 };
 
-export const postOrder = (token) => async (dispatch) => {
+export const postOrder = (orderData , token) => async (dispatch) => {
   try {
     
     dispatch({ type: ADD_ORDER_REQUEST });
     const config = { headers: { "Content-Type": "application/json" , 'Authorization': `Bearer ${token}`} };
 
-    const { data } = await axios.get('https://care-express-api.dthree.in/api/order/add_order', config);
+    const { data } = await axios.post('https://care-express-api.dthree.in/api/order/add_order',orderData, config);
 
     dispatch({ type: ADD_ORDER_SUCCESS, payload: data });
   } catch (error) {
