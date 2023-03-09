@@ -182,10 +182,10 @@ your beloved pet has no one to take care of him? </h6>
  essentially unchanged. It was popularised in the 1960s with
  the release of Letraset sheets containing..</h2> 
         
-       
-      <button className='bg-blue mt-10 lg:mt-12 px-[24px] py-[13px] text-white rounded-[27px] text-base  lg:text-xl font-semibold tracking-wide hidden lg:flex items-center justify-evenly  '>Learn more</button>
+
+ <Link href={{pathname:'/about'}}><button className='bg-blue mt-10 lg:mt-12 px-[24px] py-[13px] text-white rounded-[27px] text-base  lg:text-xl font-semibold tracking-wide hidden lg:flex items-center justify-evenly  '>Learn more</button></Link>
       </div>
-      <button className='bg-blue mt-10 lg:mt-12 px-[24px] py-[13px] text-white rounded-[27px] text-base  lg:text-xl font-semibold tracking-wide lg:hidden flex items-center justify-evenly  '>Learn more</button>
+      <Link href={{pathname:'/about'}}> <button className='bg-blue mt-10 lg:mt-12 px-[24px] py-[13px] text-white rounded-[27px] text-base  lg:text-xl font-semibold tracking-wide lg:hidden flex items-center justify-evenly  '>Learn more</button></Link>
 
      </section>
     </header>
@@ -237,9 +237,8 @@ your beloved pet has no one to take care of him? </h6>
 
 </main>
 
-
 <section className='mt-3 sm:mt-10 flex items-center justify-center'>
-<button  className=' px-5 py-[13px] bg-blue text-white rounded-[27px] text-sm md:text-xl font-semibold tracking-wide flex items-center justify-evenly'><img src='../images/Icons/calendar.svg' className='pr-4'/>Book care today</button>
+<Link href={{pathname:'/reports/booking'}}><button className=' px-5 py-[13px] bg-blue text-white rounded-[27px] text-sm md:text-xl font-semibold tracking-wide flex items-center justify-evenly'><img src='../images/Icons/calendar.svg' className='pr-4'/>Book care today</button></Link>
 </section>
 
 </header>

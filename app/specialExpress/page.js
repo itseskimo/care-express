@@ -191,7 +191,8 @@ const specialExpress = () => {
 
 
 <section className='mt-10 flex items-center justify-center'>
-<button  className=' px-5 py-[13px] bg-blue text-white rounded-[27px] text-sm md:text-xl font-semibold tracking-wide flex items-center justify-evenly'><img src='../images/Icons/calendar.svg' className='pr-4'/>Book special care today</button>
+<Link href={{pathname:'/reports/booking'}}><button  className=' px-5 py-[13px] bg-blue text-white rounded-[27px] text-sm md:text-xl font-semibold tracking-wide flex items-center justify-evenly'><img src='../images/Icons/calendar.svg' className='pr-4'/>Book special care today</button></Link>
+
 </section>
 <img src='../images/business/bookBackground.png' className='absolute top-28 right-0 hidden xxlg:block w-fit'/>
 </header>
