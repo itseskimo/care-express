@@ -4,9 +4,12 @@ import DashboardNav from '../../Components/dashboardNav/page'
 import Head from '../../head'
 import { useState ,useEffect } from 'react'
 import {useRouter} from 'next/navigation';
+import { getOrderById } from '@/redux/actions/page'
+import { useDispatch } from 'react-redux'
 
 const page = () => {
     const router = useRouter();
+    const dispatch= useDispatch()
 
     const [pauseToggle,setPauseToggle]=useState(false)
 
@@ -20,7 +23,16 @@ const page = () => {
     setCancelToggle(!cancelToggle)
     }
 
+    useEffect(()=>{
+   
+
+        if(localStorage.getItem('user')){
+          let data = localStorage.getItem('user')
+          let loginData = JSON.parse(data);
+          dispatch(getOrderById('63f7c9989d0078faca4d6ee0',loginData.token))
+        }
     
+      },[])
 
     return (
         <>

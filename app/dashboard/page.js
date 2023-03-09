@@ -7,23 +7,13 @@ import DashboardNav from '../Components/dashboardNav/page'
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { useRouter } from 'next/navigation';
-import { getOrderById } from '@/redux/actions/page'
 
 const page = () => {
 
   const dispatch= useDispatch()
   const router = useRouter();
 
-  useEffect(()=>{
-   
-
-    if(localStorage.getItem('user')){
-      let data = localStorage.getItem('user')
-      let loginData = JSON.parse(data);
-      dispatch(getOrderById('63f7c9989d0078faca4d6ee0',loginData.token))
-    }
-
-  },[])
+ 
     
 
 
