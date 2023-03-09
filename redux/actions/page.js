@@ -14,7 +14,7 @@ import { LOGIN_FAIL, LOGIN_REQUEST,LOGIN_SUCCESS,REGISTER_USER_REQUEST,
   UPDATE_ADDRESS_REQUEST,UPDATE_ADDRESS_SUCCESS,UPDATE_ADDRESS_FAIL,
   GET_SERVICE_SUCCESS,GET_SERVICE_FAIL,GET_SERVICE_REQUEST,
   GET_SOCIAL_LOGIN_REQUEST,GET_SOCIAL_LOGIN_SUCCESS,GET_SOCIAL_LOGIN_FAIL,
-  ADD_ORDER_REQUEST,ADD_ORDER_SUCCESS,ADD_ORDER_FAIL
+  ADD_ORDER_REQUEST,ADD_ORDER_SUCCESS,ADD_ORDER_FAIL,CLEAR_ERRORS
 } from '../constants/page';
 
 export const login = (email, password) => async (dispatch) => {
@@ -47,6 +47,12 @@ export const login = (email, password) => async (dispatch) => {
       dispatch({ type: REGISTER_USER_FAIL,payload: error.response.data.message});
     }
   };
+
+
+  export const clearErrors = () => async (dispatch) => {
+    dispatch({ type: CLEAR_ERRORS });
+  };
+
 
 
 export const socialLogin = (code,login_type) => async (dispatch) => {
