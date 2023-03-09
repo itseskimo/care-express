@@ -96,12 +96,12 @@ function formsubmit(e){
 <section className=' flex  items-center relative mx-2 sm:mx-3 lg:mx-14 xlg:mx-28 py-8'>
 <div className=' md:w-[16.5%] lg:w-[20%]'>
   <h6 className='tracking-[0.12em] text-xs font-semibold '>SELECT PLAN</h6>
-  <h6 className='text-[20px] lg:text-[24px] font-bold'>{hours}</h6>
+  <h6 className='text-[20px] lg:text-[24px] font-bold'>{hours} hours</h6>
 </div>
 
 <div className=' md:w-[16.5%] lg:w-[20%]'>
   <h6 className='tracking-[0.12em] text-xs font-semibold'>PRICE/HOUR</h6>
-  <h6 className='text-[20px] lg:text-[24px] font-bold'>{cost}</h6>
+  <h6 className='text-[20px] lg:text-[24px] font-bold'>{cost} zł</h6>
 </div>
 
 <div className=' md:w-[16.5%] lg:w-[20%]'>

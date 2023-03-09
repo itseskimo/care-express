@@ -90,12 +90,12 @@ const [cost,setCost]=useState('')
 <section className=' flex items-center justify-between md:justify-start md:gap-28  pb-5 mx-2 sm:mx-3 smd:mx-14 xlg:mx-28 relative'>
 <div className=''>
   <h6 className='tracking-[0.12em] text-xs font-semibold'>SELECT PLAN</h6>
-  <h6 className='text-[19px]  xlsm:text-[24px] font-bold'>{hours}</h6>
+  <h6 className='text-[19px]  xlsm:text-[24px] font-bold'>{hours} hours</h6>
 </div>
 
 <div>
   <h6 className='tracking-[0.12em] text-xs font-semibold'>TOTAL PRICE</h6>
-  <h6 className='text-[19px]  xlsm:text-[24px] font-bold'>{cost}</h6>
+  <h6 className='text-[19px]  xlsm:text-[24px] font-bold'>{`${parseInt(hours)*parseInt(cost)} zł`}</h6>
 </div>
 
 

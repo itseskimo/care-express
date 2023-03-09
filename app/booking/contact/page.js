@@ -101,12 +101,12 @@ const [cost,setCost]=useState('')
 <section className=' flex items-center justify-between md:justify-start md:gap-28  pb-5 mx-2 sm:mx-3 smd:mx-14 xlg:mx-28 relative'>
 <div className=''>
   <h6 className='tracking-[0.12em] text-xs font-semibold'>SELECT PLAN</h6>
-  <h6 className='text-[19px]  xlsm:text-[24px] font-bold'>{hours}</h6>
+  <h6 className='text-[19px]  xlsm:text-[24px] font-bold'>{hours} hours</h6>
 </div>
 
 <div>
   <h6 className='tracking-[0.12em] text-xs font-semibold'>TOTAL PRICE</h6>
-  <h6 className='text-[19px]  xlsm:text-[24px] font-bold'>{cost}</h6>
+  <h6 className='text-[19px]  xlsm:text-[24px] font-bold'>{`${parseInt(hours)*parseInt(cost)} zł`}</h6>
 </div>
 
   <button className='md:absolute right-0 shrink-0 border-[1px] border-solid  border-gray-300 flex px-3 xlsm:px-5 py-[10px] text-sm font-semibold rounded-[50px]' onClick={()=>router.push('/booking/plan')}><img src='../images/booking/Edit.svg' className='pr-2'/>Edit Plan</button>
@@ -151,12 +151,12 @@ const [cost,setCost]=useState('')
 <section className='flex flex-col lg:flex-row items-center justify-center lg:mb-4'>
 <div className=' min-w-[300px] sm:min-w-[330px] lg:max-w-none w-[70%] lg:w-[50%] lg:mr-6  mb-1 lg:mb-0'>
   <h6 className='text-[16px] tracking-[0.02em] font-semibold mb-[6px]'>Street Name</h6>
-  <input style={{border:'1px solid #ABABAB'}} placeholder='Street Name' required type='text' name='streetName' onChange={contactDetails} value={streetName} className='pl-3 outline-none bg-inputbg w-full   py-[10px] mb-2 rounded-[12px]' />
+  <input style={{border:'1px solid #ABABAB'}} placeholder='Street Name' required  name='streetName' onChange={contactDetails} value={streetName} className='pl-3 outline-none bg-inputbg w-full   py-[10px] mb-2 rounded-[12px]' />
 </div>
 
 <div className=' min-w-[300px] sm:min-w-[330px] lg:max-w-none w-[70%] lg:w-[50%]  mb-1 lg:mb-0'>
   <h6 className='text-[16px] tracking-[0.02em] font-semibold mb-[6px]'>Street Number</h6>
-  <input style={{border:'1px solid #ABABAB'}} placeholder='Street Number' required type='number' name='streetNumber' onChange={contactDetails} value={streetNumber} className='pl-3 outline-none bg-inputbg w-full  py-[10px] mb-2 rounded-[12px]' />
+  <input style={{border:'1px solid #ABABAB'}} placeholder='Street Number' required  name='streetNumber' onChange={contactDetails} value={streetNumber} className='pl-3 outline-none bg-inputbg w-full  py-[10px] mb-2 rounded-[12px]' />
 </div>
 </section>
 {/* ------------------------------------------------------------------------------------ */}
@@ -164,7 +164,7 @@ const [cost,setCost]=useState('')
 <section className='flex flex-col lg:flex-row items-center justify-center lg:mb-4'>
 <div className=' min-w-[300px] sm:min-w-[330px] lg:max-w-none w-[70%] lg:w-[50%] lg:mr-6  mb-1 lg:mb-0'>
   <h6 className='text-[16px] tracking-[0.02em] font-semibold mb-[6px]'>Apartment Number (Optional)</h6>
-  <input style={{border:'1px solid #ABABAB'}} placeholder='Apartment Number' type='number' value={apartmentNumber} onChange={contactDetails} name='apartmentNumber' className='pl-3 outline-none bg-inputbg w-full   py-[10px] mb-2 rounded-[12px]' />
+  <input style={{border:'1px solid #ABABAB'}} placeholder='Apartment Number'  value={apartmentNumber} onChange={contactDetails} name='apartmentNumber' className='pl-3 outline-none bg-inputbg w-full   py-[10px] mb-2 rounded-[12px]' />
 </div>
 
 <div className=' min-w-[300px] sm:min-w-[330px] lg:max-w-none w-[70%] lg:w-[50%]  mb-1 lg:mb-0'>

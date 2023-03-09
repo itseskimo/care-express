@@ -30,6 +30,8 @@ const page = () => {
   const {firstName,lastName,emailAdress,phoneNumber,streetName,streetNumber,apartmentNumber,postalCode,city,careType,calendarDate}=contact
 
   useEffect(()=>{
+    if(localStorage.getItem('user')){
+      
      let calendarDate= localStorage.getItem('calendarDate')
      let careType= localStorage.getItem('careType')
 
@@ -37,7 +39,13 @@ const page = () => {
      let data = JSON.parse(contactData);
      data.careType=careType
      data.calendarDate=calendarDate
+     console.log(data.emailAdress)
+     setClient({createPhoneNumber:data.phoneNumber ,   createEmail: data.emailAdress     })
      setContact(data)
+
+    }
+
+     
   },[])
 
 

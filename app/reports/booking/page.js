@@ -38,7 +38,7 @@ const page = () => {
     const [date, setDate] = useState(null);
 
 
-    console.log(calendarDate,date,time)
+
     function formSubmit(e){
       e.preventDefault();
       if(calendarDate !== '' && selectPlanId !== '' && careType !== ''){
