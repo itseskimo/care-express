@@ -3,7 +3,6 @@ import DashBookingHeader from '../../Components/dashBookingHeader/page'
 import DashboardNav from '../../Components/dashboardNav/page'
 import Head from '../../head'
 import Link from 'next/link'
-
 import {useState,useEffect} from 'react'
 import {useRouter} from 'next/navigation';
 
@@ -12,8 +11,9 @@ import {useRouter} from 'next/navigation';
 const page = () => {
     const router = useRouter();
 
+    const [contact, setContact] = useState({})
+    const {street_name,street_number,apartment_number,postal_code,city}=contact
 
-  
     const [hours,setHours]=useState('')
     const [cost,setCost]=useState('')
     const [saveCheckBoxesText,setSaveCheckBoxesText]=useState([])
@@ -36,6 +36,10 @@ const page = () => {
   
     let calendarDate =localStorage.getItem('calendarDate')
     setCalendarDate(calendarDate)
+
+    const contactData =localStorage.getItem('contact')
+    let data = JSON.parse(contactData);
+    setContact(data)
 
     }
     
@@ -100,28 +104,28 @@ const page = () => {
 <div className=''>
   <div>
     <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>STREET NAME</h6>
-    <h6 className='text-[16px] font-semibold'>Grójecka</h6>
+    <h6 className='text-[16px] font-semibold'>{street_name}</h6>
   </div>
   
   <div className='mt-6'>
   <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>CITY / TOWN</h6>
-  <h6 className='text-[16px] font-semibold'>Warszawa</h6>
+  <h6 className='text-[16px] font-semibold'>{city}</h6>
   </div>
 </div>
 
 <div className=''>
     <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>STREET NUMBER</h6>
-    <h6 className='text-[16px] font-semibold'>45</h6>
+    <h6 className='text-[16px] font-semibold'>{street_number}</h6>
 </div>
 
 <div className=''>
     <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>APARTMENT NUMBER</h6>
-    <h6 className='text-[16px] font-semibold'>17</h6>
+    <h6 className='text-[16px] font-semibold'>{apartment_number ? apartment_number : '-'}</h6>
 </div>
 
 <div className=''>
     <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>POSTAL CODE</h6>
-    <h6 className='text-[16px] font-semibold'>02-031</h6>
+    <h6 className='text-[16px] font-semibold'>{postal_code}</h6>
 </div>
 
 <button className='flex border-[1px] border-solid justify-self-end self-start  border-gray-300  shrink-0 px-5 py-[10px] text-sm font-semibold rounded-[50px]' onClick={()=>router.push('/reports/contactDetails')}><img src='../images/booking/Edit.svg' className='pr-2'/>Edit Contact</button>
