@@ -2,15 +2,12 @@
 import React, { useState} from 'react'
 import Link from 'next/link'
 import { AreaChart, Area, Tooltip, ResponsiveContainer, CartesianGrid, XAxis, YAxis } from "recharts";
-import { format,parseISO,subDays } from 'date-fns';
 import Head from '../head'
 import DashboardNav from '../Components/dashboardNav/page'
-import queryString from 'query-string';
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { useRouter } from 'next/navigation';
-import { socialLogin } from '@/redux/actions/page'
-import { getOrderById, getServicePricing } from '@/redux/actions/page'
+import { getOrderById } from '@/redux/actions/page'
 
 const page = () => {
 
@@ -18,20 +15,12 @@ const page = () => {
   const router = useRouter();
 
   useEffect(()=>{
-    const urlParams = queryString.parse(window.location.search);
-
-    if (urlParams.error) {
-      console.log(`An error occurred: ${urlParams.error}`);
-    } else {
-      console.log(`The code is: ${urlParams.code}`);
-      dispatch(socialLogin(urlParams.code,"google"))
-    }
+   
 
     if(localStorage.getItem('user')){
       let data = localStorage.getItem('user')
       let loginData = JSON.parse(data);
-      //  dispatch(getOrderById('63f7c9989d0078faca4d6ee0',loginData.token))
-      dispatch(getServicePricing())
+      dispatch(getOrderById('63f7c9989d0078faca4d6ee0',loginData.token))
     }
 
   },[])
