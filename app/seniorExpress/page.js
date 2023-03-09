@@ -331,10 +331,10 @@ const seniorExpress = () => {
 
 <section className='  my-5  sxl:my-0'>
 <h1 className='text-topaz  text-sm  md:text-base font-bold pb-4'>Our services</h1>
-<h1 className='text-white text-xs md:text-sm mb-3'>Nanny Express</h1>
-<h1 className='text-white text-xs md:text-sm mb-3 '>Senior Express</h1>
-<h1 className='text-white text-xs md:text-sm mb-3'>Pet Express</h1>
-<h1 className='text-white text-xs md:text-sm mb-3'>Special Express</h1>
+<Link href={{pathname:'/nannyExpress'}}><h1 className='text-white text-xs md:text-sm mb-3'>Nanny Express</h1></Link>
+<Link href={{pathname:'/seniorExpress'}}><h1 className='text-white text-xs md:text-sm mb-3 '>Senior Express</h1></Link>
+<Link href={{pathname:'/petExpress'}}><h1 className='text-white text-xs md:text-sm mb-3'>Pet Express</h1></Link>
+<Link href={{pathname:'/specialExpress'}}><h1 className='text-white text-xs md:text-sm mb-3'>Special Express</h1></Link>
 </section>
 
 
@@ -365,7 +365,7 @@ const seniorExpress = () => {
 
 <section className='my-5  sxl:my-0'>
 <h1  className='text-topaz  text-sm  md:text-base font-bold pb-4'>Help & Support</h1>
-<h1 className='text-white text-xs md:text-sm mb-3'>About us</h1>
+<Link href={{pathname:'/about'}}><h1 className='text-white text-xs md:text-sm mb-3'>About us</h1></Link>
 <h1 className='text-white text-xs md:text-sm mb-3'>Contact</h1>
 <h1 className='text-white text-xs md:text-sm mb-3'>Privacy Policy</h1>
 <h1 className='text-white text-xs md:text-sm mb-3'>Terms & conditions</h1>
