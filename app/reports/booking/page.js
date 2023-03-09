@@ -11,7 +11,7 @@ import {useRouter} from 'next/navigation';
 import { useDispatch, useSelector } from 'react-redux'
 import { getServicePricing } from '@/redux/actions/page'
 import locale from 'date-fns/locale/en-GB'
-
+import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
 
 
 const page = () => {
@@ -174,8 +174,10 @@ const page = () => {
  }
 
 }) }
-  
-  
+          {/* <CheckCircleRoundedIcon sx={{ fontSize: 47  }} className='absolute bottom-3 select-none pointer-events-none left-3 font-thin'/> */}
+
+
+
 </section>
 </div>
 
