@@ -96,7 +96,7 @@ const seniorExpress = () => {
 <h6 className='mt-0 sm:mt-4 sm:text-base md:text-lg sxlg:text-[14.6px] ssxl:text-[17px] sxl:text-lg font-normal  tracking-[0.01em]  '> We believe finding a reliable, professional care should be easy. We<br className='hidden md:block '></br> really get to know you and your parents and we can guarantee consistent<br className='hidden md:block'></br> and personal care that is equal. </h6>
 
 <section className='mt-7 sm:mt-11 sxl:mt-10 flex items-center'>
-<button className='bg-purple px-[18px] py-[13px] text-white rounded-[27px] shrink-0 text-base lg:text-xl font-semibold tracking-wide flex items-center justify-evenly'>Book senior care today<img src='../images/Icons/click-arrow.svg' className='pl-[18px]'/></button>
+<Link href={{pathname:'/reports/booking'}}><button className='bg-purple px-[18px] py-[13px] text-white rounded-[27px] shrink-0 text-base lg:text-xl font-semibold tracking-wide flex items-center justify-evenly'>Book senior care today<img src='../images/Icons/click-arrow.svg' className='pl-[18px]'/></button></Link>
 <h6  className='text-purple font-medium	underline underline-offset-[3px] decoration-1 pl-4 sm:pl-10 text-base lg:text-xl whitespace-nowrap cursor-pointer'>Learn more</h6>
 </section>
 

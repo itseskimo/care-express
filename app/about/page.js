@@ -4,6 +4,7 @@ import Footer from '../Components/footer/footer'
 import Services from '../Components/services/services'
 import Testimonials from '../Components/testimonial/page'
 import Head from '../head'
+import Link from 'next/link'
 
 
 const page = () => {
@@ -88,7 +89,8 @@ const page = () => {
 <h6 className='mt-3 text-sm md:text-lg font-normal tracking-[0.01em]'> Since 2004, the company has been winning the people’s<br className='hidden md:block'></br> trust in Poland and abroad. Its success is founded on a <br className='hidden md:block'></br>personal approach towards the needs of every single<br className='hidden md:block'></br> customer but also a long-term cooperation with the<br className='hidden md:block'></br> customer. Consequently, Care Express is a leader in the care<br className='hidden md:block'></br> industry on a Polish market.</h6>
 
 <section className='mt-10 flex items-center'>
-<button className='bg-blue w-[180px] sm:w-[200px] md:w-[234px] h-[54px] text-white rounded-[27px] text-base lg:text-xl font-semibold tracking-wide flex items-center justify-evenly'>Book care today<img src='../images/Icons/click-arrow.svg'/></button>
+<Link href={{pathname:'/reports/booking'}}><button className='bg-blue px-5 h-[54px] text-white rounded-[27px] text-base lg:text-xl font-semibold tracking-wide flex items-center justify-evenly'>Book care today<img className='pl-3' src='../images/Icons/click-arrow.svg'/></button></Link>
+
 </section>
 
 

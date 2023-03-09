@@ -92,7 +92,7 @@ const services ={
 <h6 className='mt-6 text-sm md:text-lg font-normal tracking-[0.01em]'> Care Express is a B2B booking platform offering employee<br className='hidden md:block'></br>  benefits focused on much needed care and household<br className='hidden md:block'></br>  support services. </h6>
 
 <section className='mt-10 flex items-center'>
-<button className='bg-blue px-[18px] py-[13px] text-white rounded-[27px] text-base lg:text-xl font-semibold tracking-wide flex items-center justify-evenly'>Book care today<img src='../images/Icons/click-arrow.svg' className='pl-[18px]'/></button>
+<Link href={{pathname:'/reports/booking'}}><button className='bg-blue px-[18px] py-[13px] text-white rounded-[27px] text-base lg:text-xl font-semibold tracking-wide flex items-center justify-evenly'>Book care today<img src='../images/Icons/click-arrow.svg' className='pl-[18px]'/></button></Link>
 <h6 className=' font-medium	text-blue underline decoration-1 pl-6 sm:pl-10 text-base lg:text-xl whitespace-nowrap underline-offset-[3px] cursor-pointer'>Learn more</h6>
 </section>
 

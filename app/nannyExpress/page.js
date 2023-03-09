@@ -3,6 +3,7 @@ import Navbar from '../Components/navbar/navbar'
 import Footer from '../Components/footer/footer'
 import Testimonials from '../Components/testimonial/page'
 import Head from '../head'
+import Link from 'next/link'
 
 const nannyExpress = () => {
 
@@ -101,9 +102,8 @@ const Testimonial={
 <h6 className='mt-6 text-sm md:text-lg font-normal  tracking-[0.01em]'> We believe finding a reliable, professional nanny should be easy. We<br className='hidden md:block '></br> really get to know you and your child and we can guarantee consistent<br className='hidden md:block'></br> and personal care that is equal.</h6>
 
 
-
 <section className='mt-10 flex items-center'>
-<button className='bg-orange px-[18px] py-[13px] text-white rounded-[27px] text-base lg:text-xl font-semibold tracking-wide flex items-center justify-evenly'>Book a nanny today<img src='../images/Icons/click-arrow.svg' className='pl-[18px]'/></button>
+<Link href={{pathname:'/reports/booking'}}><button className='bg-orange px-[18px] py-[13px] text-white rounded-[27px] text-base lg:text-xl font-semibold tracking-wide flex items-center justify-evenly'>Book a nanny today<img src='../images/Icons/click-arrow.svg' className='pl-[18px]'/></button></Link>
 <h6  className='text-orange font-medium	underline underline-offset-[3px] decoration-1 pl-6 sm:pl-10 text-base lg:text-xl whitespace-nowrap cursor-pointer'>Learn more</h6>
 </section>
 
