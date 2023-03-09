@@ -158,9 +158,7 @@ const page = () => {
 
 </main>
 <section className='flex items-center justify-center'>
-<button className='bg-blue mt-10 lg:mt-12 px-[18px] py-[14px] text-white rounded-[27px] text-base  lg:text-xl font-semibold tracking-wide flex items-center justify-evenly  '><img src='../images/Icons/calendar.svg' className='pr-[18px]'/>Book your care</button>
-
-{/* <button className='bg-blue mt-10 lg:mt-12 w-48 lg:w-[221px] h-[54px] text-white rounded-[27px] text-base  lg:text-xl font-semibold tracking-wide flex items-center justify-evenly  '><img src='../images/Icons/calendar.svg'/>Book your care</button> */}
+<Link href={{pathname:'/reports/booking'}}><button className='bg-blue mt-10 lg:mt-12 px-[18px] py-[14px] text-white rounded-[27px] text-base  lg:text-xl font-semibold tracking-wide flex items-center justify-evenly  '><img src='../images/Icons/calendar.svg' className='pr-[18px]'/>Book your care</button></Link>
 </section>
 </main>
 {/* ----------------------------------------------------------------------------------------------------------------- */}
