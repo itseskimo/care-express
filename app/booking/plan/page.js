@@ -74,7 +74,7 @@ const page = () => {
     let monthCalc = calendarCalc[calendar.value.substring(3,4) === '0' ? calendar.value.substring(4,5) : calendar.value.substring(3,5)] 
     let yearCalc= `${calendar.value.substring(6,10)}`
 
-    const finalDate=`${dateCalc}` + `${monthCalc}` + `${yearCalc}`
+    const finalDate=`${dateCalc}` + '' + `${monthCalc}` + '' + `${yearCalc}`
 
     setTime(finalDate)
     setCalendarDate(calendar.value)

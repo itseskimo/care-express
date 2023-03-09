@@ -40,10 +40,33 @@ const [hours,setHours]=useState('')
 const [cost,setCost]=useState('')
 
  useEffect(()=>{
-  let hours= localStorage.getItem('hours')
-  setHours(hours)
-  let cost= localStorage.getItem('cost')
-  setCost(cost)
+  if(localStorage.getItem('user')){
+
+    let hours= localStorage.getItem('hours')
+    setHours(hours)
+    let cost= localStorage.getItem('cost')
+    setCost(cost)
+
+if(localStorage.getItem('contact')){
+  let contact = localStorage.getItem('contact')
+  let inputField = JSON.parse(contact);
+
+  setContact({
+  firstName:   inputField.firstName,
+  lastName:    inputField.lastName,
+  emailAdress: inputField.emailAdress,
+  phoneNumber: inputField.phoneNumber,
+  streetName:  inputField.streetName,
+  streetNumber:inputField.streetNumber,
+  apartmentNumber: inputField.apartmentNumber,
+  postalCode:  inputField.postalCode,
+  city:        inputField.city,
+  })
+}
+   
+  }
+
+  
  },[])
 
 
