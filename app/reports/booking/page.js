@@ -4,7 +4,7 @@ import DashboardNav from '../../Components/dashboardNav/page'
 import Head from '../../head'
 import 'react-date-range/dist/styles.css'; 
 import 'react-date-range/dist/theme/default.css';
-import {format,subDays} from 'date-fns'
+import {format} from 'date-fns'
 import {Calendar} from 'react-date-range';
 import {useState,useEffect} from 'react'
 import {useRouter} from 'next/navigation';
@@ -17,15 +17,13 @@ import locale from 'date-fns/locale/en-GB'
 const page = () => {
   const { orders}  = useSelector((state) => state.orders);
   const dispatch= useDispatch()
+  const router = useRouter();
 
   useEffect(()=>{
     if(localStorage.getItem('user')){
       dispatch(getServicePricing())
     }
   },[])
-  
-
-    const router = useRouter();
 
     const [careType,setCareType]=useState('nanny')
     const [selectPlanId,setSelectPlanId]=useState('')
