@@ -13,7 +13,7 @@ import Head from '../head'
 const page = () => {
 
   const { isAuthenticated, user ,error} = useSelector((state) => state.user);
-  console.log(error)
+
   const {social} = useSelector((state) => state.social);
 
   const router = useRouter();
