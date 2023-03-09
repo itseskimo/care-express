@@ -18,7 +18,7 @@ const page = () => {
       console.log(`An error occurred: ${urlParams.error}`);
     } else {
       console.log(`The code is: ${urlParams.code}`);
-      dispatch(socialLogin(urlParams.code,"meta"))
+      dispatch(socialLogin(urlParams.code,"facebook"))
     }
 
 
