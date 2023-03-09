@@ -18,12 +18,8 @@ const page = () => {
   const { orders}  = useSelector((state) => state.orders);
   const dispatch= useDispatch()
   const router = useRouter();
-
-  useEffect(()=>{
-    if(localStorage.getItem('user')){
-      dispatch(getServicePricing())
-    }
-  },[])
+// console.log(orders?.[0]?._id)
+  
 
     const [careType,setCareType]=useState('nanny')
     const [selectPlanId,setSelectPlanId]=useState('')
@@ -31,13 +27,20 @@ const page = () => {
     const [cost,setCost]=useState('')
 
     const [time,setTime]=useState('')
+    console.log(selectPlanId)
 
 
     const [calendarDate,setCalendarDate]=useState('')
     const [togglecalendar,setToggleCalendar]=useState(false)
     const [date, setDate] = useState(null);
 
-
+    useEffect(()=>{
+      if(localStorage.getItem('user')){
+        dispatch(getServicePricing())
+        
+  
+      }
+    },[])
 
     function formSubmit(e){
       e.preventDefault();

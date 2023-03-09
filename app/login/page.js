@@ -12,7 +12,8 @@ import Head from '../head'
 
 const page = () => {
 
-  const { isAuthenticated, user } = useSelector((state) => state.user);
+  const { isAuthenticated, user ,error} = useSelector((state) => state.user);
+  console.log(error)
   const {social} = useSelector((state) => state.social);
 
   const router = useRouter();
@@ -132,7 +133,6 @@ if(passwordToggle.type==='password'){
    placeholder='Email address'
    required
    />
-   
   </div>
 </div>
 
@@ -151,6 +151,7 @@ if(passwordToggle.type==='password'){
   id='passwordToggle'/>
   <img src='../images/Icons/Show.svg' className='absolute top-3 w-10 right-[1px]  bg-inputbg px-2 cursor-pointer' id='passwordVisibilityToggle' onClick={passwordToggle}/>
   </div>
+  <h6 className='text-[13px] text-red-600 text-center'>{error ? error : ''}</h6>
   <h6 className='flex justify-end text-blue underline underline-offset-[3px] tracking-[0.01em] decoration-1 text-sm cursor-pointer'>Forgot Password</h6>
 </div>
 

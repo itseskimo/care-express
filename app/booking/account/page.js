@@ -72,7 +72,7 @@ const page = () => {
     myForm.set("plan", '937a1ae52d6364513cfff439');
     myForm.set("role", 'user');
     dispatch(register(myForm));
-    setAccountToggle(false)
+    // setAccountToggle(false)
 
     // if(isAuthenticated){
     //   setAccountToggle(false)
@@ -233,6 +233,8 @@ const page = () => {
   placeholder='Confirm Password' />
   <img src='../images/Icons/Show.svg' id='passwordVisibilityToggle2' onClick={()=>passwordToggle(2)} className='absolute top-3 w-10 right-[1px]  bg-inputbg px-2 cursor-pointer' />
   </div>
+  <h6 className='text-[13px] text-red-600 text-center'>{error ? error : ''}</h6>
+
 </div>
 
 </section>
