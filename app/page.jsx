@@ -3,7 +3,7 @@ import Navbar from './Components/navbar/navbar'
 import Footer from './Components/footer/footer'
 import Services from './Components/services/services'
 import Testimonials from './Components/testimonial/page'
-
+import Link from 'next/link'
 import Head from './head'
 
 const page = () => {

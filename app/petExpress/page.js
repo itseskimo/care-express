@@ -3,6 +3,7 @@ import Navbar from '../Components/navbar/navbar'
 import Footer from '../Components/footer/footer'
 import Testimonials from '../Components/testimonial/page'
 import Head from '../head'
+import Link from 'next/link'
 
 
 const petExpress = () => {
