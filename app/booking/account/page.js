@@ -24,6 +24,7 @@ const page = () => {
   });
 
   const { createEmail, createPhoneNumber, createPassword, confirmPassword } = client;
+  console.log(createEmail,createPhoneNumber)
 
 
   const [contact, setContact] = useState({})
@@ -59,11 +60,11 @@ const page = () => {
     const myForm = new FormData();
     myForm.set("care_type", careType);
     myForm.set("care_start_date", calendarDate);
-    myForm.set("email", emailAdress);
+    myForm.set("email", createEmail);
     myForm.set("password", createPassword);
     myForm.set("first_name", firstName);
     myForm.set("last_name", lastName);
-    myForm.set("phone", phoneNumber);
+    myForm.set("phone", createPhoneNumber);
     myForm.set("street_number", streetNumber);
     myForm.set("street_name", streetName);
     myForm.set("postal_code", postalCode);
@@ -265,7 +266,7 @@ const page = () => {
 <section className='bg-white h-max rounded-[16px] mt-10 '>
 <div className='flex items-center justify-center flex-col py-10 ]'>
     <img src='../images/booking/accountsuccess.svg' className='mb-10'/>
-    <h6 className='text-[24px] font-bold mb-10'>Account created for <span className='underline decoration-1 underline-offset-4'>{emailAdress}</span></h6>
+    <h6 className='text-[24px] font-bold mb-10'>Account created for <span className='underline decoration-1 underline-offset-4'>{createEmail}</span></h6>
     <Link href={{pathname:'/booking/payment'}}>    <button className='bg-blue px-[120px]  text-white rounded-[50px] text-[18px] font-semibold py-3'>Proceed to Payment</button></Link>
 </div>
 </section>
