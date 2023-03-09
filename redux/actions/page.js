@@ -90,7 +90,8 @@ export const postAddress = (addressData ,token) => async (dispatch) => {
 
     const { data } = await axios.post('https://care-express-api.dthree.in/api/customer/address', addressData , config);
 
-    dispatch({ type: POST_ADDRESS_SUCCESS, payload:Object.fromEntries(addressData)  });
+    addressData.set("_id", data.address_id)
+    dispatch({ type: POST_ADDRESS_SUCCESS, payload:Object.fromEntries(addressData) });
   } catch (error) {
     dispatch({ type: POST_ADDRESS_FAIL, payload: error.response.data.message });
   }
