@@ -97,7 +97,7 @@ export const userReducer = (state = { user: {} }, action) => {
       return [action.payload, ...state]
 
       case UPDATE_ADDRESS_SUCCESS:
-      return state.map(address => (address._id === action.payload.address_id ? action.payload : address))
+      return state.map(address => (address._id === action.payload._id ? action.payload : address))
 
       case DELETE_ADDRESS_SUCCESS:
       return state.filter(address => address._id !== action.payload);

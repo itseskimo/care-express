@@ -66,8 +66,9 @@ const page = () => {
       setCalendarDate(calendar.value)
 
       if(e.target.outerHTML !== '<i></i>'){
-          setToggleCalendar(!togglecalendar)
+          // setToggleCalendar(!togglecalendar)
       }
+      console.log(e)
     }
 
 
