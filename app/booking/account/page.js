@@ -7,15 +7,13 @@ import { useState , useEffect} from 'react'
 import { register } from '@/redux/actions/page'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
-import { useRouter } from 'next/navigation';
 import Head from '../../head'
 
 const page = () => {
-  const router = useRouter();
 
-  const {error} = useSelector((state) => state.user);
+  
+  const { error } = useSelector((state) => state.user);
   const [accountToggle, setAccountToggle]=useState(true)
-  const [errorMsg, setErrorMsg]=useState(error)
 
   const [client, setClient] = useState({
     createPhoneNumber: "",
@@ -25,8 +23,8 @@ const page = () => {
   });
 
   const { createEmail, createPhoneNumber, createPassword, confirmPassword } = client;
-  console.log(createEmail,createPhoneNumber)
 
+  
 
   const [contact, setContact] = useState({})
   const {firstName,lastName,emailAdress,phoneNumber,streetName,streetNumber,apartmentNumber,postalCode,city,careType,calendarDate}=contact
@@ -56,8 +54,10 @@ const page = () => {
   const registerSubmit = (e) => {
     e.preventDefault();
 
-    if(createPassword === confirmPassword){
-
+    // if(createPassword === confirmPassword){
+    // setAccountToggle(false)
+    // }
+      
     const myForm = new FormData();
     myForm.set("care_type", careType);
     myForm.set("care_start_date", calendarDate);
@@ -73,14 +73,12 @@ const page = () => {
     myForm.set("plan", '937a1ae52d6364513cfff439');
     myForm.set("role", 'user');
     dispatch(register(myForm));
-    
-
-    }else{
-      
-    }
+    // setAccountToggle(false)
    
 
-    // console.log(Object.fromEntries(myForm))
+    
+   
+
   };
 
 
@@ -228,11 +226,13 @@ const page = () => {
   placeholder='Confirm Password' />
   <img src='../images/Icons/Show.svg' id='passwordVisibilityToggle2' onClick={()=>passwordToggle(2)} className='absolute top-3 w-10 right-[1px]  bg-inputbg px-2 cursor-pointer' />
   </div>
-  <h6 className='text-[13px] text-red-600 text-center'>{error ? error : ''}</h6>
 
 </div>
 
 </section>
+<div className='relative'>
+<h6 className='text-[13px] text-red-600 absolute top-[50%] left-[50%] -translate-y-[50%] -translate-x-[50%]'>{error ? error : ''}</h6>
+</div>
 {/* ------------------------------------------------------------------------------------ */}
 
 
