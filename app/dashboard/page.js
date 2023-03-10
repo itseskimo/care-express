@@ -5,7 +5,7 @@ import { AreaChart, Area, Tooltip, ResponsiveContainer, CartesianGrid, XAxis, YA
 import Head from '../head'
 import DashboardNav from '../Components/dashboardNav/page'
 import { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useRouter } from 'next/navigation';
 
 const page = () => {
