@@ -239,7 +239,7 @@ export const updateDashboardAccountDetails = (form,token) => async (dispatch) =>
 
     const { data } = await axios.patch('https://care-express-api.dthree.in/api/customer/account',form, config);
 
-    dispatch({ type: UPDATE_ACCOUNT_SUCCESS, payload: form });
+    dispatch({ type: UPDATE_ACCOUNT_SUCCESS, payload:data });
   } catch (error) {
     dispatch({ type: UPDATE_ACCOUNT_FAIL, payload: error.response.data.message });
   }

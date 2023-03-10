@@ -10,7 +10,7 @@ import { useEffect,useState} from 'react'
 const page = () => {
 
   const account  = useSelector((state) => state.account);
-console.log(account)
+
   const dispatch= useDispatch()
   const[token,setToken]=useState(null)
 
@@ -31,9 +31,15 @@ console.log(account)
 
   const formSubmit = (e) => {
     e.preventDefault();
-    dispatch(updateDashboardAccountDetails(form,token));
-    setAccountSucceess(true)
-    setForm({first_name: "", last_name:'', password:''})
+    const myForm = new FormData();
+
+    if(first_name !== '')  myForm.set("first_name", first_name);
+    if(last_name !== '')   myForm.set("last_name", last_name);
+    if(password !== '')    myForm.set("password", password);
+
+    dispatch(updateDashboardAccountDetails(myForm,token));
+    // setAccountSucceess(true)
+    // setForm({first_name: "", last_name:'', password:''})
     }
 
   setTimeout(()=>{
