@@ -9,8 +9,8 @@ import { useEffect,useState} from 'react'
 
 const page = () => {
 
-  const account  = useSelector((state) => state.account);
-  console.log(account)
+  const {getUser , updateUser}  = useSelector((state) => state.account);
+  console.log(getUser , updateUser)
 
   const dispatch= useDispatch()
   const[token,setToken]=useState(null)

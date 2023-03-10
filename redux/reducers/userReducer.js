@@ -113,14 +113,25 @@ export const userReducer = (state = { user: {} }, action) => {
   };
 
 
-  export const dashboardAccountReducer = (state = {} , action) => {
+  const initialState = {
+    getUser: {},
+    updateUser: {},
+  };
+
+  export const dashboardAccountReducer = (state = initialState , action) => {
     switch (action.type) {
 
       case GET_ACCOUNT_SUCCESS:
-      return action.payload
+      return {
+        ...state,
+        getUser : action.payload
+      } 
 
       case UPDATE_ACCOUNT_SUCCESS:
-      return action.payload
+      return {
+        ...state,
+        updateUser : action.payload
+      }
 
       default:
       return state;
