@@ -24,9 +24,9 @@ useEffect(()=>{
 
   return (
     <div className='bg-specialbg  '>
-    <Head title='Order History' />
+    <Head title='Orders' />
     <main className='pt-8 ml-auto mr-auto w-[92%]'>
-      <DashboardNav navTitle='Order History' />
+      <DashboardNav navTitle='Orders' />
       <SubOrderHistoryNav navTitle='Completed'/>
 
       <section className='mt-10  overflow-hidden'>

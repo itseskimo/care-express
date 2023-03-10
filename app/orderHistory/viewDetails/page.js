@@ -67,9 +67,9 @@ const page = () => {
         
         
         <div className='bg-specialbg h-screen absolute top-0 w-full'>
-            <Head title='Order History' />
+            <Head title='Orders' />
             <main className='pt-8 ml-auto mr-auto w-[92%]'>
-                <DashboardNav navTitle='Order History' />
+                <DashboardNav navTitle='Orders' />
                 <section className='mt-10  flex justify-between'>
                     <div className='flex items-center'>
                         <img className='pr-2 h-8 cursor-pointer' src='../images/dashboard/ArrowLeft.svg' onClick={()=>router.push('/orderHistory/ongoing')}/>
