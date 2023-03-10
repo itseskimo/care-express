@@ -10,15 +10,15 @@ import { useEffect,useState} from 'react'
 const page = () => {
 
   const account  = useSelector((state) => state.account);
-
+console.log(account)
   const dispatch= useDispatch()
   const[token,setToken]=useState(null)
 
   
   const [form, setForm] = useState({
     first_name:'' ,
-    password:'',
     last_name:'',
+    password:''
   });
 
   const {first_name,last_name,password}=form
@@ -46,12 +46,13 @@ const page = () => {
   if(localStorage.getItem('user')){
     let data = localStorage.getItem('user')
     let loginData = JSON.parse(data);
-    setForm({first_name: loginData.first_name, last_name:loginData.last_name, password:''})
+    // setForm({first_name: loginData.first_name, last_name:loginData.last_name, password:''})
+    setForm({first_name: loginData.first_name , last_name:loginData.last_name, password:''})
 
     dispatch(getDashboardAccountDetails(loginData.token))
     setToken(loginData.token)
   }
-},[])
+},[token])
 
   
   return (

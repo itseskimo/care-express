@@ -3,8 +3,7 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from '@redux-devtools/extension';
-import { userReducer, addressReducer , ordersReducer,dashboardAccountReducer,socialReducer } from './reducers/userReducer';
-
+import { userReducer, addressReducer , ordersReducer,socialReducer ,dashboardAccountReducer} from './reducers/userReducer';
 const reducer = combineReducers({
     user: userReducer,
     address:addressReducer,

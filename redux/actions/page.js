@@ -144,7 +144,7 @@ export const updateAddress = (form,token) => async (dispatch) => {
 
     
     const { data } = await axios.patch('https://care-express-api.dthree.in/api/customer/address',form, config);
-console.log(data)
+
     dispatch({ type: UPDATE_ADDRESS_SUCCESS, payload: Object.fromEntries(form) });
   } catch (error) {
 
