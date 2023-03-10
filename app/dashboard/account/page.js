@@ -39,21 +39,30 @@ const page = () => {
     if(password !== '')    myForm.set("password", password);
 
     dispatch(updateDashboardAccountDetails(myForm,token));
+
+    let data = localStorage.getItem('user')
+    let loginData = JSON.parse(data);
+    if(first_name !== '') loginData.first_name = first_name
+    if(last_name !== '')  loginData.last_name = last_name
+    console.log(loginData)
+
+    let userData = JSON.stringify(loginData);
+    localStorage.setItem("user", userData);
     // setAccountSucceess(true)
     // setForm({first_name: "", last_name:'', password:''})
     }
 
-  setTimeout(()=>{
-  if(accountSuccess){
-  setAccountSucceess(false)
-  }
-  },1000)
+  // setTimeout(()=>{
+  // if(accountSuccess){
+  // setAccountSucceess(false)
+  // }
+  // },1000)
 
   useEffect(()=>{
   if(localStorage.getItem('user')){
     let data = localStorage.getItem('user')
     let loginData = JSON.parse(data);
-    // setForm({first_name: loginData.first_name, last_name:loginData.last_name, password:''})
+
     setForm({first_name: loginData.first_name , last_name:loginData.last_name, password:''})
 
     dispatch(getDashboardAccountDetails(loginData.token))
