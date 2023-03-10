@@ -9,6 +9,9 @@ import { getOngoingOrders} from '@/redux/actions/page'
   import {useRouter} from 'next/navigation';
 
 const page = () => {
+
+  const { orders}  = useSelector((state) => state.orders);
+
   const dispatch = useDispatch();
   const router = useRouter();
 

@@ -162,7 +162,7 @@ export const getCompletedOrders = (token) => async (dispatch) => {
 
     const { data } = await axios.get('https://care-express-api.dthree.in/api/customer/orders/completed', config);
 
-    dispatch({ type: COMPLETED_ORDERS_SUCCESS, payload: data });
+    dispatch({ type: COMPLETED_ORDERS_SUCCESS, payload: data.orders });
   } catch (error) {
     dispatch({ type: COMPLETED_ORDERS_FAIL, payload: error.response.data.message });
   }
@@ -193,7 +193,7 @@ export const getOngoingOrders = (token) => async (dispatch) => {
 
     const { data } = await axios.get('https://care-express-api.dthree.in/api/customer/orders/ongoing', config);
 
-    dispatch({ type: ONGOING_ORDERS_SUCCESS, payload: data });
+    dispatch({ type: ONGOING_ORDERS_SUCCESS, payload: data.orders });
   } catch (error) {
     dispatch({ type: ONGOING_ORDERS_FAIL, payload: error.response.data.message });
   }

@@ -9,6 +9,7 @@ import { getCompletedOrders } from '@/redux/actions/page'
 
 
 const page = () => {
+  const { orders}  = useSelector((state) => state.orders);
 
 const dispatch = useDispatch();
 
