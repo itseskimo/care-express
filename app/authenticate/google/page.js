@@ -16,11 +16,11 @@ const page = () => {
 
     if (urlParams.error) {
       console.log(`An error occurred: ${urlParams.error}`);
-      router.push('/login')
+      // router.push('/login')
     } else {
       console.log(`The code is: ${urlParams.code}`);
       dispatch(socialLogin(urlParams.code,"google"))
-      router.push('/dashboard')
+      // router.push('/dashboard')
 
     }
 
