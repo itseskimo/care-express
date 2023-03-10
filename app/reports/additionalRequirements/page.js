@@ -25,8 +25,8 @@ const page = () => {
     }
     
     function saveAdditionalRequirements(){
-      localStorage.setItem('additionalDescription',additionalRequirements)
-      localStorage.setItem('additionalArray', saveCheckBoxesText)
+      localStorage.setItem('additionalRequirements',additionalRequirements)
+      localStorage.setItem('additionalServicesArr', saveCheckBoxesText)
       }
 
 
@@ -35,14 +35,22 @@ const [hours,setHours]=useState('')
 const [cost,setCost]=useState('')
 
    
- useEffect(()=>{
+useEffect(()=>{
+  
   if(localStorage.getItem('user')){
+
     let hours= localStorage.getItem('hours')
     setHours(hours)
     let cost= localStorage.getItem('cost')
     setCost(cost)
+
+    if(localStorage.getItem('additionalRequirements')){
+    const additionalRequirements=  localStorage.getItem('additionalRequirements')
+    setAdditionalRequirements(additionalRequirements)
+
+    }
   }
-},[])
+ },[])
 
   return (
     <div className='bg-specialbg  h-max'>
@@ -103,7 +111,7 @@ const [cost,setCost]=useState('')
 
 <h6 className='tracking-[0.02em] text-[16px] font-semibold mt-6 mb-3'>Any special needs or requirements</h6>
 
-<textarea style={{border:'1px solid #ABABAB'}} onChange={(e)=>setAdditionalRequirements(e.target.value)} placeholder='Tell us anything else we need to know, like allergies etc.' className='  outline-none bg-inputbg w-full px-4 pt-4  pb-[200px] overflow-hidden rounded-[12px]'></textarea>
+<textarea style={{border:'1px solid #ABABAB'}} value={additionalRequirements} onChange={(e)=>setAdditionalRequirements(e.target.value)} placeholder='Tell us anything else we need to know, like allergies etc.' className='  outline-none bg-inputbg w-full px-4 pt-4  pb-[200px] overflow-hidden rounded-[12px]'></textarea>
 
 <div className='flex justify-between'>
 <Link href={{pathname:'/reports/contactDetails'}}><button className='bg-ligrey rounded-[50px] px-9 py-[8px] text-black text-[18px] font-semibold mt-10' >Back</button></Link>
