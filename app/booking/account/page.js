@@ -13,8 +13,9 @@ import Head from '../../head'
 const page = () => {
   const router = useRouter();
 
-  const { isAuthenticated,user, error,payload } = useSelector((state) => state.user);
+  const {error} = useSelector((state) => state.user);
   const [accountToggle, setAccountToggle]=useState(true)
+  const [errorMsg, setErrorMsg]=useState(error)
 
   const [client, setClient] = useState({
     createPhoneNumber: "",
@@ -72,13 +73,7 @@ const page = () => {
     myForm.set("plan", '937a1ae52d6364513cfff439');
     myForm.set("role", 'user');
     dispatch(register(myForm));
-    // setAccountToggle(false)
-
-    // if(isAuthenticated){
-    //   setAccountToggle(false)
-    // }else{
-    //   alert("user with the same email is found. please login to continue")
-    // }
+    
 
     }else{
       
