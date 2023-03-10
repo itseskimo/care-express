@@ -35,11 +35,11 @@ const page = () => {
     let cost= localStorage.getItem('cost')
     setCost(cost)
   
-    let additionalArray= localStorage.getItem('additionalArray')
-    setSaveCheckBoxesText([additionalArray.split(',')])
-  
-    let additionalDescription= localStorage.getItem('additionalDescription')
-    setAdditionalDescription(additionalDescription)
+    let additionalServicesArr= localStorage.getItem('additionalServicesArr')
+    setSaveCheckBoxesText([additionalServicesArr.split(',')])
+
+    let additionalRequirements= localStorage.getItem('additionalRequirements')
+    setAdditionalDescription(additionalRequirements)
   
     let calendarDate =localStorage.getItem('calendarDate')
     setCalendarDate(calendarDate)
