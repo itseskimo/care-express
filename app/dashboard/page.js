@@ -9,7 +9,8 @@ import { useDispatch } from 'react-redux'
 import { useRouter } from 'next/navigation';
 
 const page = () => {
-
+  const {social} = useSelector((state) => state.social);
+console.log(social)
   const dispatch= useDispatch()
   const router = useRouter();
 
