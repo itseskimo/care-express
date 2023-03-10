@@ -70,6 +70,16 @@ const page = () => {
       setHours(hours)
       let cost= localStorage.getItem('cost')
       setCost(cost)
+
+
+if(localStorage.getItem('contact')){
+  let contact = localStorage.getItem('contact')
+  let inputField  = JSON.parse(contact);
+  styles(inputField)
+}
+
+
+
     }
   },[])
   

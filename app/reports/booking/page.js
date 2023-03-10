@@ -37,13 +37,18 @@ const page = () => {
     useEffect(()=>{
       if(localStorage.getItem('user')){
         dispatch(getServicePricing())
-        setSelectPlanId(orders?.[0]?._id)
-
-
-      if(localStorage.getItem('plan')){
-       const plan = localStorage.getItem('plan')
-       setSelectPlanId(plan)
-      }
+      
+        if(localStorage.getItem('plan')){
+          const plan = localStorage.getItem('plan')
+          const hours = localStorage.getItem('hours')
+          const cost = localStorage.getItem('cost')
+          extractText(plan, hours , cost)
+          }
+    
+          if(localStorage.getItem('careType')){
+          const careType = localStorage.getItem('careType')
+          setCareType(careType)
+          }
 
 
 
