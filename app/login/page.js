@@ -102,7 +102,7 @@ if(passwordToggle.type==='password'){
 <header className='flex flex-col lg:flex-row '>
 
 
-<section style={{backgroundImage: 'url(../images/login/Login-Hero.png)'}}  className='relative flex items-center justify-end flex-col h-[600px] w-full lg:w-[50%] lg:mr-3 rounded-[24px] bg-no-repeat bg-cover '>
+<section style={{backgroundImage: 'url(../images/Login/Login-Hero.png)'}}  className='relative flex items-center justify-end flex-col h-[600px] w-full lg:w-[50%] lg:mr-3 rounded-[24px] bg-no-repeat bg-cover '>
 <section className='mb-20 z-10 w-[85%]'>
 <h1 className='font-bold text-[40px] mb-1 text-white'>New Users</h1>
 <h1 className='text-txtlogin tracking-[0.01em] text-[18px] mb-9'>Let us know your requirements and our team will setup an <br className='hidden ssxl:block'></br> account for you will best in class analytics and dashboard</h1>
@@ -171,7 +171,7 @@ if(passwordToggle.type==='password'){
 
 </form>
 <section className='flex gap-3 mt-3 z-10'>
-  <a href={googleLoginUrl}><button className='bg-ligrey rounded-[24px] px-4 cursor-pointer lg:px-3 xlg:px-[14px] py-[5px] font-semibold flex items-center text-[14px]' >  <img src='../images/booking/google.svg' className='pr-[10px]'/>Google</button></a>
+  <a href={googleLoginUrl}><button className='bg-ligrey rounded-[24px] px-4 cursor-pointer lg:px-3 xlg:px-[14px] py-[5px] font-semibold flex items-center text-[14px]' >  <img src='../images/booking/Google.svg' className='pr-[10px]'/>Google</button></a>
   <a href={facebookLoginUrl}><button className='bg-ligrey rounded-[24px] px-4 cursor-pointer lg:px-3 xlg:px-[14px] py-[5px] font-semibold flex items-center text-[14px]' >  <img src='../images/booking/Meta.svg' className='pr-[10px]'/>Meta</button></a>
 
 <button className='bg-ligrey rounded-[24px] px-4 cursor-pointer lg:px-3 xlg:px-[14px] py-[5px] font-semibold flex items-center text-[14px]' >  <img src='../images/booking/apple.svg' className='pr-[10px]'/>Apple</button>

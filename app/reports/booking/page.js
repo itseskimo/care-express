@@ -10,8 +10,8 @@ import {useState,useEffect} from 'react'
 import {useRouter} from 'next/navigation';
 import { useDispatch, useSelector } from 'react-redux'
 import { getServicePricing } from '@/redux/actions/page'
-import locale from 'date-fns/locale/en-GB'
-import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
+import SvgIcon from '@mui/material/SvgIcon';
+
 
 
 const page = () => {
@@ -120,7 +120,7 @@ const page = () => {
 
   <div className={`border-[1px] border-solid w-max rounded-[12px] relative cursor-pointer ${careType === 'nanny' ? 'border-bookingblue' : 'border-bookingborder	'}`} id='nanny' onClick={(e)=>setCareType(e.target.id)}>
     <nav className={`bg-grey absolute w-full h-full select-none pointer-events-none rounded-[12px] ${careType === 'nanny' ? 'block' : 'hidden'}`} >
-    <img src='../images/booking/check.png' className=' absolute top-[50%]  left-[50%] -translate-y-[50%] -translate-x-[50%] select-none pointer-events-none'/>
+    <img src='../images/booking/check.svg' className=' absolute top-[50%]  left-[50%] -translate-y-[50%] -translate-x-[50%] select-none pointer-events-none'/>
     </nav>
     <img src='../images/booking/mom-son-cycle.png' className='select-none pointer-events-none'/>
     <h6 className='text-left font-semibold text-[16px] pl-3 py-3 select-none pointer-events-none' >Nanny Express</h6>
@@ -129,7 +129,7 @@ const page = () => {
 
   <div className={`border-[1px] border-solid w-max rounded-[12px] relative cursor-pointer ${careType === 'senior' ? 'border-bookingblue' : 'border-bookingborder	'}`} id='senior' onClick={(e)=>setCareType(e.target.id)}>
   <nav className={`bg-grey absolute w-full h-full select-none pointer-events-none rounded-[12px] ${careType === 'senior' ? 'block' : 'hidden'}`}>
-    <img src='../images/booking/check.png' className=' absolute top-[50%] left-[50%] -translate-y-[50%] -translate-x-[50%] select-none pointer-events-none'/>
+    <img src='../images/booking/check.svg' className=' absolute top-[50%] left-[50%] -translate-y-[50%] -translate-x-[50%] select-none pointer-events-none'/>
   </nav>
     <img src='../images/booking/nanny.png' className='pt-[10px] select-none pointer-events-none'/>
     <h6 className='text-left font-semibold text-[16px] pl-3 py-3 select-none pointer-events-none'>Senior Express</h6>
@@ -138,7 +138,7 @@ const page = () => {
 
   <div className={`border-[1px] border-solid w-max rounded-[12px] relative cursor-pointer ${careType === 'pet' ? 'border-bookingblue' : 'border-bookingborder	'}`} id='pet' onClick={(e)=>setCareType(e.target.id)}>
   <nav className={`bg-grey absolute w-full h-full select-none pointer-events-none rounded-[12px] ${careType === 'pet' ? 'block' : 'hidden'}`}>
-    <img src='../images/booking/check.png' className=' absolute top-[50%] left-[50%] -translate-y-[50%] -translate-x-[50%] select-none pointer-events-none' />
+    <img src='../images/booking/check.svg' className=' absolute top-[50%] left-[50%] -translate-y-[50%] -translate-x-[50%] select-none pointer-events-none' />
   </nav>
     <img src='../images/booking/pet.png' className='pt-[4px] select-none pointer-events-none'/>
     <h6 className='text-left font-semibold text-[16px] pl-3 py-3 select-none pointer-events-none' >Pet Express</h6>
@@ -147,7 +147,7 @@ const page = () => {
 
   <div className={`border-[1px] border-solid w-max rounded-[12px] relative cursor-pointer ${careType === 'special' ? 'border-bookingblue' : 'border-bookingborder	'}`} id='special' onClick={(e)=>setCareType(e.target.id)}>
   <nav className={`bg-grey absolute w-full h-full select-none pointer-events-none rounded-[12px] ${careType === 'special' ? 'block' : 'hidden'}`} >
-    <img src='../images/booking/check.png' className=' absolute top-[50%] left-[50%] -translate-y-[50%] -translate-x-[50%] select-none pointer-events-none' />
+    <img src='../images/booking/check.svg' className=' absolute top-[50%] left-[50%] -translate-y-[50%] -translate-x-[50%] select-none pointer-events-none' />
   </nav>
     <img src='../images/booking/special.png' className='pt-[4px] select-none pointer-events-none' />
     <h6 className='text-left font-semibold text-[16px] pl-3 py-3 select-none pointer-events-none'>Special Express</h6>
@@ -170,7 +170,7 @@ const page = () => {
     <h6 className='text-2xl font-medium mb-3 select-none pointer-events-none' >{item.hours} hours</h6>
     <h6 className=' font-bold text-2xl select-none pointer-events-none' >{item.rate_per_hour} zł / h</h6>
     </section>
-      <img src='../images/booking/check.png' className={`absolute bottom-3 select-none pointer-events-none left-3 ${selectPlanId === item._id ? 'block' : 'hidden'}`} />
+      <img src='../images/booking/check.svg' className={`absolute bottom-3 select-none pointer-events-none left-3 ${selectPlanId === item._id ? 'block' : 'hidden'}`} />
   </div>
 
  }else{
@@ -184,15 +184,22 @@ const page = () => {
   <h6 className='text-2xl font-medium mb-3 select-none pointer-events-none' >{item.hours} hours</h6>
   <h6 className=' font-bold text-2xl select-none pointer-events-none' >{item.rate_per_hour} zł / h</h6>
   </section>
-  <img src='../images/booking/check.png' className={`absolute select-none pointer-events-none  bottom-3 left-3 ${selectPlanId === item._id? 'block' : 'hidden'}`} />
+  <img src='../images/booking/check.svg' className={`absolute select-none pointer-events-none  bottom-3 left-3 ${selectPlanId === item._id? 'block' : 'hidden'}`} />
 </div>
  }
 
 }) }
-          {/* <CheckCircleRoundedIcon sx={{ fontSize: 47  }} className='absolute bottom-3 select-none pointer-events-none left-3 font-thin'/> */}
+
+          {/* <SvgIcon viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className='scale-[1.7]'>
+          <circle cx="20" cy="20" r="20" fill="#416EEA"/>
+          <path d="M28 14L17 25L12 20" stroke="white" strokeWidth="2" strokeLinecap="round" stroke-linejoin="round"/>
+          </SvgIcon> */}
 
 
 
+
+
+          
 </section>
 </div>
 
@@ -204,6 +211,7 @@ const page = () => {
   
 <div className='min-w-[300px] sm:min-w-[330px] lg:max-w-none w-[80%] lg:w-[50%]'>
 <div className='relative flex '>
+
 <img src='../images/booking/calendar.svg' className='absolute  top-3 right-3 pointer-events-none select-none'/>
 <input
  className='outline-none bg-inputbg w-full py-[10px] rounded-[8px] pl-3 cursor-pointer border-bookingborder border-[1px] border-solid' 
