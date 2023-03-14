@@ -159,7 +159,7 @@ function styles(item){
   <h6 className=' mb-2 text-[20px]  leading-7 '>{item.street_name} {item.postal_code}</h6>
   <h6 className=' mb-2 text-[20px]  leading-4 '>{item.city}</h6>
   <div className={`flex mt-7 ${addStyles === item._id ? 'hidden' : 'block'}`}><img className='pr-3' src='../images/dashboard/delete.svg' /><img className='pr-3' src='../images/dashboard/edit.svg'/></div>
-  <img src='../images/booking/check.png' className={`absolute bottom-5 select-none pointer-events-none left-5 ${addStyles === item._id ? 'block' : 'hidden'}`}  />
+  <img src='../images/booking/check.svg' className={`absolute bottom-5 select-none pointer-events-none left-5 ${addStyles === item._id ? 'block' : 'hidden'}`}  />
 
 </div>
 </div>
