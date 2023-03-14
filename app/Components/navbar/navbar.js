@@ -4,7 +4,8 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation';
 import { logout} from '@/redux/actions/page'
 import { useDispatch,useSelector  } from 'react-redux'
-
+import LoginIcon from '@mui/icons-material/Login';
+import { LibraryAdd } from '@mui/icons-material';
 const navbar = (props) => {
 
   const dispatch= useDispatch()
@@ -17,7 +18,8 @@ const router = useRouter();
 const[navitem,setNavItem]=useState(`${clicked}` )
 const[sidebar,setSidebar]=useState(false)
 const[select,setSelect]=useState(false)
-const[userlogin,setUserLogin]=useState('')
+
+const[loginDropdown,setLoginDropdown]=useState(false)
 
 
 const[userLoggedIn,setuserLoggedIn]=useState('user')
@@ -135,57 +137,68 @@ useEffect(()=>{
 
 
   <header className='sticky top-0 w-full h-[62px] bg-white z-[200] shadow ' id='header'>
-  <nav className='box-border  flex items-center h-[62px]  relative '>
+  <nav className='box-border  flex items-center justify-between h-full text-[15px]  ssxl:text-base  mx-4 sm:mx-14 '>
 
-  <section className='flex items-center text-gray-500 text-xs md:text-sm  lg:text-base mx-4 sm:mx-14'>
+  
 
-  <div className='block xxlg:hidden pr-5 cursor-pointer' onClick={hamburger}>
+  <section className='flex items-center gap-7 text-gray-500 '>
+
+  <div className='block xxlg:hidden cursor-pointer' onClick={hamburger}>
     <div className='w-[30px] h-[4px] bg-black ease-in duration-200 mt-2' id='line1'></div>
     <div className='w-[30px] h-[4px] bg-black ease-in duration-200 mt-2' id='line2'></div>
     <div className='w-[30px] h-[4px] bg-black ease-in duration-200 mt-2' id='line3'></div>
   </div>
-  
-  <Link href={{pathname:'/'}}>  <img src='../images/petExpress/logo.jpg' className='pr-3.5 cursor-pointer' /></Link>
-  <Link href={{pathname:'/'}}>  <span className={` sm:px-3.5  font-semibold cursor-pointer ease-in duration-300 ${navitem === 'For Business'? `text-black`: ``}`}  onClick={(e)=>navClicked(e.target.innerText)}>For Business</span></Link>
-  <Link href={{pathname:'/personal'}}>  <span className={`px-0 md:px-2 hidden lg:block lg:px-3.5 font-semibold cursor-pointer ease-in duration-300  ${navitem === 'Personal'? `text-black`: ``}`}  onClick={(e)=>navClicked(e.target.innerText)} >Personal</span></Link>
+  <Link href={{pathname:'/'}}><img src='../images/petExpress/logo.svg' className=' cursor-pointer' /></Link>
+  <Link href={{pathname:'/'}}> <span className={` font-semibold cursor-pointer ease-in duration-300 ${navitem === 'For Business'? `text-black`: ``}`}  onClick={(e)=>navClicked(e.target.innerText)}>For Business</span></Link>
+  <Link href={{pathname:'/personal'}}>  <span className={` font-semibold cursor-pointer ease-in duration-300 hidden md:block  ${navitem === 'Personal'? `text-black`: ``}`}  onClick={(e)=>navClicked(e.target.innerText)} >Personal</span></Link>
   </section> 
 
 
-  <section className='static xlg:absolute right-0 whitespace-nowrap flex items-center '>
-            
-  <div className='text-gray-500 bg-white hidden xxlg:flex flex-col xlg:flex-row absolute left-0 top-14 xlg:static  h-screen xlg:h-fit   w-full xlg:w-fit ' onClick={(e)=>navClicked(e.target.innerText)}>
-  <Link href={{pathname:'/'}}>  <span className={` text-center font-semibold mt-5  cursor-pointer block lg:hidden odd:ease-in duration-300  ${navitem === 'For Business' ? `text-black`: ``}`}>For Business</span></Link>
-  <Link href={{pathname:'/nannyExpress'}}>  <span className={` text-center  xlg:px-3.5 font-semibold   xlg:mt-0 cursor-pointer odd:ease-in duration-300 ${navitem === 'Nanny Express' ? `text-black`: ``}`}    >Nanny Express</span></Link>
-  <Link href={{pathname:'/seniorExpress'}}>  <span className={` text-center  xlg:px-3.5 font-semibold   xlg:mt-0 cursor-pointer odd:ease-in duration-300 ${navitem === 'Senior Express' ? `text-black`: ``}`}   >Senior Express</span></Link>
-  <Link href={{pathname:'/petExpress'}}>  <span className={` text-center  xlg:px-3.5 font-semibold   xlg:mt-0 cursor-pointer odd:ease-in duration-300 ${navitem === 'Pet Express' ? `text-black`: ``}`}      >Pet Express</span></Link>
-  <Link href={{pathname:'/specialExpress'}}>  <span className={` text-center  xlg:px-3.5 font-semibold   xlg:mt-0 cursor-pointer odd:ease-in duration-300 ${navitem === 'Special Express' ? `text-black`: ``}`}   >Special Express</span></Link>
+  <section className='flex items-center gap-5 ssxl:gap-7'>
+
+  <div className='hidden xxlg:flex gap-7 text-gray-500   ' onClick={(e)=>navClicked(e.target.innerText)}>
+   <Link href={{pathname:'/nannyExpress'}}><span className={`font-semibold  cursor-pointer odd:ease-in duration-300 ${navitem === 'Nanny Express' ? `text-black`: ``}`}    >Nanny Express</span> </Link>   
+   <Link href={{pathname:'/seniorExpress'}}><span className={`font-semibold  cursor-pointer odd:ease-in duration-300 ${navitem === 'Senior Express' ? `text-black`: ``}`}   >Senior Express</span></Link>  
+   <Link href={{pathname:'/petExpress'}}><span className={`font-semibold  cursor-pointer odd:ease-in duration-300 ${navitem === 'Pet Express' ? `text-black`: ``}`}      >Pet Express</span></Link>  
+   <Link href={{pathname:'/specialExpress'}}> <span className={`font-semibold  cursor-pointer odd:ease-in duration-300 ${navitem === 'Special Express' ? `text-black`: ``}`}   >Special Express</span></Link>
   </div>
 
-  {sidebar && <div className='text-gray-500 bg-white flex items-center gap-6 flex-col xlg:flex-row absolute left-0 top-14 xlg:static  h-[60vh] xlg:h-fit w-full xlg:w-fit shadow' onClick={(e)=>navClicked(e.target.innerText)}>
-  <Link href={{pathname:'/personal'}}>  <span className={`       font-semibold  cursor-pointer mt-5 block lg:hidden ease-in duration-300  ${navitem === 'Personal'? `text-black`: ``}`}  >Personal</span></Link>
-  <Link href={{pathname:'/nannyExpress'}}>  <span className={`   font-semibold  cursor-pointer odd:ease-in duration-300 ${navitem === 'Nanny Express' ? `text-black`: ``}`}  >Nanny Express</span></Link>
-  <Link href={{pathname:'/seniorExpress'}}>  <span className={`  font-semibold  cursor-pointer odd:ease-in duration-300 ${navitem === 'Senior Express' ? `text-black`:``}`}  >Senior Express</span></Link>
-  <Link href={{pathname:'/petExpress'}}>  <span className={`     font-semibold  cursor-pointer odd:ease-in duration-300 ${navitem === 'Pet Express' ? `text-black`: ``}`}    >Pet Express</span></Link>
-  <Link href={{pathname:'/specialExpress'}}>  <span className={` font-semibold  cursor-pointer odd:ease-in duration-300 ${navitem === 'Special Express' ? `text-black`:``}`}  >Special Express</span></Link>
-  </div>}
   
-  <section className='absolute right-0  xlg:static text-xs md:text-sm  lg:text-base mx-4 sm:mx-14 bg-slate-400'>
 
-  <div className=' relative  w-[172px] md:w-[200px] lg:w-[230px] '>
-  <div className='flex  absolute top-[-18px] '>
-    
-<Link href={{pathname: user && userLoggedIn !== 'user' ? 'reports/booking' : '/login', query:{type:`${bookingId}`}}}>  <button className={`w-20  md:w-24  lg:w-28 h-9 rounded-3xl mx-2.5 text-white  ${color}`} onClick={(e)=>navClicked(e.target.innerText)}>{userlogin? `${userlogin}`: 'Book Now' }</button></Link>
-   
-<main className='w-14 md:w-16  lg:w-20 ml-4' onClick={selectField}>
 
-<section  className='w-full h-9 box-border  bg-slate-100 rounded-[27px] flex items-center justify-evenly cursor-pointer'>
+  <div className='flex flex-col items-center cursor-pointer mx-3 relative' onClick={()=>setLoginDropdown(!loginDropdown)}>
+  <LoginIcon className='scale-[0.8]'/>
+  <h6 className='font-semibold  cursor-pointer text-sm whitespace-nowrap'>Log In</h6>
+  {loginDropdown &&
+<ul className=' w-40 bg-white shadow rounded-[8px] z-10 absolute top-12' >
+  <li className='w-full h-9 list-none box-border cursor-pointer flex items-center justify-around' >
+    <p className=''>Customers</p>
+  </li>
+ 
+  <li className='w-full h-9 list-none box-border cursor-pointer flex items-center justify-around ' >
+    <p className='' >Settings</p>
+  </li>
+</ul>
+}
+  </div>
+
+
+
+
+
+
+  <Link href={{pathname: user && userLoggedIn !== 'user' ? 'reports/booking' : '/login', query:{type:`${bookingId}`}}}>  <button className={` rounded-3xl text-white px-[17px] py-[9px] md:py-[6px] text-xs md:text-base  shrink-0 ${color}`}>Book Now</button></Link>
+
+  <main className='w-16  lg:w-20 shrink-0' onClick={selectField}>
+
+<section  className='w-full h-9 box-border  bg-slate-100 rounded-[27px] flex items-center justify-evenly cursor-pointer relative'>
 <p className='text-xs md:text-sm  lg:text-[15px] font-semibold select-none pointer-events-none' id='selectText'>EN </p>
 <img src='../images/Icons/EN-flag.svg' className='w-[20px] '   id='selectImg'/>
 <img src='../images/Icons/Arrowdown.svg' className='w-[9px] select-none pointer-events-none' id='dropdownArrow'/>
 </section>
 
 {select &&
-<ul className='w-full bg-white shadow rounded-[8px] overflow-hidden' >
+<ul className='w-20 bg-white shadow rounded-[8px] z-10  absolute' >
   <li className='w-full h-9 list-none box-border cursor-pointer flex items-center justify-around' >
     <p className=''>EN</p>
     <img src='../images/Icons/EN-flag.svg' alt='EN' className='w-[20px] '/>
@@ -200,22 +213,25 @@ useEffect(()=>{
 
 </main>
 
-</div>
-</div>
-
-</section>
-
   </section>
   </nav>
 
+  {sidebar && <div className='text-gray-500 bg-white flex items-center justify-center gap-6 flex-col   h-[60vh] w-full  shadow' onClick={(e)=>navClicked(e.target.innerText)}>
+  <Link href={{pathname:'/personal'}}>  <span className={`       font-semibold  cursor-pointer mt-5 block md:hidden ease-in duration-300  ${navitem === 'Personal'? `text-black`: ``}`}  >Personal</span></Link>
+  <Link href={{pathname:'/nannyExpress'}}>  <span className={`   font-semibold  cursor-pointer odd:ease-in duration-300 ${navitem === 'Nanny Express' ? `text-black`: ``}`}  >Nanny Express</span></Link>
+  <Link href={{pathname:'/seniorExpress'}}>  <span className={`  font-semibold  cursor-pointer odd:ease-in duration-300 ${navitem === 'Senior Express' ? `text-black`:``}`}  >Senior Express</span></Link>
+  <Link href={{pathname:'/petExpress'}}>  <span className={`     font-semibold  cursor-pointer odd:ease-in duration-300 ${navitem === 'Pet Express' ? `text-black`: ``}`}    >Pet Express</span></Link>
+  <Link href={{pathname:'/specialExpress'}}>  <span className={` font-semibold  cursor-pointer odd:ease-in duration-300 ${navitem === 'Special Express' ? `text-black`:``}`}  >Special Express</span></Link>
+  </div>}
 
-  <nav style={{ backgroundColor: '#F0F0F0' , borderTop: '1px solid transparent',  borderBottom: '1px solid transparent', borderImage: `linear-gradient(to right, transparent  , ${border} , transparent ) 2` }} className={`${shadow}  box-border  bg-stone-300 h-[34px] flex items-center justify-center text-[11px] md:text-sm  lg:text-base`} id='subheader'>
+
+
+    <nav style={{ backgroundColor: '#F0F0F0' , borderTop: '1px solid transparent',  borderBottom: '1px solid transparent', borderImage: `linear-gradient(to right, transparent  , ${border} , transparent ) 2` }} className={`${shadow}  box-border  bg-stone-300 h-[34px] flex items-center justify-center text-[11px] md:text-sm  lg:text-base absolute top-[62px] w-full`} id='subheader'>
     <span className={`px-5 font-semibold ${subcolour} cursor-pointer`}><a href={`${first.id}`}>{`${first.name}`}</a></span>
     <span className={`px-5 font-semibold ${subcolour} cursor-pointer`}><a href={`${second.id}`}>{`${second.name}`}</a></span>
     <span className={`px-5 font-semibold ${subcolour} cursor-pointer`}><a href={`${third.id}`}>{`${third.name}`}</a></span>
-   <Link href={{pathname:'/faq',query:{search:`${clicked}`}}}> {second.name === 'Our services' ? <span className={`px-5 font-semibold ${subcolour} cursor-pointer`}>FAQ</span> : ''}</Link>
-    
-  </nav>
+    <Link href={{pathname:'/faq',query:{search:`${clicked}`}}}> {second.name === 'Our services' ? <span className={`px-5 font-semibold ${subcolour} cursor-pointer`}>FAQ</span> : ''}</Link>  
+    </nav>
 
   </header>
   </>
