@@ -11,6 +11,7 @@ import {useRouter} from 'next/navigation';
 import { useDispatch, useSelector } from 'react-redux'
 import { getServicePricing } from '@/redux/actions/page'
 import SvgIcon from '@mui/material/SvgIcon';
+import { useSearchParams } from 'next/navigation';
 
 
 
@@ -18,10 +19,15 @@ const page = () => {
   const { orders}  = useSelector((state) => state.orders);
   const dispatch= useDispatch()
   const router = useRouter();
+
+
+  const searchParams = useSearchParams();
+  const type = searchParams.get('type');
+  console.log(type)
 //  console.log(orders?.[0]?._id)
   
 
-    const [careType,setCareType]=useState('nanny')
+    const [careType,setCareType]=useState('')
     const [selectPlanId,setSelectPlanId]=useState('')
     const [hours,setHours]=useState('')
     const [cost,setCost]=useState('')
@@ -38,6 +44,12 @@ const page = () => {
       if(localStorage.getItem('user')){
         dispatch(getServicePricing())
       
+
+        if(type){
+          setCareType(type)
+        }
+
+
         if(localStorage.getItem('plan')){
           const plan = localStorage.getItem('plan')
           const hours = localStorage.getItem('hours')

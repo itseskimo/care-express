@@ -10,6 +10,8 @@ import Head from '../head'
 const seniorExpress = () => {
 
   const navDetails={
+    bookingId:'senior',
+
     clicked:'Senior Express',
     subcolour:'text-purple',
     border:'rgba(204, 60, 157, 1)',

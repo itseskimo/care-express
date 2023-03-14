@@ -8,6 +8,7 @@ import Link from 'next/link'
 const specialExpress = () => {
 
   const navDetails={
+    bookingId:'special',
     clicked:'Special Express',
     subcolour:'text-blue',
     border:'rgba(12, 104, 255, 1)',

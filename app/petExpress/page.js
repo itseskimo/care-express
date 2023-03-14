@@ -9,6 +9,8 @@ import Link from 'next/link'
 const petExpress = () => {
 
   const navDetails={
+    bookingId:'pet',
+
     clicked:'Pet Express',
     subcolour:'text-brown',
     border:'rgba(234, 173, 148, 1)',
