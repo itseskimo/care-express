@@ -70,6 +70,7 @@ const page = () => {
     myForm.set("street_name", streetName);
     myForm.set("postal_code", postalCode);
     myForm.set("city", city);
+    // myForm.set("apartment_number", apartmentNumber);
     myForm.set("plan", '937a1ae52d6364513cfff439');
     myForm.set("role", 'user');
     dispatch(register(myForm));
