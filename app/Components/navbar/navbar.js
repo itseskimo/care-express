@@ -3,11 +3,13 @@ import React, { useState,useEffect } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation';
 import { logout} from '@/redux/actions/page'
-import { useDispatch } from 'react-redux'
+import { useDispatch,useSelector  } from 'react-redux'
 
 const navbar = (props) => {
 
   const dispatch= useDispatch()
+  const { user} = useSelector((state) => state.user);
+console.log(user)
 
 const{first, second, third ,color,subcolour,clicked , border,background, shadow}=props
 const router = useRouter();
@@ -178,7 +180,7 @@ useEffect(()=>{
   <div className=' relative  w-[172px] md:w-[200px] lg:w-[230px] '>
   <div className='flex  absolute top-[-18px] '>
     
-<Link href={{pathname:'/login'}}>  <button className={`w-20  md:w-24  lg:w-28 h-9 rounded-3xl mx-2.5 text-white  ${color}`} onClick={(e)=>navClicked(e.target.innerText)}>{userlogin? `${userlogin}`: 'Book Now' }</button></Link>
+<Link href={{pathname: user && userLoggedIn !== 'user' ? 'reports/booking' : '/login'}}>  <button className={`w-20  md:w-24  lg:w-28 h-9 rounded-3xl mx-2.5 text-white  ${color}`} onClick={(e)=>navClicked(e.target.innerText)}>{userlogin? `${userlogin}`: 'Book Now' }</button></Link>
    
 <main className='w-14 md:w-16  lg:w-20 ml-4' onClick={selectField}>
 
