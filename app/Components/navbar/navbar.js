@@ -130,14 +130,8 @@ useEffect(()=>{
     </nav>
 }
     
-
-     {/* <nav  className={`flex justify-end h-6 box-border ${background} whitespace-nowrap px-4 sm:px-14`}>
-    <section className='flex items-center  font-medium text-white tracking-widest text-xs  lg:text-sm '>
-    <Link href={{pathname:'/faq',query:{search:`${clicked}`}}}><span className='px-2.5	mt-0.5 cursor-pointer' onClick={(e)=>navClicked(e.target.innerText)}>FAQs</span></Link>
-    <Link href={{pathname:'/about'}}>    <span className='px-2.5 mt-0.5	cursor-pointer'  onClick={(e)=>navClicked(e.target.innerText)}>About us</span></Link>
-    <span className='px-2.5	mt-0.5 cursor-pointer '>Contact</span>
-    </section>
-    </nav>  */}
+{/* --------------------------------------------------------------------------------------------------------------- */}
+     
 
 
   <header className='sticky top-0 w-full h-[62px] bg-white z-[200] shadow ' id='header'>
