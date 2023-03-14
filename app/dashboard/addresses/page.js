@@ -13,7 +13,7 @@ const page = () => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
   const  address  = useSelector((state) => state.address);
-console.log(address)
+
   const [form, setForm] = useState({
     title: "",
     streetName:'',

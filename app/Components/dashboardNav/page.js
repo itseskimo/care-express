@@ -2,14 +2,18 @@
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation';
+import { logout} from '@/redux/actions/page'
+import { useDispatch } from 'react-redux'
 
 const page = ({navTitle}) => {
+  const dispatch= useDispatch()
 
   const[navitem,setNavItem]=useState(`${navTitle}`)
   const[select,setSelect]=useState(false)
   const router = useRouter();
 
-function logout(){
+function logOut(){
+  dispatch(logout())
   localStorage.clear()
 router.push('/')
 }
@@ -49,7 +53,7 @@ useEffect(()=>{
            </li>
  
            <li className='w-full py-3 list-none box-border cursor-pointer flex items-center justify-start ' >
-             <p className='text-[14px]' onClick={logout}>Logout</p>
+             <p className='text-[14px]' onClick={logOut}>Logout</p>
            </li>
       </ul>
       }

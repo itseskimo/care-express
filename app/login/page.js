@@ -22,9 +22,7 @@ const page = () => {
    const facebookLoginUrl = social?.meta;
   
    useEffect(()=>{
-    // if(error){
     //  dispatch(clearErrors())
-    // }
 
   if(Object.keys(user || {}).length > 0){
     let userData = JSON.stringify(user);
@@ -155,7 +153,7 @@ if(passwordToggle.type==='password'){
   <img src='../images/Icons/Show.svg' className='absolute top-3 w-10 right-[1px]  bg-inputbg px-2 cursor-pointer' id='passwordVisibilityToggle' onClick={passwordToggle}/>
   </div>
   <section className='relative'>
-      <h6 className='text-[13px] text-red-600 absolute top-[50%] left-[50%] -translate-y-[50%] -translate-x-[50%]'>{error ? error : ''}</h6>
+      <h6 className='text-[13px] text-red-600 absolute top-[50%] left-[50%] -translate-y-[50%] -translate-x-[50%] whitespace-nowrap'>{error ? error : ''}</h6>
   </section>
   <h6 className='flex justify-end text-blue underline underline-offset-[3px] tracking-[0.01em] decoration-1 text-sm cursor-pointer'>Forgot Password</h6>
 </div>

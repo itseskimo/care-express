@@ -2,8 +2,13 @@
 import React, { useState,useEffect } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation';
+import { logout} from '@/redux/actions/page'
+import { useDispatch } from 'react-redux'
 
 const navbar = (props) => {
+
+  const dispatch= useDispatch()
+
 const{first, second, third ,color,subcolour,clicked , border,background, shadow}=props
 const router = useRouter();
 
@@ -31,8 +36,10 @@ useEffect(()=>{
 }
 },[navClicked,userLoggedIn])
 
-function Logout(){
+function LogOut(){
+  dispatch(logout())
   localStorage.clear()
+
   setuserLoggedIn('user')
   router.push('/')
 }
@@ -110,7 +117,7 @@ useEffect(()=>{
     <nav className={`flex justify-between h-6 box-border ${background} whitespace-nowrap px-4 sm:px-14`}>
     <section className='flex items-center gap-4  font-medium text-white tracking-widest text-xs  lg:text-sm '>
     <span className='cursor-pointer'>{`Welcome  ${userLoggedIn}`}</span>
-    <span onClick={Logout} className='cursor-pointer'>Logout</span>
+    <span onClick={LogOut} className='cursor-pointer'>Logout</span>
     </section>
 
     <section className='flex items-center  font-medium text-white tracking-widest text-xs  lg:text-sm '>
