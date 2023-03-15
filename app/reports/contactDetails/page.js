@@ -6,7 +6,6 @@ import Link from 'next/link'
 import { useDispatch ,useSelector } from 'react-redux'
 import { postAddress} from '@/redux/actions/page'
 import {  getAddresses , deleteAddress, updateAddress} from '@/redux/actions/page'
-
 import {useState,useEffect} from 'react'
 import {useRouter} from 'next/navigation';
 
@@ -15,9 +14,7 @@ import {useRouter} from 'next/navigation';
 const page = () => {
     const router = useRouter();
     const dispatch = useDispatch();
-    const  address  = useSelector((state) => state.address);
-
-
+    const  address = useSelector((state) => state.address);
 
     const [form, setForm] = useState({
       title: "",
@@ -28,7 +25,7 @@ const page = () => {
       city:'',
     });
   
-    const {title,streetName,streetNumber,apartmentNumber,postalCode,city}=form
+    const {title,streetName,streetNumber,apartmentNumber,postalCode,city,addressId}=form
   
     const formDetails = (e) => {
       setForm({ ...form, [e.target.name]: e.target.value });
@@ -44,15 +41,53 @@ const page = () => {
       myForm.set("apartment_number", apartmentNumber);
       myForm.set("postal_code", postalCode);
       myForm.set("city", city);
-      setFormToggle(!formToggle)
+      setAddAddressToggle(!addAddressToggle)
       dispatch(postAddress(myForm, token));
     }
   
+
+    const editAddressSubmit = (e) => {
+      e.preventDefault();
+       
+      const myForm = new FormData();
+    
+      myForm.set("_id", addressId);
+      myForm.set("title", title);
+      myForm.set("street_name", streetName);
+      myForm.set("street_number", streetNumber);
+      myForm.set("apartment_number", apartmentNumber);
+      myForm.set("postal_code", postalCode);
+      myForm.set("city", city);
+    
+      dispatch(updateAddress(myForm,token));
+      setFormToggle(!formToggle)
+      setForm({title: "", streetName:'', streetNumber:'', apartmentNumber:'', postalCode:'', city:''})
+      }
+
+      const [addAddressToggle,setAddAddressToggle]=useState(false)
+
+
+      function addAddressTogg(){
+        setAddAddressToggle(!addAddressToggle)
+        setForm({title: "", streetName:'', streetNumber:'', apartmentNumber:'', postalCode:'', city:''})
+        }
+
     const [formToggle,setFormToggle]=useState(false)
-  
-    function editToggle(){
-    setFormToggle(!formToggle)
-    }
+
+  function editToggle(id,title,streetNumber,streetName,postalCode,city,apartmentNumber){
+  setForm({ addressId: id  ,title: title || '', streetName:streetName || '', streetNumber:streetNumber || '', apartmentNumber:apartmentNumber || '', postalCode:postalCode || '', city:city|| ''})
+  setFormToggle(!formToggle)
+  }
+
+  const [deleteToggle,setDeleteToggle]=useState(false)
+  const [toBeDeletedId,setToBeDeletedId]=useState(null)
+  const [modalTitle,setModalTitle]=useState(null)
+
+  function deleteTogg(toBeDeleted,title){
+  setToBeDeletedId(toBeDeleted)
+  setModalTitle(title)
+  setDeleteToggle(!deleteToggle)
+  }
   
     const [token,setToken]=useState(null)
     const [hours,setHours]=useState('')
@@ -144,7 +179,7 @@ function styles(item){
 
 <main className='mt-2 flex gap-8'>
 
-<div className='flex items-center justify-center flex-col gap-3 cursor-pointer border-dashed border-[1px] border-gray-400 py-16 rounded-[14px] w-[196px]' onClick={editToggle}>
+<div className='flex items-center justify-center flex-col gap-3 cursor-pointer border-dashed border-[1px] border-gray-400 py-16 rounded-[14px] w-[196px]' onClick={addAddressTogg}>
 <section className='flex items-center justify-center flex-col'>
 <img className='' src='../images/dashboard/Plusblack.svg'/>
 <h6 className='text-[20px] font-semibold'>Add Address</h6> 
@@ -158,7 +193,7 @@ function styles(item){
   <h6 className=' font-semibold text-[20px] mb-2'>{item.title}</h6>
   <h6 className=' mb-2 text-[20px]  leading-7 '>{item.street_name} {item.postal_code}</h6>
   <h6 className=' mb-2 text-[20px]  leading-4 '>{item.city}</h6>
-  <div className={`flex mt-7 ${addStyles === item._id ? 'hidden' : 'block'}`}><img className='pr-3' src='../images/dashboard/delete.svg' /><img className='pr-3' src='../images/dashboard/edit.svg'/></div>
+  <div className={`flex mt-7 ${addStyles === item._id ? 'hidden' : 'block'}`}><img className='pr-3' src='../images/dashboard/delete.svg' onClick={()=>deleteTogg(item._id,item.title)}/><img className='pr-3' src='../images/dashboard/edit.svg'  onClick={()=>editToggle(item._id,item.title,item.street_number,item.street_name,item.postal_code,item.city,item.apartment_number)}/></div>
   <img src='../images/booking/check.svg' className={`absolute bottom-5 select-none pointer-events-none left-5 ${addStyles === item._id ? 'block' : 'hidden'}`}  />
 
 </div>
@@ -198,7 +233,7 @@ function styles(item){
 
     </main>
 
-{formToggle && <section className='fixed top-[50%] left-[50%]  -translate-y-[50%] -translate-x-[50%] w-full h-full  z-50 flex items-center justify-center   bg-dashoverlay overflow-hidden'>
+{addAddressToggle && <section className='fixed top-[50%] left-[50%]  -translate-y-[50%] -translate-x-[50%] w-full h-full  z-50 flex items-center justify-center   bg-dashoverlay overflow-hidden'>
 <form className='flex flex-col gap-[22px]  rounded-[16px] h-max w-[564px] bg-soothingyellow p-7 shadow-dashshadow' onSubmit={addressSubmit}>
 <h6 className='text-[20px] font-semibold mb-2'>Add Address</h6>
 
@@ -236,7 +271,7 @@ function styles(item){
 </section>
 
 <section className='flex justify-end gap-[10px] mt-[20px]'>
-<button className='p-[16px] rounded-lg font-medium text-[16px] cursor-pointer' onClick={editToggle}>CANCEL</button>
+<button className='p-[16px] rounded-lg font-medium text-[16px] cursor-pointer' onClick={addAddressTogg}>CANCEL</button>
 <input type='submit' className='bg-dashgreen p-[16px] rounded-lg font-medium text-[16px] cursor-pointer' value='ADD' />
 </section>
 
@@ -244,6 +279,65 @@ function styles(item){
 
 </section>}
 
+{formToggle && <section className='fixed top-[50%] left-[50%]  -translate-y-[50%] -translate-x-[50%] w-full h-full  z-50 flex items-center justify-center   bg-dashoverlay overflow-hidden'>
+<form className='flex flex-col gap-[22px]  rounded-[16px] h-max w-[564px] bg-soothingyellow p-7 shadow-dashshadow' onSubmit={editAddressSubmit}>
+<h6 className='text-[20px] font-semibold mb-2'>Edit Address 1</h6>
+
+<div className=''>
+<h6 className='text-[14px] mb-[6px]'>Save as</h6>
+<input style={{border:'1px solid #C8CACD'}} name='title' required value={title} onChange={formDetails} className='w-full rounded-[10px] px-4 py-3 outline-none '/>
+</div>
+
+<div className=''>
+<h6 className='text-[14px] mb-[6px]'>Street Name</h6>
+<input style={{border:'1px solid #C8CACD'}} name='streetName' required value={streetName} onChange={formDetails} className='w-full rounded-[10px] px-4 py-3 outline-none'/>
+</div>
+
+<div className=''>
+<h6 className='text-[14px] mb-[6px]'>Street Number</h6>
+<input style={{border:'1px solid #C8CACD'}}  name='streetNumber' required value={streetNumber} onChange={formDetails} className='w-full rounded-[10px] px-4 py-3 outline-none'/>
+</div>
+
+<div className=''>
+<h6 className='text-[14px] mb-[6px]'>Apartment Number(optional)</h6>
+<input style={{border:'1px solid #C8CACD'}}  name='apartmentNumber' value={apartmentNumber} onChange={formDetails} className='w-full rounded-[10px] px-4 py-3 outline-none'/>
+</div>
+
+
+<section className='flex gap-4 '>
+<div className='w-[50%]'>
+<h6 className='text-[14px] mb-[6px]'>Postal Code</h6>
+<input style={{border:'1px solid #C8CACD'}} name='postalCode' required value={postalCode} onChange={formDetails} className='w-full rounded-[10px] px-4 py-3 outline-none'/>
+</div>
+
+<div className='w-[50%]'>
+<h6 className='text-[14px] mb-[6px]'>City / Town</h6>
+<input style={{border:'1px solid #C8CACD'}} name='city' required value={city}  onChange={formDetails} className='w-full rounded-[10px] px-4 py-3 outline-none'/>
+</div>
+</section>
+
+<section className='flex justify-end gap-[10px] mt-[20px]'>
+<button className='p-[16px] rounded-lg font-medium text-[16px] cursor-pointer' onClick={editToggle}>CANCEL</button>
+<input type='submit' className='bg-hazyblue text-white p-[16px] rounded-lg font-medium text-[16px] cursor-pointer' value='SAVE' />
+</section>
+
+</form>
+
+</section>}
+
+
+
+{deleteToggle && <section className='fixed top-[50%] left-[50%]  -translate-y-[50%] -translate-x-[50%] w-full h-full  z-50 flex items-center justify-center   bg-dashoverlay overflow-hidden'>
+<main className='flex flex-col gap-[22px]  rounded-[16px] h-max w-[564px] bg-soothingyellow p-6 shadow-dashshadow '>
+<h6 className='text-[20px] font-semibold'>Delete {modalTitle}?</h6>
+
+<section className='flex justify-end gap-[10px] mt-[20px]'>
+<button className='p-[16px] rounded-lg font-medium text-[16px] cursor-pointer' onClick={deleteTogg}>CANCEL</button>
+<button className='p-[16px] rounded-lg font-medium text-white bg-dashlired text-[16px] cursor-pointer' onClick={()=>{dispatch(deleteAddress(toBeDeletedId, token)),setDeleteToggle(false)}}>DELETE</button>
+</section>
+
+</main>
+</section>}
 
 
   </div>
