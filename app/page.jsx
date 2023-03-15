@@ -10,6 +10,8 @@ const page = () => {
 
   const navDetails={
     clicked:'For Business',
+    bookingId:'none',
+
     subcolour:'text-blue',
     border:'rgba(65, 110, 234, 1)',
     background:'bg-black',

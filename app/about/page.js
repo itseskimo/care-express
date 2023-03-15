@@ -11,6 +11,7 @@ const page = () => {
 
   const navDetails={
     clicked:'Faqs',
+    bookingId:'none',
     subcolour:'text-blue',
     border:'rgba(65, 110, 234, 1)',
     background:'bg-black',

@@ -14,6 +14,8 @@ const personal = () => {
 
   const navDetails={
     clicked:'Personal',
+    bookingId:'none',
+
     subcolour:'text-black',
     shadow:'shadow',
     background:'bg-black',
