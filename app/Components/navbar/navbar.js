@@ -193,7 +193,7 @@ useEffect(()=>{
 
 
 
-  <Link href={{pathname: user && userLoggedIn !== 'user' ? 'reports/booking' : '/login', query:{type:`${bookingId}`}}}>  <button className={` rounded-3xl text-white px-[17px] py-[9px] md:py-[6px] text-xs md:text-base  shrink-0 ${color}`}>Book Now</button></Link>
+  <Link href={{pathname: user && userLoggedIn !== 'user' ? 'reports/booking': '/login', query:{type:`${bookingId}`}}}>  <button className={` rounded-3xl text-white px-[17px] py-[9px] md:py-[6px] text-xs md:text-base  shrink-0 ${color}`} onClick={(e)=>navClicked(e.target.innerText)}>Book Now</button></Link>
 
   <main className='w-16  lg:w-20 shrink-0' onClick={selectField}>
 
