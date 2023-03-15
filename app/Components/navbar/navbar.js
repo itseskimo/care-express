@@ -148,7 +148,7 @@ useEffect(()=>{
     <div className='w-[30px] h-[4px] bg-black ease-in duration-200 mt-2' id='line2'></div>
     <div className='w-[30px] h-[4px] bg-black ease-in duration-200 mt-2' id='line3'></div>
   </div>
-  <Link href={{pathname:'/'}}><img src='../images/petExpress/logo.svg' className=' cursor-pointer' /></Link>
+  <Link href={{pathname:'/'}}><img src='../images/petExpress/logo.svg' className=' cursor-pointer shrink-0' /></Link>
   <Link href={{pathname:'/'}}> <span className={` font-semibold cursor-pointer ease-in duration-300 ${navitem === 'For Business'? `text-black`: ``}`}  onClick={(e)=>navClicked(e.target.innerText)}>For Business</span></Link>
   <Link href={{pathname:'/personal'}}>  <span className={` font-semibold cursor-pointer ease-in duration-300 hidden md:block  ${navitem === 'Personal'? `text-black`: ``}`}  onClick={(e)=>navClicked(e.target.innerText)} >Personal</span></Link>
   </section> 
