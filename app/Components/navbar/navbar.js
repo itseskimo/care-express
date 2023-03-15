@@ -48,6 +48,11 @@ function LogOut(){
   router.push('/')
 }
 
+function LogIn(){
+  let dropdownLoginArrow= document.getElementById('dropdownLoginArrow')
+  dropdownLoginArrow.classList.toggle('rotate-180')
+  setLoginDropdown(!loginDropdown)
+}
 
     function hamburger(){
       setSidebar(!sidebar)
@@ -166,11 +171,12 @@ useEffect(()=>{
   
 
 
-  <div className='flex flex-col items-center cursor-pointer mx-3 relative' onClick={()=>setLoginDropdown(!loginDropdown)}>
-  <LoginIcon className='scale-[0.8]'/>
+  <div className='flex gap-2 cursor-pointer  relative' onClick={LogIn}>
   <h6 className='font-semibold  cursor-pointer text-sm whitespace-nowrap'>Log In</h6>
+  <img src='../images/Icons/Arrowdown.svg' className='w-[9px] select-none pointer-events-none' id='dropdownLoginArrow'/>
+
   {loginDropdown &&
-<ul className=' w-40 bg-white shadow rounded-[8px] z-10 absolute top-12' >
+<ul className='flex flex-col items-center w-40 bg-white shadow rounded-[8px] z-10 absolute top-12' >
   <li className='w-full h-9 list-none box-border cursor-pointer flex items-center justify-around' >
     <p className=''>Customers</p>
   </li>
