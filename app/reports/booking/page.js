@@ -47,6 +47,11 @@ const page = () => {
 
         if(type){
           setCareType(type)
+        }else{
+          if(localStorage.getItem('careType')){
+            const careType = localStorage.getItem('careType')
+            setCareType(careType)
+            }
         }
 
 
@@ -57,10 +62,10 @@ const page = () => {
           extractText(plan, hours , cost)
           }
     
-          if(localStorage.getItem('careType')){
-          const careType = localStorage.getItem('careType')
-          setCareType(careType)
-          }
+          // if(localStorage.getItem('careType')){
+          // const careType = localStorage.getItem('careType')
+          // setCareType(careType)
+          // }
 
 
 
