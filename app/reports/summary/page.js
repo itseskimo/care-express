@@ -8,10 +8,11 @@ import {useRouter} from 'next/navigation';
 import { postOrder } from '@/redux/actions/page'
 import { useDispatch} from 'react-redux'
 import { useStripe } from '@stripe/react-stripe-js'
-
+import axios from 'axios'
 
 const page = () => {
     const router = useRouter();
+    const stripe = useStripe()
     const dispatch= useDispatch()
 
     const [contact, setContact] = useState({})
@@ -74,6 +75,18 @@ const page = () => {
     dispatch(postOrder(myForm,token));
   }
   
+ async function handleGuestCheckout(e){
+    e.preventDefault()
+    stripe.redirectToCheckout()
+    // const response = await stripeAPI('create-checkout-session', { body: { line_items } });
+
+    // const { sessionId } = response;
+    // const { error } = await stripe.redirectToCheckout({ sessionId });
+    
+    // if (error) {
+    //   console.log(error);
+    // }
+  }
   
   return (
     <div className='bg-specialbg  h-max'>
