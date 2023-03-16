@@ -87,7 +87,7 @@ const services ={
 </div>
 </section>
 
-<header className='font-extrabold text-3xl sm:text-4xl md:text-[58px]'>
+<header className='font-extrabold text-3xl sm:text-4xl md:text-[58px] text-bookingblue'>
 <h1  className='pb-2 md:pb-[34px]'>Care services for</h1>
 <h1  className='pb-2 lg:pb-3'>your employees</h1>
 </header>
