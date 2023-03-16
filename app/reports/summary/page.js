@@ -6,8 +6,8 @@ import Link from 'next/link'
 import {useState,useEffect} from 'react'
 import {useRouter} from 'next/navigation';
 import { postOrder } from '@/redux/actions/page'
-import { useDispatch, useSelector } from 'react-redux'
-
+import { useDispatch} from 'react-redux'
+import { useStripe } from '@stripe/react-stripe-js'
 
 
 const page = () => {
@@ -63,7 +63,6 @@ const page = () => {
     
   
   },[])
-    console.log(careType,plan,_id,calendarDate,token)
   
   function formsubmit(e){
     e.preventDefault();
@@ -73,7 +72,6 @@ const page = () => {
     myForm.set("address", _id);
     myForm.set("start_date", calendarDate);
     dispatch(postOrder(myForm,token));
-    // router.push('/reports/payment')
   }
   
   
