@@ -75,9 +75,10 @@ const page = () => {
     dispatch(postOrder(myForm,token));
   }
   
- async function handleGuestCheckout(e){
+    function handleGuestCheckout(e){
     e.preventDefault()
-    stripe.redirectToCheckout()
+    
+    stripe.redirectToCheckout({})
     // const response = await stripeAPI('create-checkout-session', { body: { line_items } });
 
     // const { sessionId } = response;
@@ -99,7 +100,7 @@ const page = () => {
 
 
 
-<form className='bg-white h-max rounded-[16px] mt-10' onSubmit={formsubmit}>
+<form className='bg-white h-max rounded-[16px] mt-10' onSubmit={handleGuestCheckout}>
 
 
 <section className=' grid grid-cols-5  mx-2 sm:mx-3 lg:mx-14 xlg:mx-28 py-8'>
