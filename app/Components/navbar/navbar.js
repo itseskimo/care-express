@@ -10,7 +10,6 @@ const navbar = (props) => {
 
   const dispatch= useDispatch()
   const { user} = useSelector((state) => state.user);
-console.log(user)
 
 const{first, second, third ,color,subcolour,clicked , border,background, shadow,  bookingId}=props
 const router = useRouter();
