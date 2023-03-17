@@ -8,7 +8,6 @@ import {useRouter} from 'next/navigation';
 import { postOrder } from '@/redux/actions/page'
 import { useDispatch} from 'react-redux'
 import { useStripe } from '@stripe/react-stripe-js'
-import axios from 'axios'
 
 const page = () => {
     const router = useRouter();
@@ -100,7 +99,7 @@ const page = () => {
 
 
 
-<form className='bg-white h-max rounded-[16px] mt-10' onSubmit={formsubmit}>
+<form className='bg-white h-max rounded-[16px] mt-10' onSubmit={handleGuestCheckout}>
 
 
 <section className=' grid grid-cols-5  mx-2 sm:mx-3 lg:mx-14 xlg:mx-28 py-8'>
