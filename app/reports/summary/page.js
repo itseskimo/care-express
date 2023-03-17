@@ -99,7 +99,7 @@ const page = () => {
 
 
 
-<form className='bg-white h-max rounded-[16px] mt-10' onSubmit={handleGuestCheckout}>
+<form className='bg-white h-max rounded-[16px] mt-10' onSubmit={formsubmit}>
 
 
 <section className=' grid grid-cols-5  mx-2 sm:mx-3 lg:mx-14 xlg:mx-28 py-8'>
