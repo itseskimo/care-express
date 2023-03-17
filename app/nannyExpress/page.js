@@ -4,8 +4,17 @@ import Footer from '../Components/footer/footer'
 import Testimonials from '../Components/testimonial/page'
 import Head from '../head'
 import Link from 'next/link'
+import { clearErrors } from '@/redux/actions/page'
+import { useEffect } from 'react'
+import { useDispatch} from 'react-redux'
 
 const nannyExpress = () => {
+
+const dispatch= useDispatch()
+
+  useEffect(()=>{
+    dispatch(clearErrors())
+  },[])
 
 const navDetails={
   bookingId:'nanny',

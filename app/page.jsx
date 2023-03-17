@@ -5,8 +5,16 @@ import Services from './Components/services/services'
 import Testimonials from './Components/testimonial/page'
 import Link from 'next/link'
 import Head from './head'
+import { clearErrors } from '@/redux/actions/page'
+import { useEffect } from 'react'
+import { useDispatch} from 'react-redux'
 
 const page = () => {
+const dispatch= useDispatch()
+
+  useEffect(()=>{
+    dispatch(clearErrors())
+  },[])
 
   const navDetails={
     clicked:'For Business',

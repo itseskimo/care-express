@@ -2,10 +2,10 @@
 import Navbar from '../Components/navbar/navbar'
 import Link from 'next/link'
 import { useState,useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector} from 'react-redux'
 import { useRouter } from 'next/navigation';
 import { login } from '@/redux/actions/page'
-import { getSocialLogin ,clearErrors } from '@/redux/actions/page'
+import { getSocialLogin} from '@/redux/actions/page'
 import Head from '../head'
 
 
@@ -22,7 +22,6 @@ const page = () => {
    const facebookLoginUrl = social?.meta;
   
    useEffect(()=>{
-    //  dispatch(clearErrors())
 
   if(Object.keys(user || {}).length > 0){
     let userData = JSON.stringify(user);

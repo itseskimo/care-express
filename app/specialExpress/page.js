@@ -4,8 +4,12 @@ import Footer from '../Components/footer/footer'
 import Testimonials from '../Components/testimonial/page'
 import Head from '../head'
 import Link from 'next/link'
+import { clearErrors } from '@/redux/actions/page'
+import { useEffect } from 'react'
+import { useDispatch} from 'react-redux'
 
 const specialExpress = () => {
+const dispatch= useDispatch()
 
   const navDetails={
     bookingId:'special',
@@ -47,6 +51,11 @@ const specialExpress = () => {
     border:'0.4px solid #0C68FF',
     overlay:'linear-gradient(90deg, rgba(240, 246, 255, 1) 0%, rgba(0, 0, 0, 0) 24%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0) 76%, rgba(240, 246, 255, 1) 100%)'
   }
+
+  useEffect(()=>{
+    dispatch(clearErrors())
+    
+    },[])
 
   return (
     <>

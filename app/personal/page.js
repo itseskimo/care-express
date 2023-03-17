@@ -4,13 +4,22 @@ import Services from '../Components/services/services'
 import Link from 'next/link'
 import Testimonials from '../Components/testimonial/page'
 import Head from '../head'
-
+import { clearErrors } from '@/redux/actions/page'
+import { useEffect } from 'react'
+import { useDispatch} from 'react-redux'
 // import { Splide, SplideSlide } from '@splidejs/react-splide'
 // import { Options } from '@splidejs/splide';
 // import '@splidejs/react-splide/css';
 
 
 const personal = () => {
+const dispatch= useDispatch()
+
+  useEffect(()=>{
+    dispatch(clearErrors())
+  },[])
+
+
 
   const navDetails={
     clicked:'Personal',

@@ -5,8 +5,10 @@ import { useState, useEffect } from 'react'
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import Head from '../head'
-
+import { clearErrors } from '@/redux/actions/page'
+import { useDispatch} from 'react-redux'
 const page = () => {
+const dispatch= useDispatch()
 
   const searchParams = useSearchParams();
   const searchPage = searchParams.get('search');
@@ -55,10 +57,15 @@ const page = () => {
       }
 
 useEffect(()=>{
+  dispatch(clearErrors())
+
   if(searchPage){
     selectedItem(searchPage)
   }
 },[])
+
+
+
 
       function selectedItem(id){
       sessionStorage.setItem('navClicked',id)

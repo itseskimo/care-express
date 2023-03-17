@@ -4,9 +4,12 @@ import Footer from '../Components/footer/footer'
 import Testimonials from '../Components/testimonial/page'
 import Head from '../head'
 import Link from 'next/link'
-
+import { clearErrors } from '@/redux/actions/page'
+import { useEffect } from 'react'
+import { useDispatch} from 'react-redux'
 
 const petExpress = () => {
+const dispatch= useDispatch()
 
   const navDetails={
     bookingId:'pet',
@@ -46,10 +49,13 @@ const petExpress = () => {
     textColor:'text-brown',
     innerText:'text-ligrey',
     subText:'text-grey',
-
     border:'0.4px solid #AA634D',
     overlay:'linear-gradient(90deg, #FFFEFA 0%, rgba(0, 0, 0, 0) 24%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0) 76%, #FFFEFA 100%)'
   }
+
+  useEffect(()=>{
+    dispatch(clearErrors())
+  },[])
 
   return (
     <>
