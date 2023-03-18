@@ -206,8 +206,8 @@ useEffect(()=>{
   </li>
  
   <li className='w-full h-9 list-none box-border cursor-pointer flex items-center justify-around ' >
-    <p className='' id='list2'>ES</p>
-    <img src='../images/Icons/ES-flag.svg' alt='ES' className='w-[20px] '/>
+    <p className='' id='list2'>PO</p>
+    <img src='../images/Icons/PO-flag.svg' alt='PO' className='w-[20px] '/>
   </li>
 </ul>
 }
