@@ -15,6 +15,7 @@ import { getServicePricing } from '@/redux/actions/page'
 
 const page = () => {
   const { orders}  = useSelector((state) => state.orders);
+
   const dispatch= useDispatch()
   const router = useRouter();
 
@@ -104,6 +105,8 @@ const page = () => {
       setCost(rpHours)
     }
 
+
+
   return (
     <div className='bg-specialbg  h-max' >
     <Head title='Order History' />
@@ -161,7 +164,6 @@ const page = () => {
 </div>
 
 {/* --------------------------------------------------------------------------------------- */}
-
 <div>
 <h6 className='font-semibold tracking-[0.02em] text-[16px] my-5'>Choose Plan</h6>
 <section className='mt-2 flex flex-wrap gap-9' >
@@ -170,15 +172,19 @@ const page = () => {
 
  if(item.most_popular === false){
 
-  return <div key={item._id} className={`border-[1px] border-solid ${selectPlanId === item._id? 'border-blue' : 'border-bookingborder' } 	w-[196px] h-[180px] rounded-[12px] relative cursor-pointer`} onClick={()=>extractText(item._id, item.hours,item.rate_per_hour)}>
+  if(item.service === careType){
+    return <div key={item._id} className={`border-[1px] border-solid ${selectPlanId === item._id? 'border-blue' : 'border-bookingborder' } 	w-[196px] h-[180px] rounded-[12px] relative cursor-pointer`} onClick={()=>extractText(item._id, item.hours,item.rate_per_hour)}>
     <section className='font-semibold flex flex-col pl-2 pt-9  rounded-[12px] select-none pointer-events-none' >
     <h6 className='text-2xl font-medium mb-3 select-none pointer-events-none' >{item.hours} hours</h6>
     <h6 className=' font-bold text-2xl select-none pointer-events-none' >{item.rate_per_hour} zł / h</h6>
     </section>
       <img src='../images/booking/check.svg' className={`absolute bottom-3 select-none pointer-events-none left-3 ${selectPlanId === item._id ? 'block' : 'hidden'}`} />
   </div>
+  }
 
  }else{
+
+  if(item.service === careType){
 
   return <div className={`border-[1px] border-solid 	w-[196px] h-[180px] ${selectPlanId === item._id? 'border-blue' : 'border-bookingborder' } rounded-[12px] relative cursor-pointer`} onClick={()=>extractText(item._id, item.hours,item.rate_per_hour)}>
   <nav className='flex bg-green w-max rounded-lg py-1 px-2 mt-2 ml-2 select-none pointer-events-none' >
@@ -191,20 +197,14 @@ const page = () => {
   </section>
   <img src='../images/booking/check.svg' className={`absolute select-none pointer-events-none  bottom-3 left-3 ${selectPlanId === item._id? 'block' : 'hidden'}`} />
 </div>
+
+  }
+
+ 
  }
 
 }) }
-
-          {/* <SvgIcon viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className='scale-[1.7]'>
-          <circle cx="20" cy="20" r="20" fill="#416EEA"/>
-          <path d="M28 14L17 25L12 20" stroke="white" strokeWidth="2" strokeLinecap="round" stroke-linejoin="round"/>
-          </SvgIcon> */}
-
-
-
-
-
-          
+ 
 </section>
 </div>
 
