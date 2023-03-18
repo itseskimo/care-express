@@ -92,7 +92,10 @@ function selectField(e){
      selectText.innerHTML= e.target.innerText  ||  e.target.alt 
 }
 
-
+function deleteDropdownState(){
+  setLoginDropdown(false)
+  setSelect(false)
+}
 
 // --------------------------------------------------------------
 
@@ -134,7 +137,7 @@ useEffect(()=>{
      
 
 
-  <header className='sticky top-0 w-full h-[62px] bg-white z-[200] shadow ' id='header'>
+  <header className='sticky top-0 w-full h-[62px] bg-white z-[200] shadow ' id='header' >
   <nav className='box-border  flex items-center justify-between h-full text-[15px]  ssxl:text-base  mx-4 sm:mx-14 '>
 
   
@@ -169,13 +172,13 @@ useEffect(()=>{
   <img src='../images/Icons/Arrowdown.svg' className='w-[9px] select-none pointer-events-none' id='dropdownLoginArrow'/>
 
   {loginDropdown &&
-<ul className='flex flex-col items-center w-40 bg-white shadow rounded-[8px] z-10 absolute top-12' >
-  <li className='w-full h-9 list-none box-border cursor-pointer flex items-center justify-around' >
+<ul className='flex flex-col items-center  bg-white shadow rounded-[8px] z-10 absolute top-12' >
+  <li className='w-full py-3 list-none box-border px-6 cursor-pointer flex items-center rounded-[8px]  justify-around hover:bg-slate-50' >
     <p className=''>Customers</p>
   </li>
  
-  <li className='w-full h-9 list-none box-border cursor-pointer flex items-center justify-around ' >
-    <p className='' >Settings</p>
+  <li className='w-full py-3 list-none box-border px-6 cursor-pointer flex items-center rounded-[8px]  justify-around hover:bg-slate-50 ' >
+    <p className='' >Caretaker</p>
   </li>
 </ul>
 }
