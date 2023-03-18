@@ -15,7 +15,7 @@ const footer = (props) => {
 <section className='lg:pl-10 xlg:pl-16 sxl:pl-24  flex items-center justify-center flex-col lg:items-start'>
 <h1 style={{ lineHeight: '58px' }} className='text-xl md:text-4xl lg:text-5xl font-extrabold  mb-1 md:mb-9 '>Would you like to know more?</h1>
 <h5 className='text-sm md:text-base lg:text-lg	leading-8 mx-3 text-center lg:text-justify'>Do you need more knowledge about our services? Check the “<Link href={{pathname:'/faq',query:{search:`${clicked}`}}}><span className='underline font-semibold underline-offset-[3px] cursor-pointer decoration-1'>frequently asked<br className='hidden sxl:block '></br> questions</span></Link>” or contact us on the <span className='underline font-semibold underline-offset-[3px] decoration-1 cursor-pointer '> chat</span> or <span className='underline font-semibold decoration-1 underline-offset-[3px] cursor-pointer'> hotline</span> </h5>
-<button className={`${buttonColour} mt-6 sm:mt-14 lg:mt-16 sxl:mt-24 px-[18px] py-[13px] text-white rounded-[27px] text-xs lg:text-xl font-semibold flex items-center justify-evenly`}><img className='pr-5' src='../images/Icons/call.svg'/><Link href='tel:+48 885 023 998'>Get in touch </Link></button>
+<a href='/contact'><button className={`${buttonColour} mt-6 sm:mt-14 lg:mt-16 sxl:mt-24 px-[18px] py-[13px] text-white rounded-[27px] text-xs lg:text-xl font-semibold flex items-center justify-evenly`}><img className='pr-5' src='../images/Icons/call.svg'/>Get in touch</button></a>
 </section>
 
 </footer>
@@ -39,10 +39,10 @@ const footer = (props) => {
 
 <section className='  my-5  sxl:my-0'>
 <h1 className={`${subTitle}  text-sm  md:text-base font-bold pb-4`}>Our services</h1>
-<Link href={{pathname:'/nannyExpress'}}><h1 className='text-white text-xs md:text-sm mb-3'>Nanny Express</h1></Link>
-<Link href={{pathname:'/seniorExpress'}}><h1 className='text-white text-xs md:text-sm mb-3 '>Senior Express</h1></Link>
-<Link href={{pathname:'/petExpress'}}><h1 className='text-white text-xs md:text-sm mb-3'>Pet Express</h1></Link>
-<Link href={{pathname:'/specialExpress'}}><h1 className='text-white text-xs md:text-sm mb-3'>Special Express</h1></Link>
+<a href='/nannyExpress'><h1 className='text-white text-xs md:text-sm mb-3'>Nanny Express</h1></a>
+<a href='/seniorExpress'><h1 className='text-white text-xs md:text-sm mb-3 '>Senior Express</h1></a>
+<a href='/petExpress'><h1 className='text-white text-xs md:text-sm mb-3'>Pet Express</h1></a>
+<a href='/specialExpress'><h1 className='text-white text-xs md:text-sm mb-3'>Special Express</h1></a>
 </section>
 
 
@@ -73,7 +73,7 @@ const footer = (props) => {
 
 <section className='my-5  sxl:my-0'>
 <h1  className={`${subTitle}  text-sm  md:text-base font-bold pb-4`}>Help & Support</h1>
-<Link href={{pathname:'/about'}}><h1 className='text-white text-xs md:text-sm mb-3'>About us</h1></Link>
+<a href='/about'><h1 className='text-white text-xs md:text-sm mb-3'>About us</h1></a>
 <h1 className='text-white text-xs md:text-sm mb-3'>Contact</h1>
 <h1 className='text-white text-xs md:text-sm mb-3'>Privacy Policy</h1>
 <h1 className='text-white text-xs md:text-sm mb-3'>Terms & conditions</h1>

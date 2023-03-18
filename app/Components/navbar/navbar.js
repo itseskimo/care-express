@@ -146,19 +146,19 @@ useEffect(()=>{
     <div className='w-[30px] h-[4px] bg-black ease-in duration-200 mt-2' id='line2'></div>
     <div className='w-[30px] h-[4px] bg-black ease-in duration-200 mt-2' id='line3'></div>
   </div>
-  <Link href={{pathname:'/'}}><img src='../images/petExpress/logo.svg' className=' cursor-pointer shrink-0' /></Link>
-  <Link href={{pathname:'/'}}> <span className={` font-semibold cursor-pointer ease-in duration-300 ${navitem === 'For Business'? `text-black`: ``}`}  onClick={(e)=>navClicked(e.target.innerText)}>For Business</span></Link>
-  <Link href={{pathname:'/personal'}}>  <span className={` font-semibold cursor-pointer ease-in duration-300 hidden md:block  ${navitem === 'Personal'? `text-black`: ``}`}  onClick={(e)=>navClicked(e.target.innerText)} >Personal</span></Link>
+  <a href='/'><img src='../images/petExpress/logo.svg' className=' cursor-pointer shrink-0' /></a>
+  <a href='/'>  <span className={` font-semibold cursor-pointer ease-in duration-300 ${navitem === 'For Business'? `text-black`: ``}`}  onClick={(e)=>navClicked(e.target.innerText)}>For Business</span></a>
+  <a href='/personal'><span className={` font-semibold cursor-pointer ease-in duration-300 hidden md:block  ${navitem === 'Personal'? `text-black`: ``}`}  onClick={(e)=>navClicked(e.target.innerText)} >Personal</span></a>
   </section> 
 
 
   <section className='flex items-center gap-5 ssxl:gap-7'>
 
   <div className='hidden xxlg:flex gap-7 text-gray-500   ' onClick={(e)=>navClicked(e.target.innerText)}>
-   <Link href={{pathname:'/nannyExpress'}}><span className={`font-semibold  cursor-pointer odd:ease-in duration-300 ${navitem === 'Nanny Express' ? `text-black`: ``}`}    >Nanny Express</span> </Link>   
-   <Link href={{pathname:'/seniorExpress'}}><span className={`font-semibold  cursor-pointer odd:ease-in duration-300 ${navitem === 'Senior Express' ? `text-black`: ``}`}   >Senior Express</span></Link>  
-   <Link href={{pathname:'/petExpress'}}><span className={`font-semibold  cursor-pointer odd:ease-in duration-300 ${navitem === 'Pet Express' ? `text-black`: ``}`}      >Pet Express</span></Link>  
-   <Link href={{pathname:'/specialExpress'}}> <span className={`font-semibold  cursor-pointer odd:ease-in duration-300 ${navitem === 'Special Express' ? `text-black`: ``}`}   >Special Express</span></Link>
+    <a href='/nannyExpress'>   <span className={`font-semibold  cursor-pointer odd:ease-in duration-300 ${navitem === 'Nanny Express' ? `text-black`: ``}`}>Nanny Express</span>  </a>
+    <a href='/seniorExpress'>   <span className={`font-semibold  cursor-pointer odd:ease-in duration-300 ${navitem === 'Senior Express' ? `text-black`: ``}`}   >Senior Express</span>  </a>
+    <a href='/petExpress'>   <span className={`font-semibold  cursor-pointer odd:ease-in duration-300 ${navitem === 'Pet Express' ? `text-black`: ``}`}      >Pet Express</span>  </a>
+    <a href='/specialExpress'><span className={`font-semibold  cursor-pointer odd:ease-in duration-300 ${navitem === 'Special Express' ? `text-black`: ``}`}   >Special Express</span></a>
   </div>
 
   

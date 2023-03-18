@@ -3,11 +3,13 @@ import React from 'react'
 
 const services = (props) => {
   const{nanny,senior,pet,special}=props
+
+  
   return (
     <>
     
 <main className=' flex items-center justify-center gap-1 lg:gap-20 xl:gap-0 xl:justify-between flex-wrap ' >
-<Link href={{pathname:'/nannyExpress'}}>
+<a href='/nannyExpress'>
   <section className='w-[306px] h-[325px] flex items-center  justify-center mt-5 mx-3 cursor-pointer' >
     <div className=' rounded-2xl flex items-center justify-center flex-col'>
     <div className={`${nanny}`}>
@@ -17,9 +19,9 @@ const services = (props) => {
       <h6 className='mt-4 whitespace-nowrap flex items-center  justify-center text-xs md:text-base tracking-[0.03em]	text-slate-500 text-center'>Professional nannies for your tiny <br></br>toddlers .</h6>
     </div>
   </section>
-  </Link>
+  </a>
 
-  <Link href={{pathname:'/seniorExpress'}}>
+  <a href='/seniorExpress'>
   <section className='w-[306px] h-[325px] flex items-center justify-center mt-5 mx-3 cursor-pointer'>
     <div className='rounded-2xl flex items-center justify-center flex-col'>
       <div  className={`${senior}`}>
@@ -29,9 +31,9 @@ const services = (props) => {
       <h6 className='mt-4 whitespace-nowrap flex items-center  justify-center text-xs md:text-base tracking-[0.03em]	text-slate-500 text-center'>Reliable & Caring nannies for elderly &  <br></br>seniors.</h6>
     </div>
   </section>
-  </Link>
+  </a>
 
-  <Link href={{pathname:'/petExpress'}}>
+  <a href='/petExpress'>
   <section className='w-[306px] h-[325px] flex items-center justify-center mt-5 mx-3 cursor-pointer' >
     <div className='  rounded-2xl flex items-center justify-center flex-col'>
     <div className={`${pet}`}>
@@ -41,9 +43,9 @@ const services = (props) => {
       <h6 className='mt-4 whitespace-nowrap flex items-center  justify-center text-xs md:text-base tracking-[0.03em]	text-slate-500 text-center'>Experienced pet sitters to look after your<br></br>pets .</h6>
     </div>
   </section>
-  </Link>
+  </a>
 
-  <Link href={{pathname:'/specialExpress'}}>
+  <a href='/specialExpress'>
   <section className='w-[306px] h-[325px] flex items-center justify-center mt-5 mx-3 cursor-pointer' >
     <div className='rounded-2xl flex items-center justify-center flex-col'>
     <div className={`${special}`}>
@@ -53,7 +55,7 @@ const services = (props) => {
       <h6 className='mt-4 whitespace-nowrap flex items-center  justify-center text-xs md:text-base tracking-[0.03em]	text-slate-500 text-center'>Professional caretaker for special  <br></br>needs .</h6>
     </div>
   </section>
-  </Link>
+  </a>
   </main>
     
     </>
