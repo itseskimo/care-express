@@ -10,8 +10,6 @@ import {useState,useEffect} from 'react'
 import {useRouter} from 'next/navigation';
 import { useDispatch, useSelector } from 'react-redux'
 import { getServicePricing } from '@/redux/actions/page'
-import SvgIcon from '@mui/material/SvgIcon';
-import { useSearchParams } from 'next/navigation';
 
 
 
@@ -20,9 +18,6 @@ const page = () => {
   const dispatch= useDispatch()
   const router = useRouter();
 
-
-  const searchParams = useSearchParams();
-  const type = searchParams.get('type');
 
   
 //  console.log(orders?.[0]?._id)
@@ -34,7 +29,6 @@ const page = () => {
     const [cost,setCost]=useState('')
 
     const [time,setTime]=useState('')
-    console.log(selectPlanId)
 
 
     const [calendarDate,setCalendarDate]=useState('')
@@ -50,10 +44,6 @@ const page = () => {
           const type = urlParams.get('type')
           setCareType(type)
 
-        }
-
-        if(type){
-          setCareType(type)
         }else{
           if(localStorage.getItem('careType')){
             const careType = localStorage.getItem('careType')
@@ -61,21 +51,12 @@ const page = () => {
             }
         }
 
-
         if(localStorage.getItem('plan')){
           const plan = localStorage.getItem('plan')
           const hours = localStorage.getItem('hours')
           const cost = localStorage.getItem('cost')
           extractText(plan, hours , cost)
           }
-    
-          // if(localStorage.getItem('careType')){
-          // const careType = localStorage.getItem('careType')
-          // setCareType(careType)
-          // }
-
-
-
        
       }
     },[])

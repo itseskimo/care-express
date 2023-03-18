@@ -379,7 +379,7 @@ const dispatch= useDispatch()
 <section className='my-5  sxl:my-0'>
 <h1  className='text-topaz  text-sm  md:text-base font-bold pb-4'>Help & Support</h1>
 <a href='/about'><h1 className='text-white text-xs md:text-sm mb-3'>About us</h1></a>
-<h1 className='text-white text-xs md:text-sm mb-3'>Contact</h1>
+<a href='/contact'><h1 className='text-white text-xs md:text-sm mb-3'>Contact</h1></a>
 <h1 className='text-white text-xs md:text-sm mb-3'>Privacy Policy</h1>
 <h1 className='text-white text-xs md:text-sm mb-3'>Terms & conditions</h1>
 <div className='mt-6'>

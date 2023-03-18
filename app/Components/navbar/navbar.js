@@ -165,7 +165,7 @@ useEffect(()=>{
 
 
   <div className='flex gap-2 cursor-pointer  relative' onClick={LogIn}>
-  <h6 className='font-semibold  cursor-pointer text-sm whitespace-nowrap'>Log In</h6>
+  <h6 className='font-semibold  cursor-pointer text-sm whitespace-nowrap text-gray-500'>Log In</h6>
   <img src='../images/Icons/Arrowdown.svg' className='w-[9px] select-none pointer-events-none' id='dropdownLoginArrow'/>
 
   {loginDropdown &&
@@ -185,8 +185,7 @@ useEffect(()=>{
 
 
 
-
-  <Link href={{pathname: user && userLoggedIn !== 'user' ? 'reports/booking': '/login', query:{type:`${bookingId}`}}}>  <button className={` rounded-3xl text-white px-[17px] py-[9px] md:py-[6px] text-xs md:text-base  shrink-0 ${color}`}>Book Now</button></Link>
+<a href={ user && userLoggedIn !== 'user' ? `reports/booking?type=${bookingId}`: '/login'}><button className={` rounded-3xl text-white px-[17px] py-[9px] md:py-[6px] text-xs md:text-base  shrink-0 ${color}`}>Book Now</button></a>
 
   <main className='w-16  lg:w-20 shrink-0' onClick={selectField}>
 
@@ -216,11 +215,11 @@ useEffect(()=>{
   </nav>
 
   {sidebar && <div className='text-gray-500 bg-white flex items-center justify-center gap-6 flex-col   h-[60vh] w-full  shadow' onClick={(e)=>navClicked(e.target.innerText)}>
-  <Link href={{pathname:'/personal'}}>  <span className={`       font-semibold  cursor-pointer mt-5 block md:hidden ease-in duration-300  ${navitem === 'Personal'? `text-black`: ``}`}  >Personal</span></Link>
-  <Link href={{pathname:'/nannyExpress'}}>  <span className={`   font-semibold  cursor-pointer odd:ease-in duration-300 ${navitem === 'Nanny Express' ? `text-black`: ``}`}  >Nanny Express</span></Link>
-  <Link href={{pathname:'/seniorExpress'}}>  <span className={`  font-semibold  cursor-pointer odd:ease-in duration-300 ${navitem === 'Senior Express' ? `text-black`:``}`}  >Senior Express</span></Link>
-  <Link href={{pathname:'/petExpress'}}>  <span className={`     font-semibold  cursor-pointer odd:ease-in duration-300 ${navitem === 'Pet Express' ? `text-black`: ``}`}    >Pet Express</span></Link>
-  <Link href={{pathname:'/specialExpress'}}>  <span className={` font-semibold  cursor-pointer odd:ease-in duration-300 ${navitem === 'Special Express' ? `text-black`:``}`}  >Special Express</span></Link>
+    <a href='/personal'><span className={`  font-semibold  cursor-pointer mt-5 block md:hidden ease-in duration-300  ${navitem === 'Personal'? `text-black`: ``}`}  >Personal</span></a>
+    <a href='/nannyExpress'><span className={`   font-semibold  cursor-pointer odd:ease-in duration-300 ${navitem === 'Nanny Express' ? `text-black`: ``}`}  >Nanny Express</span></a>
+    <a href='/seniorExpress'><span className={`  font-semibold  cursor-pointer odd:ease-in duration-300 ${navitem === 'Senior Express' ? `text-black`:``}`}  >Senior Express</span></a>
+    <a href='/petExpress'><span className={`   font-semibold  cursor-pointer odd:ease-in duration-300 ${navitem === 'Pet Express' ? `text-black`: ``}`}    >Pet Express</span></a>
+    <a href='/specialExpress'> <span className={` font-semibold  cursor-pointer odd:ease-in duration-300 ${navitem === 'Special Express' ? `text-black`:``}`}  >Special Express</span></a>
   </div>}
 
 
