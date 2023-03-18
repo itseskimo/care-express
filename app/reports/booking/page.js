@@ -49,7 +49,7 @@ const page = () => {
           const urlParams = new URLSearchParams(window.location.search);
           const type = urlParams.get('type')
           setCareType(type)
-          // console.log(type)
+
         }
 
         if(type){
@@ -236,7 +236,7 @@ const page = () => {
 <div className='min-w-[300px] sm:min-w-[330px] lg:max-w-none w-[80%] lg:w-[50%]'>
 <div className='relative flex '>
 
-<img src='../images/booking/calendar.svg' className='absolute  top-3 right-3 pointer-events-none select-none'/>
+<img src='../images/booking/Calendar.svg' className='absolute  top-3 right-3 pointer-events-none select-none'/>
 <input
  className='outline-none bg-inputbg w-full py-[10px] rounded-[8px] pl-3 cursor-pointer border-bookingborder border-[1px] border-solid' 
  readOnly
