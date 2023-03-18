@@ -5,10 +5,12 @@ import Testimonials from '../Components/testimonial/page'
 import Head from '../head'
 import Link from 'next/link'
 import { clearErrors } from '@/redux/actions/page'
-import { useEffect } from 'react'
-import { useDispatch} from 'react-redux'
+import { useEffect , useState} from 'react'
+import { useDispatch,useSelector } from 'react-redux'
 
 const petExpress = () => {
+
+const { user} = useSelector((state) => state.user);
 const dispatch= useDispatch()
 
   const navDetails={
@@ -53,9 +55,18 @@ const dispatch= useDispatch()
     overlay:'linear-gradient(90deg, #FFFEFA 0%, rgba(0, 0, 0, 0) 24%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0) 76%, #FFFEFA 100%)'
   }
 
+  const [token, setToken]= useState('')
+
   useEffect(()=>{
-    dispatch(clearErrors())
-  },[])
+  
+      dispatch(clearErrors())
+  
+    if(localStorage.getItem('user')){
+      let data = localStorage.getItem('user')
+      let loginData = JSON.parse(data);
+       setToken(loginData.token)
+    }
+    },[])
 
   return (
     <>
@@ -111,7 +122,7 @@ const dispatch= useDispatch()
 <h6 className='mt-6 text-sm md:text-lg font-normal  tracking-[0.01em]'>We believe finding a reliable, professional pet sitter should be easy. We<br className='hidden md:block '></br> really get to know you and your pet and we can guarantee consistent<br className='hidden md:block'></br> and personal care that is equal.</h6>
 
 <section className='mt-10 flex items-center'>
-<Link href={{pathname:'/reports/booking'}}><button className='bg-red px-[18px] py-[13px] text-white rounded-[27px] text-base lg:text-xl font-semibold tracking-wide flex items-center justify-evenly shrink-0'>Book a petsitter today<img src='../images/Icons/click-arrow.svg' className='pl-[18px]'/></button></Link>
+<a href={ token ? 'reports/booking?type=pet': '/login'}><button className='bg-red px-[18px] py-[13px] text-white rounded-[27px] text-base lg:text-xl font-semibold tracking-wide flex items-center justify-evenly shrink-0'>Book a petsitter today<img src='../images/Icons/click-arrow.svg' className='pl-[18px]'/></button></a>
 <h6  className='text-brown font-medium	underline underline-offset-[3px] decoration-1 pl-6 sm:pl-10 text-base lg:text-xl whitespace-nowrap cursor-pointer'>Learn more</h6>
 </section>
 
@@ -194,7 +205,7 @@ const dispatch= useDispatch()
 
 
 <section className='mt-10 flex items-center justify-center'>
-<Link href={{pathname:'/reports/booking'}}><button  className=' px-5 py-[13px] bg-red text-white rounded-[27px] text-sm md:text-xl font-semibold tracking-wide flex items-center justify-evenly'><img src='../images/Icons/calendar.svg' className='pr-4'/>Book a petsitter today</button></Link>
+<a href={ token ? 'reports/booking?type=pet': '/login'}><button  className=' px-5 py-[13px] bg-red text-white rounded-[27px] text-sm md:text-xl font-semibold tracking-wide flex items-center justify-evenly cursor-pointer'><img src='../images/Icons/calendar.svg' className='pr-4'/>Book a petsitter today</button></a>
 </section>
 <img src='../images/petExpress/bookBackground.png' className='absolute top-28 right-0 hidden xxlg:block w-fit'/>
 
@@ -246,12 +257,12 @@ const dispatch= useDispatch()
        </section>
 
 
-       <Link href={{pathname:'/reports/booking'}}>       <button className='bg-red mt-10 lg:mt-16 px-[20px] py-[13px] text-white rounded-[27px] text-base  lg:text-xl font-semibold tracking-wide hidden lg:flex items-center justify-evenly  '><img src='../images/Icons/calendar.svg' className='pr-[18px]'/>Book your petsitter</button></Link>
+       <a href={ token ? 'reports/booking?type=pet': '/login'}><button className='bg-red mt-10 lg:mt-16 px-[20px] py-[13px] text-white rounded-[27px] text-base  lg:text-xl font-semibold tracking-wide hidden lg:flex items-center justify-evenly  '><img src='../images/Icons/calendar.svg' className='pr-[18px]'/>Book your petsitter</button></a>       
 
 
 
       </div>
-      <Link href={{pathname:'/reports/booking'}}>      <button className='bg-red mt-10 lg:mt-16 px-[20px] py-[13px] text-white rounded-[27px] text-base  lg:text-xl font-semibold tracking-wide lg:hidden flex items-center justify-evenly  '><img src='../images/Icons/calendar.svg' className='pr-[18px]'/>Book your petsitter</button></Link>
+      <a href={ token ? 'reports/booking?type=pet': '/login'}><button className='bg-red mt-10 lg:mt-16 px-[20px] py-[13px] text-white rounded-[27px] text-base  lg:text-xl font-semibold tracking-wide lg:hidden flex items-center justify-evenly  '><img src='../images/Icons/calendar.svg' className='pr-[18px]'/>Book your petsitter</button></a>      
 
 
      </section>
@@ -264,7 +275,7 @@ const dispatch= useDispatch()
 {/* ----------------------------------------------------------------------------------------------------------------- */}
 
 
-<Testimonials {...Testimonial}/>
+{/* <Testimonials {...Testimonial}/> */}
 
 
 {/* ----------------------------------------------------------------------------------------------------------------- */}

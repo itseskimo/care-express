@@ -6,14 +6,23 @@ import Testimonials from './Components/testimonial/page'
 import Link from 'next/link'
 import Head from './head'
 import { clearErrors } from '@/redux/actions/page'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch} from 'react-redux'
 
 const page = () => {
-const dispatch= useDispatch()
 
-  useEffect(()=>{
+const dispatch= useDispatch()
+const [token, setToken]= useState('')
+
+useEffect(()=>{
+
     dispatch(clearErrors())
+
+  if(localStorage.getItem('user')){
+    let data = localStorage.getItem('user')
+    let loginData = JSON.parse(data);
+     setToken(loginData.token)
+  }
   },[])
 
   const navDetails={
@@ -102,7 +111,8 @@ const services ={
 <h6 className='mt-6 text-sm md:text-lg font-normal tracking-[0.01em]'> Care Express is a B2B booking platform offering employee<br className='hidden md:block'></br>  benefits focused on much needed care and household<br className='hidden md:block'></br>  support services. </h6>
 
 <section className='mt-10 flex items-center'>
-<Link href={{pathname:'/reports/booking'}}><button className='bg-blue px-[18px] py-[13px] text-white rounded-[27px] text-base lg:text-xl font-semibold tracking-wide flex items-center justify-evenly'>Book care today<img src='../images/Icons/click-arrow.svg' className='pl-[18px]'/></button></Link>
+  <a href={ token ? 'reports/booking?type=none': '/login'}><button className='bg-blue px-[18px] py-[13px] text-white rounded-[27px] text-base lg:text-xl font-semibold tracking-wide flex items-center justify-evenly'>Book care today<img src='../images/Icons/click-arrow.svg' className='pl-[18px]'/></button></a>
+
 <h6 className=' font-medium	text-blue underline decoration-1 pl-6 sm:pl-10 text-base lg:text-xl whitespace-nowrap underline-offset-[3px] cursor-pointer'>Learn more</h6>
 </section>
 
@@ -228,7 +238,7 @@ const services ={
 
 
 <section className='mt-10 flex items-center justify-center'>
-<Link href={{pathname:'/reports/booking'}}><button  className=' px-5 py-[13px] bg-blue text-white rounded-[27px] text-sm md:text-xl font-semibold tracking-wide flex items-center justify-evenly'><img src='../images/Icons/calendar.svg' className='pr-4'/>Book care today</button></Link>
+<a href={ token ? 'reports/booking?type=none': '/login'}><button  className=' px-5 py-[13px] bg-blue text-white rounded-[27px] text-sm md:text-xl font-semibold tracking-wide flex items-center justify-evenly'><img src='../images/Icons/calendar.svg' className='pr-4'/>Book care today</button></a>
 </section>
 
 </header>
@@ -245,7 +255,7 @@ const services ={
 <main className='bg-specialbg'>
   <main className='mx-4 sm:mx-14'>
 
-<Testimonials {...Testimonial}/>
+{/* <Testimonials {...Testimonial}/> */}
 
 
 {/* ----------------------------------------------------------------------------------------------------------------- */}

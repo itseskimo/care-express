@@ -4,14 +4,13 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation';
 import { logout} from '@/redux/actions/page'
 import { useDispatch,useSelector  } from 'react-redux'
-import LoginIcon from '@mui/icons-material/Login';
-import { LibraryAdd } from '@mui/icons-material';
+
 const navbar = (props) => {
 
   const dispatch= useDispatch()
   const { user} = useSelector((state) => state.user);
 
-const{first, second, third ,color,subcolour,clicked , border,background, shadow,  bookingId}=props
+  const{first, second, third ,color,subcolour,clicked , border,background, shadow,  bookingId}=props
 const router = useRouter();
 
 const[navitem,setNavItem]=useState(`${clicked}` )
@@ -26,18 +25,14 @@ const[userLoggedIn,setuserLoggedIn]=useState('user')
 // --------------------------------------------------------------
 useEffect(()=>{
 
- const navClicked = sessionStorage.getItem('navClicked')
- const navbarArray=['Nanny Express','Pet Express','Senior Express','Special Express', 'Personal','For Business' ]
- if(navbarArray.includes(navClicked) ){
-  setNavItem(navClicked)
- }
+
 
  if(localStorage.getItem('user')){
   let data = localStorage.getItem('user')
   let loginData = JSON.parse(data);
   setuserLoggedIn(loginData?.first_name)
 }
-},[navClicked,userLoggedIn])
+},[userLoggedIn])
 
 function LogOut(){
   dispatch(logout())
@@ -77,7 +72,6 @@ function LogIn(){
 
     function navClicked(id){
     setNavItem(id)
-    sessionStorage.setItem('navClicked',id)
     }
 
 function selectField(e){
@@ -116,8 +110,8 @@ useEffect(()=>{
   {userLoggedIn === 'user' ? 
     <nav className={`flex justify-end h-6 box-border ${background} whitespace-nowrap px-4 sm:px-14`}>
     <section className='flex items-center  font-medium text-white tracking-widest text-xs  lg:text-sm '>
-    <Link href={{pathname:'/faq',query:{search:`${clicked}`}}}><span className='px-2.5	mt-0.5 cursor-pointer' onClick={(e)=>navClicked(e.target.innerText)}>FAQs</span></Link>
-    <Link href={{pathname:'/about'}}>    <span className='px-2.5 mt-0.5	cursor-pointer'  onClick={(e)=>navClicked(e.target.innerText)}>About us</span></Link>
+    <Link href={{pathname:'/faq',query:{search:`${clicked}`}}}><span className='px-2.5	mt-0.5 cursor-pointer'>FAQs</span></Link>
+    <Link href={{pathname:'/about'}}>    <span className='px-2.5 mt-0.5	cursor-pointer' >About us</span></Link>
     <span className='px-2.5	mt-0.5 cursor-pointer '>Contact</span>
     </section>
     </nav> 
@@ -192,7 +186,7 @@ useEffect(()=>{
 
 
 
-  <Link href={{pathname: user && userLoggedIn !== 'user' ? 'reports/booking': '/login', query:{type:`${bookingId}`}}}>  <button className={` rounded-3xl text-white px-[17px] py-[9px] md:py-[6px] text-xs md:text-base  shrink-0 ${color}`} onClick={(e)=>navClicked(e.target.innerText)}>Book Now</button></Link>
+  <Link href={{pathname: user && userLoggedIn !== 'user' ? 'reports/booking': '/login', query:{type:`${bookingId}`}}}>  <button className={` rounded-3xl text-white px-[17px] py-[9px] md:py-[6px] text-xs md:text-base  shrink-0 ${color}`}>Book Now</button></Link>
 
   <main className='w-16  lg:w-20 shrink-0' onClick={selectField}>
 

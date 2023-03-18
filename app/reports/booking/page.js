@@ -23,7 +23,8 @@ const page = () => {
 
   const searchParams = useSearchParams();
   const type = searchParams.get('type');
-  console.log(type)
+
+  
 //  console.log(orders?.[0]?._id)
   
 
@@ -44,6 +45,12 @@ const page = () => {
       if(localStorage.getItem('user')){
         dispatch(getServicePricing())
       
+        if(new URLSearchParams(window.location.search).get('type')){
+          const urlParams = new URLSearchParams(window.location.search);
+          const type = urlParams.get('type')
+          setCareType(type)
+          // console.log(type)
+        }
 
         if(type){
           setCareType(type)

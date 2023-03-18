@@ -6,15 +6,24 @@ import Testimonials from '../Components/testimonial/page'
 import Head from '../head'
 import Link from 'next/link'
 import { clearErrors } from '@/redux/actions/page'
-import { useEffect } from 'react'
+import { useEffect , useState } from 'react'
 import { useDispatch} from 'react-redux'
 
 const page = () => {
 
 const dispatch= useDispatch()
 
-  useEffect(()=>{
-    dispatch(clearErrors())
+const [token, setToken]= useState('')
+
+useEffect(()=>{
+
+  dispatch(clearErrors())
+
+  if(localStorage.getItem('user')){
+    let data = localStorage.getItem('user')
+    let loginData = JSON.parse(data);
+    setToken(loginData.token)
+  }
   },[])
 
 
@@ -99,7 +108,7 @@ const dispatch= useDispatch()
 <h6 className='mt-3 text-sm md:text-lg font-normal tracking-[0.01em]'> Since 2004, the company has been winning the people’s<br className='hidden md:block'></br> trust in Poland and abroad. Its success is founded on a <br className='hidden md:block'></br>personal approach towards the needs of every single<br className='hidden md:block'></br> customer but also a long-term cooperation with the<br className='hidden md:block'></br> customer. Consequently, Care Express is a leader in the care<br className='hidden md:block'></br> industry on a Polish market.</h6>
 
 <section className='mt-10 flex items-center'>
-<Link href={{pathname:'/reports/booking'}}><button className='bg-blue px-5 h-[54px] text-white rounded-[27px] text-base lg:text-xl font-semibold tracking-wide flex items-center justify-evenly'>Book care today<img className='pl-3' src='../images/Icons/click-arrow.svg'/></button></Link>
+<a href={ token ? 'reports/booking?type=none': '/login'}><button className='bg-blue px-5 h-[54px] text-white rounded-[27px] text-base lg:text-xl font-semibold tracking-wide flex items-center justify-evenly'>Book care today<img className='pl-3' src='../images/Icons/click-arrow.svg'/></button></a>
 
 </section>
 
@@ -168,12 +177,12 @@ const dispatch= useDispatch()
 
 </main>
 <section className='flex items-center justify-center'>
-<Link href={{pathname:'/reports/booking'}}><button className='bg-blue mt-10 lg:mt-12 px-[18px] py-[14px] text-white rounded-[27px] text-base  lg:text-xl font-semibold tracking-wide flex items-center justify-evenly  '><img src='../images/Icons/calendar.svg' className='pr-[18px]'/>Book your care</button></Link>
+<a href={ token ? 'reports/booking?type=none': '/login'}><button className='bg-blue mt-10 lg:mt-12 px-[18px] py-[14px] text-white rounded-[27px] text-base  lg:text-xl font-semibold tracking-wide flex items-center justify-evenly  '><img src='../images/Icons/calendar.svg' className='pr-[18px]'/>Book your care</button></a>
 </section>
 </main>
 {/* ----------------------------------------------------------------------------------------------------------------- */}
 
-<Testimonials {...Testimonial}/>
+{/* <Testimonials {...Testimonial}/> */}
 
 
 

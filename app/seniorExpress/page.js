@@ -5,11 +5,12 @@ import Footer from '../Components/footer/footer'
 import Testimonials from '../Components/testimonial/page'
 import Head from '../head'
 import { clearErrors } from '@/redux/actions/page'
-import { useEffect } from 'react'
-import { useDispatch} from 'react-redux'
-
+import { useEffect, useState } from 'react'
+import { useDispatch,useSelector } from 'react-redux'
 
 const seniorExpress = () => {
+
+const { user} = useSelector((state) => state.user);
 const dispatch= useDispatch()
 
   const navDetails={
@@ -55,10 +56,18 @@ const dispatch= useDispatch()
     overlay:'linear-gradient(90deg, #FFF4F0 0%, rgba(255, 253, 244, 0) 25.46%, rgba(255, 253, 244, 0) 49.48%, rgba(255, 253, 244, 0) 74.54%, #FFF4F0 100%)'
   }
 
-useEffect(()=>{
-dispatch(clearErrors())
+  const [token, setToken]= useState('')
 
-},[])
+  useEffect(()=>{
+  
+      dispatch(clearErrors())
+  
+    if(localStorage.getItem('user')){
+      let data = localStorage.getItem('user')
+      let loginData = JSON.parse(data);
+       setToken(loginData.token)
+    }
+    },[])
 
 
   return (
@@ -67,13 +76,7 @@ dispatch(clearErrors())
 
     <main className='' >
 
-    {/* <nav  className='flex justify-end h-6 box-border bg-purple'>
-    <section className='flex items-center mx-4 sm:mx-14 font-medium text-white tracking-widest text-xs  lg:text-sm py-2'>
-    <Link href={{pathname:'/faq',query:{search:'Senior Express'}}}><span className='px-2.5	mt-0.5 cursor-pointer'>FAQS</span></Link>
-    <Link href={{pathname:'/about'}}>    <span className='px-2.5 mt-0.5	cursor-pointer'>About us</span></Link>
-    <span className='px-2.5	mt-0.5 cursor-pointer '>Contact</span>
-    </section>
-    </nav> */}
+    
 
     <Navbar color={'bg-purple'} {...navDetails}/>
    
@@ -107,7 +110,7 @@ dispatch(clearErrors())
 <h6 className='mt-0 sm:mt-4 sm:text-base md:text-lg sxlg:text-[14.6px] ssxl:text-[17px] sxl:text-lg font-normal  tracking-[0.01em]  '> We believe finding a reliable, professional care should be easy. We<br className='hidden md:block '></br> really get to know you and your parents and we can guarantee consistent<br className='hidden md:block'></br> and personal care that is equal. </h6>
 
 <section className='mt-7 sm:mt-11 sxl:mt-10 flex items-center'>
-<Link href={{pathname:'/reports/booking'}}><button className='bg-purple px-[18px] py-[13px] text-white rounded-[27px] shrink-0 text-base lg:text-xl font-semibold tracking-wide flex items-center justify-evenly'>Book senior care today<img src='../images/Icons/click-arrow.svg' className='pl-[18px]'/></button></Link>
+<a href={ token ? 'reports/booking?type=senior': '/login'}><button className='bg-purple px-[18px] py-[13px] text-white rounded-[27px] shrink-0 text-base lg:text-xl font-semibold tracking-wide flex items-center justify-evenly'>Book senior care today<img src='../images/Icons/click-arrow.svg' className='pl-[18px]'/></button></a>
 <h6  className='text-purple font-medium	underline underline-offset-[3px] decoration-1 pl-4 sm:pl-10 text-base lg:text-xl whitespace-nowrap cursor-pointer'>Learn more</h6>
 </section>
 
@@ -186,7 +189,7 @@ dispatch(clearErrors())
 
 
 <section className='mt-10 flex items-center justify-center'>
-<Link href={{pathname:'/reports/booking'}}><button  className=' px-5 py-[13px] bg-purple text-white rounded-[27px] text-sm md:text-xl font-semibold tracking-wide flex items-center justify-evenly'><img src='../images/Icons/calendar.svg' className='pr-4'/>Book senior care today</button></Link>
+<a href={ token ? 'reports/booking?type=senior': '/login'}><button  className=' px-5 py-[13px] bg-purple text-white cursor-pointer rounded-[27px] text-sm md:text-xl font-semibold tracking-wide flex items-center justify-evenly'><img src='../images/Icons/calendar.svg' className='pr-4'/>Book senior care today</button></a>
 </section>
 <img src='../images/seniorExpress/bookBackground.png' className='absolute top-28 right-0 hidden xxlg:block w-fit'/>
 
@@ -235,10 +238,10 @@ dispatch(clearErrors())
        <h2 className='text-sm  xlsm:text-base md:text-lg  mb-5 mt-4 ml-5 tracking-[0.01em] '>It’s you who decides which package of hours works best for you</h2>
        </section>
 
-       <Link href={{pathname:'/reports/booking'}}><button className='bg-purple mt-10 lg:mt-16 px-[20px] py-[13px] text-white rounded-[27px] text-base  lg:text-xl font-semibold tracking-wide hidden lg:flex items-center justify-evenly  '><img src='../images/Icons/calendar.svg' className='pr-[18px]'/>Book your senior care</button></Link>
+       <a href={ token ? 'reports/booking?type=senior': '/login'}><button className='bg-purple mt-10 lg:mt-16 px-[20px] py-[13px] text-white rounded-[27px] text-base  lg:text-xl font-semibold tracking-wide hidden lg:flex items-center justify-evenly  '><img src='../images/Icons/calendar.svg' className='pr-[18px]'/>Book your senior care</button></a>
 
       </div>
-      <Link href={{pathname:'/reports/booking'}}><button className='bg-purple mt-10 lg:mt-16 px-[20px] py-[13px] text-white rounded-[27px] text-base  lg:text-xl font-semibold tracking-wide lg:hidden flex items-center justify-evenly  '><img src='../images/Icons/calendar.svg' className='pr-[18px]'/>Book your senior care</button></Link>
+      <a href={ token ? 'reports/booking?type=senior': '/login'}><button className='bg-purple mt-10 lg:mt-16 px-[20px] py-[13px] text-white rounded-[27px] text-base  lg:text-xl font-semibold tracking-wide lg:hidden flex items-center justify-evenly  '><img src='../images/Icons/calendar.svg' className='pr-[18px]'/>Book your senior care</button></a>
 
      </section>
     </header>
@@ -252,7 +255,7 @@ dispatch(clearErrors())
   
 
 
-<Testimonials {...Testimonial}/>
+{/* <Testimonials {...Testimonial}/> */}
 
 
 {/* ----------------------------------------------------------------------------------------------------------------- */}

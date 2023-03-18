@@ -5,18 +5,27 @@ import Link from 'next/link'
 import Testimonials from '../Components/testimonial/page'
 import Head from '../head'
 import { clearErrors } from '@/redux/actions/page'
-import { useEffect } from 'react'
-import { useDispatch} from 'react-redux'
-// import { Splide, SplideSlide } from '@splidejs/react-splide'
-// import { Options } from '@splidejs/splide';
-// import '@splidejs/react-splide/css';
+import { useEffect , useState } from 'react'
+import { useDispatch,useSelector } from 'react-redux'
+
 
 
 const personal = () => {
+  
+const { user} = useSelector((state) => state.user);
 const dispatch= useDispatch()
 
-  useEffect(()=>{
-    dispatch(clearErrors())
+const [token, setToken]= useState('')
+
+useEffect(()=>{
+
+  dispatch(clearErrors())
+
+  if(localStorage.getItem('user')){
+    let data = localStorage.getItem('user')
+    let loginData = JSON.parse(data);
+     setToken(loginData.token)
+  }
   },[])
 
 
@@ -116,7 +125,7 @@ unexpected business trip or long working hours mean that<br className='hidden md
 your beloved pet has no one to take care of him? </h6>
 
 <section className='mt-10 flex items-center'>
-<Link href={{pathname:'/reports/booking'}}><button className='bg-blue px-[18px] py-[13px] text-white rounded-[27px] text-base lg:text-xl font-semibold tracking-wide flex items-center justify-evenly'>Book care today<img src='../images/Icons/click-arrow.svg' className='pl-[18px]'/></button></Link>
+<a href={ token ? 'reports/booking?type=none': '/login'}><button className='bg-blue px-[18px] py-[13px] text-white rounded-[27px] text-base lg:text-xl font-semibold tracking-wide flex items-center justify-evenly'>Book care today<img src='../images/Icons/click-arrow.svg' className='pl-[18px]'/></button></a>
 <h6 className=' font-medium	underline decoration-1 pl-6 sm:pl-10 text-base lg:text-xl whitespace-nowrap underline-offset-[3px] cursor-pointer'>Learn more</h6>
 </section>
 
@@ -249,7 +258,7 @@ your beloved pet has no one to take care of him? </h6>
 </main>
 
 <section className='mt-3 sm:mt-10 flex items-center justify-center'>
-<Link href={{pathname:'/reports/booking'}}><button className=' px-5 py-[13px] bg-blue text-white rounded-[27px] text-sm md:text-xl font-semibold tracking-wide flex items-center justify-evenly'><img src='../images/Icons/calendar.svg' className='pr-4'/>Book care today</button></Link>
+<a href={ token ? 'reports/booking?type=none': '/login'}><button className=' px-5 py-[13px] bg-blue text-white rounded-[27px] text-sm md:text-xl font-semibold tracking-wide flex items-center justify-evenly'><img src='../images/Icons/calendar.svg' className='pr-4'/>Book care today</button></a>
 </section>
 
 </header>
@@ -266,7 +275,7 @@ your beloved pet has no one to take care of him? </h6>
 <main className='bg-liyellow'>
   <main className='mx-4 sm:mx-14'>
 
-  <Testimonials {...Testimonial}/>
+  {/* <Testimonials {...Testimonial}/> */}
 
 
 </main>

@@ -5,15 +5,26 @@ import Testimonials from '../Components/testimonial/page'
 import Head from '../head'
 import Link from 'next/link'
 import { clearErrors } from '@/redux/actions/page'
-import { useEffect } from 'react'
-import { useDispatch} from 'react-redux'
+import { useEffect, useState } from 'react'
+import { useDispatch,useSelector } from 'react-redux'
+
 
 const nannyExpress = () => {
 
+const { user} = useSelector((state) => state.user);
 const dispatch= useDispatch()
 
-  useEffect(()=>{
+const [token, setToken]= useState('')
+
+useEffect(()=>{
+
     dispatch(clearErrors())
+
+  if(localStorage.getItem('user')){
+    let data = localStorage.getItem('user')
+    let loginData = JSON.parse(data);
+     setToken(loginData.token)
+  }
   },[])
 
 const navDetails={
@@ -64,15 +75,6 @@ const Testimonial={
         <Head title='Nanny Express'/>
 
     <main className='' >
-    
-   
-    {/* <nav  className='flex justify-end h-6 box-border bg-orange'>
-    <section className='flex items-center mx-4 sm:mx-14 font-medium text-white tracking-widest text-xs  lg:text-sm py-2'>
-    <Link href={{pathname:'/faq',query:{search:'Nanny Express'}}}><span className='px-2.5	mt-0.5 cursor-pointer'>FAQS</span></Link>
-    <Link href={{pathname:'/about'}}>    <span className='px-2.5 mt-0.5	cursor-pointer'>About us</span></Link>
-    <span className='px-2.5	mt-0.5 cursor-pointer '>Contact</span>
-    </section>
-    </nav> */}
 
     <Navbar color={'bg-orange'} {...navDetails}/>
    
@@ -89,12 +91,7 @@ const Testimonial={
 
 <main className='mt-5 sxl:mt-0'>
 
-{/* <section className=' h-10 sxl:h-40 w-[218px] relative' >
-<div className='absolute top-[-40px] sxl:top-20 '>
-<h4  className='h-[40px] w-[218px] text-black pl-[86px] flex items-center text-xs	font-bold rounded-lg bg-drkyellow tracking-[0.1em]' >NANNY EXPRESS</h4>
-<img src='../images/nannyExpress/nanny-express-badge.png' className='absolute bottom-0 ' />
-</div>
-</section> */}
+
 
 <section className='relative top-[-40px] sxl:top-[81px]  sxl:mb-[120px]'>
 <img src='../images/nannyExpress/nanny-express-badge.png' className='absolute bottom-0 ' />
@@ -114,7 +111,7 @@ const Testimonial={
 
 
 <section className='mt-10 flex items-center'>
-<Link href={{pathname:'/reports/booking'}}><button className='bg-orange px-[18px] py-[13px] text-white rounded-[27px] text-base lg:text-xl font-semibold tracking-wide flex items-center justify-evenly'>Book a nanny today<img src='../images/Icons/click-arrow.svg' className='pl-[18px]'/></button></Link>
+<a href={ token ? 'reports/booking?type=nanny': '/login'}><button className='bg-orange px-[18px] py-[13px] text-white rounded-[27px] text-base lg:text-xl font-semibold tracking-wide flex items-center justify-evenly'>Book a nanny today<img src='../images/Icons/click-arrow.svg' className='pl-[18px]'/></button></a>
 <h6  className='text-orange font-medium	underline underline-offset-[3px] decoration-1 pl-6 sm:pl-10 text-base lg:text-xl whitespace-nowrap cursor-pointer'>Learn more</h6>
 </section>
 
@@ -198,7 +195,7 @@ const Testimonial={
 
 
 <section className='mt-10 flex items-center justify-center'>
-<Link href={{pathname:'/reports/booking'}}><button  className=' px-5 py-[13px] bg-orange text-white rounded-[27px] text-sm md:text-xl font-semibold tracking-wide flex items-center justify-evenly'><img src='../images/Icons/calendar.svg' className='pr-4'/>Book a nanny today</button></Link>
+<a href={ token ? 'reports/booking?type=nanny': '/login'}><button  className=' px-5 py-[13px] bg-orange text-white rounded-[27px] text-sm md:text-xl font-semibold tracking-wide flex items-center justify-evenly'><img src='../images/Icons/calendar.svg' className='pr-4'/>Book a nanny today</button></a>
 </section>
 <img src='../images/nannyExpress/bookBackground.png' className='absolute top-28 right-0 hidden xxlg:block w-fit'/>
 
@@ -247,10 +244,10 @@ const Testimonial={
        <h2 className='text-sm lg:text-lg tracking-[0.01em] mb-5 mt-4 ml-5'>It’s you who decides which package of hours works best for you</h2>
        </section>
 
-       <Link href={{pathname:'/reports/booking'}}><button className='bg-orange mt-10 lg:mt-16 px-[20px] py-[13px] text-white rounded-[27px] text-base  lg:text-xl font-semibold tracking-wide hidden lg:flex items-center justify-evenly  '><img src='../images/Icons/calendar.svg' className='pr-[18px]'/>Book your babysitter</button></Link>
+       <a href={ token ? 'reports/booking?type=nanny': '/login'}><button className='bg-orange mt-10 lg:mt-16 px-[20px] py-[13px] text-white rounded-[27px] text-base  lg:text-xl font-semibold tracking-wide hidden lg:flex items-center justify-evenly  '><img src='../images/Icons/calendar.svg' className='pr-[18px]'/>Book your babysitter</button></a>
 
       </div>
-      <Link href={{pathname:'/reports/booking'}}> <button className='bg-orange mt-10 lg:mt-16 px-[20px] py-[13px] text-white rounded-[27px] text-base  lg:text-xl font-semibold tracking-wide lg:hidden flex items-center justify-evenly  '><img src='../images/Icons/calendar.svg' className='pr-[18px]'/>Book your babysitter</button></Link>
+      <a href={ token ? 'reports/booking?type=nanny': '/login'}><button className='bg-orange mt-10 lg:mt-16 px-[20px] py-[13px] text-white rounded-[27px] text-base  lg:text-xl font-semibold tracking-wide lg:hidden flex items-center justify-evenly  '><img src='../images/Icons/calendar.svg' className='pr-[18px]'/>Book your babysitter</button></a> 
 
      </section>
     </header>
@@ -260,7 +257,7 @@ const Testimonial={
 
 
 
-<Testimonials {...Testimonial}/>
+{/* <Testimonials {...Testimonial}/> */}
 
 
 

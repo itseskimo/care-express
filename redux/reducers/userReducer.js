@@ -56,6 +56,7 @@ export const userReducer = (state = { user: {} }, action) => {
       return {
         ...state,
         error: null,
+
       };
   
       default:
