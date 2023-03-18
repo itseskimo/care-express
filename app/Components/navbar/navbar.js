@@ -228,7 +228,9 @@ useEffect(()=>{
     <span className={`px-5 font-semibold ${subcolour} cursor-pointer`}><a href={`${first.id}`}>{`${first.name}`}</a></span>
     <span className={`px-5 font-semibold ${subcolour} cursor-pointer`}><a href={`${second.id}`}>{`${second.name}`}</a></span>
     <span className={`px-5 font-semibold ${subcolour} cursor-pointer`}><a href={`${third.id}`}>{`${third.name}`}</a></span>
-    <Link href={{pathname:'/faq',query:{search:`${clicked}`}}}> {second.name === 'Our services' ? <span className={`px-5 font-semibold ${subcolour} cursor-pointer`}>FAQ</span> : ''}</Link>  
+
+    <a href={`/faq?search=${clicked}`}> {second.name === 'Our services' ? <span className={`px-5 font-semibold ${subcolour} cursor-pointer`}>FAQ</span> : ''}</a>  
+    {/* <Link href={{pathname:'/faq',query:{search:`${clicked}`}}}> {second.name === 'Our services' ? <span className={`px-5 font-semibold ${subcolour} cursor-pointer`}>FAQ</span> : ''}</Link>   */}
     </nav>
 
   </header>

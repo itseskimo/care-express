@@ -96,17 +96,9 @@ const dispatch= useDispatch()
 <main className='mx-4 sm:mx-14 '>
   {/* ------------RESPONSIBLE FOR MARGIN---------------- */}
 
-<header className='flex justify-between md:items-center flex-col-reverse sxl:flex-row pt-12' id='home'>
+<header className='flex justify-between md:items-center flex-col-reverse sxl:flex-row pt-12' >
 
 <main className='mt-5 sxl:mt-0'>
-
-
-{/* <section className='h-10 sxl:h-40 w-[218px] relative'>
-<div className='absolute top-[-40px] sxl:top-20'>
-<img src='../images/petExpress/pet-express-badge.png' className='absolute bottom-0 ' />
-<h4  className='px-[22px] py-3 text-white pl-[82px] flex items-center text-xs	font-bold rounded-lg bg-librown tracking-[0.1em]' >PET EXPRESS</h4>
-</div>
-</section> */}
 
 <section className='relative top-[-40px] sxl:top-[81px]  sxl:mb-[120px]'>
 <img src='../images/petExpress/pet-express-badge.png' className='absolute bottom-0 ' />
@@ -218,7 +210,7 @@ const dispatch= useDispatch()
 <main className='mx-4 smd:mx-14'>
 
 
-    <header className='pt-40  pb-40'>
+    <header className='pt-40  pb-40' id='home'>
     <section className='flex flex-col lg:flex-row items-center justify-around'>
 
       <img src='../images/petExpress/pet-express-featured-image-1.png'/>

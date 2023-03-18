@@ -178,9 +178,10 @@ const services ={
          also the leap into electronic typesetting, remaining
          essentially unchanged. It was popularised in the 1960s with
          the release of Letraset sheets containing..</h2>  
-         <Link href={{pathname:'/about'}}><button className='bg-blue mt-10 lg:mt-12 px-[24px] py-[13px] text-white rounded-[27px] text-base  lg:text-xl font-semibold tracking-wide hidden lg:flex items-center justify-evenly  '>Learn more</button></Link>
+         <a href='/about'>         <button className='bg-blue mt-10 lg:mt-12 px-[24px] py-[13px] text-white rounded-[27px] text-base  lg:text-xl font-semibold tracking-wide hidden lg:flex items-center justify-evenly  '>Learn more</button></a>
       </div>
-      <Link href={{pathname:'/about'}}>      <button className='bg-blue mt-10 lg:mt-12 px-[24px] py-[13px] text-white rounded-[27px] text-base  lg:text-xl font-semibold tracking-wide lg:hidden flex items-center justify-evenly  '>Learn more</button></Link>
+      <a href='/about'><button className='bg-blue mt-10 lg:mt-12 px-[24px] py-[13px] text-white rounded-[27px] text-base  lg:text-xl font-semibold tracking-wide lg:hidden flex items-center justify-evenly  '>Learn more</button></a>
+
 
      </section>
     </header>

@@ -12,7 +12,7 @@ const dispatch= useDispatch()
 
   const searchParams = useSearchParams();
   const searchPage = searchParams.get('search');
-
+  
     const [selected,setSelected]= useState('')
 
     const [dynamicFaq ,setDynamicFaq]= useState({navDetails:{

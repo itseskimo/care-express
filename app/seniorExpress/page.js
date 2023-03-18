@@ -86,7 +86,7 @@ const dispatch= useDispatch()
 <main className='mx-4 smd:mx-14'  >
   {/* ------------RESPONSIBLE FOR MARGIN---------------- */}
 
-<header className='flex justify-between items-center lg:items-start flex-col-reverse sxlg:flex-row pt-12' id='home'>
+<header className='flex justify-between items-center lg:items-start flex-col-reverse sxlg:flex-row pt-12' >
 
 <main className=' ' >
 
@@ -202,7 +202,7 @@ const dispatch= useDispatch()
 <main className='mx-4 smd:mx-14'>
 
 
-    <header className='pt-40  pb-40'>
+    <header className='pt-40  pb-40' id='home'>
     <section className='flex flex-col xlg:flex-row items-center justify-around'>
 
       <img src='../images/seniorExpress/senior-express-featured-image-1.png'/>

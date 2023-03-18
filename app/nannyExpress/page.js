@@ -87,7 +87,7 @@ const Testimonial={
 <main className='mx-4 sm:mx-14 '>
   {/* ------------RESPONSIBLE FOR MARGIN---------------- */}
 
-<header className='flex justify-between md:items-center flex-col-reverse sxl:flex-row pt-12' id='home'>
+<header className='flex justify-between md:items-center flex-col-reverse sxl:flex-row pt-12' >
 
 <main className='mt-5 sxl:mt-0'>
 
@@ -207,7 +207,7 @@ const Testimonial={
 <main className='mx-4 smd:mx-14'>
 
 
-    <header className='pt-40  pb-40'>
+    <header className='pt-40  pb-40' id='home'>
     <section className='flex flex-col lg:flex-row items-center justify-around'>
 
       <img src='../images/nannyExpress/nanny-express-featured-image-1.png'/>
