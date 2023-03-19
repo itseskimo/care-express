@@ -94,7 +94,7 @@ function selectField(e){
     }
 
      selectImg.alt= e.target.alt || e.target.innerText  
-     selectText.innerHTML= e.target.innerText  ||  e.target.alt 
+     selectText.innerHTML= e.target.innerText  ||  e.target.alt || 'EN'
 }
 
  
