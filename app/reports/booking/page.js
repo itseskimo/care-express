@@ -19,8 +19,6 @@ const page = () => {
   const dispatch= useDispatch()
   const router = useRouter();
 
-   console.log(orders)
-  //  console.log(orders?.some( order => order['service'] === careType ))
 
 //  console.log(orders?.[0]?._id)
   
@@ -35,7 +33,14 @@ const page = () => {
 
     const [calendarDate,setCalendarDate]=useState('')
     const [togglecalendar,setToggleCalendar]=useState(false)
-    const [date, setDate] = useState(null);
+
+    const [date, setDate] = useState(new Date(new Date().setDate(new Date().getDate() + 1)))
+    const [utilityDate, setUtilityDate] = useState('')
+
+    let dateDisplay = utilityDate ? utilityDate : JSON.stringify( date).slice(1,11).split("-").filter(item=>!!item).reverse().join("/")
+
+
+console.log( calendarDate , selectPlanId , careType )
 
     useEffect(()=>{
       if(localStorage.getItem('user')){
@@ -59,27 +64,33 @@ const page = () => {
           const cost = localStorage.getItem('cost')
           extractText(plan, hours , cost)
           }
-       
+
+          if(localStorage.getItem('dateDisplay')){
+            const dateDisplay = localStorage.getItem('dateDisplay')
+            setUtilityDate(dateDisplay)
+            if(dateDisplay === utilityDate)localStorage.removeItem('dateDisplay')
+            utilityDate.length > 0 &&  setUtilityDate('')  
+          }
       }
-    },[])
+
+    },[date])
 
 
     function formSubmit(e){
       e.preventDefault();
-      if(calendarDate !== '' && selectPlanId !== '' && careType !== ''){
+      if( selectPlanId !== '' && careType !== ''){
       localStorage.setItem('hours', hours)
       localStorage.setItem('cost', cost)
       localStorage.setItem('careType', careType)
       localStorage.setItem('calendarDate', time)
+      localStorage.setItem('dateDisplay', dateDisplay)
       router.push('/reports/contactDetails')
       }else{
         setErrorModal(true)
       }
     }
 
-    setTimeout(() => {
-      errorModal && setErrorModal(false)
-    }, 2000);
+    
     
     function calendar(e){
       const calendarCalc=['null',"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
@@ -111,6 +122,10 @@ const page = () => {
     }
 
     const [errorModal, setErrorModal]= useState(false)
+
+    setTimeout(() => {
+      errorModal && setErrorModal(false)
+    }, 2000);
 
 
   return (
@@ -232,7 +247,7 @@ const page = () => {
  className='outline-none bg-inputbg w-full py-[10px] rounded-[8px] pl-3 cursor-pointer border-bookingborder border-[1px] border-solid' 
  readOnly
  placeholder='Care Start Date'
- value={date === null ? '' : `${format(date, "dd/MM/yyyy")}` }
+ value={ dateDisplay}
  onClick={calendar}
  id='extractCalendarTime'
  />

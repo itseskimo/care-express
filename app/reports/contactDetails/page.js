@@ -8,6 +8,7 @@ import { postAddress} from '@/redux/actions/page'
 import {  getAddresses , deleteAddress, updateAddress} from '@/redux/actions/page'
 import {useState,useEffect} from 'react'
 import {useRouter} from 'next/navigation';
+import ErrorModal from '../../Components/errorModal/page'
 
 
 
@@ -123,20 +124,27 @@ if(localStorage.getItem('contact')){
 function styles(item){
   let contact = JSON.stringify(item);
   localStorage.setItem("contact", contact);
-
-  
   setAddStyles(item._id)
 }
 
+function navigateForward(){
+  if(localStorage.getItem("contact")){
+    router.push('/reports/additionalRequirements')
+  }else{
+    setErrorModal(true)
+  }
+}
 
+
+const [errorModal, setErrorModal]= useState(false)
+
+setTimeout(() => {
+  errorModal && setErrorModal(false)
+}, 2000);
 
 
   return (
     <>
-
-
-
-
     
     <div className='bg-specialbg  h-max relative'>
     <Head title='Order History' />
@@ -144,6 +152,8 @@ function styles(item){
     <DashboardNav navTitle='Reports' />
     
     <DashBookingHeader active={1}/>
+
+    {errorModal && <ErrorModal text='Please Select an Address Field'/>}
 
 
     <section className='bg-white h-max rounded-[16px] mt-10'>
@@ -208,7 +218,7 @@ function styles(item){
 {/* ------------------------------------------------------------------------------------ */}
 <div className='flex justify-between'>
   <Link href={{pathname:'/reports/booking'}}><button className='bg-ligrey rounded-[50px] px-9 py-[8px] text-black text-[18px] font-semibold mt-10' >Back</button></Link>
-  <Link href={{pathname:'/reports/additionalRequirements'}}><button className='bg-blue rounded-[50px] px-9 py-[8px] text-white text-[18px] font-semibold mt-10' >Next</button></Link>
+  <button className='bg-blue rounded-[50px] px-9 py-[8px] text-white text-[18px] font-semibold mt-10' onClick={navigateForward}>Next</button>
 </div>
 
 
