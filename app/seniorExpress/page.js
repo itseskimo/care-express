@@ -111,7 +111,7 @@ const dispatch= useDispatch()
 
 <section className='mt-7 sm:mt-11 sxl:mt-10 flex items-center'>
 <a href={ token ? 'reports/booking?type=senior': '/login'}><button className='bg-purple px-[18px] py-[13px] text-white rounded-[27px] shrink-0 text-base lg:text-xl font-semibold tracking-wide flex items-center justify-evenly'>Book senior care today<img src='../images/Icons/click-arrow.svg' className='pl-[18px]'/></button></a>
-<h6  className='text-purple font-medium	underline underline-offset-[3px] decoration-1 pl-4 sm:pl-10 text-base lg:text-xl whitespace-nowrap cursor-pointer'>Learn more</h6>
+<a href='/about'><h6  className='text-purple font-medium	underline underline-offset-[3px] decoration-1 pl-4 sm:pl-10 text-base lg:text-xl whitespace-nowrap cursor-pointer'>Learn more</h6></a>
 </section>
 
 <section className='mt-11 sxl:mt-10 flex items-center  justify-between w-[320px] null:w-[340px] md:w-[390px]	'>

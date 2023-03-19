@@ -126,8 +126,7 @@ const dispatch= useDispatch()
 <section className='mt-10 flex items-center'>
 <a href={ token ? 'reports/booking?type=special': '/login'}><button className='bg-blue px-[18px] py-[13px] text-white rounded-[27px] text-base lg:text-xl shrink-0 font-semibold tracking-wide flex items-center justify-evenly'>Book special care today<img src='../images/Icons/click-arrow.svg' className='pl-[18px]'/></button></a>
   
-
-<h6  className='text-blue font-medium	underline underline-offset-[3px] decoration-1 pl-6 sm:pl-10 text-base lg:text-xl whitespace-nowrap cursor-pointer'>Learn more</h6>
+<a href='/about'><h6  className='text-blue font-medium	underline underline-offset-[3px] decoration-1 pl-6 sm:pl-10 text-base lg:text-xl whitespace-nowrap cursor-pointer'>Learn more</h6></a>
 </section>
 
 

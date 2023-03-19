@@ -7,6 +7,7 @@ import DashboardNav from '../Components/dashboardNav/page'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useRouter } from 'next/navigation';
+import outsideAlert from '@/constants/page';
 
 
 
@@ -16,7 +17,8 @@ const page = () => {
   const dispatch= useDispatch()
   const router = useRouter();
 
- 
+  const { select ,setSelect , selRef} = outsideAlert(undefined, undefined)
+
     
 
 
@@ -141,14 +143,14 @@ const page = () => {
 
 
    function selectField(e){
-    setSelect(!select)
+    // setSelect(!select)
      let selectText= document.getElementById('selectText')
      let dropdownArrow= document.getElementById('dropdownArrow')
      dropdownArrow.classList.toggle('rotate-180')
      selectText.innerHTML= e.target.innerText 
   }
 
-  const[select,setSelect]=useState(false)
+  // const[select,setSelect]=useState(false)
 
 
 
@@ -192,7 +194,7 @@ const page = () => {
     <section className='flex justify-between'>
       <h6 className='flex font-semibold text-[20px] mb-2'>Statistics</h6>
 
-      <main className='w-[179px] relative' onClick={selectField}>
+      <main className='w-[179px] relative' onClick={selectField} ref={selRef}>
 
       <section  className='w-full py-[6px] box-border border-solid border-gray-400 border-[1px]  bg-white rounded-lg flex items-center justify-between px-4 cursor-pointer'>
       <p className='text-xs md:text-sm  lg:text-[16px] font-medium select-none pointer-events-none' id='selectText'>Today </p>

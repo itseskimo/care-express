@@ -126,7 +126,7 @@ your beloved pet has no one to take care of him? </h6>
 
 <section className='mt-10 flex items-center'>
 <a href={ token ? 'reports/booking?type=none': '/login'}><button className='bg-blue px-[18px] py-[13px] text-white rounded-[27px] text-base lg:text-xl font-semibold tracking-wide flex items-center justify-evenly'>Book care today<img src='../images/Icons/click-arrow.svg' className='pl-[18px]'/></button></a>
-<h6 className=' font-medium	underline decoration-1 pl-6 sm:pl-10 text-base lg:text-xl whitespace-nowrap underline-offset-[3px] cursor-pointer'>Learn more</h6>
+<a href='/about'><h6 className=' font-medium	underline decoration-1 pl-6 sm:pl-10 text-base lg:text-xl whitespace-nowrap underline-offset-[3px] cursor-pointer'>Learn more</h6></a>
 </section>
 
 <section className='mt-8 sm:mt-10 flex items-center justify-between w-[295px] sm:w-80	pb-7'>

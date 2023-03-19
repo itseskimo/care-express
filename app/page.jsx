@@ -6,7 +6,7 @@ import Testimonials from './Components/testimonial/page'
 import Link from 'next/link'
 import Head from './head'
 import { clearErrors } from '@/redux/actions/page'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { useDispatch} from 'react-redux'
 
 const page = () => {
@@ -14,16 +14,24 @@ const page = () => {
 const dispatch= useDispatch()
 const [token, setToken]= useState('')
 
-useEffect(()=>{
+  
 
-    dispatch(clearErrors())
+  useEffect(()=>{
+  dispatch(clearErrors())
 
   if(localStorage.getItem('user')){
     let data = localStorage.getItem('user')
     let loginData = JSON.parse(data);
      setToken(loginData.token)
   }
+
+  
   },[])
+
+  
+  
+
+  
 
   const navDetails={
     clicked:'For Business',
@@ -88,7 +96,7 @@ const services ={
 
 
 {/* ----------------------------------------------------------------------------------------------------------------- */}
-<main className='bg-midblue overflow-hidden'>
+<main className='bg-midblue overflow-hidden' >
 <main className='mx-4 sm:mx-14 '>
   {/* ------------RESPONSIBLE FOR MARGIN---------------- */}
 
@@ -112,8 +120,7 @@ const services ={
 
 <section className='mt-10 flex items-center'>
   <a href={ token ? 'reports/booking?type=none': '/login'}><button className='bg-blue px-[18px] py-[13px] text-white rounded-[27px] text-base lg:text-xl font-semibold tracking-wide flex items-center justify-evenly'>Book care today<img src='../images/Icons/click-arrow.svg' className='pl-[18px]'/></button></a>
-
-<h6 className=' font-medium	text-blue underline decoration-1 pl-6 sm:pl-10 text-base lg:text-xl whitespace-nowrap underline-offset-[3px] cursor-pointer'>Learn more</h6>
+<a href='/about'><h6 className=' font-medium	text-blue underline decoration-1 pl-6 sm:pl-10 text-base lg:text-xl whitespace-nowrap underline-offset-[3px] cursor-pointer'>Learn more</h6></a>
 </section>
 
 

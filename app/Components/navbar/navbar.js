@@ -4,6 +4,8 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation';
 import { logout} from '@/redux/actions/page'
 import { useDispatch,useSelector  } from 'react-redux'
+import outsideAlert from '@/constants/page';
+
 
 const navbar = (props) => {
 
@@ -11,22 +13,17 @@ const navbar = (props) => {
   const { user} = useSelector((state) => state.user);
 
   const{first, second, third ,color,subcolour,clicked , border,background, shadow,  bookingId}=props
-const router = useRouter();
+  const router = useRouter();
+
+const {loginDropdown ,setLoginDropdown , select ,setSelect , dropRef , selRef} = outsideAlert(false, false)
 
 const[navitem,setNavItem]=useState(`${clicked}` )
 const[sidebar,setSidebar]=useState(false)
-const[select,setSelect]=useState(false)
-
-const[loginDropdown,setLoginDropdown]=useState(false)
-
 
 const[userLoggedIn,setuserLoggedIn]=useState('user')
 
 // --------------------------------------------------------------
 useEffect(()=>{
-
-
-
  if(localStorage.getItem('user')){
   let data = localStorage.getItem('user')
   let loginData = JSON.parse(data);
@@ -34,10 +31,16 @@ useEffect(()=>{
 }
 },[userLoggedIn])
 
+
+
+
+
+
+
+
 function LogOut(){
   dispatch(logout())
   localStorage.clear()
-
   setuserLoggedIn('user')
   router.push('/')
 }
@@ -45,7 +48,7 @@ function LogOut(){
 function LogIn(){
   let dropdownLoginArrow= document.getElementById('dropdownLoginArrow')
   dropdownLoginArrow.classList.toggle('rotate-180')
-  setLoginDropdown(!loginDropdown)
+  // setLoginDropdown(!loginDropdown)
 }
 
     function hamburger(){
@@ -75,7 +78,7 @@ function LogIn(){
     }
 
 function selectField(e){
-  setSelect(!select)
+  // setSelect(!select)
    let selectImg= document.getElementById('selectImg')
    let selectText= document.getElementById('selectText')
    let dropdownArrow= document.getElementById('dropdownArrow')
@@ -92,10 +95,7 @@ function selectField(e){
      selectText.innerHTML= e.target.innerText  ||  e.target.alt 
 }
 
-function deleteDropdownState(){
-  setLoginDropdown(false)
-  setSelect(false)
-}
+ 
 
 // --------------------------------------------------------------
 
@@ -107,6 +107,9 @@ useEffect(()=>{
 })
 
 // --------------------------------------------------------------
+
+
+
 
   return (
     <>
@@ -138,7 +141,7 @@ useEffect(()=>{
 
 
   <header className='sticky top-0 w-full h-[62px] bg-white z-[200] shadow ' id='header' >
-  <nav className='box-border  flex items-center justify-between h-full text-[15px]  ssxl:text-base  mx-4 sm:mx-14 '>
+  <nav className='box-border  flex items-center justify-between h-full text-[15px]  ssxl:text-base  mx-4 sm:mx-14 ' >
 
   
 
@@ -167,7 +170,7 @@ useEffect(()=>{
   
 
 
-  <div className='flex gap-2 cursor-pointer  relative' onClick={LogIn}>
+  <div className='flex gap-2 cursor-pointer  relative' onClick={LogIn} ref={dropRef}>
   <h6 className='font-semibold  cursor-pointer text-sm whitespace-nowrap text-gray-500'>Log In</h6>
   <img src='../images/Icons/Arrowdown.svg' className='w-[9px] select-none pointer-events-none' id='dropdownLoginArrow'/>
 
@@ -178,7 +181,7 @@ useEffect(()=>{
   </li>
  
   <li className='w-full py-3 list-none box-border px-6 cursor-pointer flex items-center rounded-[8px]  justify-around hover:bg-slate-50 ' >
-    <p className='' >Caretaker</p>
+    <p className=''>Caretaker</p>
   </li>
 </ul>
 }
@@ -190,9 +193,9 @@ useEffect(()=>{
 
 <a href={ user && userLoggedIn !== 'user' ? `reports/booking?type=${bookingId}`: '/login'}><button className={` rounded-3xl text-white px-[17px] py-[9px] md:py-[6px] text-xs md:text-base  shrink-0 ${color}`}>Book Now</button></a>
 
-  <main className='w-16  lg:w-20 shrink-0' onClick={selectField}>
+  <main className='w-16  lg:w-20 shrink-0' onClick={selectField} ref={selRef}>
 
-<section  className='w-full h-9 box-border  bg-slate-100 rounded-[27px] flex items-center justify-evenly cursor-pointer relative'>
+<section  className='w-full h-9 box-border  bg-slate-100 rounded-[27px] flex items-center justify-evenly cursor-pointer relative' >
 <p className='text-xs md:text-sm  lg:text-[15px] font-semibold select-none pointer-events-none' id='selectText'>EN </p>
 <img src='../images/Icons/EN-flag.svg' className='w-[20px] '   id='selectImg'/>
 <img src='../images/Icons/Arrowdown.svg' className='w-[9px] select-none pointer-events-none' id='dropdownArrow'/>
