@@ -68,12 +68,12 @@ console.log( calendarDate , selectPlanId , careType )
           if(localStorage.getItem('dateDisplay')){
             const dateDisplay = localStorage.getItem('dateDisplay')
             setUtilityDate(dateDisplay)
-            if(dateDisplay === utilityDate)localStorage.removeItem('dateDisplay')
-            utilityDate.length > 0 &&  setUtilityDate('')  
+            // if(dateDisplay === utilityDate)localStorage.removeItem('dateDisplay')
+            // utilityDate.length > 0 &&  setUtilityDate('')  
           }
       }
 
-    },[date])
+    },[])
 
 
     function formSubmit(e){
@@ -104,6 +104,9 @@ console.log( calendarDate , selectPlanId , careType )
 
       setTime(finalDate)
       setCalendarDate(calendar.value)
+
+      if(dateDisplay === utilityDate)localStorage.removeItem('dateDisplay')
+         utilityDate.length > 0 &&  setUtilityDate('')  
 
       if(e.target.outerHTML !== '<i></i>' &&  e.target.innerHTML !== '<i></i>'){
          setToggleCalendar(!togglecalendar)
