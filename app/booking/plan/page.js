@@ -11,6 +11,8 @@ import {useRouter} from 'next/navigation';
 import Head from '../../head'
 import { useDispatch, useSelector } from 'react-redux'
 import { getServicePricing } from '@/redux/actions/page'
+import ErrorModal from '../../Components/errorModal/page'
+
 
 const page = () => {
 
@@ -62,7 +64,7 @@ const page = () => {
     localStorage.setItem('calendarDate', time)
     router.push('/booking/contact')
     }else{
-      alert('Select Care Start Date to proceed')
+      setErrorModal(true)
     }
   }
   
@@ -126,7 +128,11 @@ const page = () => {
     FbIcon:'../images/business/Icons/facebook.svg',
   }
 
+  const [errorModal, setErrorModal]= useState(false)
 
+  setTimeout(() => {
+    errorModal && setErrorModal(false)
+  }, 2000);
   
   return (
     <>
@@ -134,6 +140,7 @@ const page = () => {
 
     <Navbar color={'bg-blue'} {...navDetails}/>
  
+    {errorModal && <ErrorModal text='Please Select All Fields!'/>}
 
    
   {/* ----------------------------------------------------------------------------------------------------------------- */}
@@ -193,7 +200,7 @@ const page = () => {
 {/* --------------------------------------------------------------------------------------- */}
 
 <div>
-<h6 className='font-semibold tracking-[0.02em] text-[16px] my-5'>Choose Plan</h6>
+{orders?.some( order => order['service'] === careType) && <h6 className='font-semibold tracking-[0.02em] text-[16px] my-5'>Choose Plan</h6>}
 <section className='mt-2 flex flex-wrap gap-9' >
 
 {orders && orders.map((item)=>{

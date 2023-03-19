@@ -10,7 +10,7 @@ import {useState,useEffect} from 'react'
 import {useRouter} from 'next/navigation';
 import { useDispatch, useSelector } from 'react-redux'
 import { getServicePricing } from '@/redux/actions/page'
-
+import ErrorModal from '../../Components/errorModal/page'
 
 
 const page = () => {
@@ -19,8 +19,9 @@ const page = () => {
   const dispatch= useDispatch()
   const router = useRouter();
 
+   console.log(orders)
+  //  console.log(orders?.some( order => order['service'] === careType ))
 
-  
 //  console.log(orders?.[0]?._id)
   
 
@@ -72,9 +73,13 @@ const page = () => {
       localStorage.setItem('calendarDate', time)
       router.push('/reports/contactDetails')
       }else{
-        alert('Select Care Start Date to proceed')
+        setErrorModal(true)
       }
     }
+
+    setTimeout(() => {
+      errorModal && setErrorModal(false)
+    }, 2000);
     
     function calendar(e){
       const calendarCalc=['null',"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
@@ -105,16 +110,21 @@ const page = () => {
       setCost(rpHours)
     }
 
+    const [errorModal, setErrorModal]= useState(false)
 
 
   return (
     <div className='bg-specialbg  h-max' >
+
+    {errorModal && <ErrorModal text='Please Select All Fields!'/>}
+
+
     <Head title='Order History' />
     <main className='py-8 ml-auto mr-auto w-[92%]'>
     <DashboardNav navTitle='Reports' />
       
 
-<DashBookingHeader active={0}/>
+    <DashBookingHeader active={0}/>
 
 
 <form className='bg-white h-max rounded-[16px] mt-10 ' onSubmit={formSubmit}>
@@ -165,7 +175,7 @@ const page = () => {
 
 {/* --------------------------------------------------------------------------------------- */}
 <div>
-<h6 className='font-semibold tracking-[0.02em] text-[16px] my-5'>Choose Plan</h6>
+  {orders?.some( order => order['service'] === careType) && <h6 className='font-semibold tracking-[0.02em] text-[16px] my-5'>Choose Plan</h6>}
 <section className='mt-2 flex flex-wrap gap-9' >
 
 {orders && orders.map((item)=>{

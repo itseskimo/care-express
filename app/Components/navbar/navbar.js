@@ -83,7 +83,9 @@ function selectField(e){
    let selectText= document.getElementById('selectText')
    let dropdownArrow= document.getElementById('dropdownArrow')
 
-    dropdownArrow.classList.toggle('rotate-180')
+   dropdownArrow.classList.toggle('rotate-180')
+    
+
  
     if(e.target.attributes.src === undefined){
         selectImg.src= `../images/Icons/${e.target.innerText}-flag.svg`

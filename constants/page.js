@@ -9,7 +9,6 @@ export default function outsideAlert(selectState, dropdownState){
     const[select,setSelect]=useState(selectState)
     const[loginDropdown,setLoginDropdown]=useState(dropdownState)
 
-
     function handleClickOutside(event) {
       if ( dropRef.current && !dropRef.current.contains(event.target)) {
       setLoginDropdown(false)
@@ -25,6 +24,8 @@ export default function outsideAlert(selectState, dropdownState){
     }
 
     useEffect(() => {
+
+
       document.addEventListener("click", handleClickOutside, true);
       return () => {document.removeEventListener("click", handleClickOutside , true) };
     }, [dropRef, selRef])
