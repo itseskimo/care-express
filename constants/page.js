@@ -32,3 +32,27 @@ export default function outsideAlert(selectState, dropdownState){
     return {loginDropdown ,setLoginDropdown , select ,setSelect , dropRef , selRef}
    }
   
+
+
+   export  function accOutsideAlert(accountState){
+
+    let accRef = useRef(null)
+
+    const[account,setAccount]=useState(accountState)
+
+
+    function handleOutside(event) {
+      if ( accRef.current && !accRef.current.contains(event.target)) {
+      setAccount(false)
+      }else{
+      setAccount(true)
+      }
+    }
+
+    useEffect(() => {
+      document.addEventListener("click", handleOutside, true);
+      return () => {document.removeEventListener("click", handleOutside , true) };
+    }, [accRef])
+  
+    return {account , setAccount , accRef}
+   }

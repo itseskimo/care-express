@@ -4,18 +4,23 @@ import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation';
 import { logout} from '@/redux/actions/page'
 import { useDispatch } from 'react-redux'
+import { accOutsideAlert } from '@/constants/page';
 
 const page = ({navTitle}) => {
   const dispatch= useDispatch()
 
   const[navitem,setNavItem]=useState(`${navTitle}`)
-  const[select,setSelect]=useState(false)
+  // const[select,setSelect]=useState(false)
   const router = useRouter();
+
+
+  const {account , setAccount , accRef} = accOutsideAlert(false)
+
 
 function logOut(){
   dispatch(logout())
   localStorage.clear()
-router.push('/')
+  router.push('/')
 }
 
 const [firstLetter, setFirstLetter]=useState('')
@@ -41,13 +46,13 @@ useEffect(()=>{
 
 <header className='flex items-center gap-6 '>
 <Link href={{pathname:'/reports/booking'}}><button className='bg-hazyblue text-white text-[16px] rounded-[23.5px] px-5 py-[12px]'>Book Now</button></Link>
-<h1 className='rounded-[50%] cursor-pointer bg-dashblue px-[19px] py-[8px] text-center text-[24px] flex items-center justify-center font-extrabold mr-5' onClick={()=>setSelect(!select)}>{firstLetter}</h1>
+<h1 className='rounded-[50%] cursor-pointer bg-dashblue px-[19px] py-[8px] text-center text-[24px] flex items-center justify-center font-extrabold mr-5'  ref={accRef}>{firstLetter}</h1>
 </header>
 
 </nav>
 <main className='relative'> 
-{select &&
-         <ul className='w-[220px] bg-white shadow-md rounded-[8px] overflow-hidden absolute right-0 top-2 cursor-pointer z-10 px-7' onClick={()=>setSelect(!select)} >
+{account &&
+         <ul className='w-[220px] bg-white shadow-md rounded-[8px] overflow-hidden absolute right-0 top-2 cursor-pointer z-10 px-7'  >
            <li className='w-full py-3 list-none box-border cursor-pointer flex items-center justify-start border-b-[1px] border-solid border-gray-300' >
            <Link href={{pathname:'/dashboard/account'}}><p className='text-[14px]'>Account</p></Link>
            </li>
