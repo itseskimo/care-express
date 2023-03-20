@@ -233,7 +233,7 @@ useEffect(()=>{
 
 
     <nav style={{ backgroundColor: '#F0F0F0' , borderTop: '1px solid transparent',  borderBottom: '1px solid transparent', borderImage: `linear-gradient(to right, transparent  , ${border} , transparent ) 2` }} className={`${shadow}  box-border  bg-stone-300 h-[34px] flex items-center justify-center text-[11px] md:text-sm  lg:text-base absolute top-[62px] w-full`} id='subheader'>
-    <span className={`px-5 font-semibold ${subcolour} cursor-pointer`}><a href={`${first.id}`}>{`${first.name}`}</a></span>
+    <span className={`px-5 font-semibold ${subcolour} cursor-pointer`}><a href={`${first.id}`} >{`${first.name}`}</a></span>
     <span className={`px-5 font-semibold ${subcolour} cursor-pointer`}><a href={`${second.id}`}>{`${second.name}`}</a></span>
     <span className={`px-5 font-semibold ${subcolour} cursor-pointer`}><a href={`${third.id}`}>{`${third.name}`}</a></span>
 

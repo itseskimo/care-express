@@ -145,7 +145,7 @@ const dispatch= useDispatch()
 {/* ----------------------------------------------------------------------------------------------------------------- */}
 
 
-<header  className='mt-24 pb-10 relative' id='pricing'>
+<header  className='mt-24 pb-10 relative scroll-mt-[97px]' id='pricing'>
 
 <section className='flex justify-center' >
      <section style={{ border: '0.4px solid #FFA3A1 ' }} className='text-skin py-[6.8px] px-[18px] box-border  text-xs font-semibold tracking-[0.06em] rounded-2xl	flex justify-center items-center '>
@@ -262,7 +262,7 @@ const dispatch= useDispatch()
 
 
 
-<header className='mt-28 pb-12' id='profession'> 
+<header className='mt-28 pb-12 scroll-mt-[100px]' id='profession'> 
 
     <section className='flex flex-col xlg:flex-row items-center justify-around ' >
     <img src='../images/seniorExpress/senior-express-featured-image-2.png'/>

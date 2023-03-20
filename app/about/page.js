@@ -150,7 +150,7 @@ useEffect(()=>{
 
     
 {/* ----------------------------------------------------------------------------------------------------------------- */}
-<main className='mt-24  '>
+<main className='mt-24 scroll-mt-[96px]' id='about'>
 <main className='flex  flex-wrap justify-center gap-12 lg:gap-[120px] xxlg:gap-0 xxlg:justify-between  '>
 
 <section className='mt-6 xxlg:mt-0 '>

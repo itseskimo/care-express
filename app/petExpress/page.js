@@ -154,7 +154,7 @@ const dispatch= useDispatch()
 
 
 
-<header  className='mt-24 pb-10 relative' id='pricing'>
+<header  className='mt-24 pb-10 relative scroll-mt-[97px]' id='pricing'>
   
 
 <section className=' flex  justify-center'>
@@ -274,7 +274,7 @@ const dispatch= useDispatch()
 
 
 
-<header className='mt-28 pb-12' id='profession'> 
+<header className='mt-28 pb-12 scroll-mt-[100px]' id='profession'> 
 
     <section className='flex flex-col lg:flex-row items-center justify-around ' >
     <img src='../images/petExpress/pet-express-featured-image-2.png'/>

@@ -183,7 +183,7 @@ your beloved pet has no one to take care of him? </h6>
 {/* ----------------------------------------------------------------------------------------------------------------- */}
 
 
-<header className='mt-28 pb-12' id='about'> 
+<header className='mt-28 pb-12 scroll-mt-[135px]' id='about'> 
 
     <section className='flex flex-col lg:flex-row items-center justify-around ' >
     <img src='../images/personal/Featured Image.png'/>

@@ -167,7 +167,7 @@ const dispatch= useDispatch()
 
 
 
-<header  className='mt-24 pb-10 relative' id='pricing'>
+<header  className='mt-24 pb-10 relative scroll-mt-[97px]' id='pricing'>
   
 
 <section className=' flex  justify-center'>
@@ -224,7 +224,7 @@ const dispatch= useDispatch()
 <main className='mx-4 smd:mx-14'>
 
 
-    <header className='pt-40  pb-40' id='home'>
+    <header className='pt-40  pb-40 ' id='home'>
     <section className='flex flex-col lg:flex-row items-center justify-around'>
 
       <img src='../images/specialExpress/special-express-featured-image-1.png'/>
@@ -290,7 +290,7 @@ const dispatch= useDispatch()
 
 
 
-<header className='mt-28 pb-12' id='profession'> 
+<header className='mt-28 pb-12 scroll-mt-[110px]' id='profession'> 
 
     <section className='flex flex-col lg:flex-row items-center justify-around ' >
     <img src='../images/specialExpress/special-express-featured-image-2.png'/>

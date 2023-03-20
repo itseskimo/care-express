@@ -7,11 +7,12 @@ import {useState,useEffect} from 'react'
 import {useRouter} from 'next/navigation';
 import { postOrder } from '@/redux/actions/page'
 import { useDispatch} from 'react-redux'
-import { useStripe } from '@stripe/react-stripe-js'
+// import { useStripe } from '@stripe/react-stripe-js'
 
 const page = () => {
+
     const router = useRouter();
-    const stripe = useStripe()
+    // const stripe = useStripe()
     const dispatch= useDispatch()
 
     const [contact, setContact] = useState({})
@@ -74,19 +75,7 @@ const page = () => {
     dispatch(postOrder(myForm,token));
   }
   
-    function handleGuestCheckout(e){
-    e.preventDefault()
     
-    stripe.redirectToCheckout({})
-    // const response = await stripeAPI('create-checkout-session', { body: { line_items } });
-
-    // const { sessionId } = response;
-    // const { error } = await stripe.redirectToCheckout({ sessionId });
-    
-    // if (error) {
-    //   console.log(error);
-    // }
-  }
   
   return (
     <div className='bg-specialbg  h-max'>
