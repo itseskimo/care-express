@@ -252,17 +252,12 @@ useEffect(()=>{
 
 <h1 className='font-extrabold text-[46px] text-center mb-4'>FAQs</h1>
 
-<header className='flex flex-col xlsm:flex-row gap-4 xlsm:gap-0 w-[70%] xlsm:w-[473px] ml-auto mr-auto ' >
-<section className='flex justify-between'>
-<button className={`tracking-[0.02em] font-medium text-[11px] mx-2  shrink-0  mt-3  xlsm:mt-0            xlsm:text-xs rounded-[17px] border-[1px] border-solid border-slate-400 px-2 py-1 ${selected === 'Nanny Express' ? 'bg-orange , text-white , border-transparent' : ''}`} onClick={(e)=>selectedItem(e.target.innerText)}>Nanny Express</button>
-<button className={`tracking-[0.02em] font-medium text-[11px] mx-2       mt-3  xlsm:mt-0 xlsm:text-xs rounded-[17px] border-[1px] border-solid border-slate-400 px-3 xlsm:px-2 py-1 ${selected === 'Senior Express' ? 'bg-purple , text-white , border-transparent' : ''}`} onClick={(e)=>selectedItem(e.target.innerText)}>Senior Express</button>
-</section>
-
-<section className='flex justify-between '>
-<button className={`tracking-[0.02em] font-medium text-[11px] mx-2    mt-3  xlsm:mt-0 xlsm:text-xs rounded-[17px] border-[1px] border-solid border-slate-400 px-4 xlsm:px-2 py-1 ${selected === 'Pet Express' ? 'bg-red , text-white , border-transparent' : ''}`} onClick={(e)=>selectedItem(e.target.innerText)}>Pet Express</button>
-<button className={`tracking-[0.02em] font-medium text-[11px] mx-2    mt-3  xlsm:mt-0 xlsm:text-xs rounded-[17px] border-[1px] border-solid border-slate-400 px-2 py-1 ${selected === 'Special Express' ? 'bg-blue , text-white , border-transparent' : ''}`} onClick={(e)=>selectedItem(e.target.innerText)}>Special Express</button>
-</section>
-
+<header className='flex items-center justify-center gap-2' >
+<button className={`tracking-[0.02em] font-medium text-[11px] xlsm:text-xs rounded-[17px] border-[1px] border-solid border-slate-400 px-2 py-1 ${selected === 'General' ? 'bg-blue , text-white , border-transparent' : ''}`} onClick={(e)=>selectedItem(e.target.innerText)}>General</button>
+<button className={`tracking-[0.02em] font-medium text-[11px] xlsm:text-xs rounded-[17px] border-[1px] border-solid border-slate-400 px-2 py-1 ${selected === 'Nanny Express' ? 'bg-orange , text-white , border-transparent' : ''}`} onClick={(e)=>selectedItem(e.target.innerText)}>Nanny Express</button>
+<button className={`tracking-[0.02em] font-medium text-[11px] xlsm:text-xs rounded-[17px] border-[1px] border-solid border-slate-400 px-3 xlsm:px-2 py-1 ${selected === 'Senior Express' ? 'bg-purple , text-white , border-transparent' : ''}`} onClick={(e)=>selectedItem(e.target.innerText)}>Senior Express</button>
+<button className={`tracking-[0.02em] font-medium text-[11px] xlsm:text-xs rounded-[17px] border-[1px] border-solid border-slate-400 px-4 xlsm:px-2 py-1 ${selected === 'Pet Express' ? 'bg-red , text-white , border-transparent' : ''}`} onClick={(e)=>selectedItem(e.target.innerText)}>Pet Express</button>
+<button className={`tracking-[0.02em] font-medium text-[11px] xlsm:text-xs rounded-[17px] border-[1px] border-solid border-slate-400 px-2 py-1 ${selected === 'Special Express' ? 'bg-blue , text-white , border-transparent' : ''}`} onClick={(e)=>selectedItem(e.target.innerText)}>Special Express</button>
 </header>
 
 <section className='flex mt-10 items-start flex-col lg:flex-row'>
