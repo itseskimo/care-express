@@ -6,7 +6,7 @@ import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 import {format} from 'date-fns'
 import {Calendar} from 'react-date-range';
-import {useState,useEffect} from 'react'
+import {useState,useEffect, useRef} from 'react'
 import {useRouter} from 'next/navigation';
 import { useDispatch, useSelector } from 'react-redux'
 import { getServicePricing } from '@/redux/actions/page'
@@ -18,8 +18,13 @@ const page = () => {
 
   const dispatch= useDispatch()
   const router = useRouter();
+  const closeCalendarRef = useRef(null);
 
-
+  const handleCalendarClose  = (e) => {
+    if (!closeCalendarRef.current.contains(e.target)) {
+      setToggleCalendar(false);
+    }
+  }
 //  console.log(orders?.[0]?._id)
   
 
@@ -71,7 +76,8 @@ const page = () => {
             // utilityDate.length > 0 &&  setUtilityDate('')  
           }
       }
-
+      document.addEventListener("click", handleCalendarClose, true);
+      return () => document.removeEventListener("click", handleCalendarClose , true) 
     },[])
 
 
@@ -108,7 +114,8 @@ const page = () => {
          utilityDate.length > 0 &&  setUtilityDate('')  
 
       if(e.target.outerHTML !== '<i></i>' &&  e.target.innerHTML !== '<i></i>'){
-         setToggleCalendar(!togglecalendar)
+        //  setToggleCalendar(!togglecalendar)
+         setToggleCalendar(true)
       }
     }
 
@@ -256,9 +263,8 @@ const page = () => {
 </div>
 </div>
 
-
+<section onClick={calendar} ref={closeCalendarRef}>
 {togglecalendar &&
-<section onClick={calendar}>
 <Calendar 
 showMonthAndYearPickers={false} 
 onChange={item => setDate(item)}
@@ -266,8 +272,8 @@ date={date}
 className='shadow-xl absolute z-[1]'
 minDate={ new Date(new Date().setDate(new Date().getDate() + 1))}
 />
-</section>
 }
+</section>
 
 </section>
 </div>
