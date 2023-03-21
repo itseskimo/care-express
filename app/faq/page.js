@@ -49,21 +49,42 @@ const dispatch= useDispatch()
 
       function faqToggleGeneral(id){
           let dropdown= document.getElementById(`dropdown${id}`)
-          // let list= document.getElementById(`list${id}`)
+          let list= document.getElementById(`list${id}`)
           let hideTxt= document.getElementById(`hideTxt${id}`)
           dropdown.classList.toggle('rotate-180')
-          // list.classList.toggle('pb-6')
           hideTxt.classList.toggle('hidden')
+
+          document.addEventListener('click', event => {
+            const isClickInside = list.contains(event.target)
+        
+            if (!isClickInside) {
+              hideTxt.classList.add('hidden')
+              dropdown.classList.remove('rotate-180')
+
+              // The click was OUTSIDE the specifiedElement, do something
+            }
+          })
       }
 
 
       function faqToggle(id){
+          let listField= document.getElementById(`listField${id}`)
           let dropdownField= document.getElementById(`dropdownField${id}`)
-          // let listField= document.getElementById(`listField${id}`)
           let hideTxtField= document.getElementById(`hideTxtField${id}`)
           dropdownField.classList.toggle('rotate-180')
-          // listField.classList.toggle('pb-6')
           hideTxtField.classList.toggle('hidden')
+
+          document.addEventListener('click', event => {
+            const isClickInside = listField.contains(event.target)
+        
+            if (!isClickInside) {
+              hideTxtField.classList.add('hidden')
+              dropdownField.classList.remove('rotate-180')
+
+              // The click was OUTSIDE the specifiedElement, do something
+            }
+          })
+
       }
 
 
@@ -289,17 +310,17 @@ useEffect(()=>{
 <section className='flex gap-6 mt-10 items-start  flex-col'>
 
 <header className='flex gap-4 items-start w-full'>
-<div className='w-full lg:w-[50%] bg-white  rounded-[8px] shadow cursor-pointer relative'  onClick={()=>faqToggleGeneral(1)}>
+<div className='w-full lg:w-[50%] bg-white  rounded-[8px] shadow cursor-pointer relative' id='list1' onClick={()=>faqToggleGeneral(1)}>
 <div className=' flex justify-between'>
-<h1 className='pl-6 lg:pl-2 xlg:pl-6 px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em]' id='list1'>Is Nanny Express available all over Poland?</h1>
+<h1 className='pl-6 lg:pl-2 xlg:pl-6 px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em]' >Is Nanny Express available all over Poland?</h1>
 <img src='../images/Login/ArrowDown.svg' className='  mr-4 ' id='dropdown1' />
 </div>
 <h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden pt-2 absolute z-[1] top-[44px] bg-white rounded-br-[8px] rounded-bl-[8px] shadow ' id='hideTxt1'>Yes, it’s possible! Just select an additional language learning option that you’ll find in the notes when ordering your hours of package.</h6>
 </div>
 
-<div className='w-full  lg:w-[50%] bg-white  rounded-[8px] shadow cursor-pointer relative'  onClick={()=>faqToggleGeneral(2)}>
+<div className='w-full  lg:w-[50%] bg-white  rounded-[8px] shadow cursor-pointer relative' id='list2' onClick={()=>faqToggleGeneral(2)}>
 <div className=' flex justify-between'>
-<h1 className='pl-6 lg:pl-2 xlg:pl-6 px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em]' id='list2'>Can I hire a nanny for a few hours?</h1>
+<h1 className='pl-6 lg:pl-2 xlg:pl-6 px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em]' >Can I hire a nanny for a few hours?</h1>
 <img src='../images/Login/ArrowDown.svg' className='  mr-4 ' id='dropdown2' />
 </div>
 <h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden pt-2 absolute z-[1] top-[44px] bg-white rounded-br-[8px] rounded-bl-[8px] shadow' id='hideTxt2'>Yes, it’s possible! Just select an additional language learning option that you’ll find in the notes when ordering your hours of package.</h6>
@@ -308,17 +329,17 @@ useEffect(()=>{
 
 
 <header className='flex items-start gap-4 w-full '>
-<div className='w-full lg:w-[50%] bg-white  rounded-[8px] shadow cursor-pointer relative '  onClick={()=>faqToggleGeneral(3)}>
+<div className='w-full lg:w-[50%] bg-white  rounded-[8px] shadow cursor-pointer relative ' id='list3'  onClick={()=>faqToggleGeneral(3)}>
 <div className=' flex justify-between'>
-<h1 className='pl-6 lg:pl-2 xlg:pl-6  px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em] ' id='list3' >Can my child learn a foreign language with a nanny?</h1>
+<h1 className='pl-6 lg:pl-2 xlg:pl-6  px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em] '  >Can my child learn a foreign language with a nanny?</h1>
 <img src='../images/Login/ArrowDown.svg' className='  mr-4 ' id='dropdown3' />
 </div>
 <h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden  pt-2 absolute z-[1] top-[44px] bg-white rounded-br-[8px] rounded-bl-[8px] shadow' id='hideTxt3'>Yes, it’s possible! Just select an additional language learning option that you’ll find in the notes when ordering your hours of package.</h6>
 </div>
 
-<div className='w-full lg:w-[50%]  bg-white  rounded-[8px] shadow cursor-pointer relative' onClick={()=>faqToggleGeneral(4)}>
+<div className='w-full lg:w-[50%]  bg-white  rounded-[8px] shadow cursor-pointer relative' id='list4' onClick={()=>faqToggleGeneral(4)}>
 <div className=' flex justify-between'>
-<h1 className='pl-6 lg:pl-2 xlg:pl-6 px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em]' id='list4'>For how long is the package of hours valid?</h1>
+<h1 className='pl-6 lg:pl-2 xlg:pl-6 px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em]' >For how long is the package of hours valid?</h1>
 <img src='../images/Login/ArrowDown.svg' className='  mr-4 select-none pointer-events-none' id='dropdown4' />
 </div>
 <h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden pt-2 absolute z-[1] top-[44px] bg-white rounded-br-[8px] rounded-bl-[8px] shadow' id='hideTxt4'>Yes, it’s possible! Just select an additional language learning option that you’ll find in the notes when ordering your hours of package.</h6>
@@ -340,17 +361,17 @@ useEffect(()=>{
 <section className='flex gap-6 mt-10 items-start  flex-col'>
 
 <header className='flex gap-4 items-start w-full'>
-<div className='w-full lg:w-[50%] bg-white  rounded-[8px] shadow cursor-pointer relative'  onClick={()=>faqToggleGeneral(5)}>
+<div className='w-full lg:w-[50%] bg-white  rounded-[8px] shadow cursor-pointer relative' id='list5' onClick={()=>faqToggleGeneral(5)}>
 <div className=' flex justify-between'>
-<h1 className='pl-6 lg:pl-2 xlg:pl-6 px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em]' id='list5'>Is Nanny Express available all over Poland?</h1>
+<h1 className='pl-6 lg:pl-2 xlg:pl-6 px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em]' >Is Nanny Express available all over Poland?</h1>
 <img src='../images/Login/ArrowDown.svg' className='  mr-4 ' id='dropdown5' />
 </div>
 <h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden  pt-2 absolute z-[1] top-[44px] bg-white rounded-br-[8px] rounded-bl-[8px] shadow' id='hideTxt5'>Yes, it’s possible! Just select an additional language learning option that you’ll find in the notes when ordering your hours of package.</h6>
 </div>
 
-<div className='w-full  lg:w-[50%] bg-white  rounded-[8px] shadow cursor-pointer relative'  onClick={()=>faqToggleGeneral(6)}>
+<div className='w-full  lg:w-[50%] bg-white  rounded-[8px] shadow cursor-pointer relative' id='list6' onClick={()=>faqToggleGeneral(6)}>
 <div className=' flex justify-between'>
-<h1 className='pl-6 lg:pl-2 xlg:pl-6 px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em]' id='list6'>Can I hire a nanny for a few hours?</h1>
+<h1 className='pl-6 lg:pl-2 xlg:pl-6 px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em]' >Can I hire a nanny for a few hours?</h1>
 <img src='../images/Login/ArrowDown.svg' className='  mr-4 ' id='dropdown6' />
 </div>
 <h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden pt-2 absolute z-[1] top-[44px] bg-white rounded-br-[8px] rounded-bl-[8px] shadow' id='hideTxt6'>Yes, it’s possible! Just select an additional language learning option that you’ll find in the notes when ordering your hours of package.</h6>
@@ -359,17 +380,17 @@ useEffect(()=>{
 
 
 <header className='flex items-start gap-4 w-full '>
-<div className='w-full lg:w-[50%] bg-white  rounded-[8px] shadow cursor-pointer  relative'  onClick={()=>faqToggleGeneral(7)}>
+<div className='w-full lg:w-[50%] bg-white  rounded-[8px] shadow cursor-pointer  relative' id='list7'  onClick={()=>faqToggleGeneral(7)}>
 <div className=' flex justify-between'>
-<h1 className='pl-6 lg:pl-2 xlg:pl-6  px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em] ' id='list7' >Can my child learn a foreign language with a nanny?</h1>
+<h1 className='pl-6 lg:pl-2 xlg:pl-6  px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em] ' >Can my child learn a foreign language with a nanny?</h1>
 <img src='../images/Login/ArrowDown.svg' className='  mr-4 ' id='dropdown7' />
 </div>
 <h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden  pt-2 absolute z-[1] top-[44px] bg-white rounded-br-[8px] rounded-bl-[8px] shadow' id='hideTxt7'>Yes, it’s possible! Just select an additional language learning option that you’ll find in the notes when ordering your hours of package.</h6>
 </div>
 
-<div className='w-full lg:w-[50%]  bg-white  rounded-[8px] shadow cursor-pointer relative' onClick={()=>faqToggleGeneral(8)}>
+<div className='w-full lg:w-[50%]  bg-white  rounded-[8px] shadow cursor-pointer relative' id='list8' onClick={()=>faqToggleGeneral(8)}>
 <div className=' flex justify-between'>
-<h1 className='pl-6 lg:pl-2 xlg:pl-6 px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em]' id='list8'>For how long is the package of hours valid?</h1>
+<h1 className='pl-6 lg:pl-2 xlg:pl-6 px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em]' >For how long is the package of hours valid?</h1>
 <img src='../images/Login/ArrowDown.svg' className='  mr-4 select-none pointer-events-none' id='dropdown8' />
 </div>
 <h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden pt-2 absolute z-[1] top-[44px] bg-white rounded-br-[8px] rounded-bl-[8px] shadow' id='hideTxt8'>Yes, it’s possible! Just select an additional language learning option that you’ll find in the notes when ordering your hours of package.</h6>
@@ -391,17 +412,17 @@ useEffect(()=>{
 <section className='flex gap-6 mt-10 items-start  flex-col pb-[78px]'>
 
 <header className='flex gap-4 items-start w-full'>
-<div className='w-full lg:w-[50%] bg-white  rounded-[8px] shadow cursor-pointer relative'  onClick={()=>faqToggleGeneral(9)}>
+<div className='w-full lg:w-[50%] bg-white  rounded-[8px] shadow cursor-pointer relative' id='list9'  onClick={()=>faqToggleGeneral(9)}>
 <div className=' flex justify-between'>
-<h1 className='pl-6 lg:pl-2 xlg:pl-6 px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em]' id='list9'>Is Nanny Express available all over Poland?</h1>
+<h1 className='pl-6 lg:pl-2 xlg:pl-6 px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em]' >Is Nanny Express available all over Poland?</h1>
 <img src='../images/Login/ArrowDown.svg' className='  mr-4 ' id='dropdown9' />
 </div>
 <h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden  pt-2 absolute z-[1] top-[44px] bg-white rounded-br-[8px] rounded-bl-[8px] shadow' id='hideTxt9'>Yes, it’s possible! Just select an additional language learning option that you’ll find in the notes when ordering your hours of package.</h6>
 </div>
 
-<div className='w-full  lg:w-[50%] bg-white  rounded-[8px] shadow cursor-pointer relative'  onClick={()=>faqToggleGeneral(10)}>
+<div className='w-full  lg:w-[50%] bg-white  rounded-[8px] shadow cursor-pointer relative' id='list10' onClick={()=>faqToggleGeneral(10)}>
 <div className=' flex justify-between'>
-<h1 className='pl-6 lg:pl-2 xlg:pl-6 px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em]' id='list10'>Can I hire a nanny for a few hours?</h1>
+<h1 className='pl-6 lg:pl-2 xlg:pl-6 px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em]' >Can I hire a nanny for a few hours?</h1>
 <img src='../images/Login/ArrowDown.svg' className='  mr-4 ' id='dropdown10' />
 </div>
 <h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden pt-2 absolute z-[1] top-[44px] bg-white rounded-br-[8px] rounded-bl-[8px] shadow' id='hideTxt10'>Yes, it’s possible! Just select an additional language learning option that you’ll find in the notes when ordering your hours of package.</h6>
@@ -410,17 +431,17 @@ useEffect(()=>{
 
 
 <header className='flex items-start gap-4 w-full '>
-<div className='w-full lg:w-[50%] bg-white  rounded-[8px] shadow cursor-pointer  relative'  onClick={()=>faqToggleGeneral(11)}>
+<div className='w-full lg:w-[50%] bg-white  rounded-[8px] shadow cursor-pointer  relative' id='list11' onClick={()=>faqToggleGeneral(11)}>
 <div className=' flex justify-between'>
-<h1 className='pl-6 lg:pl-2 xlg:pl-6  px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em] ' id='list11' >Can my child learn a foreign language with a nanny?</h1>
+<h1 className='pl-6 lg:pl-2 xlg:pl-6  px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em] '  >Can my child learn a foreign language with a nanny?</h1>
 <img src='../images/Login/ArrowDown.svg' className='  mr-4 ' id='dropdown11' />
 </div>
 <h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden  pt-2 absolute z-[1] top-[44px] bg-white rounded-br-[8px] rounded-bl-[8px] shadow' id='hideTxt11'>Yes, it’s possible! Just select an additional language learning option that you’ll find in the notes when ordering your hours of package.</h6>
 </div>
 
-<div className='w-full lg:w-[50%]  bg-white  rounded-[8px] shadow cursor-pointer relative' onClick={()=>faqToggleGeneral(12)}>
+<div className='w-full lg:w-[50%]  bg-white  rounded-[8px] shadow cursor-pointer relative' id='list12' onClick={()=>faqToggleGeneral(12)}>
 <div className=' flex justify-between'>
-<h1 className='pl-6 lg:pl-2 xlg:pl-6 px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em]' id='list12'>For how long is the package of hours valid?</h1>
+<h1 className='pl-6 lg:pl-2 xlg:pl-6 px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em]' >For how long is the package of hours valid?</h1>
 <img src='../images/Login/ArrowDown.svg' className='  mr-4 select-none pointer-events-none' id='dropdown12' />
 </div>
 <h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden pt-2 absolute z-[1] top-[44px] bg-white rounded-br-[8px] rounded-bl-[8px] shadow' id='hideTxt12'>Yes, it’s possible! Just select an additional language learning option that you’ll find in the notes when ordering your hours of package.</h6>
@@ -437,17 +458,17 @@ useEffect(()=>{
 <section className='flex gap-6 mt-10 items-start flex-col pb-24'>
 
 <header className='flex gap-4 items-start w-full'>
-<div className='w-full lg:w-[50%] bg-white  rounded-[8px] shadow cursor-pointer relative'  onClick={()=>faqToggle(1)}>
+<div className='w-full lg:w-[50%] bg-white  rounded-[8px] shadow cursor-pointer relative' id='listField1' onClick={()=>faqToggle(1)}>
 <div className=' flex justify-between'>
-<h1 className='pl-6 lg:pl-2 xlg:pl-6 px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em]' id='listField1'>Is Nanny Express available all over Poland?</h1>
+<h1 className='pl-6 lg:pl-2 xlg:pl-6 px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em]' >Is Nanny Express available all over Poland?</h1>
 <img src='../images/Login/ArrowDown.svg' className='  mr-4 ' id='dropdownField1' />
 </div>
 <h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden  pt-2 absolute z-[1] top-[44px] bg-white rounded-br-[8px] rounded-bl-[8px] shadow' id='hideTxtField1'>Yes, it’s possible! Just select an additional language learning option that you’ll find in the notes when ordering your hours of package.</h6>
 </div>
 
-<div className='w-full  lg:w-[50%] bg-white  rounded-[8px] shadow cursor-pointer relative'  onClick={()=>faqToggle(2)}>
+<div className='w-full  lg:w-[50%] bg-white  rounded-[8px] shadow cursor-pointer relative' id='listField2' onClick={()=>faqToggle(2)}>
 <div className=' flex justify-between'>
-<h1 className='pl-6 lg:pl-2 xlg:pl-6 px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em]' id='listField2'>Can I hire a nanny for a few hours?</h1>
+<h1 className='pl-6 lg:pl-2 xlg:pl-6 px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em]' >Can I hire a nanny for a few hours?</h1>
 <img src='../images/Login/ArrowDown.svg' className='  mr-4 ' id='dropdownField2' />
 </div>
 <h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden pt-2 absolute z-[1] top-[44px] bg-white rounded-br-[8px] rounded-bl-[8px] shadow' id='hideTxtField2'>Yes, it’s possible! Just select an additional language learning option that you’ll find in the notes when ordering your hours of package.</h6>
@@ -456,17 +477,17 @@ useEffect(()=>{
 
 
 <header className='flex items-start gap-4 w-full '>
-<div className='w-full lg:w-[50%] bg-white  rounded-[8px] shadow cursor-pointer  relative'  onClick={()=>faqToggle(3)}>
+<div className='w-full lg:w-[50%] bg-white  rounded-[8px] shadow cursor-pointer  relative' id='listField3' onClick={()=>faqToggle(3)}>
 <div className=' flex justify-between'>
-<h1 className='pl-6 lg:pl-2 xlg:pl-6  px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em] ' id='listField3' >Can my child learn a foreign language with a nanny?</h1>
+<h1 className='pl-6 lg:pl-2 xlg:pl-6  px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em] '  >Can my child learn a foreign language with a nanny?</h1>
 <img src='../images/Login/ArrowDown.svg' className='  mr-4 ' id='dropdownField3' />
 </div>
 <h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden  pt-2 absolute z-[1] top-[44px] bg-white rounded-br-[8px] rounded-bl-[8px] shadow' id='hideTxtField3'>Yes, it’s possible! Just select an additional language learning option that you’ll find in the notes when ordering your hours of package.</h6>
 </div>
 
-<div className='w-full lg:w-[50%]  bg-white  rounded-[8px] shadow cursor-pointer relative' onClick={()=>faqToggle(4)}>
+<div className='w-full lg:w-[50%]  bg-white  rounded-[8px] shadow cursor-pointer relative' id='listField4' onClick={()=>faqToggle(4)}>
 <div className=' flex justify-between'>
-<h1 className='pl-6 lg:pl-2 xlg:pl-6 px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em]' id='listField4'>For how long is the package of hours valid?</h1>
+<h1 className='pl-6 lg:pl-2 xlg:pl-6 px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em]' >For how long is the package of hours valid?</h1>
 <img src='../images/Login/ArrowDown.svg' className='  mr-4 select-none pointer-events-none' id='dropdownField4' />
 </div>
 <h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden pt-2 absolute z-[1] top-[44px] bg-white rounded-br-[8px] rounded-bl-[8px] shadow' id='hideTxtField4'>Yes, it’s possible! Just select an additional language learning option that you’ll find in the notes when ordering your hours of package.</h6>
