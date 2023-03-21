@@ -56,6 +56,9 @@ const dispatch= useDispatch()
           hideTxt.classList.toggle('hidden')
       }
 
+
+      
+
 useEffect(()=>{
   dispatch(clearErrors())
 
@@ -263,7 +266,7 @@ useEffect(()=>{
 
 
 
-<main className='mt-6 relative'>
+<main className='mt-6 pb-2'>
 <section className='flex items-center gap-10'>
   <h6 className='font-semibold text-[18px] tracking-[0.02em] whitespace-nowrap'>Account Related</h6>
   <div className='border-faqborder border-[1px] border-solid w-full'></div>
@@ -271,46 +274,48 @@ useEffect(()=>{
 
 
 
-<section className='flex mt-10 items-start flex-col lg:flex-row '>
+<section className='flex gap-6 mt-10 items-start  flex-col'>
 
-<div className='w-full lg:w-[50%] bg-white mr-3 rounded-[8px] shadow cursor-pointer'  onClick={()=>faqToggle(1)}>
+<header className='flex gap-4 items-start w-full'>
+<div className='w-full lg:w-[50%] bg-white  rounded-[8px] shadow cursor-pointer'  onClick={()=>faqToggle(1)}>
 <div className=' flex justify-between'>
 <h1 className='pl-6 lg:pl-2 xlg:pl-6 px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em]' id='list1'>Is Nanny Express available all over Poland?</h1>
 <img src='../images/Login/ArrowDown.svg' className='  mr-4 ' id='dropdown1' />
 </div>
-<h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden ' id='hideTxt1'>Yes, it’s possible! Just select an additional language learning option that <br className='hidden ssxl:block'></br> you’ll find in the notes when ordering your hours of package.</h6>
+<h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden ' id='hideTxt1'>Yes, it’s possible! Just select an additional language learning option that you’ll find in the notes when ordering your hours of package.</h6>
 </div>
 
-
-<div className='w-full mt-5 lg:mt-0 lg:w-[50%] bg-white mr-3 rounded-[8px] shadow cursor-pointer'  onClick={()=>faqToggle(2)}>
+<div className='w-full  lg:w-[50%] bg-white  rounded-[8px] shadow cursor-pointer'  onClick={()=>faqToggle(2)}>
 <div className=' flex justify-between'>
 <h1 className='pl-6 lg:pl-2 xlg:pl-6 px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em]' id='list2'>Can I hire a nanny for a few hours?</h1>
 <img src='../images/Login/ArrowDown.svg' className='  mr-4 ' id='dropdown2' />
 </div>
-<h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden' id='hideTxt2'>Yes, it’s possible! Just select an additional language learning option that <br className='hidden ssxl:block'></br> you’ll find in the notes when ordering your hours of package.</h6>
+<h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden' id='hideTxt2'>Yes, it’s possible! Just select an additional language learning option that you’ll find in the notes when ordering your hours of package.</h6>
 </div>
+</header>
 
-</section>
 
-<section className='flex mt-5 items-start flex-col lg:flex-row'>
-
-<div className='w-full lg:w-[50%] bg-white mr-3 rounded-[8px] shadow cursor-pointer'  onClick={()=>faqToggle(3)}>
+<header className='flex items-start gap-4 w-full '>
+<div className='w-full lg:w-[50%] bg-white  rounded-[8px] shadow cursor-pointer '  onClick={()=>faqToggle(3)}>
 <div className=' flex justify-between'>
 <h1 className='pl-6 lg:pl-2 xlg:pl-6  px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em] ' id='list3' >Can my child learn a foreign language with a nanny?</h1>
 <img src='../images/Login/ArrowDown.svg' className='  mr-4 ' id='dropdown3' />
 </div>
-<h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden ' id='hideTxt3'>Yes, it’s possible! Just select an additional language learning option that <br className='hidden ssxl:block'></br> you’ll find in the notes when ordering your hours of package.</h6>
+<h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden ' id='hideTxt3'>Yes, it’s possible! Just select an additional language learning option that you’ll find in the notes when ordering your hours of package.</h6>
 </div>
 
-<div className='w-full lg:w-[50%] mt-5 lg:mt-0 bg-white mr-3 rounded-[8px] shadow cursor-pointer mb-1' onClick={()=>faqToggle(4)}>
+<div className='w-full lg:w-[50%]  bg-white  rounded-[8px] shadow cursor-pointer' onClick={()=>faqToggle(4)}>
 <div className=' flex justify-between'>
 <h1 className='pl-6 lg:pl-2 xlg:pl-6 px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em]' id='list4'>For how long is the package of hours valid?</h1>
 <img src='../images/Login/ArrowDown.svg' className='  mr-4 select-none pointer-events-none' id='dropdown4' />
 </div>
-<h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden' id='hideTxt4'>Yes, it’s possible! Just select an additional language learning option that <br className='hidden ssxl:block'></br> you’ll find in the notes when ordering your hours of package.</h6>
+<h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden' id='hideTxt4'>Yes, it’s possible! Just select an additional language learning option that you’ll find in the notes when ordering your hours of package.</h6>
 </div>
+</header>
 
 </section>
+
+
 
 {/* -------------------------------------------------------------------------------------------- */}
 
@@ -320,48 +325,47 @@ useEffect(()=>{
   <div className='border-faqborder border-[1px] border-solid w-full'></div>
 </section>
 
+<section className='flex gap-6 mt-10 items-start  flex-col'>
 
-
-<section className='flex mt-10 items-start flex-col lg:flex-row'>
-
-<div className='w-full lg:w-[50%] bg-white mr-3 rounded-[8px] shadow cursor-pointer'  onClick={()=>faqToggle(5)}>
+<header className='flex gap-4 items-start w-full'>
+<div className='w-full lg:w-[50%] bg-white  rounded-[8px] shadow cursor-pointer'  onClick={()=>faqToggle(5)}>
 <div className=' flex justify-between'>
 <h1 className='pl-6 lg:pl-2 xlg:pl-6 px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em]' id='list5'>Is Nanny Express available all over Poland?</h1>
 <img src='../images/Login/ArrowDown.svg' className='  mr-4 ' id='dropdown5' />
 </div>
-<h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden ' id='hideTxt5'>Yes, it’s possible! Just select an additional language learning option that <br className='hidden ssxl:block'></br> you’ll find in the notes when ordering your hours of package.</h6>
+<h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden ' id='hideTxt5'>Yes, it’s possible! Just select an additional language learning option that you’ll find in the notes when ordering your hours of package.</h6>
 </div>
 
-
-<div className='w-full mt-5 lg:mt-0 lg:w-[50%] bg-white mr-3 rounded-[8px] shadow cursor-pointer'  onClick={()=>faqToggle(6)}>
+<div className='w-full  lg:w-[50%] bg-white  rounded-[8px] shadow cursor-pointer'  onClick={()=>faqToggle(6)}>
 <div className=' flex justify-between'>
 <h1 className='pl-6 lg:pl-2 xlg:pl-6 px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em]' id='list6'>Can I hire a nanny for a few hours?</h1>
 <img src='../images/Login/ArrowDown.svg' className='  mr-4 ' id='dropdown6' />
 </div>
-<h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden' id='hideTxt6'>Yes, it’s possible! Just select an additional language learning option that <br className='hidden ssxl:block'></br> you’ll find in the notes when ordering your hours of package.</h6>
+<h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden' id='hideTxt6'>Yes, it’s possible! Just select an additional language learning option that you’ll find in the notes when ordering your hours of package.</h6>
 </div>
+</header>
 
-</section>
 
-<section className='flex mt-5 items-start flex-col lg:flex-row'>
-
-<div className='w-full lg:w-[50%] bg-white mr-3 rounded-[8px] shadow cursor-pointer'  onClick={()=>faqToggle(7)}>
+<header className='flex items-start gap-4 w-full '>
+<div className='w-full lg:w-[50%] bg-white  rounded-[8px] shadow cursor-pointer '  onClick={()=>faqToggle(7)}>
 <div className=' flex justify-between'>
 <h1 className='pl-6 lg:pl-2 xlg:pl-6  px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em] ' id='list7' >Can my child learn a foreign language with a nanny?</h1>
 <img src='../images/Login/ArrowDown.svg' className='  mr-4 ' id='dropdown7' />
 </div>
-<h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden ' id='hideTxt7'>Yes, it’s possible! Just select an additional language learning option that <br className='hidden ssxl:block'></br> you’ll find in the notes when ordering your hours of package.</h6>
+<h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden ' id='hideTxt7'>Yes, it’s possible! Just select an additional language learning option that you’ll find in the notes when ordering your hours of package.</h6>
 </div>
 
-<div className='w-full lg:w-[50%] mt-5 lg:mt-0 bg-white mr-3 rounded-[8px] shadow cursor-pointer mb-1' onClick={()=>faqToggle(8)}>
+<div className='w-full lg:w-[50%]  bg-white  rounded-[8px] shadow cursor-pointer' onClick={()=>faqToggle(8)}>
 <div className=' flex justify-between'>
 <h1 className='pl-6 lg:pl-2 xlg:pl-6 px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em]' id='list8'>For how long is the package of hours valid?</h1>
 <img src='../images/Login/ArrowDown.svg' className='  mr-4 select-none pointer-events-none' id='dropdown8' />
 </div>
-<h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden' id='hideTxt8'>Yes, it’s possible! Just select an additional language learning option that <br className='hidden ssxl:block'></br> you’ll find in the notes when ordering your hours of package.</h6>
+<h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden' id='hideTxt8'>Yes, it’s possible! Just select an additional language learning option that you’ll find in the notes when ordering your hours of package.</h6>
 </div>
+</header>
 
 </section>
+
 
 {/* -------------------------------------------------------------------------------------------- */}
 
@@ -372,92 +376,101 @@ useEffect(()=>{
 </section>
 
 
+<section className='flex gap-6 mt-10 items-start  flex-col'>
 
-<section className='flex mt-10 items-start flex-col lg:flex-row'>
-
-<div className='w-full lg:w-[50%] bg-white mr-3 rounded-[8px] shadow cursor-pointer'  onClick={()=>faqToggle(9)}>
+<header className='flex gap-4 items-start w-full'>
+<div className='w-full lg:w-[50%] bg-white  rounded-[8px] shadow cursor-pointer'  onClick={()=>faqToggle(9)}>
 <div className=' flex justify-between'>
 <h1 className='pl-6 lg:pl-2 xlg:pl-6 px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em]' id='list9'>Is Nanny Express available all over Poland?</h1>
 <img src='../images/Login/ArrowDown.svg' className='  mr-4 ' id='dropdown9' />
 </div>
-<h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden ' id='hideTxt9'>Yes, it’s possible! Just select an additional language learning option that <br className='hidden ssxl:block'></br> you’ll find in the notes when ordering your hours of package.</h6>
+<h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden ' id='hideTxt9'>Yes, it’s possible! Just select an additional language learning option that you’ll find in the notes when ordering your hours of package.</h6>
 </div>
 
-
-<div className='w-full mt-5 lg:mt-0 lg:w-[50%] bg-white mr-3 rounded-[8px] shadow cursor-pointer'  onClick={()=>faqToggle(10)}>
+<div className='w-full  lg:w-[50%] bg-white  rounded-[8px] shadow cursor-pointer'  onClick={()=>faqToggle(10)}>
 <div className=' flex justify-between'>
 <h1 className='pl-6 lg:pl-2 xlg:pl-6 px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em]' id='list10'>Can I hire a nanny for a few hours?</h1>
 <img src='../images/Login/ArrowDown.svg' className='  mr-4 ' id='dropdown10' />
 </div>
-<h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden' id='hideTxt10'>Yes, it’s possible! Just select an additional language learning option that <br className='hidden ssxl:block'></br> you’ll find in the notes when ordering your hours of package.</h6>
+<h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden' id='hideTxt10'>Yes, it’s possible! Just select an additional language learning option that you’ll find in the notes when ordering your hours of package.</h6>
 </div>
+</header>
 
-</section>
 
-<section className='flex mt-5 items-start flex-col lg:flex-row'>
-
-<div className='w-full lg:w-[50%] bg-white mr-3 rounded-[8px] shadow cursor-pointer'  onClick={()=>faqToggle(11)}>
+<header className='flex items-start gap-4 w-full '>
+<div className='w-full lg:w-[50%] bg-white  rounded-[8px] shadow cursor-pointer '  onClick={()=>faqToggle(11)}>
 <div className=' flex justify-between'>
 <h1 className='pl-6 lg:pl-2 xlg:pl-6  px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em] ' id='list11' >Can my child learn a foreign language with a nanny?</h1>
 <img src='../images/Login/ArrowDown.svg' className='  mr-4 ' id='dropdown11' />
 </div>
-<h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden ' id='hideTxt11'>Yes, it’s possible! Just select an additional language learning option that <br className='hidden ssxl:block'></br> you’ll find in the notes when ordering your hours of package.</h6>
+<h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden ' id='hideTxt11'>Yes, it’s possible! Just select an additional language learning option that you’ll find in the notes when ordering your hours of package.</h6>
 </div>
 
-<div className='w-full lg:w-[50%] mt-5 lg:mt-0 bg-white mr-3 rounded-[8px] shadow cursor-pointer mb-1' onClick={()=>faqToggle(12)}>
+<div className='w-full lg:w-[50%]  bg-white  rounded-[8px] shadow cursor-pointer' onClick={()=>faqToggle(12)}>
 <div className=' flex justify-between'>
 <h1 className='pl-6 lg:pl-2 xlg:pl-6 px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em]' id='list12'>For how long is the package of hours valid?</h1>
 <img src='../images/Login/ArrowDown.svg' className='  mr-4 select-none pointer-events-none' id='dropdown12' />
 </div>
-<h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden' id='hideTxt12'>Yes, it’s possible! Just select an additional language learning option that <br className='hidden ssxl:block'></br> you’ll find in the notes when ordering your hours of package.</h6>
+<h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden' id='hideTxt12'>Yes, it’s possible! Just select an additional language learning option that you’ll find in the notes when ordering your hours of package.</h6>
 </div>
+</header>
 
 </section>
 
 
 </main>
-{/* 
-<section className='flex mt-10 items-start flex-col lg:flex-row'>
 
 
-<div className='w-full lg:w-[50%] bg-white mr-3 rounded-[8px] shadow cursor-pointer'  onClick={()=>faqToggle(1)}>
+
+
+<section className='flex gap-6 mt-10 items-start flex-col pb-1'>
+
+<header className='flex gap-4 items-start w-full'>
+<div className='w-full lg:w-[50%] bg-white  rounded-[8px] shadow cursor-pointer'  onClick={()=>faqToggle(1)}>
 <div className=' flex justify-between'>
 <h1 className='pl-6 lg:pl-2 xlg:pl-6 px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em]' id='list1'>Is Nanny Express available all over Poland?</h1>
 <img src='../images/Login/ArrowDown.svg' className='  mr-4 ' id='dropdown1' />
 </div>
-<h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden ' id='hideTxt1'>Yes, it’s possible! Just select an additional language learning option that <br className='hidden ssxl:block'></br> you’ll find in the notes when ordering your hours of package.</h6>
+<h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden ' id='hideTxt1'>Yes, it’s possible! Just select an additional language learning option that you’ll find in the notes when ordering your hours of package.</h6>
 </div>
 
-
-<div className='w-full mt-5 lg:mt-0 lg:w-[50%] bg-white mr-3 rounded-[8px] shadow cursor-pointer'  onClick={()=>faqToggle(2)}>
+<div className='w-full  lg:w-[50%] bg-white  rounded-[8px] shadow cursor-pointer'  onClick={()=>faqToggle(2)}>
 <div className=' flex justify-between'>
 <h1 className='pl-6 lg:pl-2 xlg:pl-6 px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em]' id='list2'>Can I hire a nanny for a few hours?</h1>
 <img src='../images/Login/ArrowDown.svg' className='  mr-4 ' id='dropdown2' />
 </div>
-<h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden' id='hideTxt2'>Yes, it’s possible! Just select an additional language learning option that <br className='hidden ssxl:block'></br> you’ll find in the notes when ordering your hours of package.</h6>
+<h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden' id='hideTxt2'>Yes, it’s possible! Just select an additional language learning option that you’ll find in the notes when ordering your hours of package.</h6>
 </div>
+</header>
 
-</section>
 
-<section className='flex mt-5 items-start flex-col lg:flex-row'>
-
-<div className='w-full lg:w-[50%] bg-white mr-3 rounded-[8px] shadow cursor-pointer'  onClick={()=>faqToggle(3)}>
+<header className='flex items-start gap-4 w-full '>
+<div className='w-full lg:w-[50%] bg-white  rounded-[8px] shadow cursor-pointer '  onClick={()=>faqToggle(3)}>
 <div className=' flex justify-between'>
 <h1 className='pl-6 lg:pl-2 xlg:pl-6  px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em] ' id='list3' >Can my child learn a foreign language with a nanny?</h1>
 <img src='../images/Login/ArrowDown.svg' className='  mr-4 ' id='dropdown3' />
 </div>
-<h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden ' id='hideTxt3'>Yes, it’s possible! Just select an additional language learning option that <br className='hidden ssxl:block'></br> you’ll find in the notes when ordering your hours of package.</h6>
+<h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden ' id='hideTxt3'>Yes, it’s possible! Just select an additional language learning option that you’ll find in the notes when ordering your hours of package.</h6>
 </div>
 
-<div className='w-full lg:w-[50%] mt-5 lg:mt-0 bg-white mr-3 rounded-[8px] shadow cursor-pointer mb-1' onClick={()=>faqToggle(4)}>
+<div className='w-full lg:w-[50%]  bg-white  rounded-[8px] shadow cursor-pointer' onClick={()=>faqToggle(4)}>
 <div className=' flex justify-between'>
 <h1 className='pl-6 lg:pl-2 xlg:pl-6 px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em]' id='list4'>For how long is the package of hours valid?</h1>
 <img src='../images/Login/ArrowDown.svg' className='  mr-4 select-none pointer-events-none' id='dropdown4' />
 </div>
-<h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden' id='hideTxt4'>Yes, it’s possible! Just select an additional language learning option that <br className='hidden ssxl:block'></br> you’ll find in the notes when ordering your hours of package.</h6>
+<h6 className='px-6 lg:px-2 xlg:px-6 text-[16px] leading-7 pb-6 hidden' id='hideTxt4'>Yes, it’s possible! Just select an additional language learning option that you’ll find in the notes when ordering your hours of package.</h6>
 </div>
+</header>
 
-</section> */}
+</section>
+
+
+
+
+
+
+
+
 
 
 
