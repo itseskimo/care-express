@@ -1,27 +1,30 @@
 "use client"
 import Link from 'next/link'
-import { useState, useEffect } from 'react'
+import { useState, useEffect , useRef } from 'react'
 import { useRouter } from 'next/navigation';
 import { logout} from '@/redux/actions/page'
 import { useDispatch } from 'react-redux'
-import { accOutsideAlert } from '@/constants/page';
 
 const page = ({navTitle}) => {
   const dispatch= useDispatch()
 
   const[navitem,setNavItem]=useState(`${navTitle}`)
-  // const[select,setSelect]=useState(false)
+  const[select,setSelect]=useState(false)
   const router = useRouter();
-
-
-  const {account , setAccount , accRef} = accOutsideAlert(false)
-
+  const closeRef = useRef(null);
 
 function logOut(){
   dispatch(logout())
   localStorage.clear()
   router.push('/')
 }
+
+const handleClose = (e) => {
+  if (!closeRef.current.contains(e.target)) {
+    setSelect(false);
+  }
+}
+
 
 const [firstLetter, setFirstLetter]=useState('')
 
@@ -31,6 +34,8 @@ useEffect(()=>{
     let loginData = JSON.parse(data);
     setFirstLetter(loginData?.first_name[0].toUpperCase())
   }
+  document.addEventListener("click", handleClose, true);
+  return () => document.removeEventListener("click", handleClose , true) 
 },[])
 
   return (
@@ -46,20 +51,15 @@ useEffect(()=>{
 
 <header className='flex items-center gap-6 '>
 <Link href={{pathname:'/reports/booking'}}><button className='bg-hazyblue text-white text-[16px] rounded-[23.5px] px-5 py-[12px]'>Book Now</button></Link>
-<h1 className='rounded-[50%] cursor-pointer bg-dashblue px-[19px] py-[8px] text-center text-[24px] flex items-center justify-center font-extrabold mr-5'  ref={accRef}>{firstLetter}</h1>
+<h1 className='rounded-[50%] cursor-pointer bg-dashblue px-[19px] py-[8px] text-center text-[24px] flex items-center justify-center font-extrabold mr-5' onClick={()=>setSelect(!select)}>{firstLetter}</h1>
 </header>
 
 </nav>
-<main className='relative'> 
-{account &&
-         <ul className='w-[220px] bg-white shadow-md rounded-[8px] overflow-hidden absolute right-0 top-2 cursor-pointer z-10 px-7'  >
-           <li className='w-full py-3 list-none box-border cursor-pointer flex items-center justify-start border-b-[1px] border-solid border-gray-300' >
-           <Link href={{pathname:'/dashboard/account'}}><p className='text-[14px]'>Account</p></Link>
-           </li>
- 
-           <li className='w-full py-3 list-none box-border cursor-pointer flex items-center justify-start ' >
-             <p className='text-[14px]' onClick={logOut}>Logout</p>
-           </li>
+<main className='relative' ref={closeRef}> 
+{select &&
+         <ul className='w-[220px] bg-white shadow-md rounded-[8px] overflow-hidden absolute right-0 top-2 cursor-pointer z-10 ' onClick={()=>setSelect(!select)} >
+        <Link href={{pathname:'/dashboard/account'}}><li className='w-full py-3 list-none box-border cursor-pointer flex items-center justify-start px-7 text-[14px] hover:bg-slate-100' >Account</li></Link>
+        <li className='w-full py-3 list-none box-border cursor-pointer flex items-center justify-start px-7 text-[14px] hover:bg-slate-100 ' onClick={logOut} >Logout</li>
       </ul>
       }
 </main>
