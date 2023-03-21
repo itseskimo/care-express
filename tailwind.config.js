@@ -71,6 +71,7 @@ module.exports = {
       dashdrkgrey:'#9FA3A9',
       dashxtrmgrey:'#727F96',
       bookingborder:'#ABABAB',
+      faqborder:'rgba(0, 0, 0, 0.2)',
       bookingblue:'#416EEA',
 
     },
