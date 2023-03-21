@@ -40,7 +40,6 @@ const page = () => {
     let dateDisplay = utilityDate ? utilityDate : JSON.stringify( date).slice(1,11).split("-").filter(item=>!!item).reverse().join("/")
 
 
-console.log( calendarDate , selectPlanId , careType )
 
     useEffect(()=>{
       if(localStorage.getItem('user')){
@@ -134,7 +133,7 @@ console.log( calendarDate , selectPlanId , careType )
   return (
     <div className='bg-specialbg  h-max' >
 
-    {errorModal && <ErrorModal text='Please Select All Fields!'/>}
+    {errorModal && <ErrorModal text='Please Select All Fields!' errorState={errorModal}/>}
 
 
     <Head title='Order History' />
