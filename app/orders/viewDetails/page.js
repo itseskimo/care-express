@@ -31,8 +31,15 @@ const page = () => {
           let loginData = JSON.parse(data);
           dispatch(getOrderById('63f7c9989d0078faca4d6ee0',loginData.token))
         }
-    
+        let copyText = document.getElementById('copyText')
+        copyText.innerText='jjjjccffddj'
       },[])
+
+  function clipboardText(){
+     let copyText = document.getElementById('copyText')
+     navigator.clipboard.writeText(copyText.innerText);
+
+    }
 
     return (
         <>
@@ -72,7 +79,7 @@ const page = () => {
                 <DashboardNav navTitle='Orders' />
                 <section className='mt-10  flex justify-between'>
                     <div className='flex items-center'>
-                        <img className='pr-2 h-8 cursor-pointer' src='../images/dashboard/ArrowLeft.svg' onClick={()=>router.push('/orderHistory/ongoing')}/>
+                        <img className='pr-2 h-8 cursor-pointer' src='../images/dashboard/ArrowLeft.svg' onClick={()=>router.push('/orders/ongoing')}/>
                         <h6 className='font-extrabold text-[32px] whitespace-nowrap'>Order Details</h6>
                     </div>
 
@@ -87,7 +94,7 @@ const page = () => {
                     <div>
                         <h6 className='text-[16px] font-semibold mb-1'>Order Number</h6>
                         <div className='flex cursor-pointer'>
-                        <h6 className='text-[16px]'>6378f...6922f0</h6>
+                        <h6 className='text-[16px]' id='copyText' onClick={clipboardText}>6378f...6922f0</h6>
                         <img className='pl-3' src='../images/dashboard/copy.svg'/>
                         </div>
                     </div>

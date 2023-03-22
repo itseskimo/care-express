@@ -8,7 +8,7 @@ export default function outsideAlert(selectState, dropdownState){
 
     const[select,setSelect]=useState(selectState)
     const[loginDropdown,setLoginDropdown]=useState(dropdownState)
-console.log(selRef)
+
     function handleClickOutside(event) {
       if ( dropRef.current && !dropRef.current.contains(event.target)) {
       setLoginDropdown(false)

@@ -21,6 +21,7 @@ const page = () => {
     const [hours,setHours]=useState('')
     const [cost,setCost]=useState('')
     const [saveCheckBoxesText,setSaveCheckBoxesText]=useState([])
+
     const [additionalDescription,setAdditionalDescription]=useState('')
     const [calendarDate,setCalendarDate]=useState('')
 

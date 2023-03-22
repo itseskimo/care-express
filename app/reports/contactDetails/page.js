@@ -195,31 +195,32 @@ const [errorModal, setErrorModal]= useState(false)
 
 <h6 className='text-[16px] tracking-[0.02em] font-semibold'>Saved Addresses</h6>
 
-<main className='mt-2 flex gap-8'>
+<main className='mt-2 flex items-start gap-8'>
 
-<div className='flex items-center justify-center flex-col gap-3 cursor-pointer border-dashed border-[1px] border-gray-400 py-16 rounded-[14px] w-[196px]' onClick={addAddressTogg}>
+<div className='flex items-center justify-center flex-col gap-3 cursor-pointer border-dashed border-[1px] border-gray-400 py-16 rounded-[14px] h-[230px] w-[196px]' onClick={addAddressTogg}>
 <section className='flex items-center justify-center flex-col'>
 <img className='' src='../images/dashboard/Plusblack.svg'/>
 <h6 className='text-[20px] font-semibold'>Add Address</h6> 
 </section>
 </div>
 
-
 {address  && address.map((item)=>{
-  return <div key={item._id} className={`bg-white px-6 py-6 relative w-[25%] rounded-[14px] border-solid border-[1px] cursor-pointer ${addStyles === item._id ? 'border-bookingblue' : 'border-bookingborder'}`} onClick={()=>styles(item,)}>
-  <div className='h-full flex flex-col'>
-  <h6 className=' font-semibold text-[20px] mb-2'>{item.title}</h6>
-  <h6 className=' mb-2 text-[20px]  leading-7 '>{item.street_name} {item.postal_code}</h6>
-  <h6 className=' mb-2 text-[20px]  leading-4 '>{item.city}</h6>
-  <div className={`flex mt-7 ${addStyles === item._id ? 'hidden' : 'block'}`}><img className='pr-3' src='../images/dashboard/delete.svg' onClick={()=>deleteTogg(item._id,item.title)}/><img className='pr-3' src='../images/dashboard/edit.svg'  onClick={()=>editToggle(item._id,item.title,item.street_number,item.street_name,item.postal_code,item.city,item.apartment_number)}/></div>
-  <img src='../images/booking/check.svg' className={`absolute bottom-5 select-none pointer-events-none left-5 ${addStyles === item._id ? 'block' : 'hidden'}`}  />
+  return <div key={item._id} className={`bg-white h-[230px]  px-6 py-6 relative w-[25%] rounded-[14px] border-solid border-[1px] cursor-pointer ${addStyles === item._id ? 'border-bookingblue' : 'border-bookingborder'}`} onClick={()=>styles(item)}>
+  <div className=' flex flex-col justify-between gap-2 h-full'>
+  <section className='flex flex-col gap-1'>
+  <h6 className=' font-semibold text-[20px] '>{item.title.length > 10 ? `${item.title.substring(0, 10)}...` : item.title}</h6>
+  <h6 className='  text-[20px]  leading-7 '>{  item.apartment_number.length > 6 ? `${item.apartment_number.substring(0, 6)}...` : item.apartment_number}  {item.street_name.length > 7 ? `${item.street_name.substring(0, 7)}...` : item.street_name} </h6>
+  <h6 className='  text-[20px]  leading-7 '>{item.street_number.length > 12 ? `${item.street_number.substring(0, 12)}...` : item.street_number}</h6>
+  <h6 className='  text-[20px]  leading-7 '>{item.city.length > 7 ? `${item.city.substring(0, 8)}...` : item.city} {item.postal_code.length > 6 ? `${item.postal_code.substring(0, 5)}...` : item.postal_code} </h6>
+  </section>
+  
+  <div className='flex'><img className='pr-3' src='../images/dashboard/delete.svg' onClick={()=>deleteTogg(item._id,item.title)}/><img className='pr-3' src='../images/dashboard/edit.svg'  onClick={()=>editToggle(item._id,item.title,item.street_number,item.street_name,item.postal_code,item.city,item.apartment_number)}/></div>
+  <img src='../images/booking/check.svg' className={`absolute top-[50%] left-[50%] -translate-y-[50%] -translate-x-[50%] select-none pointer-events-none  ${addStyles === item._id ? 'block' : 'hidden'}`}  />
 
 </div>
 </div>
   
 })}
-
-
 
 </main>
 
@@ -257,17 +258,17 @@ const [errorModal, setErrorModal]= useState(false)
 
 <div className=''>
 <h6 className='text-[14px] mb-[6px]'>Save as</h6>
-<input style={{border:'1px solid #C8CACD'}} name='title' required value={title} onChange={formDetails} className='w-full rounded-[10px] px-4 py-3 outline-none '/>
+<input style={{border:'1px solid #C8CACD'}} name='title'  value={title} onChange={formDetails} className='w-full rounded-[10px] px-4 py-3 outline-none '/>
 </div>
 
 <div className=''>
 <h6 className='text-[14px] mb-[6px]'>Street Name</h6>
-<input style={{border:'1px solid #C8CACD'}} name='streetName' required value={streetName} onChange={formDetails} className='w-full rounded-[10px] px-4 py-3 outline-none'/>
+<input style={{border:'1px solid #C8CACD'}} name='streetName'  value={streetName} onChange={formDetails} className='w-full rounded-[10px] px-4 py-3 outline-none'/>
 </div>
 
 <div className=''>
 <h6 className='text-[14px] mb-[6px]'>Street Number</h6>
-<input style={{border:'1px solid #C8CACD'}} type='number' name='streetNumber' required value={streetNumber} onChange={formDetails} className='w-full rounded-[10px] px-4 py-3 outline-none'/>
+<input style={{border:'1px solid #C8CACD'}} name='streetNumber' value={streetNumber} onChange={formDetails} className='w-full rounded-[10px] px-4 py-3 outline-none'/>
 </div>
 
 <div className=''>
@@ -279,12 +280,12 @@ const [errorModal, setErrorModal]= useState(false)
 <section className='flex gap-4 '>
 <div className='w-[50%]'>
 <h6 className='text-[14px] mb-[6px]'>Postal Code</h6>
-<input style={{border:'1px solid #C8CACD'}} name='postalCode' required value={postalCode} onChange={formDetails} className='w-full rounded-[10px] px-4 py-3 outline-none'/>
+<input style={{border:'1px solid #C8CACD'}} name='postalCode' value={postalCode} onChange={formDetails} className='w-full rounded-[10px] px-4 py-3 outline-none'/>
 </div>
 
 <div className='w-[50%]'>
 <h6 className='text-[14px] mb-[6px]'>City / Town</h6>
-<input style={{border:'1px solid #C8CACD'}} name='city' required value={city}  onChange={formDetails} className='w-full rounded-[10px] px-4 py-3 outline-none'/>
+<input style={{border:'1px solid #C8CACD'}} name='city'  value={city}  onChange={formDetails} className='w-full rounded-[10px] px-4 py-3 outline-none'/>
 </div>
 </section>
 
@@ -303,17 +304,17 @@ const [errorModal, setErrorModal]= useState(false)
 
 <div className=''>
 <h6 className='text-[14px] mb-[6px]'>Save as</h6>
-<input style={{border:'1px solid #C8CACD'}} name='title' required value={title} onChange={formDetails} className='w-full rounded-[10px] px-4 py-3 outline-none '/>
+<input style={{border:'1px solid #C8CACD'}} name='title'  value={title} onChange={formDetails} className='w-full rounded-[10px] px-4 py-3 outline-none '/>
 </div>
 
 <div className=''>
 <h6 className='text-[14px] mb-[6px]'>Street Name</h6>
-<input style={{border:'1px solid #C8CACD'}} name='streetName' required value={streetName} onChange={formDetails} className='w-full rounded-[10px] px-4 py-3 outline-none'/>
+<input style={{border:'1px solid #C8CACD'}} name='streetName'  value={streetName} onChange={formDetails} className='w-full rounded-[10px] px-4 py-3 outline-none'/>
 </div>
 
 <div className=''>
 <h6 className='text-[14px] mb-[6px]'>Street Number</h6>
-<input style={{border:'1px solid #C8CACD'}}  name='streetNumber' required value={streetNumber} onChange={formDetails} className='w-full rounded-[10px] px-4 py-3 outline-none'/>
+<input style={{border:'1px solid #C8CACD'}}  name='streetNumber'  value={streetNumber} onChange={formDetails} className='w-full rounded-[10px] px-4 py-3 outline-none'/>
 </div>
 
 <div className=''>
@@ -325,12 +326,12 @@ const [errorModal, setErrorModal]= useState(false)
 <section className='flex gap-4 '>
 <div className='w-[50%]'>
 <h6 className='text-[14px] mb-[6px]'>Postal Code</h6>
-<input style={{border:'1px solid #C8CACD'}} name='postalCode' required value={postalCode} onChange={formDetails} className='w-full rounded-[10px] px-4 py-3 outline-none'/>
+<input style={{border:'1px solid #C8CACD'}} name='postalCode' value={postalCode} onChange={formDetails} className='w-full rounded-[10px] px-4 py-3 outline-none'/>
 </div>
 
 <div className='w-[50%]'>
 <h6 className='text-[14px] mb-[6px]'>City / Town</h6>
-<input style={{border:'1px solid #C8CACD'}} name='city' required value={city}  onChange={formDetails} className='w-full rounded-[10px] px-4 py-3 outline-none'/>
+<input style={{border:'1px solid #C8CACD'}} name='city' value={city}  onChange={formDetails} className='w-full rounded-[10px] px-4 py-3 outline-none'/>
 </div>
 </section>
 

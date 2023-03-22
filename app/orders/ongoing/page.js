@@ -47,7 +47,7 @@ useEffect(()=>{
             <h6 className='py-5 text-[14px]'>10 Hours</h6>
             <h6 className='py-5 text-[14px]'>55 zl/h</h6>
             <h6 className='py-5 text-[14px]'>550 zl</h6>
-            <h6 className='py-5 text-[14px] underline underline-offset-2 decoration-[1px] text-blue cursor-pointer flex'><img className='pr-2' src='../images/dashboard/pdf.svg'/>Download Invoice <Link href={{pathname:'/order/viewDetails'}}><span className='flex pl-5'><img className='pr-2' src='../images/dashboard/eye.svg' />View Details</span></Link> </h6>
+            <h6 className='py-5 text-[14px] underline underline-offset-2 decoration-[1px] text-blue cursor-pointer flex'><img className='pr-2' src='../images/dashboard/pdf.svg'/>Download Invoice <Link href={{pathname:'/orders/viewDetails'}}><span className='flex pl-5'><img className='pr-2' src='../images/dashboard/eye.svg' />View Details</span></Link> </h6>
         </main>
         
           
