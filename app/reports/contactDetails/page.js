@@ -16,6 +16,7 @@ const page = () => {
     const router = useRouter();
     const dispatch = useDispatch();
     const  address = useSelector((state) => state.address);
+    const listRef = useRef();
 
     const [form, setForm] = useState({
       title: "",
@@ -149,7 +150,25 @@ const [errorModal, setErrorModal]= useState(false)
 // setTimeout(() => {
 //   errorModal && setErrorModal(false)
 // }, 2000);
+let [slideNumber, setSlideNumber] = useState(0);
+console.log(slideNumber)
+//Initial left arrow wont exist when loads
+const [isMoved, setIsMoved] = useState(false);
 
+const handleClick = (direction) => {
+  setIsMoved(true);
+
+  let distance = listRef.current.getBoundingClientRect().x - 18;
+  console.log(distance)
+  if (direction === "left" && slideNumber > 0) {
+    setSlideNumber(slideNumber - 1);
+    listRef.current.style.transform = `translateX(${-734.7 + distance}px)`;
+  }
+  if (direction === "right" && slideNumber < address.length-1) {
+    setSlideNumber(slideNumber + 1);
+    listRef.current.style.transform = `translateX(${0 + distance}px)`;
+  }
+};
 
   return (
     <>
@@ -195,17 +214,21 @@ const [errorModal, setErrorModal]= useState(false)
 
 <h6 className='text-[16px] tracking-[0.02em] font-semibold'>Saved Addresses</h6>
 
-<main className='mt-2 flex items-start gap-8'>
+<main className='mt-2 flex items-start gap-7'>
 
-<div className='flex items-center justify-center flex-col gap-3 cursor-pointer border-dashed border-[1px] border-gray-400 py-16 rounded-[14px] h-[230px] w-[196px]' onClick={addAddressTogg}>
+<div className='flex items-center justify-center flex-col gap-3 cursor-pointer border-dashed border-[1px] border-gray-400 py-16 rounded-[14px] h-[230px] w-[236px]' onClick={addAddressTogg}>
 <section className='flex items-center justify-center flex-col'>
 <img className='' src='../images/dashboard/Plusblack.svg'/>
 <h6 className='text-[20px] font-semibold'>Add Address</h6> 
 </section>
 </div>
 
+<section className='bg-yellow-50 w-full relative overflow-hidden	' >
+<img src='../images/Icons/sliderArrow.svg' className='absolute top-[50%] left-0 rotate-180 -translate-y-[50%] cursor-pointer z-10' style={{ display: !isMoved && "none" }} onClick={() => handleClick("left")}/>
+
+<header ref={listRef} className='flex gap-7 translate-x-0	transition-all w-max'>
 {address  && address.map((item)=>{
-  return <div key={item._id} className={`bg-white h-[230px]  px-6 py-6 relative w-[25%] rounded-[14px] border-solid border-[1px] cursor-pointer ${addStyles === item._id ? 'border-bookingblue' : 'border-bookingborder'}`} onClick={()=>styles(item)}>
+  return <div key={item._id} className={`bg-white h-[230px]  px-6 py-6 relative w-[340px] rounded-[14px] border-solid border-[1px] cursor-pointer ${addStyles === item._id ? 'border-bookingblue' : 'border-bookingborder'}`} onClick={()=>styles(item)}>
   <div className=' flex flex-col justify-between gap-2 h-full'>
   <section className='flex flex-col gap-1'>
   <h6 className=' font-semibold text-[20px] '>{item.title.length > 10 ? `${item.title.substring(0, 10)}...` : item.title}</h6>
@@ -216,11 +239,13 @@ const [errorModal, setErrorModal]= useState(false)
   
   <div className='flex'><img className='pr-3' src='../images/dashboard/delete.svg' onClick={()=>deleteTogg(item._id,item.title)}/><img className='pr-3' src='../images/dashboard/edit.svg'  onClick={()=>editToggle(item._id,item.title,item.street_number,item.street_name,item.postal_code,item.city,item.apartment_number)}/></div>
   <img src='../images/booking/check.svg' className={`absolute top-[50%] left-[50%] -translate-y-[50%] -translate-x-[50%] select-none pointer-events-none  ${addStyles === item._id ? 'block' : 'hidden'}`}  />
-
 </div>
 </div>
-  
 })}
+  </header>
+
+  <img src='../images/Icons/sliderArrow.svg' className='absolute top-[50%] right-0 -translate-y-[50%] cursor-pointer ' onClick={() => handleClick("right")}/>
+</section>
 
 </main>
 
