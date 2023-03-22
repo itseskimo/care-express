@@ -158,17 +158,38 @@ const [isMoved, setIsMoved] = useState(false);
 const handleClick = (direction) => {
   setIsMoved(true);
 
-  let distance = listRef.current.getBoundingClientRect().x - 18;
+  let distance = listRef.current.getBoundingClientRect().x - 50;
   console.log(distance)
-  if (direction === "left" && slideNumber > 0) {
-    setSlideNumber(slideNumber - 1);
-    listRef.current.style.transform = `translateX(${-734.7 + distance}px)`;
-  }
-  if (direction === "right" && slideNumber < address.length-1) {
-    setSlideNumber(slideNumber + 1);
-    listRef.current.style.transform = `translateX(${0 + distance}px)`;
-  }
+    if (direction === "left" && slideNumber > 0) {
+      setSlideNumber(slideNumber - 1);
+      listRef.current.style.transform = `translateX(${230 + distance}px)`;
+    }
+    if (direction === "right" && slideNumber < address.length-1) {
+      setSlideNumber(slideNumber + 1);
+      listRef.current.style.transform = `translateX(${-710 + distance}px)`;
+    }else{
+      listRef.current.style.transform = 'translateX(0px)';
+      setSlideNumber(0)
+    }
 };
+// const handleClick = (direction) => {
+//   setIsMoved(true);
+
+//   let distance = listRef.current.getBoundingClientRect().x - 18;
+//   console.log(distance)
+//   if (direction === "left" && slideNumber > 0) {
+//     setSlideNumber(slideNumber - 1);
+//     listRef.current.style.transform = `translateX(${-734.7 + distance}px)`;
+//   }
+//   if (direction === "right" && slideNumber < address.length-1) {
+//     setSlideNumber(slideNumber + 1);
+//     listRef.current.style.transform = `translateX(${0 + distance}px)`;
+//   }else{
+//       console.log('kk')
+//     listRef.current.style.transform = 'translateX(0px)';
+//     setSlideNumber(0)
+//   }
+// };
 
   return (
     <>
@@ -226,7 +247,7 @@ const handleClick = (direction) => {
 <section className='bg-yellow-50 w-full relative overflow-hidden	' >
 <img src='../images/Icons/sliderArrow.svg' className='absolute top-[50%] left-0 rotate-180 -translate-y-[50%] cursor-pointer z-10' style={{ display: !isMoved && "none" }} onClick={() => handleClick("left")}/>
 
-<header ref={listRef} className='flex gap-7 translate-x-0	transition-all w-max'>
+<header ref={listRef} className='flex gap-7 translate-x-0	transition-all duration-1000	 w-max'>
 {address  && address.map((item)=>{
   return <div key={item._id} className={`bg-white h-[230px]  px-6 py-6 relative w-[340px] rounded-[14px] border-solid border-[1px] cursor-pointer ${addStyles === item._id ? 'border-bookingblue' : 'border-bookingborder'}`} onClick={()=>styles(item)}>
   <div className=' flex flex-col justify-between gap-2 h-full'>
