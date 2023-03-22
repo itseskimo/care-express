@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { useDispatch ,useSelector } from 'react-redux'
 import { postAddress} from '@/redux/actions/page'
 import {  getAddresses , deleteAddress, updateAddress} from '@/redux/actions/page'
-import {useState,useEffect} from 'react'
+import {useState,useEffect , useRef } from 'react'
 import {useRouter} from 'next/navigation';
 import ErrorModal from '../../Components/errorModal/page'
 
@@ -94,6 +94,13 @@ const page = () => {
     const [hours,setHours]=useState('')
     const [cost,setCost]=useState('')
 
+
+    const closeErrorRef = useRef(null);
+  
+    const handleErrorClose = (e) => {   
+    if(closeErrorRef.current === e.target) setErrorModal(false) 
+    }
+
     useEffect(()=>{
     if(localStorage.getItem('user')){
       let data = localStorage.getItem('user')
@@ -114,9 +121,10 @@ if(localStorage.getItem('contact')){
   styles(inputField)
 }
 
-
-
     }
+
+    document.addEventListener("click", handleErrorClose, true);
+    return () => document.removeEventListener("click", handleErrorClose , true)
   },[])
   
   const [addStyles,setAddStyles]=useState('')
@@ -138,9 +146,9 @@ function navigateForward(){
 
 const [errorModal, setErrorModal]= useState(false)
 
-setTimeout(() => {
-  errorModal && setErrorModal(false)
-}, 2000);
+// setTimeout(() => {
+//   errorModal && setErrorModal(false)
+// }, 2000);
 
 
   return (
@@ -153,7 +161,7 @@ setTimeout(() => {
     
     <DashBookingHeader active={1}/>
 
-    {errorModal && <ErrorModal text='Please Select an Address Field'/>}
+    {errorModal && <ErrorModal text='Please Select an Address Field' refState={closeErrorRef}/>}
 
 
     <section className='bg-white h-max rounded-[16px] mt-10'>

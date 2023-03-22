@@ -44,7 +44,11 @@ const page = () => {
 
     let dateDisplay = utilityDate ? utilityDate : JSON.stringify( date).slice(1,11).split("-").filter(item=>!!item).reverse().join("/")
 
-
+    const closeErrorRef = useRef(null);
+  
+    const handleErrorClose = (e) => {   
+    if(closeErrorRef.current === e.target) setErrorModal(false) 
+    }
 
     useEffect(()=>{
       if(localStorage.getItem('user')){
@@ -72,12 +76,13 @@ const page = () => {
           if(localStorage.getItem('dateDisplay')){
             const dateDisplay = localStorage.getItem('dateDisplay')
             setUtilityDate(dateDisplay)
-            // if(dateDisplay === utilityDate)localStorage.removeItem('dateDisplay')
-            // utilityDate.length > 0 &&  setUtilityDate('')  
           }
       }
+      document.addEventListener("click", handleErrorClose, true);
       document.addEventListener("click", handleCalendarClose, true);
-      return () => document.removeEventListener("click", handleCalendarClose , true) 
+      return () => {document.removeEventListener("click", handleCalendarClose , true) 
+                    document.removeEventListener("click", handleErrorClose , true)
+    }
     },[])
 
 
@@ -105,8 +110,9 @@ const page = () => {
       let monthCalc = calendarCalc[calendar.value.substring(3,4) === '0' ? calendar.value.substring(4,5) : calendar.value.substring(3,5)] 
       let yearCalc= `${calendar.value.substring(6,10)}`
 
-      const finalDate=`${dateCalc}` + `${monthCalc}` + `${yearCalc}`
+      const finalDate=`${dateCalc}` +  '\xa0'   + `${monthCalc}` + '\xa0' +  `${yearCalc}`
 
+     
       setTime(finalDate)
       setCalendarDate(calendar.value)
 
@@ -114,7 +120,6 @@ const page = () => {
          utilityDate.length > 0 &&  setUtilityDate('')  
 
       if(e.target.outerHTML !== '<i></i>' &&  e.target.innerHTML !== '<i></i>'){
-        //  setToggleCalendar(!togglecalendar)
          setToggleCalendar(true)
       }
     }
@@ -132,15 +137,25 @@ const page = () => {
 
     const [errorModal, setErrorModal]= useState(false)
 
-    setTimeout(() => {
-      errorModal && setErrorModal(false)
-    }, 2000);
+    // setTimeout(() => {
+    //   errorModal && setErrorModal(false)
+    // }, 3000);
+// console.log(careType)
 
+  function careTypeSetter(id){
+  setCareType(id)
+  let res = orders?.some( order => order['service'] === id )
+  if(!res){
+  localStorage.removeItem('plan')
+  localStorage.removeItem('careType')
+  setSelectPlanId('')
+  }
+  }
 
   return (
     <div className='bg-specialbg  h-max' >
 
-    {errorModal && <ErrorModal text='Please Select All Fields!' errorState={errorModal}/>}
+    {errorModal && <ErrorModal text='Please Select All Fields!' refState={closeErrorRef}/>}
 
 
     <Head title='Order History' />
@@ -160,7 +175,7 @@ const page = () => {
 <h6 className='font-semibold tracking-[0.02em] text-[16px]'>Select Care Type</h6>
 <section className='mt-2 flex flex-wrap gap-9'  >
 
-  <div className={`border-[1px] border-solid w-max rounded-[12px] relative cursor-pointer ${careType === 'nanny' ? 'border-bookingblue' : 'border-bookingborder	'}`} id='nanny' onClick={(e)=>setCareType(e.target.id)}>
+  <div className={`border-[1px] border-solid w-max rounded-[12px] relative cursor-pointer ${careType === 'nanny'  ? 'border-bookingblue' : 'border-bookingborder	'}`} id='nanny' onClick={(e)=>careTypeSetter(e.target.id)}>
     <nav className={`bg-grey absolute w-full h-full select-none pointer-events-none rounded-[12px] ${careType === 'nanny' ? 'block' : 'hidden'}`} >
     <img src='../images/booking/check.svg' className=' absolute top-[50%]  left-[50%] -translate-y-[50%] -translate-x-[50%] select-none pointer-events-none'/>
     </nav>
@@ -169,7 +184,7 @@ const page = () => {
   </div>
 
 
-  <div className={`border-[1px] border-solid w-max rounded-[12px] relative cursor-pointer ${careType === 'senior' ? 'border-bookingblue' : 'border-bookingborder	'}`} id='senior' onClick={(e)=>setCareType(e.target.id)}>
+  <div className={`border-[1px] border-solid w-max rounded-[12px] relative cursor-pointer ${careType === 'senior' ? 'border-bookingblue' : 'border-bookingborder	'}`} id='senior' onClick={(e)=>careTypeSetter(e.target.id)}>
   <nav className={`bg-grey absolute w-full h-full select-none pointer-events-none rounded-[12px] ${careType === 'senior' ? 'block' : 'hidden'}`}>
     <img src='../images/booking/check.svg' className=' absolute top-[50%] left-[50%] -translate-y-[50%] -translate-x-[50%] select-none pointer-events-none'/>
   </nav>
@@ -178,7 +193,7 @@ const page = () => {
   </div>
 
 
-  <div className={`border-[1px] border-solid w-max rounded-[12px] relative cursor-pointer ${careType === 'pet' ? 'border-bookingblue' : 'border-bookingborder	'}`} id='pet' onClick={(e)=>setCareType(e.target.id)}>
+  <div className={`border-[1px] border-solid w-max rounded-[12px] relative cursor-pointer ${careType === 'pet' ? 'border-bookingblue' : 'border-bookingborder	'}`} id='pet' onClick={(e)=>careTypeSetter(e.target.id)}>
   <nav className={`bg-grey absolute w-full h-full select-none pointer-events-none rounded-[12px] ${careType === 'pet' ? 'block' : 'hidden'}`}>
     <img src='../images/booking/check.svg' className=' absolute top-[50%] left-[50%] -translate-y-[50%] -translate-x-[50%] select-none pointer-events-none' />
   </nav>
@@ -187,7 +202,7 @@ const page = () => {
   </div>
 
 
-  <div className={`border-[1px] border-solid w-max rounded-[12px] relative cursor-pointer ${careType === 'special' ? 'border-bookingblue' : 'border-bookingborder	'}`} id='special' onClick={(e)=>setCareType(e.target.id)}>
+  <div className={`border-[1px] border-solid w-max rounded-[12px] relative cursor-pointer ${careType === 'special' ? 'border-bookingblue' : 'border-bookingborder	'}`} id='special' onClick={(e)=>careTypeSetter(e.target.id)}>
   <nav className={`bg-grey absolute w-full h-full select-none pointer-events-none rounded-[12px] ${careType === 'special' ? 'block' : 'hidden'}`} >
     <img src='../images/booking/check.svg' className=' absolute top-[50%] left-[50%] -translate-y-[50%] -translate-x-[50%] select-none pointer-events-none' />
   </nav>

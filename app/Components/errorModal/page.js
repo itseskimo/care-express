@@ -1,27 +1,14 @@
 "use client"
-import Link from 'next/link'
-import { useState, useEffect , useRef } from 'react'
 
-const page = ({text ,errorState}) => {
+const page = ({text,refState}) => {
 
-  const [errorModal, setErrorModal]= useState(errorState)
 
-  const closeErrorRef = useRef(null);
-  
-  const handleErrorClose = (e) => {   
-  if(closeErrorRef.current === e.target) setErrorModal(false) 
-  }
-
-  useEffect(()=>{
-    document.addEventListener("click", handleErrorClose, true);
-    return () => document.removeEventListener("click", handleErrorClose , true) 
-  },[])
   
 
   return (
     <>
-{ errorModal &&
-<section className='fixed top-[50%] left-[50%]  -translate-y-[50%] -translate-x-[50%] w-full h-full  z-50 flex items-center justify-center   bg-dashoverlay overflow-hidden' ref={closeErrorRef}> 
+
+<section className='fixed top-[50%] left-[50%]  -translate-y-[50%] -translate-x-[50%] w-full h-full  z-50 flex items-center justify-center   bg-dashoverlay overflow-hidden' ref={refState}> 
 <main className='flex flex-col gap-[12px]  rounded-[8px] h-max w-[564px] bg-soothingyellow py-4 px-6 shadow-dashshadow' >
 
   <div className='flex items-center gap-3'>
@@ -33,7 +20,7 @@ const page = ({text ,errorState}) => {
 
 </main>
 </section> 
-}
+
 
 </>
  )
