@@ -22,7 +22,7 @@ const dispatch= useDispatch()
     background:'bg-purple',
 
     first:{
-      id:'#home',
+      id:'#service',
       name:'Why Senior Express',
     },
     second:{
@@ -202,7 +202,7 @@ const dispatch= useDispatch()
 <main className='mx-4 smd:mx-14'>
 
 
-    <header className='pt-40  pb-40' id='home'>
+    <header className='pt-40  pb-40' id='service'>
     <section className='flex flex-col xlg:flex-row items-center justify-around'>
 
       <img src='../images/seniorExpress/senior-express-featured-image-1.png'/>

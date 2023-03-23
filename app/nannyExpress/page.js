@@ -35,7 +35,7 @@ const navDetails={
   border:'rgba(255, 94, 0, 1)',
   background:'bg-orange',
   first:{
-    id:'#home',
+    id:'#service',
     name:'Why Nanny Express',
   },
   second:{
@@ -207,7 +207,7 @@ const Testimonial={
 <main className='mx-4 smd:mx-14'>
 
 
-    <header className='pt-40  pb-40' id='home'>
+    <header className='pt-40  pb-40' id='service'>
     <section className='flex flex-col lg:flex-row items-center justify-around'>
 
       <img src='../images/nannyExpress/nanny-express-featured-image-1.png'/>

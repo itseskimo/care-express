@@ -22,7 +22,7 @@ const dispatch= useDispatch()
     background:'bg-brown',
 
     first:{
-      id:'#home',
+      id:'#service',
       name:'Why Pet Express',
     },
     second:{
@@ -210,7 +210,7 @@ const dispatch= useDispatch()
 <main className='mx-4 smd:mx-14'>
 
 
-    <header className='pt-40  pb-40' id='home'>
+    <header className='pt-40  pb-40' id='service'>
     <section className='flex flex-col lg:flex-row items-center justify-around'>
 
       <img src='../images/petExpress/pet-express-featured-image-1.png'/>
