@@ -79,7 +79,7 @@ const page = () => {
                 <DashboardNav navTitle='Orders' />
                 <section className='mt-10  flex justify-between'>
                     <div className='flex items-center'>
-                        <img className='pr-2 h-8 cursor-pointer' src='../images/dashboard/ArrowLeft.svg' onClick={()=>router.push('/orders/ongoing')}/>
+                        <img className='pr-2 h-8 cursor-pointer' src='../images/dashboard/ArrowLeft.svg' onClick={()=>router.push('/orders')}/>
                         <h6 className='font-extrabold text-[32px] whitespace-nowrap'>Order Details</h6>
                     </div>
 

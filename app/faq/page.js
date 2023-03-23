@@ -310,7 +310,7 @@ useEffect(()=>{
 <section className='flex gap-6 mt-10 items-start  flex-col'>
 
 <header className='flex gap-4 items-start w-full'>
-<div className='w-full lg:w-[50%] bg-white  rounded-[8px] shadow cursor-pointer relative' id='list1' onClick={()=>faqToggleGeneral(1)}>
+<div className='w-full lg:w-[50%] bg-white  rounded-[8px] shadow cursor-pointer relative ' id='list1' onClick={()=>faqToggleGeneral(1)}>
 <div className=' flex justify-between'>
 <h1 className='pl-6 lg:pl-2 xlg:pl-6 px-3 py-3 text-[16px] lg:text-[14px] xlg:text-[16px] font-semibold tracking-[0.02em]' >Is Nanny Express available all over Poland?</h1>
 <img src='../images/Login/ArrowDown.svg' className='  mr-4 ' id='dropdown1' />
