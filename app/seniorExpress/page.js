@@ -255,7 +255,7 @@ const dispatch= useDispatch()
   
 
 
-{/* <Testimonials {...Testimonial}/> */}
+<Testimonials {...Testimonial}/>
 
 
 {/* ----------------------------------------------------------------------------------------------------------------- */}

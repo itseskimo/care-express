@@ -257,7 +257,7 @@ const Testimonial={
 
 
 
-{/* <Testimonials {...Testimonial}/> */}
+<Testimonials {...Testimonial}/>
 
 
 

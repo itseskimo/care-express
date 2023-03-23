@@ -6,29 +6,29 @@ import Testimonials from './Components/testimonial/page'
 import Link from 'next/link'
 import Head from './head'
 import { clearErrors } from '@/redux/actions/page'
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch} from 'react-redux'
 
 const page = () => {
 
 const dispatch= useDispatch()
-const [token, setToken]= useState('')
 
   
+  const [token, setToken]= useState('')
 
   useEffect(()=>{
   dispatch(clearErrors())
 
   if(localStorage.getItem('user')){
-    let data = localStorage.getItem('user')
-    let loginData = JSON.parse(data);
-     setToken(loginData.token)
-  }
-
+      let data = localStorage.getItem('user')
+      let loginData = JSON.parse(data);
+      setToken(loginData.token)
+    }
   
   },[])
 
   
+
   
 
   
@@ -263,7 +263,7 @@ const services ={
 <main className='bg-specialbg'>
   <main className='mx-4 sm:mx-14'>
 
-{/* <Testimonials {...Testimonial}/> */}
+<Testimonials {...Testimonial}/>
 
 
 {/* ----------------------------------------------------------------------------------------------------------------- */}

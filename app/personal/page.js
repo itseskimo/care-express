@@ -276,7 +276,7 @@ your beloved pet has no one to take care of him? </h6>
 <main className='bg-liyellow'>
   <main className='mx-4 sm:mx-14'>
 
-  {/* <Testimonials {...Testimonial}/> */}
+  <Testimonials {...Testimonial}/>
 
 
 </main>
