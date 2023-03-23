@@ -48,6 +48,7 @@ const dispatch= useDispatch()
   }
 
   const Testimonial={
+    buttonColour:'#EA2E1F',
     textColor:'text-brown',
     innerText:'text-ligrey',
     subText:'text-grey',

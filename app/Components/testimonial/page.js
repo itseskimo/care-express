@@ -68,9 +68,28 @@ return ( <Flickity className={'carousel'} elementType={'div'} options={flickityO
 }
 
 const page = (props) => {
-const{border,textColor,overlay, innerText,subText}=props
+const{border,textColor,overlay, innerText,subText, buttonColour}=props
+
+
 
 return (
+  <>
+
+<style>
+        {
+          `.flickity-button {
+            background: ${buttonColour};
+            z-index: 100;
+          }`
+        }
+
+        {    
+         `.flickity-button:hover {
+             background: ${buttonColour};
+           }`
+        }
+  </style>
+  
   <header className='mt-10 pb-20 '>
 
    <section className='pt-10  lg:pt-20 flex items-center  justify-center'>
@@ -83,7 +102,8 @@ return (
   <section className='h-full  w-full absolute top-0 ' style={{ background: `${overlay}` }}></section>
   </div>
 
-   </header>  
+   </header> 
+ </>   
 )
 }
 

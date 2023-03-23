@@ -51,6 +51,7 @@ const dispatch= useDispatch()
     textColor:'text-skin',
     innerText:'text-purple',
     subText:'text-librown',
+    buttonColour:'#CC3C9D',
 
     border:'0.4px solid #FFA3A1',
     overlay:'linear-gradient(90deg, #FFF4F0 0%, rgba(255, 253, 244, 0) 25.46%, rgba(255, 253, 244, 0) 49.48%, rgba(255, 253, 244, 0) 74.54%, #FFF4F0 100%)'

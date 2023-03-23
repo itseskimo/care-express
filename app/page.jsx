@@ -67,6 +67,7 @@ const dispatch= useDispatch()
   }
   
   const Testimonial={
+    buttonColour:'#0c68ff',
     textColor:'text-liblack',
     border:'0.4px solid #1C1B1B',
     innerText:'text-blue',

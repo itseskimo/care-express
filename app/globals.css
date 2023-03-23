@@ -158,14 +158,14 @@ html {
   box-shadow: 0 0 0 5px #19f;
 }
 
-.flickity-button {
-  background: #0c68ff !important;
+/* .flickity-button {
+  background: #0c68ff ;
   z-index: 100;
-}
+} */
 
-.flickity-button:hover {
-  background: #0c68ff !important;
-}
+/* .flickity-button:hover {
+  background: initial !important;
+} */
 
 .flickity-button-icon {
   fill: white !important;

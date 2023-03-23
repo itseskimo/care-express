@@ -62,6 +62,8 @@ const footerDetails={
 }
 
 const Testimonial={
+  buttonColour:'#FF5E00',
+
   textColor:'text-orange',
   innerText:'text-orange',
   subText:'text-librown',
