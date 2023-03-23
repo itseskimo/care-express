@@ -144,14 +144,11 @@ function navigateForward(){
   }
 }
 
-
 const [errorModal, setErrorModal]= useState(false)
 
-// setTimeout(() => {
-//   errorModal && setErrorModal(false)
-// }, 2000);
+
 let [slideNumber, setSlideNumber] = useState(0);
-console.log(slideNumber)
+
 //Initial left arrow wont exist when loads
 const [isMoved, setIsMoved] = useState(false);
 
@@ -159,8 +156,8 @@ const handleClick = (direction) => {
   setIsMoved(true);
 
   let distance = listRef.current.getBoundingClientRect().x - 50;
-  console.log(distance)
-    if (direction === "left" && slideNumber > 0) {
+
+  if (direction === "left" && slideNumber > 0) {
       setSlideNumber(slideNumber - 1);
       listRef.current.style.transform = `translateX(${230 + distance}px)`;
     }
@@ -172,24 +169,9 @@ const handleClick = (direction) => {
       setSlideNumber(0)
     }
 };
-// const handleClick = (direction) => {
-//   setIsMoved(true);
 
-//   let distance = listRef.current.getBoundingClientRect().x - 18;
-//   console.log(distance)
-//   if (direction === "left" && slideNumber > 0) {
-//     setSlideNumber(slideNumber - 1);
-//     listRef.current.style.transform = `translateX(${-734.7 + distance}px)`;
-//   }
-//   if (direction === "right" && slideNumber < address.length-1) {
-//     setSlideNumber(slideNumber + 1);
-//     listRef.current.style.transform = `translateX(${0 + distance}px)`;
-//   }else{
-//       console.log('kk')
-//     listRef.current.style.transform = 'translateX(0px)';
-//     setSlideNumber(0)
-//   }
-// };
+
+
 
   return (
     <>

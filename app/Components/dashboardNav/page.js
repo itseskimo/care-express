@@ -45,7 +45,7 @@ useEffect(()=>{
 <header className='flex items-center gap-6 '>
   <a href='/'><img src='../images/petExpress/logo.jpg' className='pl-5 shrink-0' /></a>
   <a href='/dashboard'><h1 className={` py-[10px] rounded-[8px] px-3  text-[20px] cursor-pointer ${navitem === 'Dashboard' ? 'bg-dashgrey' : '' }`} onClick={(e)=>setNavItem(e.target.innerText)}>Dashboard</h1></a>
-  <a href='/orders/ongoing'><h1 className={` py-[10px] rounded-[8px] px-3 text-[20px] cursor-pointer ${navitem === 'Orders' ? 'bg-dashgrey' : '' }`} onClick={(e)=>setNavItem(e.target.innerText)}>Orders</h1></a>
+  <a href='/orders'><h1 className={` py-[10px] rounded-[8px] px-3 text-[20px] cursor-pointer ${navitem === 'Orders' ? 'bg-dashgrey' : '' }`} onClick={(e)=>setNavItem(e.target.innerText)}>Orders</h1></a>
   <a href='/reports'><h1 className={` py-[10px] rounded-[8px] px-3 text-[20px] cursor-pointer ${navitem === 'Reports' ? 'bg-dashgrey' : '' }`} onClick={(e)=>setNavItem(e.target.innerText)}>Reports</h1></a>
 </header>
 
