@@ -82,12 +82,14 @@ return (
             z-index: 100;
           }`
         }
+  </style>
 
-        {/* {    
+  <style>
+        {    
          `.flickity-button:hover {
              background: ${buttonColour};
            }`
-        } */}
+        }
   </style>
   
   <header className='mt-10 pb-20 '>
