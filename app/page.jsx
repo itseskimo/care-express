@@ -264,7 +264,7 @@ const services ={
 <main className='bg-specialbg'>
   <main className='mx-4 sm:mx-14'>
 
-<Testimonials {...Testimonial}/>
+{/* <Testimonials {...Testimonial}/> */}
 
 
 {/* ----------------------------------------------------------------------------------------------------------------- */}
