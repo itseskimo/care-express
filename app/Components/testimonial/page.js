@@ -83,11 +83,11 @@ return (
           }`
         }
 
-        {/* {    
+        {    
          `.flickity-button:hover {
              background: ${buttonColour};
            }`
-        } */}
+        }
   </style>
   
   <header className='mt-10 pb-20 '>
