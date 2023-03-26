@@ -3,10 +3,12 @@ import DashBookingHeader from '../../Components/dashBookingHeader/page'
 import DashboardNav from '../../Components/dashboardNav/page'
 import Head from '../../head'
 import Link from 'next/link'
-import {useState,useEffect} from 'react'
+import {useState,useEffect, useRef} from 'react'
 import {useRouter} from 'next/navigation';
 import { postOrder } from '@/redux/actions/page'
 import { useDispatch} from 'react-redux'
+import ErrorModal from '../../Components/errorModal/page'
+
 // import { useStripe } from '@stripe/react-stripe-js'
 
 const page = () => {
@@ -28,8 +30,12 @@ const page = () => {
     const [careType,setCareType]=useState('')
     const [plan,setPlan]=useState('')
     const [token,setToken]=useState('')
-  
-  useEffect(()=>{
+
+    //Dont submit until both checkboxes are checked
+    const [termsConditionChecker,setTermsConditionChecker]=useState(false)
+    const [termsConsentChecker,setTermsConsentChecker]=useState(false)
+
+    useEffect(()=>{
     if(localStorage.getItem('user')){
     let hours= localStorage.getItem('hours')
     setHours(hours)
@@ -63,17 +69,31 @@ const page = () => {
     setToken(loginData.token)
     }
     
+    document.addEventListener("click", handleErrorClose, true);
+    return () =>document.removeEventListener("click", handleErrorClose , true)
   
   },[])
   
+  const [errorModal, setErrorModal]= useState(false)
+
+  const closeErrorRef = useRef(null);
+  
+    const handleErrorClose = (e) => {   
+    if(closeErrorRef.current === e.target) setErrorModal(false) 
+    }
+
   function formsubmit(e){
     e.preventDefault();
+    if(termsConditionChecker && termsConsentChecker){
     const myForm = new FormData();
     myForm.set("care_type", careType);
     myForm.set("plan", plan);
     myForm.set("address", _id);
     myForm.set("start_date", calendarDate);
-    dispatch(postOrder(myForm,token));
+    dispatch(postOrder(myForm,token));   
+    }else{
+      setErrorModal(true)
+    }
   }
   
   function calendar(time){
@@ -94,6 +114,7 @@ const page = () => {
     <DashBookingHeader active={3}/>
 
 
+    {errorModal && <ErrorModal text='Please Accept the Terms & Conditions' refState={closeErrorRef}/>}
 
 
 <form className='bg-white h-max rounded-[16px] mt-10' onSubmit={formsubmit}>
@@ -233,8 +254,8 @@ const page = () => {
 <section className='flex  items-center  mt-6'>
 
 <div className='flex items-center'>
-    <input type='checkbox' className='w-4 h-4 mr-2' required ></input>
-    <h6 className='tracking-[0.02em] text-[16px] font-semibold'>I have accept the <span className='text-blue underline decoration-[1px] underline-offset-2'>Terms and Conditions</span> .</h6>
+    <input type='checkbox' className='w-4 h-4 mr-2' onChange={(e)=>setTermsConditionChecker((e.target.checked))} ></input>
+    <h6 className='tracking-[0.02em] text-[16px] font-semibold'>I have accept the <span className='text-blue underline decoration-[1px] underline-offset-2 cursor-pointer'>Terms and Conditions</span> .</h6>
 </div>
 
 </section>
@@ -244,13 +265,13 @@ const page = () => {
 <section className='flex  items-center  mt-6'>
 
 <div className='flex items-start '>
-    <input type='checkbox' className='w-4 h-4 mt-1 mr-2' required></input>
+    <input type='checkbox' className='w-4 h-4 mt-1 mr-2' onChange={(e)=>setTermsConsentChecker((e.target.checked))} ></input>
     <h6 className='tracking-[0.02em] text-[16px] font-semibold w-[99%]'>I hereby give my consent to receive other notifications from CareExpress. In order to provide you with the requested content, we must store and process your personal data. If you consent to the storage of your personal data for this purpose, please tick the box on the left hand side.</h6>
 </div>
 
 </section>
 
-<h6 className='mt-6 tracking-[0.02em] text-[16px]'>You can unsubscribe from these communications at any time. For more information on how to unsubscribe, our privacy policies and how we are committed to protecting and respecting your privacy, please see our <span className='text-blue underline decoration-[1px] underline-offset-2'>Privacy Policy</span> .</h6>
+<h6 className='mt-6 tracking-[0.02em] text-[16px]'>You can unsubscribe from these communications at any time. For more information on how to unsubscribe, our privacy policies and how we are committed to protecting and respecting your privacy, please see our <span className='text-blue underline decoration-[1px] underline-offset-2 cursor-pointer'>Privacy Policy</span> .</h6>
 
 <div className='flex justify-between'>
 <Link href={{pathname:'/reports/additionalRequirements'}}><button className='bg-ligrey rounded-[50px] px-6 smd:px-9 py-[8px] text-black text-[14px] sm:text-[18px] font-semibold mt-10' >Back</button></Link>
