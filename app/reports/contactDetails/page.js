@@ -62,19 +62,37 @@ const page = () => {
       myForm.set("city", city);
     
       dispatch(updateAddress(myForm,token));
-      setFormToggle(!formToggle)
-      setForm({title: "", streetName:'', streetNumber:'', apartmentNumber:'', postalCode:'', city:''})
+
+      if(localStorage.getItem('contact')){
+        let contact = localStorage.getItem('contact')
+        let inputField  = JSON.parse(contact);
+
+
+      if(title !== '') inputField.title = title
+      if(streetName !== '')  inputField.street_name = streetName
+      if(streetNumber !== '')  inputField.street_number = streetNumber
+      if(apartmentNumber !== '')  inputField.apartment_number = apartmentNumber
+      if(postalCode !== '')  inputField.postal_code = postalCode
+      if(city !== '')  inputField.city = city
+
+    
+      let editedContactData = JSON.stringify(inputField);
+      localStorage.setItem("contact", editedContactData);
       }
 
-      const [addAddressToggle,setAddAddressToggle]=useState(false)
+  setFormToggle(!formToggle)
+  setForm({title: "", streetName:'', streetNumber:'', apartmentNumber:'', postalCode:'', city:''})
+  }
+
+  const [addAddressToggle,setAddAddressToggle]=useState(false)
 
 
-      function addAddressTogg(){
-        setAddAddressToggle(!addAddressToggle)
-        setForm({title: "", streetName:'', streetNumber:'', apartmentNumber:'', postalCode:'', city:''})
-        }
+  function addAddressTogg(){
+  setAddAddressToggle(!addAddressToggle)
+  setForm({title: "", streetName:'', streetNumber:'', apartmentNumber:'', postalCode:'', city:''})
+  }
 
-    const [formToggle,setFormToggle]=useState(false)
+  const [formToggle,setFormToggle]=useState(false)
 
   function editToggle(id,title,streetNumber,streetName,postalCode,city,apartmentNumber){
   setForm({ addressId: id  ,title: title || '', streetName:streetName || '', streetNumber:streetNumber || '', apartmentNumber:apartmentNumber || '', postalCode:postalCode || '', city:city|| ''})
@@ -86,10 +104,18 @@ const page = () => {
   const [modalTitle,setModalTitle]=useState(null)
 
   function deleteTogg(toBeDeleted,title){
+
   setToBeDeletedId(toBeDeleted)
   setModalTitle(title)
   setDeleteToggle(!deleteToggle)
   }
+
+  function deleteAddressSuccess(){
+    dispatch(deleteAddress(toBeDeletedId, token))
+    setDeleteToggle(false)
+    let res = address?.some( add => add['_id'] === toBeDeletedId)
+    res && localStorage.removeItem('contact')
+    }
   
     const [token,setToken]=useState(null)
     const [hours,setHours]=useState('')
@@ -115,20 +141,17 @@ const page = () => {
       let cost= localStorage.getItem('cost')
       setCost(cost)
 
-
-if(localStorage.getItem('contact')){
-  let contact = localStorage.getItem('contact')
-  let inputField  = JSON.parse(contact);
-  styles(inputField)
-}
-
+    if(localStorage.getItem('contact')){
+      let contact = localStorage.getItem('contact')
+      let inputField  = JSON.parse(contact);
+      styles(inputField)
     }
-
+    }
     document.addEventListener("click", handleErrorClose, true);
     return () => document.removeEventListener("click", handleErrorClose , true)
   },[])
   
-  const [addStyles,setAddStyles]=useState('')
+const [addStyles,setAddStyles]=useState('')
 
 function styles(item){
   let contact = JSON.stringify(item);
@@ -144,10 +167,9 @@ function navigateForward(){
   }
 }
 
-const [errorModal, setErrorModal]= useState(false)
+const[errorModal, setErrorModal]= useState(false)
 
-
-let [slideNumber, setSlideNumber] = useState(0);
+const[slideNumber, setSlideNumber] = useState(0);
 
 //Initial left arrow wont exist when loads
 const [isMoved, setIsMoved] = useState(false);
@@ -380,7 +402,7 @@ const handleClick = (direction) => {
 
 <section className='flex justify-end gap-[10px] mt-[20px]'>
 <button className='p-[16px] rounded-lg font-medium text-[16px] cursor-pointer' onClick={deleteTogg}>CANCEL</button>
-<button className='p-[16px] rounded-lg font-medium text-white bg-dashlired text-[16px] cursor-pointer' onClick={()=>{dispatch(deleteAddress(toBeDeletedId, token)),setDeleteToggle(false)}}>DELETE</button>
+<button className='p-[16px] rounded-lg font-medium text-white bg-dashlired text-[16px] cursor-pointer' onClick={deleteAddressSuccess}>DELETE</button>
 </section>
 
 </main>

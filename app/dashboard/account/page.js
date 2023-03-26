@@ -10,8 +10,8 @@ import { useEffect,useState} from 'react'
 const page = () => {
 
   const {getUser , updateUser}  = useSelector((state) => state.account);
-  console.log(getUser.first_name , getUser.last_name)
 
+  
   const dispatch= useDispatch()
   const[token,setToken]=useState(null)
 
@@ -44,8 +44,8 @@ const page = () => {
     let loginData = JSON.parse(data);
     if(first_name !== '') loginData.first_name = first_name
     if(last_name !== '')  loginData.last_name = last_name
-    console.log(loginData)
 
+    
     let userData = JSON.stringify(loginData);
     localStorage.setItem("user", userData);
     // setAccountSucceess(true)
