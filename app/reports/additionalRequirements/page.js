@@ -33,7 +33,7 @@ console.log(saveCheckBoxesText)
 const [additionalRequirements,setAdditionalRequirements]=useState('')
 const [hours,setHours]=useState('')
 const [cost,setCost]=useState('')
-console.log(saveCheckBoxesText.includes('Language Tutoring'))
+
 
 useEffect(()=>{
   
@@ -100,15 +100,15 @@ useEffect(()=>{
 
 <section className='flex flex-col md:flex-row gap-4 md:gap-20 lg:gap-32 xlg:gap-48'>
 <div className='flex items-center  cursor-pointer' onClick={()=>checkboxSaver('Language Tutoring')}>
-    <input type='checkbox' className='w-4 h-4 mr-2 select-none' defaultChecked={saveCheckBoxesText.includes('Language Tutoring')}></input>
+    <input type='checkbox' className='w-4 h-4 mr-2 select-none' checked={saveCheckBoxesText.includes('Language Tutoring')} onChange={(e) =>e.target.checked}></input>
     <h6 className='tracking-[0.02em] text-[16px] font-semibold whitespace-nowrap'>Language Tutoring</h6>
 </div>
 <div className='flex items-center cursor-pointer'  onClick={()=>checkboxSaver('VAS #2')}>
-    <input type='checkbox' className='w-4 h-4 mr-2 select-none' defaultChecked={saveCheckBoxesText.includes('VAS #2')} ></input>
+    <input type='checkbox' className='w-4 h-4 mr-2 select-none' checked={saveCheckBoxesText.includes('VAS #2')} onChange={(e) =>e.target.checked}></input>
     <h6 className='tracking-[0.02em] text-[16px] font-semibold whitespace-nowrap'>VAS #2</h6>
 </div>
 <div className='flex items-center cursor-pointer'  onClick={()=>checkboxSaver('VAS #3')}>
-    <input type='checkbox' className='w-4 h-4 mr-2 select-none' defaultChecked={saveCheckBoxesText.includes('VAS #3')} ></input>
+    <input type='checkbox' className='w-4 h-4 mr-2 select-none' checked={saveCheckBoxesText.includes('VAS #3')} onChange={(e) =>e.target.checked}></input>
     <h6 className='tracking-[0.02em] text-[16px] font-semibold whitespace-nowrap'>VAS #3</h6>
 </div>
 

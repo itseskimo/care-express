@@ -21,7 +21,7 @@ const page = () => {
     const [hours,setHours]=useState('')
     const [cost,setCost]=useState('')
     const [saveCheckBoxesText,setSaveCheckBoxesText]=useState([])
-
+console.log(saveCheckBoxesText)
     const [additionalDescription,setAdditionalDescription]=useState('')
     const [calendarDate,setCalendarDate]=useState('')
 
@@ -38,7 +38,7 @@ const page = () => {
     setCost(cost)
   
     let additionalServicesArr= localStorage.getItem('additionalServicesArr')
-    setSaveCheckBoxesText([additionalServicesArr.split(',')])
+    setSaveCheckBoxesText([...additionalServicesArr.split(',')])
 
     let additionalRequirements= localStorage.getItem('additionalRequirements')
     setAdditionalDescription(additionalRequirements)
@@ -176,7 +176,7 @@ const page = () => {
 
 <div className=''>
     <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>ADDITIONAL SERVICES</h6>
-     <h6 className='text-[16px] font-semibold'>{saveCheckBoxesText}</h6>
+     {saveCheckBoxesText.map((text,idx)=>{return <h6 key={idx} className='text-[16px] font-semibold mb-1'>{text}</h6>})}
 </div>
 
 <div className=' absolute right-0'>
