@@ -21,7 +21,7 @@ const page = () => {
     const [hours,setHours]=useState('')
     const [cost,setCost]=useState('')
     const [saveCheckBoxesText,setSaveCheckBoxesText]=useState([])
-console.log(saveCheckBoxesText)
+
     const [additionalDescription,setAdditionalDescription]=useState('')
     const [calendarDate,setCalendarDate]=useState('')
 
@@ -43,8 +43,8 @@ console.log(saveCheckBoxesText)
     let additionalRequirements= localStorage.getItem('additionalRequirements')
     setAdditionalDescription(additionalRequirements)
   
-    let calendarDate =localStorage.getItem('calendarDate')
-    setCalendarDate(calendarDate)
+    let calendarDate =localStorage.getItem('dateDisplay')
+    calendar(calendarDate)
 
     const contactData =localStorage.getItem('contact')
     let data = JSON.parse(contactData);
@@ -76,7 +76,14 @@ console.log(saveCheckBoxesText)
     dispatch(postOrder(myForm,token));
   }
   
-    
+  function calendar(time){
+    const calendarCalc=['null',"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    let dateCalc= time.substring(0,1) === '0' ? time.substring(1,2) : time.substring(0,2)
+    let monthCalc = calendarCalc[time.substring(3,4) === '0' ? time.substring(4,5) : time.substring(3,5)] 
+    let yearCalc= `${time.substring(6,10)}`
+    const finalDate=`${dateCalc}` +  '\xa0'   + `${monthCalc}` + '\xa0' +  `${yearCalc}`
+    setCalendarDate(finalDate)
+  }
   
   return (
     <div className='bg-specialbg  h-max'>
@@ -202,30 +209,7 @@ console.log(saveCheckBoxesText)
 : ''
 }
 
-{/* <main className=' mx-4 sm:mx-6 lg:mx-14 xlg:mx-28 py-10'>
 
-<section className='flex  items-center justify-between'>
-
-<div className=''>
-    <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>ADDITIONAL SERVICES</h6>
-    <h6 className='text-[16px] font-semibold'>Language Tutoring</h6>
-</div>
-
-     <button className='border-[1px] border-solid  border-gray-300 flex px-2 xlsm:px-5 py-[10px] text-[13px] sm:text-sm font-semibold rounded-[50px]' onClick={()=>router.push('/reports/additionalRequirements')}><img src='../images/booking/Edit.svg' className='pr-2 sm:pr-3'/>Edit Requirements</button>
-
-</section>
-
-<section className='flex  items-center  mt-8'>
-
-<div className='w-full lg:w-[70%]'>
-    <h6 className='tracking-[0.12em] text-xs font-semibold mb-3'>ANY SPECIAL NEEDS OR REQUIREMENTS</h6>
-    <h6 className='text-[16px] tracking-[0.02em] font-semibold'>Help with homework and school projects, including reading and writing support. Plan and participate in age-appropriate educational and recreational activities. Provide a safe and comfortable environment, both indoors and outdoors. Communicate effectively and professionally with the parents, other care providers, and healthcare providers. Maintain a clean and organized play and living area. Perform light housekeeping tasks related to the child's care, such as laundry and meal preparation</h6>
-</div>
-
-</section>
-
-</main>
-<section className='border-[1px]  border-solid  border-gray-300' ></section> */}
 
 
 

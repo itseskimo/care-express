@@ -25,7 +25,6 @@ const page = () => {
       setToggleCalendar(false);
     }
   }
-//  console.log(orders?.[0]?._id)
   
 
     const [careType,setCareType]=useState('')
@@ -33,10 +32,7 @@ const page = () => {
     const [hours,setHours]=useState('')
     const [cost,setCost]=useState('')
 
-    const [time,setTime]=useState('')
 
-
-    const [calendarDate,setCalendarDate]=useState('')
     const [togglecalendar,setToggleCalendar]=useState(false)
 
     const [date, setDate] = useState(new Date(new Date().setDate(new Date().getDate() + 1)))
@@ -92,7 +88,6 @@ const page = () => {
       localStorage.setItem('hours', hours)
       localStorage.setItem('cost', cost)
       localStorage.setItem('careType', careType)
-      localStorage.setItem('calendarDate', time)
       localStorage.setItem('dateDisplay', dateDisplay)
       router.push('/reports/contactDetails')
       }else{
@@ -102,26 +97,10 @@ const page = () => {
 
     
     
-    function calendar(e){
-      const calendarCalc=['null',"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-     
-       const calendar= document.getElementById('extractCalendarTime')
-      let dateCalc= calendar.value.substring(0,1) === '0' ? calendar.value.substring(1,2) : calendar.value.substring(0,2)
-      let monthCalc = calendarCalc[calendar.value.substring(3,4) === '0' ? calendar.value.substring(4,5) : calendar.value.substring(3,5)] 
-      let yearCalc= `${calendar.value.substring(6,10)}`
-
-      const finalDate=`${dateCalc}` +  '\xa0'   + `${monthCalc}` + '\xa0' +  `${yearCalc}`
-
-     
-      setTime(finalDate)
-      setCalendarDate(calendar.value)
-
+    function calendar(){
       if(dateDisplay === utilityDate)localStorage.removeItem('dateDisplay')
-         utilityDate.length > 0 &&  setUtilityDate('')  
-
-      if(e.target.outerHTML !== '<i></i>' &&  e.target.innerHTML !== '<i></i>'){
-         setToggleCalendar(true)
-      }
+      utilityDate.length > 0 &&  setUtilityDate('')  
+      setToggleCalendar(true)
     }
 
 
@@ -137,10 +116,6 @@ const page = () => {
 
     const [errorModal, setErrorModal]= useState(false)
 
-    // setTimeout(() => {
-    //   errorModal && setErrorModal(false)
-    // }, 3000);
-// console.log(careType)
 
   function careTypeSetter(id){
   setCareType(id)
