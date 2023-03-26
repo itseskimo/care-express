@@ -2,101 +2,119 @@
 import Navbar from '../../Components/navbar/navbar'
 import Footer from '../../Components/footer/footer'
 import BookingHeader from '../../Components/bookingHeader/page'
+import Head from '../../head'
 import 'react-date-range/dist/styles.css'; 
 import 'react-date-range/dist/theme/default.css';
-import {format} from 'date-fns'
 import {Calendar} from 'react-date-range';
-import {useState,useEffect} from 'react'
+import {useState,useEffect, useRef} from 'react'
 import {useRouter} from 'next/navigation';
-import Head from '../../head'
 import { useDispatch, useSelector } from 'react-redux'
 import { getServicePricing } from '@/redux/actions/page'
 import ErrorModal from '../../Components/errorModal/page'
 
 
 const page = () => {
-
   const { orders}  = useSelector((state) => state.orders);
+
   const dispatch= useDispatch()
   const router = useRouter();
+  const closeCalendarRef = useRef(null);
+
+  const handleCalendarClose  = (e) => {
+    if (!closeCalendarRef.current.contains(e.target)) {
+      setToggleCalendar(false);
+    }
+  }
+  
+
+    const [careType,setCareType]=useState('')
+    const [selectPlanId,setSelectPlanId]=useState('')
+    const [hours,setHours]=useState('')
+    const [cost,setCost]=useState('')
+
+
+    const [togglecalendar,setToggleCalendar]=useState(false)
+
+    const [date, setDate] = useState(new Date(new Date().setDate(new Date().getDate() + 1)))
+    const [utilityDate, setUtilityDate] = useState('')
+
+    let dateDisplay = utilityDate ? utilityDate : JSON.stringify( date).slice(1,11).split("-").filter(item=>!!item).reverse().join("/")
+
+    const closeErrorRef = useRef(null);
+  
+    const handleErrorClose = (e) => {   
+    if(closeErrorRef.current === e.target) setErrorModal(false) 
+    }
 
   useEffect(()=>{
     if(localStorage.getItem('user')){
-      dispatch(getServicePricing())
+        dispatch(getServicePricing())
+        
+    if(localStorage.getItem('careType')){
+      const careType = localStorage.getItem('careType')
+      setCareType(careType)
+      }  
 
-      if(localStorage.getItem('plan')){
+    if(localStorage.getItem('plan')){
       const plan = localStorage.getItem('plan')
       const hours = localStorage.getItem('hours')
       const cost = localStorage.getItem('cost')
       extractText(plan, hours , cost)
       }
 
-      if(localStorage.getItem('careType')){
-      const careType = localStorage.getItem('careType')
-      setCareType(careType)
+    if(localStorage.getItem('dateDisplay')){
+      const dateDisplay = localStorage.getItem('dateDisplay')
+      setUtilityDate(dateDisplay)
       }
+      }
+      document.addEventListener("click", handleErrorClose, true);
+      document.addEventListener("click", handleCalendarClose, true);
+      return () => {document.removeEventListener("click", handleCalendarClose , true) 
+                    document.removeEventListener("click", handleErrorClose , true)
+      }
+    },[])
 
 
-
-    }
-  },[])
-  
-  const [careType,setCareType]=useState('nanny')
-  const [selectPlanId,setSelectPlanId]=useState('')
-  const [hours,setHours]=useState('')
-  const [cost,setCost]=useState('')
-
-  const [time,setTime]=useState('')
-
-
-  const [calendarDate,setCalendarDate]=useState('')
-  const [togglecalendar,setToggleCalendar]=useState(false)
-  const [date, setDate] = useState(null);
-
-
-
-  function formSubmit(e){
-    e.preventDefault();
-    if(calendarDate !== '' && selectPlanId !== '' && careType !== ''){
-    localStorage.setItem('hours', hours)
-    localStorage.setItem('cost', cost)
-    localStorage.setItem('careType', careType)
-    localStorage.setItem('calendarDate', time)
-    router.push('/booking/contact')
-    }else{
+    function formSubmit(e){
+      e.preventDefault();
+      if( selectPlanId !== '' && careType !== ''){
+      localStorage.setItem('hours', hours)
+      localStorage.setItem('cost', cost)
+      localStorage.setItem('careType', careType)
+      localStorage.setItem('dateDisplay', dateDisplay)
+      router.push('/booking/contact')
+      }else{
       setErrorModal(true)
+      }
     }
-  }
-  
-  function calendar(e){
-    const calendarCalc=['null',"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-   
-    const calendar= document.getElementById('extractCalendarTime')
-    let dateCalc= calendar.value.substring(0,1) === '0' ? calendar.value.substring(1,2) : calendar.value.substring(0,2)
-    let monthCalc = calendarCalc[calendar.value.substring(3,4) === '0' ? calendar.value.substring(4,5) : calendar.value.substring(3,5)] 
-    let yearCalc= `${calendar.value.substring(6,10)}`
 
-    const finalDate=`${dateCalc}` + '' + `${monthCalc}` + '' + `${yearCalc}`
-
-    setTime(finalDate)
-    setCalendarDate(calendar.value)
-
-    if(e.target.outerHTML !== '<i></i>' &&  e.target.innerHTML !== '<i></i>'){
-       setToggleCalendar(!togglecalendar)
+    
+    function calendar(){
+      if(dateDisplay === utilityDate)localStorage.removeItem('dateDisplay')
+      utilityDate.length > 0 &&  setUtilityDate('')  
+      setToggleCalendar(true)
     }
+
+    
+    function extractText(id, hours , rpHours){
+      localStorage.setItem('plan', id)
+      setSelectPlanId(id)
+      setHours(hours)
+      setCost(rpHours)
+    }
+
+    const [errorModal, setErrorModal]= useState(false)
+
+
+  function careTypeSetter(id){
+  setCareType(id)
+  let res = orders?.some( order => order['service'] === id )
+  if(!res){
+  localStorage.removeItem('plan')
+  localStorage.removeItem('careType')
+  setSelectPlanId('')
   }
-
-
-  
-  
-  
-  function extractText(id, hours , rpHours){
-    localStorage.setItem('plan', id)
-    setSelectPlanId(id)
-    setHours(hours)
-    setCost(rpHours)
   }
-
 
   const navDetails={
     clicked:'Booking',
@@ -128,39 +146,31 @@ const page = () => {
     FbIcon:'../images/business/Icons/facebook.svg',
   }
 
-  const [errorModal, setErrorModal]= useState(false)
 
-  setTimeout(() => {
-    errorModal && setErrorModal(false)
-  }, 2000);
-  
   return (
-    <>
-            <Head title='Select Plan'/>
+    <div className='bg-specialbg  h-max' >
+
+    {errorModal && <ErrorModal text='Please Select All Fields!' refState={closeErrorRef}/>}
 
     <Navbar color={'bg-blue'} {...navDetails}/>
- 
-    {errorModal && <ErrorModal text='Please Select All Fields!'/>}
 
-   
-  {/* ----------------------------------------------------------------------------------------------------------------- */}
-  <main className='bg-specialbg overflow-hidden'>
-  <main className='mx-4 sm:mx-14 '>
-  {/* ------------RESPONSIBLE FOR MARGIN---------------- */}
+    <Head title='Select Plan'/>
+    <main className='py-8 ml-auto mr-auto w-[92%]'>
+      
+
+    <BookingHeader active={0}/>
 
 
-  <BookingHeader active={0}/>
+<form className='bg-white h-max rounded-[16px] mt-10 ' onSubmit={formSubmit}>
 
-  <form className='bg-white h-max rounded-[16px] mt-10 ' onSubmit={formSubmit}>
-
-<main className='mx-28 py-10'>
+<main className='mx-32 py-10'>
 
 <div className=''>
 
 <h6 className='font-semibold tracking-[0.02em] text-[16px]'>Select Care Type</h6>
 <section className='mt-2 flex flex-wrap gap-9'  >
 
-  <div className={`border-[1px] border-solid w-max rounded-[12px] relative cursor-pointer ${careType === 'nanny' ? 'border-bookingblue' : 'border-bookingborder	'}`} id='nanny' onClick={(e)=>setCareType(e.target.id)}>
+  <div className={`border-[1px] border-solid w-max rounded-[12px] relative cursor-pointer ${careType === 'nanny'  ? 'border-bookingblue' : 'border-bookingborder	'}`} id='nanny' onClick={(e)=>careTypeSetter(e.target.id)}>
     <nav className={`bg-grey absolute w-full h-full select-none pointer-events-none rounded-[12px] ${careType === 'nanny' ? 'block' : 'hidden'}`} >
     <img src='../images/booking/check.svg' className=' absolute top-[50%]  left-[50%] -translate-y-[50%] -translate-x-[50%] select-none pointer-events-none'/>
     </nav>
@@ -169,7 +179,7 @@ const page = () => {
   </div>
 
 
-  <div className={`border-[1px] border-solid w-max rounded-[12px] relative cursor-pointer ${careType === 'senior' ? 'border-bookingblue' : 'border-bookingborder	'}`} id='senior' onClick={(e)=>setCareType(e.target.id)}>
+  <div className={`border-[1px] border-solid w-max rounded-[12px] relative cursor-pointer ${careType === 'senior' ? 'border-bookingblue' : 'border-bookingborder	'}`} id='senior' onClick={(e)=>careTypeSetter(e.target.id)}>
   <nav className={`bg-grey absolute w-full h-full select-none pointer-events-none rounded-[12px] ${careType === 'senior' ? 'block' : 'hidden'}`}>
     <img src='../images/booking/check.svg' className=' absolute top-[50%] left-[50%] -translate-y-[50%] -translate-x-[50%] select-none pointer-events-none'/>
   </nav>
@@ -178,7 +188,7 @@ const page = () => {
   </div>
 
 
-  <div className={`border-[1px] border-solid w-max rounded-[12px] relative cursor-pointer ${careType === 'pet' ? 'border-bookingblue' : 'border-bookingborder	'}`} id='pet' onClick={(e)=>setCareType(e.target.id)}>
+  <div className={`border-[1px] border-solid w-max rounded-[12px] relative cursor-pointer ${careType === 'pet' ? 'border-bookingblue' : 'border-bookingborder	'}`} id='pet' onClick={(e)=>careTypeSetter(e.target.id)}>
   <nav className={`bg-grey absolute w-full h-full select-none pointer-events-none rounded-[12px] ${careType === 'pet' ? 'block' : 'hidden'}`}>
     <img src='../images/booking/check.svg' className=' absolute top-[50%] left-[50%] -translate-y-[50%] -translate-x-[50%] select-none pointer-events-none' />
   </nav>
@@ -187,7 +197,7 @@ const page = () => {
   </div>
 
 
-  <div className={`border-[1px] border-solid w-max rounded-[12px] relative cursor-pointer ${careType === 'special' ? 'border-bookingblue' : 'border-bookingborder	'}`} id='special' onClick={(e)=>setCareType(e.target.id)}>
+  <div className={`border-[1px] border-solid w-max rounded-[12px] relative cursor-pointer ${careType === 'special' ? 'border-bookingblue' : 'border-bookingborder	'}`} id='special' onClick={(e)=>careTypeSetter(e.target.id)}>
   <nav className={`bg-grey absolute w-full h-full select-none pointer-events-none rounded-[12px] ${careType === 'special' ? 'block' : 'hidden'}`} >
     <img src='../images/booking/check.svg' className=' absolute top-[50%] left-[50%] -translate-y-[50%] -translate-x-[50%] select-none pointer-events-none' />
   </nav>
@@ -198,49 +208,47 @@ const page = () => {
 </div>
 
 {/* --------------------------------------------------------------------------------------- */}
-
 <div>
-{orders?.some( order => order['service'] === careType) && <h6 className='font-semibold tracking-[0.02em] text-[16px] my-5'>Choose Plan</h6>}
+  {orders?.some( order => order['service'] === careType) && <h6 className='font-semibold tracking-[0.02em] text-[16px] my-5'>Choose Plan</h6>}
 <section className='mt-2 flex flex-wrap gap-9' >
 
 {orders && orders.map((item)=>{
 
-if(item.most_popular === false){
+ if(item.most_popular === false){
 
- if(item.service === careType){
-   return <div key={item._id} className={`border-[1px] border-solid ${selectPlanId === item._id? 'border-blue' : 'border-bookingborder' } 	w-[196px] h-[180px] rounded-[12px] relative cursor-pointer`} onClick={()=>extractText(item._id, item.hours,item.rate_per_hour)}>
-   <section className='font-semibold flex flex-col pl-2 pt-9  rounded-[12px] select-none pointer-events-none' >
-   <h6 className='text-2xl font-medium mb-3 select-none pointer-events-none' >{item.hours} hours</h6>
-   <h6 className=' font-bold text-2xl select-none pointer-events-none' >{item.rate_per_hour} zł / h</h6>
-   </section>
-     <img src='../images/booking/check.svg' className={`absolute bottom-3 select-none pointer-events-none left-3 ${selectPlanId === item._id ? 'block' : 'hidden'}`} />
- </div>
- }
+  if(item.service === careType){
+    return <div key={item._id} className={`border-[1px] border-solid ${selectPlanId === item._id? 'border-blue' : 'border-bookingborder' } 	w-[196px] h-[180px] rounded-[12px] relative cursor-pointer`} onClick={()=>extractText(item._id, item.hours,item.rate_per_hour)}>
+    <section className='font-semibold flex flex-col pl-2 pt-9  rounded-[12px] select-none pointer-events-none' >
+    <h6 className='text-2xl font-medium mb-3 select-none pointer-events-none' >{item.hours} hours</h6>
+    <h6 className=' font-bold text-2xl select-none pointer-events-none' >{item.rate_per_hour} zł / h</h6>
+    </section>
+      <img src='../images/booking/check.svg' className={`absolute bottom-3 select-none pointer-events-none left-3 ${selectPlanId === item._id ? 'block' : 'hidden'}`} />
+  </div>
+  }
 
-}else{
+ }else{
 
- if(item.service === careType){
+  if(item.service === careType){
 
- return <div className={`border-[1px] border-solid 	w-[196px] h-[180px] ${selectPlanId === item._id? 'border-blue' : 'border-bookingborder' } rounded-[12px] relative cursor-pointer`} onClick={()=>extractText(item._id, item.hours,item.rate_per_hour)}>
- <nav className='flex bg-green w-max rounded-lg py-1 px-2 mt-2 ml-2 select-none pointer-events-none' >
- <img src='../images/booking/Star.svg' className='pr-2 select-none pointer-events-none' />
- <h6 className='text-xs font-bold text-white select-none pointer-events-none' >MOST POPULAR</h6>
- </nav>
- <section className='font-semibold flex flex-col pl-2 pt-[6px] select-none pointer-events-none rounded-[12px]' >
- <h6 className='text-2xl font-medium mb-3 select-none pointer-events-none' >{item.hours} hours</h6>
- <h6 className=' font-bold text-2xl select-none pointer-events-none' >{item.rate_per_hour} zł / h</h6>
- </section>
- <img src='../images/booking/check.svg' className={`absolute select-none pointer-events-none  bottom-3 left-3 ${selectPlanId === item._id? 'block' : 'hidden'}`} />
+  return <div className={`border-[1px] border-solid 	w-[196px] h-[180px] ${selectPlanId === item._id? 'border-blue' : 'border-bookingborder' } rounded-[12px] relative cursor-pointer`} onClick={()=>extractText(item._id, item.hours,item.rate_per_hour)}>
+  <nav className='flex bg-green w-max rounded-lg py-1 px-2 mt-2 ml-2 select-none pointer-events-none' >
+  <img src='../images/booking/Star.svg' className='pr-2 select-none pointer-events-none' />
+  <h6 className='text-xs font-bold text-white select-none pointer-events-none' >MOST POPULAR</h6>
+  </nav>
+  <section className='font-semibold flex flex-col pl-2 pt-[6px] select-none pointer-events-none rounded-[12px]' >
+  <h6 className='text-2xl font-medium mb-3 select-none pointer-events-none' >{item.hours} hours</h6>
+  <h6 className=' font-bold text-2xl select-none pointer-events-none' >{item.rate_per_hour} zł / h</h6>
+  </section>
+  <img src='../images/booking/check.svg' className={`absolute select-none pointer-events-none  bottom-3 left-3 ${selectPlanId === item._id? 'block' : 'hidden'}`} />
 </div>
 
+  }
+
+ 
  }
 
-
-}
-
 }) }
-  
-  
+ 
 </section>
 </div>
 
@@ -252,21 +260,21 @@ if(item.most_popular === false){
   
 <div className='min-w-[300px] sm:min-w-[330px] lg:max-w-none w-[80%] lg:w-[50%]'>
 <div className='relative flex '>
+
 <img src='../images/booking/Calendar.svg' className='absolute  top-3 right-3 pointer-events-none select-none'/>
 <input
  className='outline-none bg-inputbg w-full py-[10px] rounded-[8px] pl-3 cursor-pointer border-bookingborder border-[1px] border-solid' 
  readOnly
  placeholder='Care Start Date'
- value={date === null ? '' : `${format(date, "dd/MM/yyyy")}` }
+ value={ dateDisplay}
  onClick={calendar}
  id='extractCalendarTime'
  />
 </div>
 </div>
 
-
+<section onClick={calendar} ref={closeCalendarRef}>
 {togglecalendar &&
-<section onClick={calendar}>
 <Calendar 
 showMonthAndYearPickers={false} 
 onChange={item => setDate(item)}
@@ -274,8 +282,8 @@ date={date}
 className='shadow-xl absolute z-[1]'
 minDate={ new Date(new Date().setDate(new Date().getDate() + 1))}
 />
-</section>
 }
+</section>
 
 </section>
 </div>
@@ -289,16 +297,12 @@ minDate={ new Date(new Date().setDate(new Date().getDate() + 1))}
 </form>
 
 
-</main>
-</main>
 
-{/* ----------------------------------------------------------------------------------------------------------------- */}
+    </main>
+    <Footer {...footerDetails}/>
 
-
- <Footer {...footerDetails}/>
-
-    </>
-  )
+  </div>
+    )
 }
 
 export default page
