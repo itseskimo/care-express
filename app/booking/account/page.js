@@ -3,11 +3,12 @@ import Navbar from '../../Components/navbar/navbar'
 import Footer from '../../Components/footer/footer'
 import BookingHeader from '../../Components/bookingHeader/page'
 import Link from 'next/link'
-import { useState , useEffect} from 'react'
+import { useState , useEffect, useRef} from 'react'
 import { register } from '@/redux/actions/page'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import Head from '../../head'
+import ErrorModal from '../../Components/errorModal/page'
 
 const page = () => {
 
@@ -24,7 +25,12 @@ const page = () => {
 
   const { createEmail, createPhoneNumber, createPassword, confirmPassword } = client;
 
-  
+  const closeErrorRef = useRef(null);
+  const [errorModal, setErrorModal]= useState(false)
+
+    const handleErrorClose = (e) => {   
+    if(closeErrorRef.current === e.target) setErrorModal(false) 
+    }
 
   const [contact, setContact] = useState({})
   const {firstName,lastName,emailAdress,phoneNumber,streetName,streetNumber,apartmentNumber,postalCode,city,careType,calendarDate}=contact
@@ -44,7 +50,8 @@ const page = () => {
      setContact(data)
 
     }
-
+    document.addEventListener("click", handleErrorClose, true);
+    return () =>document.removeEventListener("click", handleErrorClose , true)
      
   },[])
 
@@ -54,10 +61,7 @@ const page = () => {
   const registerSubmit = (e) => {
     e.preventDefault();
 
-    // if(createPassword === confirmPassword){
-    // setAccountToggle(false)
-    // }
-      
+    if(createPassword && confirmPassword){
     const myForm = new FormData();
     myForm.set("care_type", careType);
     myForm.set("care_start_date", calendarDate);
@@ -70,11 +74,15 @@ const page = () => {
     myForm.set("street_name", streetName);
     myForm.set("postal_code", postalCode);
     myForm.set("city", city);
-    // myForm.set("apartment_number", apartmentNumber);
+    myForm.set("apartment_number", apartmentNumber);
     myForm.set("plan", '937a1ae52d6364513cfff439');
     myForm.set("role", 'user');
     dispatch(register(myForm));
-    // setAccountToggle(false)
+    }else{
+      setErrorModal(true)
+    }
+      
+    
    
 
     
@@ -137,7 +145,8 @@ const page = () => {
 
     <Navbar color={'bg-blue'} {...navDetails}/>
 
-   
+    {errorModal && <ErrorModal text='Please Enter The Password!' refState={closeErrorRef}/>}
+
 {/* ----------------------------------------------------------------------------------------------------------------- */}
 <main className='bg-specialbg overflow-hidden'>
 <main className='mx-4 sm:mx-14 '>
@@ -165,7 +174,6 @@ const page = () => {
    className='outline-none bg-inputbg w-full py-[10px] rounded-[8px] pl-14' 
    name='createEmail'
    type='email'
-   required
    value={createEmail}
    onChange={registerDataChange}
    placeholder='Email address'/>
@@ -181,7 +189,6 @@ const page = () => {
    onChange={registerDataChange}
    value={createPhoneNumber}
    type='number'
-   required
    className='outline-none bg-inputbg w-full py-[10px] rounded-[8px] pl-14' 
    placeholder='Phone Number'/>
   </div>
@@ -202,7 +209,6 @@ const page = () => {
   type='password' 
   name='createPassword'
   id='password1'
-  required
   value={createPassword}
   onChange={registerDataChange}
   className='outline-none bg-inputbg  w-full py-[10px]  rounded-[8px] pl-14' 
@@ -218,7 +224,6 @@ const page = () => {
   <input 
   style={{border:'1px solid #ABABAB'}} 
   type='password' 
-  required
   id='password2'
   value={confirmPassword}
   name='confirmPassword'

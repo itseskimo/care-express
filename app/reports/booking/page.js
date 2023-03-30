@@ -190,7 +190,7 @@ const page = () => {
 {/* --------------------------------------------------------------------------------------- */}
 <div>
   {orders?.some( order => order['service'] === careType) && <h6 className='font-semibold tracking-[0.02em] text-[16px] my-5'>Choose Plan</h6>}
-<section className='mt-2 flex flex-wrap gap-9' >
+<section className='mt-2 flex flex-wrap gap-9 ' >
 
 {orders && orders.map((item)=>{
 

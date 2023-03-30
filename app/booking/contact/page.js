@@ -3,8 +3,9 @@ import Navbar from '../../Components/navbar/navbar'
 import Footer from '../../Components/footer/footer'
 import BookingHeader from '../../Components/bookingHeader/page'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { useRouter } from 'next/navigation';
+import ErrorModal from '../../Components/errorModal/page'
 import Head from '../../head'
 
 const page = () => {
@@ -31,14 +32,24 @@ const page = () => {
 
   function formsubmit(e){
     e.preventDefault();
+    if(firstName && lastName && emailAdress && phoneNumber && streetNumber && postalCode && city){
     let contactData = JSON.stringify(contact);
     localStorage.setItem('contact',contactData)
     router.push('/booking/additionalRequirements')
+    }else{
+      setErrorModal(true)
+
+    }
+   
 }
 
 const [hours,setHours]=useState('')
 const [cost,setCost]=useState('')
-
+const closeErrorRef = useRef(null);
+  
+    const handleErrorClose = (e) => {   
+    if(closeErrorRef.current === e.target) setErrorModal(false) 
+    }
  useEffect(()=>{
   if(localStorage.getItem('user')){
 
@@ -66,7 +77,9 @@ if(localStorage.getItem('contact')){
    
   }
 
-  
+  document.addEventListener("click", handleErrorClose, true);
+  return () =>document.removeEventListener("click", handleErrorClose , true)
+      
  },[])
 
 
@@ -101,6 +114,7 @@ if(localStorage.getItem('contact')){
     FbIcon:'../images/business/Icons/facebook.svg',
   }
 
+  const [errorModal, setErrorModal]= useState(false)
 
   
   return (
@@ -108,7 +122,8 @@ if(localStorage.getItem('contact')){
             <Head title='Contact Details'/>
 
     <Navbar color={'bg-blue'} {...navDetails}/>
-   
+    {errorModal && <ErrorModal text='Please Enter All Details!' refState={closeErrorRef}/>}
+
 {/* ----------------------------------------------------------------------------------------------------------------- */}
 <main className='bg-specialbg overflow-hidden'>
 <main className='mx-4 sm:mx-14 '>
@@ -147,12 +162,12 @@ if(localStorage.getItem('contact')){
 <section className='flex flex-col lg:flex-row items-center justify-center lg:mb-4 '>
 <div className=' min-w-[300px] sm:min-w-[330px] lg:max-w-none w-[70%] lg:w-[50%] lg:mr-6 mb-1 lg:mb-0'>
   <h6 className='text-[16px] tracking-[0.02em] font-semibold mb-[6px]'>First Name</h6>
-  <input style={{border:'1px solid #ABABAB'}} placeholder='First Name' required type='text' name='firstName' onChange={contactDetails} value={firstName}  className='pl-3 outline-none bg-inputbg w-full   py-[10px] mb-2 rounded-[12px]' />
+  <input style={{border:'1px solid #ABABAB'}} placeholder='First Name'  type='text' name='firstName' onChange={contactDetails} value={firstName}  className='pl-3 outline-none bg-inputbg w-full   py-[10px] mb-2 rounded-[12px]' />
 </div>
 
 <div className='min-w-[300px] sm:min-w-[330px] lg:max-w-none w-[70%] lg:w-[50%]  mb-1 lg:mb-0'>
   <h6 className='text-[16px] tracking-[0.02em] font-semibold mb-[6px]'>Last Name</h6>
-  <input style={{border:'1px solid #ABABAB'}} placeholder='Last Name' required type='text' name='lastName' onChange={contactDetails} value={lastName} className='pl-3 outline-none bg-inputbg w-full  py-[10px] mb-2 rounded-[12px]' />
+  <input style={{border:'1px solid #ABABAB'}} placeholder='Last Name'  type='text' name='lastName' onChange={contactDetails} value={lastName} className='pl-3 outline-none bg-inputbg w-full  py-[10px] mb-2 rounded-[12px]' />
 </div>
 </section>
 
@@ -161,12 +176,12 @@ if(localStorage.getItem('contact')){
 <section className='flex flex-col lg:flex-row items-center justify-center lg:mb-4'>
 <div className='min-w-[300px] sm:min-w-[330px] lg:max-w-none w-[70%] lg:w-[50%] lg:mr-6  mb-1 lg:mb-0'>
   <h6 className='text-[16px] tracking-[0.02em] font-semibold mb-[6px]'>Email Address</h6>
-  <input style={{border:'1px solid #ABABAB'}} placeholder='Email Address' required type='email' name='emailAdress' onChange={contactDetails} value={emailAdress} className='pl-3 outline-none bg-inputbg w-full   py-[10px] mb-2 rounded-[12px]' />
+  <input style={{border:'1px solid #ABABAB'}} placeholder='Email Address' type='email' name='emailAdress' onChange={contactDetails} value={emailAdress} className='pl-3 outline-none bg-inputbg w-full   py-[10px] mb-2 rounded-[12px]' />
 </div>
 
 <div className=' min-w-[300px] sm:min-w-[330px] lg:max-w-none w-[70%] lg:w-[50%]  mb-1 lg:mb-0'>
   <h6 className='text-[16px] tracking-[0.02em] font-semibold mb-[6px]'>Phone Number</h6>
-  <input style={{border:'1px solid #ABABAB'}} placeholder='Phone Number' required type='number' name='phoneNumber' onChange={contactDetails} value={phoneNumber} className='pl-3 outline-none bg-inputbg w-full  py-[10px] mb-2 rounded-[12px]' />
+  <input style={{border:'1px solid #ABABAB'}} placeholder='Phone Number' type='number' name='phoneNumber' onChange={contactDetails} value={phoneNumber} className='pl-3 outline-none bg-inputbg w-full  py-[10px] mb-2 rounded-[12px]' />
 </div>
 </section>
 {/* ------------------------------------------------------------------------------------ */}
@@ -174,12 +189,12 @@ if(localStorage.getItem('contact')){
 <section className='flex flex-col lg:flex-row items-center justify-center lg:mb-4'>
 <div className=' min-w-[300px] sm:min-w-[330px] lg:max-w-none w-[70%] lg:w-[50%] lg:mr-6  mb-1 lg:mb-0'>
   <h6 className='text-[16px] tracking-[0.02em] font-semibold mb-[6px]'>Street Name</h6>
-  <input style={{border:'1px solid #ABABAB'}} placeholder='Street Name' required  name='streetName' onChange={contactDetails} value={streetName} className='pl-3 outline-none bg-inputbg w-full   py-[10px] mb-2 rounded-[12px]' />
+  <input style={{border:'1px solid #ABABAB'}} placeholder='Street Name'  name='streetName' onChange={contactDetails} value={streetName} className='pl-3 outline-none bg-inputbg w-full   py-[10px] mb-2 rounded-[12px]' />
 </div>
 
 <div className=' min-w-[300px] sm:min-w-[330px] lg:max-w-none w-[70%] lg:w-[50%]  mb-1 lg:mb-0'>
   <h6 className='text-[16px] tracking-[0.02em] font-semibold mb-[6px]'>Street Number</h6>
-  <input style={{border:'1px solid #ABABAB'}} placeholder='Street Number' required  name='streetNumber' onChange={contactDetails} value={streetNumber} className='pl-3 outline-none bg-inputbg w-full  py-[10px] mb-2 rounded-[12px]' />
+  <input style={{border:'1px solid #ABABAB'}} placeholder='Street Number'  name='streetNumber' onChange={contactDetails} value={streetNumber} className='pl-3 outline-none bg-inputbg w-full  py-[10px] mb-2 rounded-[12px]' />
 </div>
 </section>
 {/* ------------------------------------------------------------------------------------ */}
@@ -200,7 +215,7 @@ if(localStorage.getItem('contact')){
 <section className='flex flex-col lg:flex-row items-center justify-center lg:block lg:mb-4'>
 <div className='min-w-[300px] sm:min-w-[330px] lg:max-w-none w-[70%] lg:w-[49%]'>
   <h6 className='text-[16px] tracking-[0.02em] font-semibold mb-[6px]'>City / Town</h6>
-  <input style={{border:'1px solid #ABABAB'}} placeholder='City / Town' required type='text' value={city} onChange={contactDetails} name='city'  className='pl-3 outline-none bg-inputbg w-full   py-[10px] mb-2 rounded-[12px]' />
+  <input style={{border:'1px solid #ABABAB'}} placeholder='City / Town' type='text' value={city} onChange={contactDetails} name='city'  className='pl-3 outline-none bg-inputbg w-full   py-[10px] mb-2 rounded-[12px]' />
 </div>
 </section>
 {/* ------------------------------------------------------------------------------------ */}

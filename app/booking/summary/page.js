@@ -3,9 +3,9 @@ import Navbar from '../../Components/navbar/navbar'
 import Footer from '../../Components/footer/footer'
 import BookingHeader from '../../Components/bookingHeader/page'
 import Link from 'next/link'
-import { useEffect,useState } from 'react'
+import { useEffect,useState , useRef} from 'react'
 import { useRouter } from 'next/navigation';
-import { legacy_createStore } from 'redux'
+import ErrorModal from '../../Components/errorModal/page'
 import Head from '../../head'
 
 const page = () => {
@@ -49,6 +49,21 @@ const page = () => {
   const [saveCheckBoxesText,setSaveCheckBoxesText]=useState([])
   const [additionalDescription,setAdditionalDescription]=useState('')
   const [calendarDate,setCalendarDate]=useState('')
+  const [errorModal, setErrorModal]= useState(false)
+
+  const closeErrorRef = useRef(null);
+  
+    const handleErrorClose = (e) => {   
+    if(closeErrorRef.current === e.target) setErrorModal(false) 
+    }
+  function calendar(time){
+    const calendarCalc=['null',"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    let dateCalc= time.substring(0,1) === '0' ? time.substring(1,2) : time.substring(0,2)
+    let monthCalc = calendarCalc[time.substring(3,4) === '0' ? time.substring(4,5) : time.substring(3,5)] 
+    let yearCalc= `${time.substring(6,10)}`
+    const finalDate=`${dateCalc}` +  '\xa0'   + `${monthCalc}` + '\xa0' +  `${yearCalc}`
+    setCalendarDate(finalDate)
+  }
 
 useEffect(()=>{
   let hours= localStorage.getItem('hours')
@@ -58,30 +73,43 @@ useEffect(()=>{
   setCost(cost)
 
   let additionalServicesArr= localStorage.getItem('additionalServicesArr')
-  setSaveCheckBoxesText([additionalServicesArr.split(',')])
+    setSaveCheckBoxesText([...additionalServicesArr.split(',')])
 
   let additionalRequirements= localStorage.getItem('additionalRequirements')
   setAdditionalDescription(additionalRequirements)
 
-  let calendarDate =localStorage.getItem('calendarDate')
-  setCalendarDate(calendarDate)
+  let calendarDate =localStorage.getItem('dateDisplay')
+  calendar(calendarDate)
 
 const contactData =localStorage.getItem('contact')
 let data = JSON.parse(contactData);
 setContact(data)
+
+  document.addEventListener("click", handleErrorClose, true);
+  return () =>document.removeEventListener("click", handleErrorClose , true)
 },[])
   
 
 function formsubmit(e){
   e.preventDefault();
-  router.push('/booking/account')
+  if(termsConditionChecker && termsConsentChecker){
+    router.push('/booking/account')
+  }else{
+    setErrorModal(true)
+  }
 }
+
+//Dont submit until both checkboxes are checked
+const [termsConditionChecker,setTermsConditionChecker]=useState(false)
+const [termsConsentChecker,setTermsConsentChecker]=useState(false)
+
 
   return (
     <>
             <Head title='Summary'/>
 
     <Navbar color={'bg-blue'} {...navDetails}/>
+    {errorModal && <ErrorModal text='Please Accept the Terms & Conditions' refState={closeErrorRef}/>}
 
 {/* ----------------------------------------------------------------------------------------------------------------- */}
 <main className='bg-specialbg overflow-hidden'>
@@ -233,11 +261,11 @@ function formsubmit(e){
 
 <main className=' mx-4 sm:mx-6 lg:mx-14 xlg:mx-28 py-10'>
 
-<section className='flex  items-center relative'>
+<section className='flex  items-start relative'>
 
 <div className=''>
     <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>ADDITIONAL SERVICES</h6>
-     <h6 className='text-[16px] font-semibold'>{saveCheckBoxesText}</h6>
+     {saveCheckBoxesText.map((text,idx)=>{return <h6 key={idx} className='text-[16px] font-semibold mb-1'>{text}</h6>})}
 </div>
 
 <div className=' absolute right-0'>
@@ -283,7 +311,7 @@ function formsubmit(e){
 <section className='flex  items-center  mt-6'>
 
 <div className='flex items-center'>
-    <input type='checkbox' className='w-4 h-4 mr-2' required ></input>
+    <input type='checkbox' className='w-4 h-4 mr-2' onChange={(e)=>setTermsConditionChecker((e.target.checked))}></input>
     <h6 className='tracking-[0.02em] text-[16px] font-semibold'>I have accept the <span className='text-blue underline decoration-[1px] underline-offset-2'>Terms and Conditions</span> .</h6>
 </div>
 
@@ -294,7 +322,7 @@ function formsubmit(e){
 <section className='flex  items-center  mt-6'>
 
 <div className='flex items-start '>
-    <input type='checkbox' className='w-4 h-4 mt-1 mr-2' required></input>
+    <input type='checkbox' className='w-4 h-4 mt-1 mr-2' onChange={(e)=>setTermsConsentChecker((e.target.checked))} ></input>
     <h6 className='tracking-[0.02em] text-[16px] font-semibold w-[99%]'>I hereby give my consent to receive other notifications from CareExpress. In order to provide you with the requested content, we must store and process your personal data. If you consent to the storage of your personal data for this purpose, please tick the box on the left hand side.</h6>
 </div>
 

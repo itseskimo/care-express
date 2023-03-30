@@ -77,7 +77,7 @@ const page = () => {
 
     function formSubmit(e){
       e.preventDefault();
-      if( selectPlanId !== '' && careType !== ''){
+      if( selectPlanId && careType){
       localStorage.setItem('hours', hours)
       localStorage.setItem('cost', cost)
       localStorage.setItem('careType', careType)
