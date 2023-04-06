@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { logout} from '@/redux/actions/page'
 import { useDispatch,useSelector  } from 'react-redux'
 import outsideAlert from '@/constants/page';
+ import Cookies from "js-cookie";
 
 
 const navbar = (props) => {
@@ -42,6 +43,8 @@ function LogOut(){
   dispatch(logout())
   localStorage.clear()
   setuserLoggedIn('user')
+   Cookies.remove("loggedin");
+
   router.push('/')
 }
 

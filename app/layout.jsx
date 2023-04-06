@@ -16,6 +16,7 @@ const stripePromise =  loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
 
 export default function RootLayout({ children }) {
   return (
+
     <Elements stripe={stripePromise}>
     <Provider store={store}>
     <html lang="en" className={`${plusJakartaSans.variable} font-sans`}>
@@ -25,5 +26,6 @@ export default function RootLayout({ children }) {
     </html>
     </Provider>
     </Elements>
+
   );
 }

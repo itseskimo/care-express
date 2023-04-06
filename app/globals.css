@@ -385,25 +385,8 @@ div[role="progressbar"]::before {
 
 
 
-.fancyButton{
-  background-color: white;
-  padding:  12px 20px;
-  border-top-left-radius:9px ;
-  border-top-right-radius: 9px;
-  font-size: 20px;
-  margin-right: 8px;
-  position: relative;
-  color: black;
-}
-
-.fancyButton:before{
-  position: absolute;
-  /* left: -15px; */
-  bottom: 0;
-  border-top-right-radius: 12px;
-  background-color: black;
-  height: 16px;
-  width: 16px;
+.curvyBtn{
+  clip-path: polygon(97% 0, 97% 91%, 100% 100%, 0 100%, 3% 91%, 3% 0);
 }
 
 

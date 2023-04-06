@@ -200,7 +200,7 @@ const page = () => {
 
 <main className=' mx-4 sm:mx-6 lg:mx-14 xlg:mx-28 py-10'>
 
-<section className='flex  items-center relative'>
+<section className='flex  items-start relative'>
 
 <div className=''>
     <h6 className='tracking-[0.12em] text-xs font-semibold mb-1'>ADDITIONAL SERVICES</h6>

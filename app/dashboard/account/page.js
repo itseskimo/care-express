@@ -48,15 +48,9 @@ const page = () => {
     
     let userData = JSON.stringify(loginData);
     localStorage.setItem("user", userData);
-    // setAccountSucceess(true)
-    // setForm({first_name: "", last_name:'', password:''})
     }
 
-  // setTimeout(()=>{
-  // if(accountSuccess){
-  // setAccountSucceess(false)
-  // }
-  // },1000)
+ 
 
   useEffect(()=>{
   if(localStorage.getItem('user')){

@@ -253,7 +253,7 @@ const handleClick = (direction) => {
 
 <header ref={listRef} className='flex gap-7 translate-x-0	transition-all duration-1000	 w-max'>
 {address  && address.map((item)=>{
-  return <div key={item._id} className={`bg-white h-[230px]  px-6 py-6 relative w-[340px] rounded-[14px] border-solid border-[1px] cursor-pointer ${addStyles === item._id ? 'border-bookingblue' : 'border-bookingborder'}`} onClick={()=>styles(item)}>
+  return <div key={item._id} className={`bg-white h-[230px]  px-6 py-6 relative w-[340px] rounded-[14px] border-solid border-[1px] cursor-pointer ${addStyles === item._id ? 'border-bookingblue ' : 'border-bookingborder'}`} onClick={()=>styles(item)}>
   <div className=' flex flex-col justify-between gap-2 h-full'>
   <section className='flex flex-col gap-1'>
   <h6 className=' font-semibold text-[20px] '>{item.title.length > 10 ? `${item.title.substring(0, 10)}...` : item.title}</h6>

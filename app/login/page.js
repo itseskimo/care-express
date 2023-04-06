@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 import { login } from '@/redux/actions/page'
 import { getSocialLogin} from '@/redux/actions/page'
 import Head from '../head'
-
+import Cookies from "js-cookie";
 
 
 const page = () => {
@@ -67,7 +67,7 @@ const [loginPassword,setLoginPassword]=useState('')
 
       const loginSubmit = (e) => {
         e.preventDefault();
-        
+        Cookies.set("loggedin", "true");
         dispatch(login(loginEmail, loginPassword));  
       };
       
