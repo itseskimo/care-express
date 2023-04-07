@@ -9,7 +9,7 @@ import {Calendar} from 'react-date-range';
 import {useState,useEffect, useRef} from 'react'
 import {useRouter} from 'next/navigation';
 import { useDispatch, useSelector } from 'react-redux'
-import { getServicePricing } from '@/redux/actions/page'
+import { getServicePricing } from '@/redux/actions/orderActions'
 import ErrorModal from '../../Components/errorModal/page'
 
 

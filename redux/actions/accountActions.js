@@ -1,7 +1,7 @@
 "use client"
 import axios from 'axios';
 import {  GET_ACCOUNT_FAIL,GET_ACCOUNT_REQUEST,GET_ACCOUNT_SUCCESS,
-          UPDATE_ACCOUNT_REQUEST,UPDATE_ACCOUNT_SUCCESS,UPDATE_ACCOUNT_FAIL} from '../constants/page';
+          UPDATE_ACCOUNT_REQUEST,UPDATE_ACCOUNT_SUCCESS,UPDATE_ACCOUNT_FAIL,RESET_UPDATED_USER_SUCCESS} from '../constants/page';
 
 export const getDashboardAccountDetails = (token) => async (dispatch) => {
     try {
@@ -32,3 +32,8 @@ export const getDashboardAccountDetails = (token) => async (dispatch) => {
       dispatch({ type: UPDATE_ACCOUNT_FAIL, payload: error.response.data.message });
     }
   };
+
+
+  export const resetUpdatedUser = () => async (dispatch) => {
+    dispatch({ type: RESET_UPDATED_USER_SUCCESS });
+};

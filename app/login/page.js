@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useState,useEffect } from 'react'
 import { useDispatch, useSelector} from 'react-redux'
 import { useRouter } from 'next/navigation';
-import { login } from '@/redux/actions/page'
+import { login ,clearErrors} from '@/redux/actions/page'
 import { getSocialLogin} from '@/redux/actions/page'
 import Head from '../head'
 import Cookies from "js-cookie";
@@ -33,6 +33,7 @@ const page = () => {
     let loginData = JSON.parse(data);
 
   if(loginData.token){
+    Cookies.set("loggedin", "true");
     router.push('/dashboard')
     }
   }
@@ -67,7 +68,7 @@ const [loginPassword,setLoginPassword]=useState('')
 
       const loginSubmit = (e) => {
         e.preventDefault();
-        // Cookies.set("loggedin", "true");
+        dispatch(clearErrors())
         dispatch(login(loginEmail, loginPassword));  
       };
       
@@ -131,7 +132,6 @@ if(passwordToggle.type==='password'){
    onChange={(e)=>setLoginEmail(e.target.value)}
    className='outline-none bg-inputbg w-full py-[10px] rounded-[8px] pl-14' 
    placeholder='Email address'
-   required
    />
   </div>
 </div>
@@ -144,7 +144,6 @@ if(passwordToggle.type==='password'){
   style={{border:'1px solid #ABABAB'}} 
   value={loginPassword} 
   onChange={(e)=>setLoginPassword(e.target.value)}
-  required
   type='password' 
   className='outline-none bg-inputbg  w-full py-[10px] mb-2 rounded-[8px] pl-14' 
   placeholder='Password' 

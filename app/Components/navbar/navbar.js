@@ -32,19 +32,11 @@ useEffect(()=>{
 }
 },[userLoggedIn])
 
-
-
-
-
-
-
-
 function LogOut(){
   dispatch(logout())
   localStorage.clear()
   setuserLoggedIn('user')
-  //  Cookies.remove("loggedin");
-
+  Cookies.remove("loggedin");
   router.push('/')
 }
 

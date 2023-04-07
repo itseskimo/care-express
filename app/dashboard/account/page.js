@@ -3,7 +3,7 @@ import React from 'react'
 import DashboardNav from '../../Components/dashboardNav/page'
 import Head from '../../head'
 import SubDashboardNav from '../../Components/subdashboardNav/page'
-import { getDashboardAccountDetails , updateDashboardAccountDetails } from '@/redux/actions/accountActions'
+import { getDashboardAccountDetails , updateDashboardAccountDetails,resetUpdatedUser } from '@/redux/actions/accountActions'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect,useState} from 'react'
 
@@ -61,14 +61,24 @@ const page = () => {
 
     dispatch(getDashboardAccountDetails(loginData.token))
     setToken(loginData.token)
-  }
-},[token])
 
+    if(updateUser?.status === 'success'){
+     setAccountSucceess(true)
+    }
+  }
+},[token, updateUser])
+
+setTimeout(() => {
+ if(accountSuccess){
+  dispatch(resetUpdatedUser()) 
+  setAccountSucceess(false)
+ }  
+}, 2400);
   
   return (
     <div className='bg-specialbg  '>
     <Head title='Reports' />
-    <main className=' pt-8 ml-auto mr-auto h-screen  w-[92%]  '>
+    <main className=' pt-8 ml-auto mr-auto h-screen  w-[92%] relative '>
     <DashboardNav />
 
 <SubDashboardNav navTitle='Account' buttonshow={false}/>
@@ -93,7 +103,7 @@ const page = () => {
 <input type='submit'  className='px-[20px] py-[13px] bg-hazyblue cursor-pointer text-white rounded-[23.5px] text-[16px] mt-8' value='Save Details'/>
 </form>
 
-{accountSuccess && <div className='flex justify-end items-end '>
+{accountSuccess && <div className='absolute bottom-9 right-0 '>
 <section className='bg-dashgreen py-6 px-4 rounded-[17px] w-max text-[16px] animate-pulse'>Account saved successfully</section>
 </div> }
 
