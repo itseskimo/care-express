@@ -9,12 +9,12 @@ import {Calendar} from 'react-date-range';
 import {useState,useEffect, useRef} from 'react'
 import {useRouter} from 'next/navigation';
 import { useDispatch, useSelector } from 'react-redux'
-import { getServicePricing } from '@/redux/actions/page'
+import { getServicePricing } from '@/redux/actions/orderActions'
 import ErrorModal from '../../Components/errorModal/page'
 
 
 const page = () => {
-  const { orders}  = useSelector((state) => state.orders);
+  const { services}  = useSelector((state) => state.orders);
 
   const dispatch= useDispatch()
   const router = useRouter();
@@ -119,7 +119,7 @@ const page = () => {
 
   function careTypeSetter(id){
   setCareType(id)
-  let res = orders?.some( order => order['service'] === id )
+  let res = services?.some( type => type['service'] === id )
   if(!res){
   localStorage.removeItem('plan')
   localStorage.removeItem('careType')
@@ -189,10 +189,10 @@ const page = () => {
 
 {/* --------------------------------------------------------------------------------------- */}
 <div>
-  {orders?.some( order => order['service'] === careType) && <h6 className='font-semibold tracking-[0.02em] text-[16px] my-5'>Choose Plan</h6>}
+  {services?.some( type => type['service'] === careType) && <h6 className='font-semibold tracking-[0.02em] text-[16px] my-5'>Choose Plan</h6>}
 <section className='mt-2 flex flex-wrap gap-9 ' >
 
-{orders && orders.map((item)=>{
+{services && services.map((item)=>{
 
  if(item.most_popular === false){
 

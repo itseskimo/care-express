@@ -4,15 +4,13 @@ import Link from 'next/link'
 import { AreaChart, Area, Tooltip, ResponsiveContainer, CartesianGrid, XAxis, YAxis } from "recharts";
 import Head from '../head'
 import DashboardNav from '../Components/dashboardNav/page'
-import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { useRouter } from 'next/navigation';
 import outsideAlert from '@/constants/page';
 
 
 
 const page = () => {
-  const {social} = useSelector((state) => state.social);
 
   const dispatch= useDispatch()
   const router = useRouter();

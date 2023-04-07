@@ -4,12 +4,13 @@ import DashboardNav from '../../Components/dashboardNav/page'
 import Head from '../../head'
 import { useState ,useEffect } from 'react'
 import {useRouter} from 'next/navigation';
-import { getOrderById } from '@/redux/actions/page'
-import { useDispatch } from 'react-redux'
+import { getOrderById } from '@/redux/actions/orderActions'
+import { useDispatch, useSelector } from 'react-redux'
 
 const page = () => {
     const router = useRouter();
     const dispatch= useDispatch()
+    const { orderId } = useSelector((state) => state.orders);
 
     const [pauseToggle,setPauseToggle]=useState(false)
 
@@ -29,10 +30,14 @@ const page = () => {
         if(localStorage.getItem('user')){
           let data = localStorage.getItem('user')
           let loginData = JSON.parse(data);
-          dispatch(getOrderById('63f7c9989d0078faca4d6ee0',loginData.token))
+
+          if(new URLSearchParams(window.location.search).get('id')){
+            const urlParams = new URLSearchParams(window.location.search);
+            const id = urlParams.get('id')
+            dispatch(getOrderById(id,loginData.token))
+          }
+
         }
-        let copyText = document.getElementById('copyText')
-        copyText.innerText='jjjjccffddj'
       },[])
 
   function clipboardText(){
@@ -94,25 +99,25 @@ const page = () => {
                     <div>
                         <h6 className='text-[16px] font-semibold mb-1'>Order Number</h6>
                         <div className='flex cursor-pointer'>
-                        <h6 className='text-[16px]' id='copyText' onClick={clipboardText}>6378f...6922f0</h6>
+                        <h6 className='text-[16px]' id='copyText' onClick={clipboardText} >{orderId?.details?.id}</h6>
                         <img className='pl-3' src='../images/dashboard/copy.svg'/>
                         </div>
                     </div>
                     <div>
                         <h6 className='text-[16px] font-semibold mb-1'>Date</h6>
-                        <h6 className='text-[16px]'>24 Feb 2023</h6>
+                        <h6 className='text-[16px]'>{orderId?.details?.date}</h6>
                     </div>
                     <div>
                         <h6 className='text-[16px] font-semibold mb-1'>Care Type</h6>
-                        <h6 className='text-[16px]'>Pet Express</h6>
+                        <h6 className='text-[16px]'>{orderId?.details?.care_type}</h6>
                     </div>
                     <div>
                         <h6 className='text-[16px] font-semibold mb-1'>No. of Hours</h6>
-                        <h6 className='text-[16px]'>10 </h6>
+                        <h6 className='text-[16px]'>{orderId?.details?.no_of_hours} Hours</h6>
                     </div>
                     <div>
                         <h6 className='text-[16px] font-semibold mb-1'>Total Price</h6>
-                        <h6 className='text-[16px]'>550 zl </h6>
+                        <h6 className='text-[16px]'>{orderId?.details?.total_price} zl  </h6>
                     </div>
                     <div>
                         <h6 className='text-[16px] font-semibold mb-1'>Assigned Nanny</h6>

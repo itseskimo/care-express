@@ -12,9 +12,9 @@ import Cookies from "js-cookie";
 
 const page = () => {
 
-  const { isAuthenticated, user ,error} = useSelector((state) => state.user);
+  const { loginInfo ,error} = useSelector((state) => state.user);
 
-  const {social} = useSelector((state) => state.social);
+  const {social} = useSelector((state) => state.user);
 
   const router = useRouter();
   
@@ -23,8 +23,8 @@ const page = () => {
   
    useEffect(()=>{
 
-  if(Object.keys(user || {}).length > 0){
-    let userData = JSON.stringify(user);
+  if(Object.keys(loginInfo || {}).length > 0){
+    let userData = JSON.stringify(loginInfo);
     localStorage.setItem("user", userData);
   }
 
@@ -38,7 +38,7 @@ const page = () => {
   }
   dispatch(getSocialLogin())
 
-  },[user,isAuthenticated])
+  },[loginInfo])
 
 
 const [loginEmail,setLoginEmail]=useState('')
@@ -67,7 +67,7 @@ const [loginPassword,setLoginPassword]=useState('')
 
       const loginSubmit = (e) => {
         e.preventDefault();
-        Cookies.set("loggedin", "true");
+        // Cookies.set("loggedin", "true");
         dispatch(login(loginEmail, loginPassword));  
       };
       

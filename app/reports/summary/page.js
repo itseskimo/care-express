@@ -5,7 +5,7 @@ import Head from '../../head'
 import Link from 'next/link'
 import {useState,useEffect, useRef} from 'react'
 import {useRouter} from 'next/navigation';
-import { postOrder } from '@/redux/actions/page'
+import { postOrder } from '@/redux/actions/orderActions'
 import { useDispatch} from 'react-redux'
 import ErrorModal from '../../Components/errorModal/page'
 

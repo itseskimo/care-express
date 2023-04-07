@@ -4,8 +4,8 @@ import DashboardNav from '../../Components/dashboardNav/page'
 import Head from '../../head'
 import Link from 'next/link'
 import { useDispatch ,useSelector } from 'react-redux'
-import { postAddress} from '@/redux/actions/page'
-import {  getAddresses , deleteAddress, updateAddress} from '@/redux/actions/page'
+// import { postAddress} from '@/redux/actions/page'
+import { postAddress , getAddresses , deleteAddress, updateAddress} from '@/redux/actions/addressActions'
 import {useState,useEffect , useRef } from 'react'
 import {useRouter} from 'next/navigation';
 import ErrorModal from '../../Components/errorModal/page'
@@ -15,7 +15,7 @@ import ErrorModal from '../../Components/errorModal/page'
 const page = () => {
     const router = useRouter();
     const dispatch = useDispatch();
-    const  address = useSelector((state) => state.address);
+    const  {address} = useSelector((state) => state.address);
     const listRef = useRef();
 
     const [form, setForm] = useState({

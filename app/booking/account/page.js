@@ -38,7 +38,7 @@ const page = () => {
   useEffect(()=>{
     if(localStorage.getItem('user')){
       
-     let calendarDate= localStorage.getItem('calendarDate')
+     let calendarDate= localStorage.getItem('dateDisplay')
      let careType= localStorage.getItem('careType')
 
      const contactData =localStorage.getItem('contact')
@@ -46,7 +46,7 @@ const page = () => {
      data.careType=careType
      data.calendarDate=calendarDate
      console.log(data.emailAdress)
-     setClient({createPhoneNumber:data.phoneNumber ,   createEmail: data.emailAdress     })
+     setClient({createPhoneNumber:data.phoneNumber || '',   createEmail: data.emailAdress  || ''   })
      setContact(data)
 
     }

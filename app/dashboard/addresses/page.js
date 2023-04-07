@@ -5,14 +5,14 @@ import Head from '../../head'
 import SubDashboardNav from '../../Components/subdashboardNav/page'
 import { useState ,useEffect } from 'react'
 import { useDispatch ,useSelector } from 'react-redux'
-import { postAddress , getAddresses , deleteAddress, updateAddress} from '@/redux/actions/page'
+import { postAddress , getAddresses , deleteAddress, updateAddress} from '@/redux/actions/addressActions'
 
 
 const page = () => {
   
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
-  const  address  = useSelector((state) => state.address);
+  const { address } = useSelector((state) => state.address);
 
   const [form, setForm] = useState({
     title: "",

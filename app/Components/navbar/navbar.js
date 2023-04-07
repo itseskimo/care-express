@@ -11,7 +11,7 @@ import outsideAlert from '@/constants/page';
 const navbar = (props) => {
 
   const dispatch= useDispatch()
-  const { user} = useSelector((state) => state.user);
+  const { loginInfo} = useSelector((state) => state.user);
 
   const{first, second, third ,color,subcolour,clicked , border,background, shadow,  bookingId}=props
   const router = useRouter();
@@ -43,7 +43,7 @@ function LogOut(){
   dispatch(logout())
   localStorage.clear()
   setuserLoggedIn('user')
-   Cookies.remove("loggedin");
+  //  Cookies.remove("loggedin");
 
   router.push('/')
 }
@@ -196,7 +196,7 @@ useEffect(()=>{
 
 
 
-<a href={ user && userLoggedIn !== 'user' ? `reports/booking?type=${bookingId}`: '/login'}><button className={` rounded-3xl text-white px-[17px] py-[9px] md:py-[6px] text-xs md:text-base  shrink-0 ${color}`}>Book Now</button></a>
+<a href={  userLoggedIn !== 'user' ? `reports/booking?type=${bookingId}`: '/login'}><button className={` rounded-3xl text-white px-[17px] py-[9px] md:py-[6px] text-xs md:text-base  shrink-0 ${color}`}>Book Now</button></a>
 
   <main className='w-16  lg:w-20 shrink-0' onClick={selectField} ref={selRef}>
 

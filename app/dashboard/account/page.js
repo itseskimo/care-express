@@ -3,7 +3,7 @@ import React from 'react'
 import DashboardNav from '../../Components/dashboardNav/page'
 import Head from '../../head'
 import SubDashboardNav from '../../Components/subdashboardNav/page'
-import { getDashboardAccountDetails , updateDashboardAccountDetails } from '@/redux/actions/page'
+import { getDashboardAccountDetails , updateDashboardAccountDetails } from '@/redux/actions/accountActions'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect,useState} from 'react'
 

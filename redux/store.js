@@ -3,13 +3,16 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from '@redux-devtools/extension';
-import { userReducer, addressReducer , ordersReducer,socialReducer ,dashboardAccountReducer} from './reducers/userReducer';
+import { userReducer } from './reducers/userReducer';
+import { addressReducer} from './reducers/addressReducer';
+import { accountReducer} from './reducers/accountReducer';
+import { ordersReducer} from './reducers/ordersReducer';
+
 const reducer = combineReducers({
     user: userReducer,
     address:addressReducer,
     orders:ordersReducer,
-    account:dashboardAccountReducer,
-    social:socialReducer,
+    account:accountReducer,
 })
 
 

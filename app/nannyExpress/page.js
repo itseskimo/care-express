@@ -74,28 +74,21 @@ const Testimonial={
 
   return (
     <>
-        <Head title='Nanny Express'/>
-
-    <main className='' >
+    <Head title='Nanny Express'/>
 
     <Navbar color={'bg-orange'} {...navDetails}/>
-   
-
-
-
+  
     
 {/* ----------------------------------------------------------------------------------------------------------------- */}
 <main className='bg-nanybg overflow-hidden'>
 <main className='mx-4 sm:mx-14 '>
   {/* ------------RESPONSIBLE FOR MARGIN---------------- */}
 
-<header className='flex justify-between md:items-center flex-col-reverse sxl:flex-row pt-12' >
+<header className='grid grid-cols-1 lg:grid-cols-2 place-items-end pt-12' >
 
-<main className='mt-5 sxl:mt-0'>
+<main className=' flex flex-col gap-1 llg:gap-3 xlg:gap-1 xxlg:gap-3 ssxl:gap-5'>
 
-
-
-<section className='relative top-[-40px] sxl:top-[81px]  sxl:mb-[120px]'>
+<section className='relative '>
 <img src='../images/nannyExpress/nanny-express-badge.png' className='absolute bottom-0 ' />
 <div className='w-fit rounded-lg bg-drkyellow px-[18px] py-3'>
 <h4 className='  text-black pl-[68px]   flex items-center text-xs	font-bold   tracking-[0.1em]' >NANNY EXPRESS</h4>
@@ -104,37 +97,36 @@ const Testimonial={
 
 
 
-<header className='font-extrabold text-4xl md:text-6xl'>
-<h1  className='pb-2 lg:pb-4'>Verified Nanny for</h1>
-<h1  className='pb-2 lg:pb-4'>your child</h1>
-</header>
+<div className='font-extrabold text-[32px] xlg:text-6xl pb-2 xxlg:pb-4'>
+<h1  className='xlg:w-[92%] sxlg:w-[80%] leading-[80px]'>Verified Nanny for your child</h1>
+</div>
 
-<h6 className='mt-6 text-sm md:text-lg font-normal  tracking-[0.01em]'> We believe finding a reliable, professional nanny should be easy. We<br className='hidden md:block '></br> really get to know you and your child and we can guarantee consistent<br className='hidden md:block'></br> and personal care that is equal.</h6>
+<h6 className='text-[15px] llg:text-base ssxl:text-lg font-normal  tracking-[0.01em] w-[90%]'> We believe finding a reliable, professional nanny should be easy. We really get to know you and your child and we can guarantee consistent and personal care that is equal.</h6>
 
 
-<section className='mt-10 flex items-center'>
+<section className=' flex items-center my-6 xlg:my-4'>
 <a href={ token ? 'reports/booking?type=nanny': '/login'}><button className='bg-orange px-[18px] py-[13px] text-white rounded-[27px] text-base lg:text-xl font-semibold tracking-wide flex items-center justify-evenly'>Book a nanny today<img src='../images/Icons/click-arrow.svg' className='pl-[18px]'/></button></a>
 <a href='/about'><h6  className='text-orange font-medium	underline underline-offset-[3px] decoration-1 pl-6 sm:pl-10 text-base lg:text-xl whitespace-nowrap cursor-pointer'>Learn more</h6></a>
 </section>
 
-<section className='mt-10 flex items-center  justify-between w-[330px] md:w-[390px]	'>
-<div>
+<section className=' flex items-center gap-9 pb-4	'>
+<div className='flex flex-col gap-3'>
   <h6  className='text-orange font-semibold text-xl md:text-2xl tracking-wide'>3K +</h6>
-  <h6 style={{ color: ' #8F8F8F',lineHeight: '50px' }} className='font-semibold text-base md:text-lg tracking-wider'>Nannies</h6>
+  <h6 className='text-midgrey font-semibold text-base md:text-lg tracking-wider'>Nannies</h6>
 </div>
-<div>
+<div className='flex flex-col gap-3'>
   <h6 className='text-orange font-semibold text-xl md:text-2xl tracking-wide'>67K +</h6>
-  <h6 style={{ color: ' #8F8F8F',lineHeight: '50px' }} className='font-semibold text-base md:text-lg tracking-wider'>Bookings</h6>
+  <h6 className='text-midgrey font-semibold text-base md:text-lg tracking-wider'>Bookings</h6>
 </div>
-<div>
+<div className='flex flex-col gap-3'>
 <h6 className='text-orange font-semibold text-xl md:text-2xl tracking-wide'>18K +</h6>
-<h6 style={{ color: ' #8F8F8F',lineHeight: '50px'  }} className='font-semibold text-base md:text-lg tracking-wider'>Childrens cared</h6>
+<h6 className='text-midgrey font-semibold text-base md:text-lg tracking-wider'>Childrens cared</h6>
 </div> 
 </section>
 
 </main>
 
-<section  className=' '>  
+<section  className='place-self-center lg:justify-self-end lg:self-start'>  
 <img src='../images/nannyExpress/nanny-express-hero-image.png' className=' ' />
 </section >
 
@@ -311,7 +303,6 @@ const Testimonial={
 
 <Footer {...footerDetails}/>
 
-    </main>
     </>
   )
 }

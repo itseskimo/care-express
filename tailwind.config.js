@@ -19,6 +19,7 @@ module.exports = {
       md: "768px",
       lg: "976px",
 
+      llg:"1100px",
       xlg:"1172px",
       sxlg:"1192px",
       xxlg:"1245px",
@@ -73,6 +74,7 @@ module.exports = {
       bookingborder:'#ABABAB',
       faqborder:'rgba(0, 0, 0, 0.2)',
       bookingblue:'#416EEA',
+      midgrey:'#8F8F8F',
 
     },
 
